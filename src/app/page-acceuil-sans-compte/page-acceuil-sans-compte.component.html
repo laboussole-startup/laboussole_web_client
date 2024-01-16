@@ -1,0 +1,79 @@
+  <div class="menuPage" *ngIf="isMenuIconClicked">
+    <app-nav-mobile-page (menuIconClicked)="toggleMenu()"></app-nav-mobile-page>
+  </div>
+  <div class="restOfPage" *ngIf="isMenuIconClosed">
+      <app-nav-mobile-header (menuIconClosed)="toggleMenu()"></app-nav-mobile-header>
+      <div class="contentROP">
+            <div class="containerImageAcceuil">
+              <div class="welcomeText">
+                <div style="width: 90%;text-align: center;"> <h2>Learn the best ways for staying productive</h2></div>
+                <div style="width: 60%;text-align: center;">ipsum dolor sit amet,   consectetur adipisicing elit. Similidiv</div> 
+              </div>
+              <img src="../../assets/imageAcceuilLBS.png" alt="">
+          </div>
+          <div class="mainMessageBox">
+           <div style="width: 90%;text-align: center;"><h2>Un accompagnement vers la reussite</h2></div> 
+            <div style="width: 70%;text-align: center;"> Nous vous proposons des services adaptes a vos besoins afin de vous 
+                  permettre une reussite dans votre parcours  academique et votre insertion 
+                socio professionelle
+            </div> 
+          </div>
+      </div>
+      <div class="optionsList">
+          <app-acceuil-option-box [title]="'Orientations'" 
+            [description]="'description Orientation'" [icon_name]="'icons8-direction-48.png'">
+          </app-acceuil-option-box>
+          <app-acceuil-option-box [title]="'Formations'" 
+          [description]="'description Formations'" [icon_name]="'icons8-graduation-cap-50.png'">
+          </app-acceuil-option-box>
+          <app-acceuil-option-box [title]="'Emplois'" 
+          [description]="'description Emplois'" [icon_name]="'icons8-bag-50.png'">
+          </app-acceuil-option-box>
+          <app-acceuil-option-box [title]="'Documentations'" 
+          [description]="'description Documentation'" [icon_name]="'icons8-book-52.png'">
+          </app-acceuil-option-box>
+          <app-acceuil-option-box [title]="'Etude a l\'etranger'" 
+          [description]="'description Etudes'" [icon_name]="'icons8-send-60.png'">
+          </app-acceuil-option-box>
+          <app-acceuil-option-box [title]="'Recyclage'" 
+          [description]="'description recyclage'" [icon_name]="'icons8-group-64.png'">
+          </app-acceuil-option-box>
+      </div>
+      <div class="boxAboutLaboussole">
+          <div class="question"><span style="color:#0761B9;"> C'est quoi</span>  <span style="color:#00A4E4;"> LABOUSSOLE ?</span></div> <br> <br> <br>
+          <div class="reponse">Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+            Consectetur aperiam beatae et aut exercitationem necessitatibus ipsam 
+            assumenda officia dicta, 
+            doloribus, eum sapiente quae ratione delectus cum suscipit 
+            fugit impedit alias? <a href="http://">lire plus</a>
+          </div>
+
+      </div>
+
+      <div class="temoignages">
+        <div>Temoignages</div>
+        <div> Que pensent t-ils?</div>
+        <div class="text">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+            Consectetur aperiam beatae et aut exercitationem necessitatibus ipsam 
+            assumenda officia dicta,
+        </div>
+        <div class="sendTemoignage">
+         <span>Laisser un temoignage </span> <span class="rightArrowIcon">-></span>
+        </div>
+        <div class="temoignagesSlider">
+          <span class="leftArrowIcon"> <- </span>
+          <span class="temoignageBox">
+            <app-temoignage-box></app-temoignage-box>
+          </span>
+          <span class="rightArrowIcon">
+            ->
+          </span>
+        </div>
+      </div>
+      <div class="actualites">
+        <app-actualite-box></app-actualite-box>
+      </div>
+      <app-footer></app-footer>
+    
+  </div>

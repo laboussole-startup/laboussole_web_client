@@ -1,0 +1,19 @@
+.navflexcontainer{
+    display: flex;
+    flex-direction: row;
+    width: 96%;
+    height: 100%;
+    background-color: white;
+    padding: 10px;
+    align-items: center;
+
+}
+.rightPlacedIcons{
+    margin-left: auto;
+    display: flex;
+    flex-flow: row nowrap;
+}
+.menuIcon{
+    margin-left: 10px;
+    margin-right: 10px;
+}

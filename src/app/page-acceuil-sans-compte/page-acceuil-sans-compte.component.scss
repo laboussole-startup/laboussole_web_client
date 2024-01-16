@@ -1,0 +1,78 @@
+.containerImageAcceuil{
+    background-color: #EDF8FD;
+    width: 100vw;
+    height: 70vh;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+.welcomeText{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+.mainMessageBox {
+    background-color: #0761B9;
+    width: 99%;
+    height: 40vh;
+    position: relative;
+    bottom: 120px;
+    border-top-left-radius: 15%;
+    border-top-right-radius: 15%;
+    color: white;
+    padding-top: 20px;
+    padding: 10px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+.contentROP{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background-color: #F6F7F8;
+}
+
+.optionsList{
+    position: relative;
+    bottom: 180px;
+}
+
+.boxAboutLaboussole{
+    display: flex;
+    padding-left: 50px;
+    padding-right: 50px;
+    flex-flow: column nowrap;
+    align-items: center;
+    position: relative;
+    bottom: 100px;
+    
+}
+.temoignages{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background-color: #0761B9;
+    padding-top: 50px;
+}
+.text{
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: justify;
+}
+.temoignagesSlider{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+.restOfPage{
+    background-color: #F6F7F8;
+    
+}
+.question{
+    font-weight: 900;
+}

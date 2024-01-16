@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: 'Montseratt';
+    src: url('../src/assets/Montserrat/static/Montserrat-Light.ttf');
+  }
+body{
+    overflow-x: hidden;
+    font-family: 'Montseratt';
+    background-color: #F6F7F8;
+}
