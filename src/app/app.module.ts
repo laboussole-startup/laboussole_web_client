@@ -13,7 +13,8 @@ import { CustomRoundButtonComponent } from './custom-round-button/custom-round-b
 import { AcceuilOptionBoxComponent } from './acceuil-option-box/acceuil-option-box.component';
 import { TemoignageBoxComponent } from './temoignage-box/temoignage-box.component';
 import { ActualiteBoxComponent } from './actualite-box/actualite-box.component';
-import { FooterComponent } from './footer/footer.component'
+import { FooterComponent } from './footer/footer.component';
+import { StarComponent } from './star/star.component'
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FooterComponent } from './footer/footer.component'
     AcceuilOptionBoxComponent,
     TemoignageBoxComponent,
     ActualiteBoxComponent,
-    FooterComponent
+    FooterComponent,
+    StarComponent
   ],
   imports: [
     BrowserModule,

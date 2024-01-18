@@ -1,6 +1,6 @@
 .containerImageAcceuil{
     background-color: #EDF8FD;
-    width: 100vw;
+    width: 100%;
     height: 70vh;
     display: flex;
     flex-flow: column nowrap;
@@ -11,16 +11,18 @@
     flex-flow: column nowrap;
     align-items: center;
     text-align: center;
+    margin-top: 30px;
+    width: 250px;
 }
 h2{
     text-align: center;
 }
 .mainMessageBox {
     background-color: #0761B9;
-    width: 99%;
+    width: 95vw;
     height: 40vh;
     position: relative;
-    bottom: 120px;
+    bottom: 220px;
     border-top-left-radius: 15%;
     border-top-right-radius: 15%;
     color: white;
@@ -38,8 +40,9 @@ h2{
 }
 
 .optionsList{
+    width: 100%;
     position: relative;
-    bottom: 180px;
+    bottom: 40vh;
 }
 
 .boxAboutLaboussole{
@@ -58,11 +61,15 @@ h2{
     align-items: center;
     background-color: #0761B9;
     padding-top: 50px;
+    width: 100%;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    padding-bottom: 50px;
 }
 .text{
     padding-left: 50px;
     padding-right: 50px;
-    text-align: justify;
 }
 .temoignagesSlider{
     display: flex;
@@ -75,4 +82,31 @@ h2{
 }
 .question{
     font-weight: 900;
+}
+.sendTemoignage{
+    border: 1px solid #009CDE;
+    padding: 20px;
+    padding-top: 30px;
+    border-bottom-left-radius: 40px;
+    border-top-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-top-right-radius: 40px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: 900;
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.actualites{
+    margin-top: 50px;
+    margin-bottom: 200px;
+}
+
+.photo-footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
