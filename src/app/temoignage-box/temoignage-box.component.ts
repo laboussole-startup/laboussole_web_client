@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-temoignage-box',
@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class TemoignageBoxComponent {
 
+  @Input() score: number = 3.5;
+  @Input() image_url: string = "../../assets/photo_icon.jpg"
+  @Input() name: string = "Name"
+  @Input() description: string = "description";
+
+  counterArray: number[] = new Array(5);
+
+  constructor(){
+   
+  }
 }

@@ -1,0 +1,50 @@
+.container{
+    width: 90vw;
+    height: 800px;
+    background-color:#0761B9;
+    padding: 25px;
+    display: flex;
+    flex-flow: column nowrap;
+    color: white;
+
+}
+.slogan{
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.line-container {
+    width: 100%; /* Adjust the width as needed */
+    margin-bottom: 20px;
+  }
+  
+  .white-line {
+    border: none;
+    height: 1px; /* Set the height of the line */
+    background-color: #fff; /* Set the color of the line to white */
+  }
+  .horizontalList{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 90vw;
+    color: white;
+  }
+  .title-text{
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .legal{
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .socialMedia{
+    margin-top: 30px;
+    margin-left: 30vw;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+  }
