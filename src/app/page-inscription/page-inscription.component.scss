@@ -1,0 +1,139 @@
+
+.conteneur {
+    font-family: sans-serif;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: #0F70B7;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+
+    
+  }
+  
+  form {
+    width: 90%;
+    border-radius: 10px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 10px;
+  }
+  
+  .row {
+    
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    height: max-content;
+    margin-top: 10px;
+  }
+  
+  .champs {
+    width: fit-content;
+    margin-top:-52px;
+    margin-left: 8px;
+    padding: 4px;
+    background-color: #fff;
+    margin-bottom: 30px;
+
+  }
+  
+  label {
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  input {
+    
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+   
+  }
+  
+  input[type="submit"] {
+    width: 100%;
+    background-color: #0F70B7;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .row2{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    height: max-content;
+    margin-top: 10px;
+
+  }
+  a{
+    color: #2DAAE1;
+  }
+  .row1{
+      
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 2%;
+    
+  }
+  @media (max-width: 500px) {
+    form {
+      width: 90%;
+      max-width: 300px;
+    }
+    .row1{
+      visibility: hidden;
+    }
+  }
+
+  @media (min-width: 501px) and (max-width: 1024px) {
+    form {
+      width: 90%;
+      max-width: 450px;
+    }
+    .row1{
+      max-width: 200px;
+    }
+  }
+
+  @media (min-width: 1025px) and (max-width: 1281px) {
+    .conteneur{
+      display: flex;
+      background-color: white;
+      padding: 0;
+      margin: 0;
+      height: max-content;
+      
+    }
+  
+    form {
+      width: 50%;
+      max-width: 300px;
+      background-color: whitesmoke;
+      margin-top: 5%;
+      margin-bottom: 5%;
+
+
+      
+    }
+    .row1{
+      background-color: #0F70B7;
+      width: 40%;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+      
+    }
+  }

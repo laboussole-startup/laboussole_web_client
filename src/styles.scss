@@ -48,12 +48,25 @@ q:before, q:after {
 }
 body{
     overflow-x: hidden;
+<<<<<<< HEAD
     font-family: 'Poppins';
     background-color: #F6F7F8;
+=======
+    font-family: 'Montseratt';
+    background-color:  #0F70B7;
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+>>>>>>> b0c6d58834853b757ec9efec49ba30e7e9b0ab26
     width: 100%;
 }
 html{
 
   overflow-x: hidden;
   width: 100%;
+}
+html{
+  padding: 0;
+  margin: 0;
 }
