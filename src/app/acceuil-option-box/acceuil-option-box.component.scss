@@ -9,9 +9,9 @@
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    
 
   }
+
   .title{
     margin-bottom: 50px;
     color:#0761B9;
@@ -27,3 +27,10 @@
     flex-flow: column nowrap;
     align-items: center;
   }
+  @media screen and (min-height: 400px){
+    .imageIcon{
+      width: 30px;
+      height: 30px;
+    }
+  }
+  

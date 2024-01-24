@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
 export class PageAcceuilSansCompteComponent {
   isMenuIconClicked = false;
   isMenuIconClosed = true;
+  showSearchBar = false;
 
   toggleMenu() {
     this.isMenuIconClicked = !this.isMenuIconClicked;

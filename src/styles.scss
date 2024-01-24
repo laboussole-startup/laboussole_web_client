@@ -42,14 +42,18 @@ q:before, q:after {
     font-family: 'Montseratt';
     src: url('../src/assets/Montserrat/static/Montserrat-Light.ttf');
   }
+@font-face {
+  font-family: 'Poppins';
+  src: url('../src/assets/Poppins/Poppins-Light.ttf');
+}
 body{
     overflow-x: hidden;
-    font-family: 'Montseratt';
+    font-family: 'Poppins';
     background-color: #F6F7F8;
     width: 100%;
 }
 html{
-  background-color: pink;
+
   overflow-x: hidden;
   width: 100%;
 }

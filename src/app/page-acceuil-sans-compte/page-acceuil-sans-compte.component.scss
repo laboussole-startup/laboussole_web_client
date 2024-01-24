@@ -1,3 +1,252 @@
+/* Extra Small Devices (Phones) */
+
+@media screen and (min-height: 400px) {
+    /* Styles for extra small screens */
+    .mainMessageBox {
+        background-color: #0761B9;
+        width: 95vw;
+        height: 40vh;
+        position: relative;
+        bottom: 1vh;
+        border-top-left-radius: 15%;
+        border-top-right-radius: 15%;
+        color: white;
+        padding-top: 20px;
+        padding: 10px;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+      }
+      .optionsList{
+        width: 100%;
+        position: relative;
+        bottom: 15vh;
+     }
+  }
+@media screen and (min-height: 500px) {
+    /* Styles for extra small screens */
+    .mainMessageBox {
+        background-color: #0761B9;
+        width: 95vw;
+        height: 40vh;
+        position: relative;
+        bottom: 1vh;
+        border-top-left-radius: 15%;
+        border-top-right-radius: 15%;
+        color: white;
+        padding-top: 20px;
+        padding: 10px;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+      }
+  }
+  @media screen and (min-height: 600px) {
+    /* Styles for extra small screens */
+    .mainMessageBox {
+        background-color: #0761B9;
+        width: 95vw;
+        height: 40vh;
+        position: relative;
+        bottom: 7vh;
+        border-top-left-radius: 15%;
+        border-top-right-radius: 15%;
+        color: white;
+        padding-top: 20px;
+        padding: 10px;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+      }
+  }
+  @media screen and (min-height: 700px) {
+    /* Styles for extra small screens */
+    .mainMessageBox {
+        background-color: #0761B9;
+        width: 95vw;
+        height: 40vh;
+        position: relative;
+        bottom: 15vh;
+        border-top-left-radius: 15%;
+        border-top-right-radius: 15%;
+        color: white;
+        padding-top: 20px;
+        padding: 10px;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+      }
+
+      .optionsList{
+        width: 100%;
+        position: relative;
+        bottom: 25vh;
+     }
+  }
+
+  @media screen and (min-height: 800px) {
+    /* Styles for extra small screens */
+    .mainMessageBox {
+        background-color: #0761B9;
+        width: 95vw;
+        height: 30vh;
+        position: relative;
+        bottom: 21vh;
+        border-top-left-radius: 15%;
+        border-top-right-radius: 15%;
+        color: white;
+        padding-top: 20px;
+        padding: 10px;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+      }
+
+      .optionsList{
+        width: 100%;
+        position: relative;
+        bottom: 30vh;
+     }
+
+  }
+  @media screen and (min-height: 900px) {
+    /* Styles for extra small screens */
+    .mainMessageBox {
+        background-color: #0761B9;
+        width: 95vw;
+        height: 30vh;
+        position: relative;
+        bottom: 23vh;
+        border-top-left-radius: 15%;
+        border-top-right-radius: 15%;
+        color: white;
+        padding-top: 20px;
+        padding: 10px;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+      }
+
+      .optionsList{
+        width: 100%;
+        position: relative;
+        bottom: 30vh;
+     }
+  }
+
+  @media screen and (min-height: 1300px) {
+    /* Styles for extra small screens */
+    .mainMessageBox {
+        background-color: #0761B9;
+        width: 95vw;
+        height: 20vh;
+        position: relative;
+        bottom: 28vh;
+        border-top-left-radius: 15%;
+        border-top-right-radius: 15%;
+        color: white;
+        padding-top: 20px;
+        padding: 10px;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+      }
+  }
+
+  @media screen and (min-width:600px) and (min-height:900px) {
+    .imageAcceuil{
+        width: 400px;
+        height: 400px;
+    }
+    
+  }
+  @media screen and (min-width:800px) and (min-height:1000px){
+    .imageAcceuil{
+        width: 450px;
+        height: 450px;
+    }
+  }
+
+  @media screen and (min-width:900px) and (min-height:1000px){
+    .imageAcceuil{
+        width: 500px;
+        height: 500px;
+    }
+  }
+  @media screen and (min-width:600px){
+    .welcomeText{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        text-align: center;
+        margin-top: 30px;
+        font-size: 28px;
+        width: 450px;
+    }
+    .optionsList{
+
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+
+
+    }
+  }
+  @media screen and (min-width:700px){
+    .welcomeText{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        text-align: center;
+        margin-top: 30px;
+        font-size: 28px;
+        width: 550px;
+    }
+  }
+  @media screen and (min-width:800px){
+    .welcomeText{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        text-align: center;
+        margin-top: 30px;
+        font-size: 28px;
+        width: 650px;
+    }
+  }
+  @media screen and (min-width:900px){
+    .welcomeText{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        text-align: center;
+        margin-top: 30px;
+        font-size: 28px;
+        width: 750px;
+    }
+  }
+  
+  @media screen and (max-width: 599px){
+    .welcomeText{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        text-align: center;
+        margin-top: 30px;
+        width: 350px;
+    }
+  }
+  @media screen and (max-width: 499px){
+    .welcomeText{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        text-align: center;
+        margin-top: 30px;
+        width: 250px;
+    }
+  }
+
 .containerImageAcceuil{
     background-color: #EDF8FD;
     width: 100%;
@@ -6,32 +255,11 @@
     flex-flow: column nowrap;
     align-items: center;
 }
-.welcomeText{
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    text-align: center;
-    margin-top: 30px;
-    width: 250px;
-}
+
 h2{
     text-align: center;
 }
-.mainMessageBox {
-    background-color: #0761B9;
-    width: 95vw;
-    height: 40vh;
-    position: relative;
-    bottom: 220px;
-    border-top-left-radius: 15%;
-    border-top-right-radius: 15%;
-    color: white;
-    padding-top: 20px;
-    padding: 10px;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-  }
+
 .contentROP{
     display: flex;
     flex-flow: column nowrap;
@@ -39,11 +267,7 @@ h2{
     background-color: #F6F7F8;
 }
 
-.optionsList{
-    width: 100%;
-    position: relative;
-    bottom: 40vh;
-}
+
 
 .boxAboutLaboussole{
     display: flex;
@@ -87,16 +311,17 @@ h2{
     border: 1px solid #009CDE;
     padding: 20px;
     padding-top: 30px;
-    border-bottom-left-radius: 40px;
-    border-top-left-radius: 40px;
-    border-bottom-right-radius: 40px;
-    border-top-right-radius: 40px;
+    border-radius: 40px;
     height: 40px;
     font-size: 20px;
     font-weight: 900;
     margin-top: 20px;
     text-align: center;
     margin-bottom: 50px;
+}
+.sendTemoignage:hover{
+  background-color: white;
+  color: #0761B9;
 }
 
 .actualites{

@@ -10,7 +10,7 @@ export class NavMobilePageComponent {
   @Output() menuIconClicked = new EventEmitter<void>();
 
   showDropdown = false;
-  
+  showSearchBar = false;
   // Call this method when you want to close the menu
   closeMenu() {
     this.menuIconClicked.emit();

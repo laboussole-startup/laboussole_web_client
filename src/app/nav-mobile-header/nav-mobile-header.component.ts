@@ -7,9 +7,16 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class NavMobileHeaderComponent {
   @Output() menuIconClosed = new EventEmitter<void>();
+  
+  showSearchBar = false;
+
+  showDropdown = false;
 
   // Call this method when you want to open the menu
   openMenu() {
     this.menuIconClosed.emit();
+  }
+  toggleSearchBar(){
+
   }
 }

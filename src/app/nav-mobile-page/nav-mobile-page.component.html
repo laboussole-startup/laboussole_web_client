@@ -1,8 +1,9 @@
 
 <div class="container">
     <div class="iconsList">
-        <div class="searchIcon"><img src="../../assets/white-search-icon/icons8-search-60.png" alt="" style="width: 50px; height: 50px;"></div>
-        <div class="menuIcon" (click)="closeMenu()" ><img src="../../assets/x_close - icon - white.png" alt="" style="width: 50px; height: 50px;"></div>
+        <div class="searchBar" *ngIf="showSearchBar"> <input type="text" name="" id="" class="searchBar"> </div>
+        <div class="searchIcon" (click)="showSearchBar = !showSearchBar"><img src="/laboussole_client_web/assets/white-search-icon/icons8-search-60.png" alt="" style="width: 10vw; height: 10vw;"></div>
+        <div class="menuIcon" (click)="closeMenu()" ><img src="/laboussole_client_web/assets/x_close - icon - white.png" alt="" style="width: 10vw; height: 10vw;"></div>
     </div>
     <div class="menuList">
         <div class="menuItem">Acceuil</div>
@@ -18,7 +19,7 @@
         <div class="menuItem">Contactez-nous</div>
     </div>
     <div class="buttonsList">
-        <app-custom-round-button [title]="'login'"></app-custom-round-button>
-        <app-custom-round-button class="signUpBtn" [title]="'sign up'"></app-custom-round-button>
+        <app-custom-round-button routerLink="/login" [title]="'login'"></app-custom-round-button>
+        <app-custom-round-button  routerLink="/signup" class="signUpBtn" [title]="'sign up'"></app-custom-round-button>
     </div>
 </div>
