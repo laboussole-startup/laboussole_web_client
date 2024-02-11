@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="leftMessageBox">
+        <div class="ltext1">Pas de panique</div>
+    </div>
+    <div class="stepOne" *ngIf="step1">
+
+        <div class="loginForm">
+            
+            <div class="loginMessage">Veuillez entrer votre e-mail</div>
+            <div class="emailInput">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput >
+                  </mat-form-field>
+            </div>
+           
+           
+            <div class="centerContainer">
+                <div class="btnContinue" (click)="changeStep(2)">Continue</div>
+               
+                <div class="googleLogin"> retour</div>
+                <div class="Signup">New User? <span style="color:#0F70B7;font-weight: 900;">SIGNUP HERE</span> </div>
+            </div>
+            
+        </div>
+
+    </div>
+    <div class="stepTwo" *ngIf="step2">
+        <div class="confirmationText">
+            <div class="title">Verifiez votre e-mail</div>
+            <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            </div>
+
+            <div class="retry"> Je n'ai pas recu de mail? <span style="color:#0F70B7;">Renvoyer</span> </div>
+            <div class="next" (click)="changeStep(3)"> Suivant </div>
+        </div>
+    </div>
+    <div class="stepThree" *ngIf="step3">
+        <div class="loginForm">
+            <div class="welcomeText">Creer un nouveau mot de passe</div>
+    
+            <div class="emailInput2">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput >
+                  </mat-form-field>
+            </div>
+            <div class="passwordInput" >
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput  [type]="hide ? 'password' : 'text'">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                  </mat-form-field>
+            </div>
+           
+            <div class="centerContainer">
+                <div class="btnContinue" (click)="verifyLogin()">Continue</div>
+               
+                <div class="googleLogin"> retour</div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="stepSuccess" *ngIf="successMessage">
+            <img src="/laboussole_client_web/assets/success-icon.png" alt="">
+            <div style="color:green;"> Felicitations </div>
+            <div> Ton mot de passe a ete change avec succes</div>
+    </div>
+    <div class="errorMessage" *ngIf="errorMessage">
+        <img src="/laboussole_client_web/assets/error-icon.png" alt="">
+        <div> Error</div>
+        <div> Des problemes sont survenus lors de cette action veuillez reessayer</div>
+
+        <button mat-button color="warn">reessayer</button>
+    </div>
+    
+</div>

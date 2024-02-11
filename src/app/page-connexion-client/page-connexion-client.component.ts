@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+
+
 @Component({
   selector: 'app-page-connexion-client',
   templateUrl: './page-connexion-client.component.html',
@@ -7,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class PageConnexionClientComponent {
 
+  hide:boolean = false;
 }

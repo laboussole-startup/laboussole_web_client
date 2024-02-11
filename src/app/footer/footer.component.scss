@@ -1,6 +1,59 @@
+@media  screen and (max-width:799px) {
+  .flex-container{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    width: 100%; 
+  }
+  .horizontalList{
+    width: 80vw;
+  }
+
+  .company{
+    margin-left:auto;
+  }
+
+  .slogan{
+    color: white;
+   text-align:center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+}
+@media screen and (min-width:800px) and (max-width:999px) {
+  .flex-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content:flex-start;
+    font-size: 14px;
+  }
+  .legal{
+    margin-left: 50px;
+  }
+  .slogan{
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+}
+}
+@media screen and (min-width:1000px) {
+  .flex-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content:space-around;
+  }
+  .slogan{
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+}
+}
+
+
 .container{
-    width: 90vw;
-    height: 800px;
+    width: 100%;
+    height: fit-content;
     background-color:#0761B9;
     padding: 25px;
     display: flex;
@@ -8,16 +61,14 @@
     color: white;
 
 }
-.slogan{
-    color: white;
-    text-align: center;
-    margin-bottom: 30px;
-}
+
 .line-container {
     width: 100%; /* Adjust the width as needed */
     margin-bottom: 20px;
   }
-  
+  .locationText{
+    width: 200px;
+  }
   .white-line {
     border: none;
     height: 1px; /* Set the height of the line */
@@ -26,9 +77,9 @@
   .horizontalList{
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
-    width: 90vw;
+    justify-content: flex-start;
     color: white;
+
   }
   .title-text{
     font-weight: 700;
@@ -39,12 +90,13 @@
   .legal{
     margin-top: 30px;
     margin-bottom: 30px;
+    width: fit-content;
   }
 
   .socialMedia{
     margin-top: 30px;
-    margin-left: 30vw;
+    margin-left: 50px;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-around;
+    justify-content: flex-start;
   }

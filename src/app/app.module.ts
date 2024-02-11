@@ -13,7 +13,41 @@ import { CustomRoundButtonComponent } from './custom-round-button/custom-round-b
 import { AcceuilOptionBoxComponent } from './acceuil-option-box/acceuil-option-box.component';
 import { TemoignageBoxComponent } from './temoignage-box/temoignage-box.component';
 import { ActualiteBoxComponent } from './actualite-box/actualite-box.component';
-import { FooterComponent } from './footer/footer.component'
+import { FooterComponent } from './footer/footer.component';
+import { StarComponent } from './star/star.component';
+import { ActualiteLargeScreenBoxComponent } from './actualite-large-screen-box/actualite-large-screen-box.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {FormsModule} from '@angular/forms';
+import {MatIconModule} from '@angular/material/icon';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatSort, MatSortModule} from '@angular/material/sort';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import {CdkMenu, CdkMenuItem, CdkMenuTrigger} from '@angular/cdk/menu';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
+
+
+
+import { MotDePasseOublieComponent } from './mot-de-passe-oublie/mot-de-passe-oublie.component';
+import { PageAdminComponent } from './page-admin/page-admin.component';
+import { OffreDeFormationsComponent } from './offre-de-formations/offre-de-formations.component';
+import { ConnexionAdminComponent } from './connexion-admin/connexion-admin.component';
+import { PageAcceuilAdminComponent } from './page-acceuil-admin/page-acceuil-admin.component';
+import { AdminUsersListComponent } from './admin-users-list/admin-users-list.component';
+import { AdminHomePanelComponent } from './admin-home-panel/admin-home-panel.component';
+import { AdminUserInfoPanelComponent } from './admin-user-info-panel/admin-user-info-panel.component';
+import { UserPersonalInfoPanelComponent } from './user-personal-info-panel/user-personal-info-panel.component';
+import { UserActivityPanelComponent } from './user-activity-panel/user-activity-panel.component';
+import { AdminOffreDeFormationsComponent } from './admin-offre-de-formations/admin-offre-de-formations.component';
+import { AdminBoursesEtudesComponent } from './admin-bourses-etudes/admin-bourses-etudes.component';
+import { AdminvoyagesEtudesComponent } from './adminvoyages-etudes/adminvoyages-etudes.component';
+
+import { AdminOffresFormationsInfoPanelComponent } from './admin-offres-formations-info-panel/admin-offres-formations-info-panel.component';
+import { AdminBourseEtudeInfoPanelComponent } from './admin-bourse-etude-info-panel/admin-bourse-etude-info-panel.component';
+import { AdminVoyagesEtudesInfoPanelComponent } from './admin-voyages-etudes-info-panel/admin-voyages-etudes-info-panel.component'
 
 @NgModule({
   declarations: [
@@ -27,11 +61,43 @@ import { FooterComponent } from './footer/footer.component'
     AcceuilOptionBoxComponent,
     TemoignageBoxComponent,
     ActualiteBoxComponent,
-    FooterComponent
+    FooterComponent,
+    StarComponent,
+    ActualiteLargeScreenBoxComponent,
+    MotDePasseOublieComponent,
+    PageAdminComponent,
+    OffreDeFormationsComponent,
+    ConnexionAdminComponent,
+    PageAcceuilAdminComponent,
+    AdminUsersListComponent,
+    AdminHomePanelComponent,
+    AdminUserInfoPanelComponent,
+    UserPersonalInfoPanelComponent,
+    UserActivityPanelComponent,
+    AdminOffreDeFormationsComponent,
+    AdminBoursesEtudesComponent,
+    AdminvoyagesEtudesComponent,
+    AdminOffresFormationsInfoPanelComponent,
+    AdminBourseEtudeInfoPanelComponent,
+    AdminVoyagesEtudesInfoPanelComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatIconModule,
+    MatTableModule, 
+    MatSortModule, 
+    MatPaginatorModule,
+    CdkMenu,
+    CdkMenuItem,
+    CdkMenuTrigger,
+    MatDividerModule,
+    MatButtonModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

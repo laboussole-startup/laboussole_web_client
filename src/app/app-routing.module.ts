@@ -1,13 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MotDePasseOublieComponent } from './mot-de-passe-oublie/mot-de-passe-oublie.component';
+import { PageAcceuilAdminComponent } from './page-acceuil-admin/page-acceuil-admin.component';
 import { PageAcceuilSansCompteComponent } from './page-acceuil-sans-compte/page-acceuil-sans-compte.component';
+import { PageAdminComponent } from './page-admin/page-admin.component';
 import { PageConnexionClientComponent } from './page-connexion-client/page-connexion-client.component';
-import { PageCreationCompteClientComponent } from './page-creation-compte-client/page-creation-compte-client.component';
+import { PageInscriptionComponent } from './page-inscription/page-inscription.component';
 
 const routes: Routes = [
   {path:'',component:PageAcceuilSansCompteComponent},
   {path:'login',component:PageConnexionClientComponent},
-  {path:'signup',component:PageCreationCompteClientComponent}
+  {path:'signup',component:PageInscriptionComponent},
+  {path:'motDePasseOublie',component:MotDePasseOublieComponent},
+  {path:'admin',component:PageAcceuilAdminComponent}
 ];
 
 @NgModule({
