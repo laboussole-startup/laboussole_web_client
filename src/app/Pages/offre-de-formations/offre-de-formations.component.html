@@ -84,11 +84,13 @@
         <img src="../../../assets/menu.svg" alt="" />
       </button>
     </div>
-  </div>
-  <div class="formation-con">
-    
-  </div>
-  <app-offre-formation-box *ngFor="let formation of formations" [formationBox]="formation"></app-offre-formation-box>
+    <div class="formation-content">
+      <app-offre-formation-box
+        *ngFor="let formation of formations"
+        [formationBox]="formation"
+      ></app-offre-formation-box>
 
-  <app-footer></app-footer>
+      <app-footer></app-footer>
+    </div>
+  </div>
 </div>
