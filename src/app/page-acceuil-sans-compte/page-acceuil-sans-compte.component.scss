@@ -1,396 +1,406 @@
 /* Extra Small Devices (Phones) */
 
 @media screen and (min-height: 400px) {
-  /* Styles for extra small screens */
-  .mainMessageBox {
-    background-color: #0761b9;
-    width: 95vw;
-    height: 40vh;
-    position: relative;
-    bottom: 1vh;
-    border-top-left-radius: 15%;
-    border-top-right-radius: 15%;
-    color: white;
-    padding-top: 20px;
-    padding: 10px;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+    /* Styles for extra small screens */
+    .mainMessageBox {
+        background-color: #0761B9;
+        width: 95vw;
+        height: 40vh;
+        position: relative;
+        bottom: 1vh;
+        border-top-left-radius: 15%;
+        border-top-right-radius: 15%;
+        color: white;
+        padding-top: 20px;
+        padding: 10px;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+      }
+      .optionsList{
+        width: 100%;
+        position: relative;
+        bottom: 15vh;
+        
+     }
   }
-  .optionsList {
-    width: 100%;
-    position: relative;
-    bottom: 15vh;
-  }
-}
 @media screen and (min-height: 500px) {
-  /* Styles for extra small screens */
-  .mainMessageBox {
-    background-color: #0761b9;
-    width: 95vw;
-    height: 40vh;
-    position: relative;
-    bottom: 1vh;
-    border-top-left-radius: 15%;
-    border-top-right-radius: 15%;
-    color: white;
-    padding-top: 20px;
-    padding: 10px;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+    /* Styles for extra small screens */
+    .mainMessageBox {
+        background-color: #0761B9;
+        width: 95vw;
+        height: 40vh;
+        position: relative;
+        bottom: 1vh;
+        border-top-left-radius: 15%;
+        border-top-right-radius: 15%;
+        color: white;
+        padding-top: 20px;
+        padding: 10px;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+      }
   }
-}
-@media screen and (min-height: 600px) {
-  /* Styles for extra small screens */
-  .mainMessageBox {
-    background-color: #0761b9;
-    width: 95vw;
-    height: 40vh;
-    position: relative;
-    bottom: 7vh;
-    border-top-left-radius: 15%;
-    border-top-right-radius: 15%;
-    color: white;
-    padding-top: 20px;
-    padding: 10px;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+  @media screen and (min-height: 600px) {
+    /* Styles for extra small screens */
+    .mainMessageBox {
+        background-color: #0761B9;
+        width: 95vw;
+        height: 40vh;
+        position: relative;
+        bottom: 7vh;
+        border-top-left-radius: 15%;
+        border-top-right-radius: 15%;
+        color: white;
+        padding-top: 20px;
+        padding: 10px;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+      }
   }
-}
-@media screen and (min-height: 700px) {
-  /* Styles for extra small screens */
-  .mainMessageBox {
-    background-color: #0761b9;
-    width: 95vw;
-    height: 40vh;
-    position: relative;
-    bottom: 15vh;
-    border-top-left-radius: 15%;
-    border-top-right-radius: 15%;
-    color: white;
-    padding-top: 20px;
-    padding: 10px;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+  @media screen and (min-height: 700px) {
+    /* Styles for extra small screens */
+    .mainMessageBox {
+        background-color: #0761B9;
+        width: 95vw;
+        height: 40vh;
+        position: relative;
+        bottom: 15vh;
+        border-top-left-radius: 15%;
+        border-top-right-radius: 15%;
+        color: white;
+        padding-top: 20px;
+        padding: 10px;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+      }
+
+      .optionsList{
+        width: 100%;
+        position: relative;
+        bottom: 25vh;
+     }
   }
 
-  .optionsList {
-    width: 100%;
-    position: relative;
-    bottom: 25vh;
-  }
-}
+  @media screen and (min-height: 800px) {
+    /* Styles for extra small screens */
+    .mainMessageBox {
+        background-color: #0761B9;
+        width: 95vw;
+        height: 30vh;
+        position: relative;
+        bottom: 21vh;
+        border-top-left-radius: 15%;
+        border-top-right-radius: 15%;
+        color: white;
+        padding-top: 20px;
+        padding: 10px;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+      }
 
-@media screen and (min-height: 800px) {
-  /* Styles for extra small screens */
-  .mainMessageBox {
-    background-color: #0761b9;
-    width: 95vw;
-    height: 30vh;
-    position: relative;
-    bottom: 21vh;
-    border-top-left-radius: 15%;
-    border-top-right-radius: 15%;
-    color: white;
-    padding-top: 20px;
-    padding: 10px;
+      .optionsList{
+        width: 100%;
+        position: relative;
+        bottom: 30vh;
+     }
+
+  }
+  @media screen and (min-height: 900px) {
+    /* Styles for extra small screens */
+    .mainMessageBox {
+        background-color: #0761B9;
+        width: 95vw;
+        height: 30vh;
+        position: relative;
+        bottom: 23vh;
+        border-top-left-radius: 15%;
+        border-top-right-radius: 15%;
+        color: white;
+        padding-top: 20px;
+        padding: 10px;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+      }
+
+      .optionsList{
+        width: 100%;
+        position: relative;
+        bottom: 30vh;
+     }
+  }
+
+  @media screen and (min-height: 1300px) {
+    /* Styles for extra small screens */
+    .mainMessageBox {
+        background-color: #0761B9;
+        width: 95vw;
+        height: 20vh;
+        position: relative;
+        bottom: 28vh;
+        border-top-left-radius: 15%;
+        border-top-right-radius: 15%;
+        color: white;
+        padding-top: 20px;
+        padding: 10px;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+      }
+  }
+
+  @media screen and (min-width:600px) and (min-height:900px) {
+    .imageAcceuil{
+        width: 400px;
+        height: 400px;
+    }
+    
+  }
+  @media screen and (min-width:800px) and (min-height:1000px){
+    .imageAcceuil{
+        width: 450px;
+        height: 450px;
+    }
+  }
+
+  @media screen and (min-width:900px) and (min-height:1000px){
+    .imageAcceuil{
+        width: 500px;
+        height: 500px;
+    }
+  }
+  @media screen and (max-width:900px){
+      .containerImageAcceuil{
+        background-color: #EDF8FD;
+        width: 100%;
+        height: 70vh;
+        display: flex;
+        flex-flow: column nowrap;
+      }
+
+    
+  }
+
+  @media screen and (min-width:901px){
+    .containerImageAcceuil{
+      background-color: #EDF8FD;
+      width: 100%;
+      height: 70vh;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+    }
+  
+  }
+  @media screen and (min-width:600px) and (max-width:699px){
+    .welcomeText{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        text-align: center;
+        margin-top: 30px;
+        font-size: 28px;
+        width: 100%;
+    }
+    .question{
+      font-size: 20px;
+    }
+    .reponse{
+      font-size: 18px;
+    }
+   
+  }
+  @media screen and (min-width:700px) and (max-width:799px){
+    .welcomeText{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        text-align: center;
+        margin-top: 30px;
+        font-size: 28px;
+        width: 100%;
+    }
+    .question{
+      font-size: 21px;
+    }
+    .reponse{
+      font-size: 19px;
+    }
+  }
+  @media screen and (min-width:800px) and (max-width:899px){
+    .welcomeText{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        text-align: center;
+        margin-top: 30px;
+        font-size: 28px;
+        width: 100%;
+    }
+    .wt1,.wt2{
+      text-align: center;
+    }
+    
+    .question{
+      font-size: 22px;
+    }
+    .reponse{
+      font-size: 20px;
+    }
+  }
+  @media screen and (min-width:900px){
+    .welcomeText{
+        display: flex;
+        flex-flow: column nowrap;
+        text-align: start;
+        align-items: flex-start;
+        margin-top: 30px;
+        font-size: 28px;
+        position: relative;
+        bottom: 100px;
+        width: 50vw;
+        margin-left: 100px;
+    }
+    .question{
+      font-size: 23px;
+    }
+    .reponse{
+      font-size: 21px;
+    }
+  }
+  
+  @media screen and (max-width: 599px){
+    .welcomeText{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        text-align: center;
+        margin-top: 30px;
+        width: 100%;
+    }
+  }
+  @media screen and (max-width: 499px){
+    .welcomeText{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        text-align: center;
+        margin-top: 30px;
+        width: 100%;
+    }
+  }
+
+  @media screen and (min-width: 1000px) {
+    
+    .largeScreenBox{
+     
+      display: flex;
+      flex-flow: row nowrap;
+      width: 100%;
+      justify-content: space-around;
+      margin-top: 50px;
+      margin-bottom: 200px;
+    }
+    .actualites{
+      display: none;
+    }
+  }
+  @media screen and (max-width: 999px) {
+    .largeScreenBox{
+      display: none;
+    }
+    .actualites{
+      margin-top: 50px;
+      margin-bottom: 200px;
+   }
+  }
+
+  .titleActu{
+    margin-top: 50px;
+    margin-left: 50px;
+    font-size: 24px;
+    font-weight: 800;
+  }
+
+.contentROP{
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-  }
-
-  .optionsList {
-    width: 100%;
-    position: relative;
-    bottom: 30vh;
-  }
-}
-@media screen and (min-height: 900px) {
-  /* Styles for extra small screens */
-  .mainMessageBox {
-    background-color: #0761b9;
-    width: 95vw;
-    height: 30vh;
-    position: relative;
-    bottom: 23vh;
-    border-top-left-radius: 15%;
-    border-top-right-radius: 15%;
-    color: white;
-    padding-top: 20px;
-    padding: 10px;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-  }
-
-  .optionsList {
-    width: 100%;
-    position: relative;
-    bottom: 30vh;
-  }
+    background-color: #F6F7F8;
 }
 
-@media screen and (min-height: 1300px) {
-  /* Styles for extra small screens */
-  .mainMessageBox {
-    background-color: #0761b9;
-    width: 95vw;
-    height: 20vh;
-    position: relative;
-    bottom: 28vh;
-    border-top-left-radius: 15%;
-    border-top-right-radius: 15%;
-    color: white;
-    padding-top: 20px;
-    padding: 10px;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-  }
-}
 
-@media screen and (min-width: 600px) and (min-height: 900px) {
-  .imageAcceuil {
-    width: 400px;
-    height: 400px;
-  }
-}
-@media screen and (min-width: 800px) and (min-height: 1000px) {
-  .imageAcceuil {
-    width: 450px;
-    height: 450px;
-  }
-}
 
-@media screen and (min-width: 900px) and (min-height: 1000px) {
-  .imageAcceuil {
-    width: 500px;
-    height: 500px;
-  }
-}
-@media screen and (max-width: 900px) {
-  .containerImageAcceuil {
-    background-color: #edf8fd;
-    width: 100%;
-    height: 70vh;
+.boxAboutLaboussole{
     display: flex;
-    flex-flow: column nowrap;
-  }
-}
-
-@media screen and (min-width: 901px) {
-  .containerImageAcceuil {
-    background-color: #edf8fd;
-    width: 100%;
-    height: 70vh;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-  }
-}
-@media screen and (min-width: 600px) and (max-width: 699px) {
-  .welcomeText {
-    display: flex;
+    padding-left: 50px;
+    padding-right: 50px;
     flex-flow: column nowrap;
     align-items: center;
-    text-align: center;
-    margin-top: 30px;
-    font-size: 28px;
-    width: 100%;
-  }
-  .question {
-    font-size: 20px;
-  }
-  .reponse {
-    font-size: 18px;
-  }
-}
-@media screen and (min-width: 700px) and (max-width: 799px) {
-  .welcomeText {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    text-align: center;
-    margin-top: 30px;
-    font-size: 28px;
-    width: 100%;
-  }
-  .question {
-    font-size: 21px;
-  }
-  .reponse {
-    font-size: 19px;
-  }
-}
-@media screen and (min-width: 800px) and (max-width: 899px) {
-  .welcomeText {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    text-align: center;
-    margin-top: 30px;
-    font-size: 28px;
-    width: 100%;
-  }
-  .wt1,
-  .wt2 {
-    text-align: center;
-  }
-  .question {
-    font-size: 22px;
-  }
-  .reponse {
-    font-size: 20px;
-  }
-}
-@media screen and (min-width: 900px) {
-  .welcomeText {
-    display: flex;
-    flex-flow: column nowrap;
-    text-align: start;
-    align-items: flex-start;
-    margin-top: 30px;
-    font-size: 28px;
     position: relative;
     bottom: 100px;
-    width: 50vw;
-    margin-left: 100px;
-  }
-  .question {
-    font-size: 23px;
-  }
-  .reponse {
-    font-size: 21px;
-  }
+    
 }
-
-@media screen and (max-width: 599px) {
-  .welcomeText {
+.temoignages{
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    text-align: center;
-    margin-top: 30px;
+    background-color: #0761B9;
+    padding-top: 50px;
     width: 100%;
-  }
-}
-@media screen and (max-width: 499px) {
-  .welcomeText {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+    font-size: 18px;
+    color: white;
     text-align: center;
-    margin-top: 30px;
-    width: 100%;
-  }
+    padding-bottom: 50px;
 }
-
-@media screen and (min-width: 1000px) {
-  .largeScreenBox {
+.text{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.temoignagesSlider{
     display: flex;
     flex-flow: row nowrap;
-    width: 100%;
-    justify-content: space-around;
-    margin-top: 50px;
-    margin-bottom: 200px;
-  }
-  .actualites {
-    display: none;
-  }
+    align-items: center;
 }
-@media screen and (max-width: 999px) {
-  .largeScreenBox {
-    display: none;
-  }
-  .actualites {
-    margin-top: 50px;
-    margin-bottom: 200px;
-  }
+.restOfPage{
+    background-color: #F6F7F8;
+    
 }
-
-.optionsList {
-  a {
-    text-decoration: none;
-  }
+.question{
+    font-weight: 900;
 }
-.titleActu {
-  margin-top: 50px;
-  margin-left: 50px;
-  font-size: 24px;
-  font-weight: 800;
+.sendTemoignage{
+    border: 1px solid #009CDE;
+    padding: 20px;
+    padding-top: 30px;
+    border-radius: 40px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: 900;
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 50px;
 }
-
-.contentROP {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  background-color: #f6f7f8;
-}
-
-.boxAboutLaboussole {
-  display: flex;
-  padding-left: 50px;
-  padding-right: 50px;
-  flex-flow: column nowrap;
-  align-items: center;
-  position: relative;
-  bottom: 100px;
-}
-.temoignages {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  background-color: #0761b9;
-  padding-top: 50px;
-  width: 100%;
-  font-size: 18px;
-  color: white;
-  text-align: center;
-  padding-bottom: 50px;
-}
-.text {
-  padding-left: 50px;
-  padding-right: 50px;
-}
-.temoignagesSlider {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-}
-.restOfPage {
-  background-color: #f6f7f8;
-}
-.question {
-  font-weight: 900;
-}
-.sendTemoignage {
-  border: 1px solid #009cde;
-  padding: 20px;
-  padding-top: 30px;
-  border-radius: 40px;
-  height: 40px;
-  font-size: 20px;
-  font-weight: 900;
-  margin-top: 20px;
-  text-align: center;
-  margin-bottom: 50px;
-}
-.sendTemoignage:hover {
+.sendTemoignage:hover{
   background-color: white;
-  color: #0761b9;
+  color: #0761B9;
 }
 
-.photo-footer {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+
+.photo-footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.optionsList {
+.optionsList{
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
