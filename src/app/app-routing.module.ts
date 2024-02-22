@@ -6,13 +6,15 @@ import { PageAcceuilSansCompteComponent } from './page-acceuil-sans-compte/page-
 import { PageAdminComponent } from './page-admin/page-admin.component';
 import { PageConnexionClientComponent } from './page-connexion-client/page-connexion-client.component';
 import { PageInscriptionComponent } from './page-inscription/page-inscription.component';
+import { OffreDeFormationsComponent } from './Pages/offre-de-formations/offre-de-formations.component';
 
 const routes: Routes = [
   {path:'',component:PageAcceuilSansCompteComponent},
   {path:'login',component:PageConnexionClientComponent},
   {path:'signup',component:PageInscriptionComponent},
   {path:'motDePasseOublie',component:MotDePasseOublieComponent},
-  {path:'admin',component:PageAcceuilAdminComponent}
+  {path:'admin',component:PageAcceuilAdminComponent},
+  {path: 'formation', component:OffreDeFormationsComponent}
 ];
 
 @NgModule({

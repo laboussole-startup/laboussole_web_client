@@ -54,32 +54,148 @@
         <div class="sendTemoignage">
          <span>Laisser un temoignage </span> <span class="rightArrowIcon"> <img src="/laboussole_client_web/assets/icons8-arrow-right-60.png" alt="" style="width: 20px;height:20px;position:relative;top:5px;"> </span>
         </div>
-        <div class="temoignagesSlider">
-          <span class="leftArrowIcon"> <img src="/laboussole_client_web/assets/icons8-back-arrow-50.png" alt="" style="width: 20px;height:20px;position:relative;top:5px;"> </span>
-          <span class="temoignageBox">
-            <app-temoignage-box></app-temoignage-box>
-          </span>
-          <span class="rightArrowIcon">
-            <img src="/laboussole_client_web/assets/icons8-arrow-circle-right-50.png" alt="" style="width: 20px;height:20px;position:relative;top:5px;">
-          </span>
+        <div style="width: 60%" class="wt2">
+          ipsum dolor sit amet, consectetur adipisicing elit. Similidiv
         </div>
       </div>
-      <div class="titleActu">Actualites du jour</div>
-      <div class="actualites">
-        <app-actualite-box></app-actualite-box>
-        <app-actualite-box></app-actualite-box>
-        
+      <img
+        class="imageAcceuil"
+        src="/laboussole_client_web/assets/imageAcceuilLBS.png"
+        alt=""
+      />
+    </div>
+    <div class="mainMessageBox">
+      <div
+        style="
+          width: 90%;
+          text-align: center;
+          margin-bottom: 20px;
+          margin-top: 20px;
+        "
+      >
+        <h2>Un accompagnement vers la reussite</h2>
       </div>
-      <div class="largeScreenBox">
-        <div class="leftActus">
-          <app-actualite-box></app-actualite-box>
-          <app-actualite-box></app-actualite-box>
-        </div>
-        <div class="RightActus">
-            <app-actualite-large-screen-box></app-actualite-large-screen-box>
-        </div>
+      <div style="width: 70%; text-align: center">
+        Nous vous proposons des services adaptes a vos besoins afin de vous
+        permettre une reussite dans votre parcours academique et votre insertion
+        socio professionelle
       </div>
-      <div class="photo-footer"> <img src="/laboussole_client_web/assets/photo-footer.png" alt="" style="width: 200px; height:200px;"> </div>
-      <app-footer></app-footer>
-    
+    </div>
   </div>
+  <div class="optionsList">
+    <a routerLink="formation" #formations >
+      <app-acceuil-option-box
+        [title]="'Formations'"
+        [description]="'description Formations'"
+        [icon_name]="'icons8-graduation-cap-50.png'"
+      >
+      </app-acceuil-option-box>
+    </a>
+
+    <a routerLink="">
+      <app-acceuil-option-box
+        [title]="'Bourses D\'etudes'"
+        [description]="'description Orientation'"
+        [icon_name]="'icons8-direction-48.png'"
+      >
+      </app-acceuil-option-box>
+    </a>
+
+    <a routerLink="">
+      <app-acceuil-option-box
+        [title]="'Etude a l\'etranger'"
+        [description]="'description Etudes'"
+        [icon_name]="'icons8-send-60.png'"
+      >
+      </app-acceuil-option-box>
+    </a>
+  </div>
+  <div class="boxAboutLaboussole">
+    <div class="question">
+      <span style="color: #0761b9"> C'est quoi</span>
+      <span style="color: #00a4e4"> LABOUSSOLE ?</span>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="reponse">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur
+      aperiam beatae et aut exercitationem necessitatibus ipsam assumenda
+      officia dicta, doloribus, eum sapiente quae ratione delectus cum suscipit
+      fugit impedit alias? <a href="http://">lire plus</a>
+    </div>
+  </div>
+
+  <div class="temoignages">
+    <div style="font-weight: 700; color: white; margin-bottom: 28px">
+      Temoignages
+    </div>
+
+    <div
+      style="
+        font-weight: 900;
+        color: white;
+        font-size: 24px;
+        margin-bottom: 20px;
+      "
+    >
+      Que pensent t-ils?
+    </div>
+    <div class="text">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur
+      aperiam beatae et aut exercitationem necessitatibus ipsam assumenda
+      officia dicta,
+    </div>
+    <div class="sendTemoignage">
+      <span>Laisser un temoignage </span>
+      <span class="rightArrowIcon">
+        <img
+          src="/laboussole_client_web/assets/icons8-arrow-right-60.png"
+          alt=""
+          style="width: 20px; height: 20px; position: relative; top: 5px"
+        />
+      </span>
+    </div>
+    <div class="temoignagesSlider">
+      <span class="leftArrowIcon">
+        <img
+          src="/laboussole_client_web/assets/icons8-back-arrow-50.png"
+          alt=""
+          style="width: 20px; height: 20px; position: relative; top: 5px"
+        />
+      </span>
+      <span class="temoignageBox">
+        <app-temoignage-box></app-temoignage-box>
+      </span>
+      <span class="rightArrowIcon">
+        <img
+          src="/laboussole_client_web/assets/icons8-arrow-circle-right-50.png"
+          alt=""
+          style="width: 20px; height: 20px; position: relative; top: 5px"
+        />
+      </span>
+    </div>
+  </div>
+  <div class="titleActu">Actualites du jour</div>
+  <div class="actualites">
+    <app-actualite-box></app-actualite-box>
+    <app-actualite-box></app-actualite-box>
+  </div>
+  <div class="largeScreenBox">
+    <div class="leftActus">
+      <app-actualite-box></app-actualite-box>
+      <app-actualite-box></app-actualite-box>
+    </div>
+    <div class="RightActus">
+      <app-actualite-large-screen-box></app-actualite-large-screen-box>
+    </div>
+  </div>
+  <div class="photo-footer">
+    <img
+      src="/laboussole_client_web/assets/photo-footer.png"
+      alt=""
+      style="width: 200px; height: 200px"
+    />
+  </div>
+  <app-footer></app-footer>
+</div>
