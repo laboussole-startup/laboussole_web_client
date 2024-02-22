@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./page-inscription.component.scss']
 })
 export class PageInscriptionComponent {
-
+  hide:boolean = false;
 }
