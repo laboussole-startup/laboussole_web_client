@@ -3,7 +3,7 @@
 @media screen and (min-height: 400px) {
     /* Styles for extra small screens */
     .mainMessageBox {
-        background-color: #0761B9;
+        // background-color: #0761B9;
         width: 95vw;
         height: 40vh;
         position: relative;
@@ -21,13 +21,16 @@
         width: 100%;
         position: relative;
         bottom: 15vh;
+        a{
+          text-decoration: none;
+        }
         
      }
   }
 @media screen and (min-height: 500px) {
     /* Styles for extra small screens */
     .mainMessageBox {
-        background-color: #0761B9;
+        // background-color: #0761B9;
         width: 95vw;
         height: 40vh;
         position: relative;
@@ -45,7 +48,7 @@
   @media screen and (min-height: 600px) {
     /* Styles for extra small screens */
     .mainMessageBox {
-        background-color: #0761B9;
+        // background-color: #0761B9;
         width: 95vw;
         height: 40vh;
         position: relative;
@@ -63,7 +66,7 @@
   @media screen and (min-height: 700px) {
     /* Styles for extra small screens */
     .mainMessageBox {
-        background-color: #0761B9;
+        // background-color: #0761B9;
         width: 95vw;
         height: 40vh;
         position: relative;
@@ -88,7 +91,7 @@
   @media screen and (min-height: 800px) {
     /* Styles for extra small screens */
     .mainMessageBox {
-        background-color: #0761B9;
+        // background-color: #0761B9;
         width: 95vw;
         height: 30vh;
         position: relative;
@@ -113,7 +116,7 @@
   @media screen and (min-height: 900px) {
     /* Styles for extra small screens */
     .mainMessageBox {
-        background-color: #0761B9;
+        // background-color: #0761B9;
         width: 95vw;
         height: 30vh;
         position: relative;
@@ -138,7 +141,7 @@
   @media screen and (min-height: 1300px) {
     /* Styles for extra small screens */
     .mainMessageBox {
-        background-color: #0761B9;
+        // background-color: #0761B9;
         width: 95vw;
         height: 20vh;
         position: relative;

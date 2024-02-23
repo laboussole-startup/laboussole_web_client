@@ -15,6 +15,7 @@ export class OffreDeFormationsComponent {
   showSearchBar = false;
   // formation!: Formations[];
   formations: any;
+  showSideBar = false;
 
   public getScreenWidth: any;
 
@@ -27,6 +28,7 @@ export class OffreDeFormationsComponent {
 
     // console.log(this.mobile);
   }
+  
   ngOnInit() {
     this.getScreenWidth = window.innerWidth;
     // this.getScreenWidth <= 480? this.mobile = true : this.mobile = false;

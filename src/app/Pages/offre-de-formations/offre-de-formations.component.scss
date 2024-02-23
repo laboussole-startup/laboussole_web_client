@@ -63,11 +63,17 @@
     }
   }
 
+  .menu-icon{
+    margin-bottom: 8px;
+  }
+
   .formation-content {
     display: flex;
-    flex-flow: column nowrap;
-    // justify-content: center;
-    align-items: center;
+    // flex-flow: column nowrap;
+    justify-content: center;
+    // align-items: center;
+    flex-wrap: wrap;
+    gap: 32px;
   }
 }
 
@@ -94,6 +100,10 @@
           // width: 10px;
         }
       }
+    }
+
+    .formation-content {
+      gap: 16px;
     }
   }
 }
