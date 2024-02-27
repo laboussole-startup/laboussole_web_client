@@ -9,13 +9,22 @@ export class DetailBourseEtudeComponent {
   isMenuIconClicked = false;
   isMenuIconClosed = true;
   showSearchBar = false;
+  showDropdown1:boolean = false;
+  showDropdown2:boolean = false;
+  showDropdown3:boolean = false;
+  showDropdown4:boolean = false;
+  showDropdown5:boolean = false;
+  showDropdown6:boolean = false;
 
   toggleMenu() {
     this.isMenuIconClicked = !this.isMenuIconClicked;
     this.isMenuIconClosed = !this.isMenuIconClosed;
   }
 
+ 
+  
   affichageDetail():void{
+    console.log("bonjour")
     const accordionItems=document.querySelectorAll('accordion-item');
     accordionItems.forEach(accordionItem =>{
       const accordionHeader=accordionItem.querySelector('accordion-header');
