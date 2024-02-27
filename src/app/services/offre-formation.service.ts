@@ -14,6 +14,30 @@ export class OffreFormationService {
   getFormation() {
     return [
       {
+        image: 'assets/compter-eng-box.jpeg',
+        title: 'Ingénieur informaticien',
+        description:
+          "L'ingénieur informaticien conçoit, développe, et met en place des solutions informatiques pour répondre aux besoins des entreprises et des organisations. "
+      },
+      {
+        image: 'assets/medical-doc.jpg',
+        title: 'Medecin',
+        description:
+          "Le médecin est un professionnel de la santé qui diagnostique et traite les maladies et les blessures. Il s'\ occupe de la prévention, du suivi et de la réadaptation des patients."
+      },
+      {
+        image: 'assets/civil-engineer.jpg',
+        title: 'Ingénieur de Génie Civil',
+        description:
+          "L'ingénieur en génie civil est un professionnel qui conçoit, calcule, et supervise la construction d'infrastructures telles que des ponts, des routes, des bâtiments, des tunnels, etc.",
+      },
+      {
+        image: 'assets/image4.png',
+        title: 'Enseignant de Langue et Littérature',
+        description:
+          'Le professeur de français a pour mission principale de transmettre sa passion de la langue et de la lit...',
+      },
+      {
         image: 'assets/image4.png',
         title: 'Redacteur, Editeur',
         description:
@@ -24,12 +48,6 @@ export class OffreFormationService {
         title: 'Assistant de direction',
         description:
           "Il joue un rôle crucial dans l'organisation administrative et la gestion quotidienne des tâches, per...",
-      },
-      {
-        image: 'assets/image4.png',
-        title: 'Enseignant de Langue et Littérature',
-        description:
-          'Le professeur de français a pour mission principale de transmettre sa passion de la langue et de la lit...',
       },
       {
         image: 'assets/image2.png',
