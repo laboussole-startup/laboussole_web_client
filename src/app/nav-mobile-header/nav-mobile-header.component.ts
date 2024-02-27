@@ -10,6 +10,8 @@ export class NavMobileHeaderComponent {
   
   showSearchBar = false;
 
+  hideMenuIcon = false;
+
   showDropdown = false;
 
   // Call this method when you want to open the menu

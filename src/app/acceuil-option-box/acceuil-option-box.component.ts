@@ -9,4 +9,5 @@ export class AcceuilOptionBoxComponent {
   @Input() title: string = 'Click me';
   @Input() description: string = 'Click me';
   @Input() icon_name: string = 'menu.png';
+  @Input() color: string = '5B72EE';
 }

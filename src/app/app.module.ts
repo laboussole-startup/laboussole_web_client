@@ -49,7 +49,9 @@ import { AdminOffresFormationsInfoPanelComponent } from './admin-offres-formatio
 import { AdminBourseEtudeInfoPanelComponent } from './admin-bourse-etude-info-panel/admin-bourse-etude-info-panel.component';
 import { AdminVoyagesEtudesInfoPanelComponent } from './admin-voyages-etudes-info-panel/admin-voyages-etudes-info-panel.component';
 import { OffreEtudesComponent } from './Pages/offre-etudes/offre-etudes.component';
-import { OffreFormationBoxComponent } from './Pages/card-offre-formation/offre-formation-box.component';
+import { OffreFormationBoxComponent } from './Pages/card-offre-formation/offre-formation-box.component';;
+import { DetailOffreFormationComponent } from './detail-offre-formation/detail-offre-formation.component';
+import { DetailBourseEtudeComponent } from './detail-bourse-etude/detail-bourse-etude.component'
 
 @NgModule({
   declarations: [
@@ -82,8 +84,8 @@ import { OffreFormationBoxComponent } from './Pages/card-offre-formation/offre-f
     AdminOffresFormationsInfoPanelComponent,
     AdminBourseEtudeInfoPanelComponent,
     AdminVoyagesEtudesInfoPanelComponent,
-    OffreEtudesComponent,
-    OffreFormationBoxComponent,
+    DetailBourseEtudeComponent,
+    DetailOffreFormationComponent
   ],
   imports: [
     BrowserModule,

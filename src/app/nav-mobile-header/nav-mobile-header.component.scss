@@ -1,10 +1,16 @@
+$size: 20px;
+$width: 200px;
+$stroke: 2px;
+$speed: 0.4s;
+
+
+
 .navflexcontainer{
     display: flex;
     flex-direction: row;
-    width: 96%;
+    width: 100%;
     height: 100%;
     background-color: white;
-    padding: 10px;
     align-items: center;
 
 }
@@ -14,14 +20,16 @@
 
 .nav-item:hover{
     color: #0761B9;
+    cursor: pointer;
 }
 .dropdown-content{
     position: absolute;
-    left: 18vw;
+    left: 320px;
     z-index: 2;
     width: fit-content;
     height: fit-content;
-    color: gray;
+    cursor: pointer;
+    color: #757575;
     padding: 10px;
     background-color: white; /* Blue color, you can change this */
     border-radius: 10px; /* Adjust the border-radius for slightly rounded corners */
@@ -40,56 +48,119 @@
 @media screen and (min-width:900px) {
     .navFlexContainerTabletDesktop{
         width: 100%;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-around;
-        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr 2fr 2fr 2fr 3fr 3fr 1fr 2fr 1fr 2fr 2fr 1fr;
+        grid-template-rows: 100px;
+        align-content: center;
+        font-size: 0.9rem;
+        color:#757575;
+        font-weight: 600;
+        grid-template-areas: ". l . n1 n2 n3 n4 . s . su lo .";
         background-color: white;
+        grid-gap:1px;
+    }
+    .nav-item{
+      margin-left: 5px;
+      
     }
     .navflexcontainer{
         display: none;
+    }
+
+    .logo_icon{
+      grid-area:l;
+      align-self: center;
+    }
+    .home{
+      grid-area: n1;
+      align-self: center;
+      text-align: end;
+    }
+    .services{
+      grid-area: n2;
+      align-self: center;
+    }
+    .apropos{
+      grid-area: n3;
+      align-self: center;
+      text-align: center;
+    }
+    .contact{
+      grid-area:n4;
+      align-self: center;
+    }
+
+    .searchBox{
+      grid-area: s;
+      align-self:center;
+      border-radius: 25px;
+    }
+    .searchInput{
+      border-radius: 25px;
+      height:40px;
+      border:0.3px solid #F0F1F2;
+      background-color:#F0F1F2;
+      padding-left:3px;
+    }
+
+    .searchInput:focus{
+      border:0.3px solid #0F70B7;
+    }
+    .searchInput:active{
+      border:0.3px solid #0F70B7;
+    }
+
+    .signupBtn{
+      grid-area:su;
+      align-self: center;
+    }
+
+    .loginBtn{
+      grid-area: lo;
+      align-self: center;
     }
   }
 .rightPlacedIcons{
     margin-left: auto;
     display: flex;
     flex-flow: row nowrap;
+    align-items: center;
+}
+.searchIcon,.menuIcon{
+    width: 25px;
+    height: 25px;
 }
 .menuIcon{
     margin-left: 10px;
     margin-right: 10px;
 }
-.searchBar{
-    height:7vw;
-    border-color: gray;
-    margin-right: 3px;
-    width: 50vw;
-    margin-right: 10px;
-    border-radius: 25px;
-}
-.largeSearchBar{
-    border-radius: 25px;
-    height: 30px;
-}
+
 .signupBtn{
     display: inline-block;
-    padding: 10px 20px;
+    padding:15px;
+    width: fit-content;
+    height: fit-content;
     border: none;
     border-radius: 25px;
+    border: 0.3px solid;
     color:white; /* Green color, you can change this */
-    background-color:#0761B9;
+    background-color:#0F70B7;
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
+    font-weight: 800;
+    font-size: 0.9rem;
     cursor: pointer;
 }
 .loginBtn{
+  font-weight: 800;
     display: inline-block;
-    padding: 10px 20px;
-    border: 1px solid #0761B9;
+    padding:15px;
+    width: fit-content;
+    height: fit-content;
+    border: 0.3px solid E3EBFD;
     border-radius: 25px;
-    color:#0761B9; /* Green color, you can change this */
-    background-color: rgb(236, 236, 236);
+    color:#0F70B7; /* Green color, you can change this */
+    background-color: #E3EBFD;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
@@ -98,19 +169,143 @@
 
 .signupBtn:hover{
     background-color:white; /* Green color, you can change this */
-    color:#0761B9;
+    color:#0F70B7;
 }
-@media screen and (min-width:600px){
-   
-  }
-  @media screen and (min-width:700px){
+
+.menuIcon{
+  position: relative;
+  right: 10px;
+}
+
+.logo_icon{
+  margin-bottom: 20px;
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
+
+.inputbox {
+    height: $size;
+    width: $width;
+    position: relative;
+    top: 5px;
+    left: 60px;
+    transform: translate(-50%, -50%);
     
     
-  }
-  @media screen and (min-width:800px){
-    
-  }
+    input {
+      width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+      font-size: 16px;
+      padding: ($size - 16 - 1)/2 0;
+      border: 0;
+      background: none;
+      width: $size;
+      position: absolute;
+      border-radius: 15px;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 100%;
+      transition: width $speed ease-in-out, border-radius $speed ease-in-out, padding $speed/2;
+      transition-delay: 0s, $speed, 0s;
+      box-shadow: 0 0 0 $stroke currentColor;
+      color: inherit;
+      cursor: pointer;
+      padding: ($size - 16 - 1)/2 0;
+      padding-right: $size;
+      font-weight: lighter;
+      font-family: 'Montserrat';
+     
   
-  @media screen and (max-width: 599px){
-   
+      &:focus, &:valid {
+        width: 100%;
+        transition-delay: $speed, 0s, $speed;
+        outline: 0;
+        border-radius: 0;
+        cursor: text;
+        padding-left: ($size - 16 - 1)/2;
+        
+  
+        
+        +.del {
+          pointer-events: all;
+          left: calc(100% - #{$size/2});
+          transition-delay: $speed;
+          background:#0F70B7;
+          width:60px;
+          height:60px;
+          color: white;
+          
+         
+          
+          &:focus {
+            box-shadow: 0 0 0 1px currentColor;
+            height: $size/6*3;
+            width: $size/6*3;
+          }
+        &:before {
+            transform: translate(-50%,-50%) rotate(-45deg) scaleY(0.7);
+            transition-delay: 0s;
+  
+          }
+         &:after {
+           transform: translate(-50%,-50%) rotate(45deg) scaleY(0.7);
+            transition-delay: $speed/2;
+  
+          }
+        }
+      }
+    }
+    
+    .del {
+      position: absolute;
+      top: 52%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      height: $size+2;
+      width: $size+1;
+      padding: 0;
+      background: none;
+      border-radius: 100%;
+      border: 0;
+      pointer-events: none;
+      transition: left $speed ease-in-out;
+      transition-delay: 0s;
+      color: inherit;
+      cursor: pointer;
+  
+      
+     
+      &:focus {
+        outline: none;
+      }
+  
+      &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background:  currentColor;
+        width: $stroke;
+        height: $size/4*3;
+        transform: translate($size/8*5 + 1,$size/8*5 + 1) translate(-50%,-50%) rotate(-45deg) scaleY(1);
+        transition: transform $speed/2 ease-in-out;
+        transition-delay: $speed*1.5;
+    }
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background:  currentColor;
+        width: $stroke;
+        height: $size/4*3;
+        transform: translate(-50%,-50%) rotate(45deg) scaleY(0);
+        transition: transform $speed/2 ease-in-out;
+        transition-delay: $speed;
+      }
+    }
+  
   }
