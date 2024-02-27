@@ -17,13 +17,13 @@ export class OffreFormationService {
         image: 'assets/compter-eng-box.jpeg',
         title: 'Ingénieur informaticien',
         description:
-          "L'ingénieur informaticien conçoit, développe, et met en place des solutions informatiques pour répondre aux besoins des entreprises et des organisations. "
+          "L'ingénieur informaticien conçoit, développe, et met en place des solutions informatiques pour répondre aux besoins des entreprises et des organisations. ",
       },
       {
-        image: 'assets/medical-doc.jpg',
+        image: 'assets/medical-doc-box.jpeg',
         title: 'Medecin',
         description:
-          "Le médecin est un professionnel de la santé qui diagnostique et traite les maladies et les blessures. Il s'\ occupe de la prévention, du suivi et de la réadaptation des patients."
+          "Le médecin est un professionnel de la santé qui diagnostique et traite les maladies et les blessures. Il s' occupe de la prévention, du suivi et de la réadaptation des patients.",
       },
       {
         image: 'assets/civil-engineer.jpg',
@@ -59,7 +59,8 @@ export class OffreFormationService {
         image: 'assets/image2.png',
         title: 'Avocat',
         description:
-          "L'avocat est un professionnel du droit qui conseille et défend ses clients dans le cadre de litiges ou de ...",}
+          "L'avocat est un professionnel du droit qui conseille et défend ses clients dans le cadre de litiges ou de ...",
+      },
     ];
   }
 
@@ -67,35 +68,39 @@ export class OffreFormationService {
     return [
       {
         image: 'assets/image4.png',
-        title: 'Bourse et programme d’échange éducatifs pour le développement CANADA-ANASE',
+        title:
+          'Bourse et programme d’échange éducatifs pour le développement CANADA-ANASE',
         description:
           "L'initiative Bourses et programmes d’échanges éducationnels pour le développement Canada- ANASE permet aux étudiants, des pays membres de l’Association des Nations de l'Asie du Sud-Est (l’ANASE), de participer à des échanges d’études.",
       },
       {
         image: 'assets/image4.png',
-        title: 'Bourse et programme d’échange éducatifs pour le développement CANADA-ANASE',
+        title:
+          'Bourse et programme d’échange éducatifs pour le développement CANADA-ANASE',
         description:
           "L'initiative Bourses et programmes d’échanges éducationnels pour le développement Canada- ANASE permet aux étudiants, des pays membres de l’Association des Nations de l'Asie du Sud-Est (l’ANASE), de participer à des échanges d’études.",
       },
       {
         image: 'assets/image2.png',
-        title: 'Bourse et programme d’échange éducatifs pour le développement CANADA-ANASE',
+        title:
+          'Bourse et programme d’échange éducatifs pour le développement CANADA-ANASE',
         description:
           "L'initiative Bourses et programmes d’échanges éducationnels pour le développement Canada- ANASE permet aux étudiants, des pays membres de l’Association des Nations de l'Asie du Sud-Est (l’ANASE), de participer à des échanges d’études.",
       },
       {
         image: 'assets/image3.png',
-        title: 'Bourse et programme d’échange éducatifs pour le développement CANADA-ANASE',
+        title:
+          'Bourse et programme d’échange éducatifs pour le développement CANADA-ANASE',
         description:
           "L'initiative Bourses et programmes d’échanges éducationnels pour le développement Canada- ANASE permet aux étudiants, des pays membres de l’Association des Nations de l'Asie du Sud-Est (l’ANASE), de participer à des échanges d’études.",
       },
       {
         image: 'assets/image3.png',
-        title: 'Bourse et programme d’échange éducatifs pour le développement CANADA-ANASE',
+        title:
+          'Bourse et programme d’échange éducatifs pour le développement CANADA-ANASE',
         description:
           "L'initiative Bourses et programmes d’échanges éducationnels pour le développement Canada- ANASE permet aux étudiants, des pays membres de l’Association des Nations de l'Asie du Sud-Est (l’ANASE), de participer à des échanges d’études.",
-      }
+      },
     ];
   }
-
 }
