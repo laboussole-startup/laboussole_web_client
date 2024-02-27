@@ -130,7 +130,7 @@
       </div>
       <div class="recommendations">
         <div *ngFor="let formation of formations; index as i">
-          <app-offre-formation-box
+          <app-offre-formation-box routerLink="../detail-offre-formation"
             *ngIf="i <= 4"
             [formationBox]="formation"
           ></app-offre-formation-box>

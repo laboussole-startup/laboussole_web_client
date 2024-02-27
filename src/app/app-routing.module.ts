@@ -8,6 +8,7 @@ import { PageConnexionClientComponent } from './page-connexion-client/page-conne
 import { PageInscriptionComponent } from './page-inscription/page-inscription.component';
 import { OffreDeFormationsComponent } from './Pages/offre-de-formations/offre-de-formations.component';
 import { OffreEtudesComponent } from './Pages/offre-etudes/offre-etudes.component';
+import { DetailOffreFormationComponent } from './detail-offre-formation/detail-offre-formation.component';
 
 const routes: Routes = [
   {path:'',component:PageAcceuilSansCompteComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path:'motDePasseOublie',component:MotDePasseOublieComponent},
   {path:'admin',component:PageAcceuilAdminComponent},
   {path: 'formation', component:OffreDeFormationsComponent},
-  {path: 'etudes', component:OffreEtudesComponent}
+  {path: 'etudes', component:OffreEtudesComponent},
+  {path: 'detail-offre-formation',component:DetailOffreFormationComponent}
 ];
 
 @NgModule({
