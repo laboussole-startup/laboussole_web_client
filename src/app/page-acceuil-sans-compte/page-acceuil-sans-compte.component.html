@@ -25,22 +25,21 @@
       </div>
       <div class="optionsList">
 
-        <app-acceuil-option-box class="metier" [title]="'Metiers'" 
-        [description]="description_Metier" [icon_name]="'direction board.png'" [color]="'#5B72EE'">
-        </app-acceuil-option-box>
-
+<a routerLink="etudes" >
         <app-acceuil-option-box class="bourse" [title]="'Bourses D\'etudes'" 
         [description]="description_Bourses" [icon_name]="'mortarboard.png'" [color]="'#F48C06'">
         </app-acceuil-option-box>
-     
+     </a>
 
           <app-acceuil-option-box class="voyage" [title]="'Voyages D\'etudes'" 
             [description]="description_Voyages_Etudes" [icon_name]="'office bag.png'" [color]="'#29B9E7'">
           </app-acceuil-option-box>
         
+          <a routerLink="formation" #formations>
           <app-acceuil-option-box class="formation" [title]="'Formation'" 
           [description]="description_Formation" [icon_name]="'open book.png'" [color]="'#41BE90'">
           </app-acceuil-option-box>
+            </a>
       </div>
       <div class="boxAboutLaboussole">
           <div class="question"><span style="color:#0761B9;"> C'est quoi</span>  <span style="color:#00A4E4;"> LABOUSSOLE ?</span></div> <br> <br> <br>
