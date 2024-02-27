@@ -47,7 +47,8 @@ import { AdminvoyagesEtudesComponent } from './adminvoyages-etudes/adminvoyages-
 
 import { AdminOffresFormationsInfoPanelComponent } from './admin-offres-formations-info-panel/admin-offres-formations-info-panel.component';
 import { AdminBourseEtudeInfoPanelComponent } from './admin-bourse-etude-info-panel/admin-bourse-etude-info-panel.component';
-import { AdminVoyagesEtudesInfoPanelComponent } from './admin-voyages-etudes-info-panel/admin-voyages-etudes-info-panel.component'
+import { AdminVoyagesEtudesInfoPanelComponent } from './admin-voyages-etudes-info-panel/admin-voyages-etudes-info-panel.component';
+import { DetailOffreFormationComponent } from './detail-offre-formation/detail-offre-formation.component'
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { AdminVoyagesEtudesInfoPanelComponent } from './admin-voyages-etudes-inf
     AdminvoyagesEtudesComponent,
     AdminOffresFormationsInfoPanelComponent,
     AdminBourseEtudeInfoPanelComponent,
-    AdminVoyagesEtudesInfoPanelComponent
+    AdminVoyagesEtudesInfoPanelComponent,
+    DetailOffreFormationComponent
   ],
   imports: [
     BrowserModule,
