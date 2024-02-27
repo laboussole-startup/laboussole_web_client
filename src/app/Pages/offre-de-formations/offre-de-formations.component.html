@@ -126,13 +126,42 @@
       </div>
     </div>
     <div class="formation-content">
-      <app-offre-formation-box
-        *ngFor="let formation of formations"
-        [formationBox]="formation"
-      ></app-offre-formation-box>
-
-      <app-footer></app-footer>
+      <div class="recommendations-text">
+        <h2>Recommandations</h2>
+        <a href="" class="all">Voir tout</a>
+      </div>
+      <div class="recommendations">
+        <div *ngFor="let formation of formations; index as i">
+          <app-offre-formation-box
+            *ngIf="i <= 4"
+            [formationBox]="formation"
+          ></app-offre-formation-box>
+        </div>
+      </div>
+      <div class="recommendations-text">
+        <h2>Plus Populaires</h2>
+      </div>
+      <div class="recommendations">
+        <div *ngFor="let formation of formations; index as i">
+          <app-offre-formation-box
+            *ngIf="i <= 2"
+            [formationBox]="formation"
+          ></app-offre-formation-box>
+        </div>
+      </div>
+      <div class="recommendations-text">
+        <h2>Plus Populaires</h2>
+      </div>
+      <div class="recommendations">
+        <div *ngFor="let formation of formations; index as i">
+          <app-offre-formation-box
+            *ngIf="i <= 2"
+            [formationBox]="formation"
+          ></app-offre-formation-box>
+        </div>
+      </div>
     </div>
+    <app-footer></app-footer>
   </div>
 </div>
 
