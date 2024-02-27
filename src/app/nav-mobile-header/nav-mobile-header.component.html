@@ -1,29 +1,34 @@
 <div class="navflexcontainer">
-    <div><img src="/laboussole_client_web/assets/laboussole-icon.jpg" alt="" style="width: 60px; height: 60px;"></div>
+    <div><img class="logo_icon" src="/laboussole_client_web/assets/logo laboussole 1.png" alt="" ></div>
     <div class="rightPlacedIcons">
-        <div class="searchBar" *ngIf="showSearchBar"> <input type="text" name="" id="" class="searchBar"> </div>
-        <div class="searchIcon" (click)="showSearchBar = !showSearchBar"><img src="/laboussole_client_web/assets/search-555.png" alt="" style="width: 10vw; height: 10vw;"></div>
-        <div class="menuIcon" (click)="openMenu()" ><img src="/laboussole_client_web/assets/menu.png" alt="" style="width: 10vw; height: 10vw;"></div>
+        <!-- <div class="searchBar" *ngIf="showSearchBar"> <input type="text" name="" id="" class="searchBar"> </div>
+        <div  (click)="showSearchBar = !showSearchBar"><img class="searchIcon" src="/laboussoleclientweb/assets/search-lg.png" alt=""></div>-->
+        <form class="inputbox">
+            <input required="required"/>
+            <button type="reset" class="del"></button>
+        </form>
+        <div  (click)="openMenu()" [ngStyle]="{'display':hideMenuIcon?'none':'block'}" ><img class="menuIcon" src="/laboussole_client_web/assets/menu drawer.png" alt="" ></div>
+        
     </div>
     
 </div>
 <div class="navFlexContainerTabletDesktop">
-    <div><img src="/laboussole_client_web/assets/laboussole-icon.jpg" alt="" style="width: 60px; height: 60px;"></div>
-    <div class="home nav-item">Home</div>
-    <div class="verticalSeparator nav-item">|</div>
-    <div class="nav-item" (click)="showDropdown = !showDropdown">Nos Services</div>
+    <div class="logo_icon"><img src="/laboussole_client_web/assets/logo laboussole 1.png" alt=""  style="width: 60px; height: 60px;"></div>
+    
+    <div class="home nav-item">Home |</div>
+   
+    <div class="services nav-item" (click)="showDropdown = !showDropdown">Nos Services |</div>
             
-    <div class="verticalSeparator nav-item">|</div>
-    <div class="apropos nav-item">A propos de nous</div>
-    <div class="verticalSeparator nav-item">|</div>
+    <div class="apropos nav-item">A propos de nous |</div>
+
     <div class="contact nav-item">Contactez Nous</div>
-    <div class="searchBox nav-item"> <input type="text" name="" id="" placeholder="search" class="largeSearchBar"></div>
+    <div class="searchBox nav-item"> <input type="text" class="searchInput" name="" id="" placeholder="search" ></div>
     <div class="signupBtn nav-item" routerLink="/signup">Signup</div>
     <div class="loginBtn nav-item" routerLink="/login">Login</div>
 </div>
 <div class="dropdown-content" *ngIf="showDropdown">
-    
-    <div class="dropdown-item">Formation</div>
-    <div class="dropdown-item">Bourses d'étude</div>
-    <div class="dropdown-item">Etudes a l'étranger</div>
+    <div class="dropdown-item">Formations</div>
+    <div class="dropdown-item">Etudes a l'etranger</div>
+    <div class="dropdown-item">Bourses D'etudes</div>
+    <div class="dropdown-item">Metiers</div>
 </div>

@@ -21,14 +21,18 @@
   }
   .text {
     width: 243px;
-    // height: 100px;
+    height: 100px;
     margin-top: 10px;
     // background-color: #D9D9D9;
     text-align: center;
-    
+    overflow: hidden;
+
     p {
       font-size: 12px;
       margin-top: 10px;
+      // display: -webkit-box;
+      // -webkit-line-clamp: 4;
+      // line-clamp: 4;
     }
   }
   .bookmark {

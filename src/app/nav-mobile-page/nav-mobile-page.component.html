@@ -2,17 +2,15 @@
 <div class="container">
     <div class="iconsList">
         <div class="searchBar" *ngIf="showSearchBar"> <input type="text" name="" id="" class="searchBar"> </div>
-        <div class="searchIcon" (click)="showSearchBar = !showSearchBar"><img src="/laboussole_client_web/assets/white-search-icon/icons8-search-60.png" alt="" style="width: 10vw; height: 10vw;"></div>
-        <div class="menuIcon" (click)="closeMenu()" ><img src="/laboussole_client_web/assets/x_close - icon - white.png" alt="" style="width: 10vw; height: 10vw;"></div>
+        <div class="searchIcon" (click)="showSearchBar = !showSearchBar"><img src="/laboussole_client_web/assets/search-lg-white.png" alt="" style="width: 10vw; height: 10vw;"></div>
+        <div class="menuIcon" (click)="closeMenu()" ><img src="/laboussole_client_web/assets/x-close.png" alt="" style="width: 10vw; height: 10vw;"></div>
     </div>
     <div class="menuList">
         <div class="menuItem">Acceuil</div>
         <div class="menuItem" (click)="showDropdown = !showDropdown">Nos Services</div>
             <div class="dropdown-content" *ngIf="showDropdown">
-                <div class="dropdown-item">Orientation</div>
                 <div class="dropdown-item">Formation</div>
                 <div class="dropdown-item">Emplois</div>
-                <div class="dropdown-item">Documentation</div>
                 <div class="dropdown-item">Etudes a l'etranger</div>
             </div>
         <div class="menuItem">A propos de Nous</div>

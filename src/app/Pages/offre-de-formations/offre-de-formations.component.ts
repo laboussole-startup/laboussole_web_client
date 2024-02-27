@@ -14,7 +14,8 @@ export class OffreDeFormationsComponent {
   isMenuIconClosed = true;
   showSearchBar = false;
   // formation!: Formations[];
-  formations: any;
+  formations!: Formations[];
+  // formations: any;
   showSideBar = false;
 
   public getScreenWidth: any;
@@ -33,10 +34,11 @@ export class OffreDeFormationsComponent {
     this.getScreenWidth = window.innerWidth;
     // this.getScreenWidth <= 480? this.mobile = true : this.mobile = false;
 
-    this.service.getFormations().subscribe((data: any) => {
-      this.formations = data.products;
-      console.log(this.formations);
-    });
+    // this.service.getFormations().subscribe((data: any) => {
+    //   this.formations = data.products;
+    //   console.log(this.formations);
+    // });
+    this.formations = this.service.getFormation();
   }
 
   toggleMenu() {

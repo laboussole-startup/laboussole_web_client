@@ -9,15 +9,21 @@
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    
+    cursor: pointer;
+  }
 
+  .rounded-box:hover{
+    box-shadow: 0 4px 8px rgba(2, 25, 39, 0.418); /* Subtle box shadow */
   }
+
   .description{
-    padding-left: 20px;
+    padding: 10px;
+    text-align: center;
   }
+
   .title{
-    margin-bottom: 50px;
-    color:#0761B9;
+    margin-bottom: 20px;
+    color:#0F70B7;
     font-size: large;
     font-weight: 700;
   }
@@ -27,6 +33,8 @@
   .imageIcon{
     position: relative;
     bottom:290px;
+    border-radius: 50%;
+   
   }
   .container{
     display: flex;
@@ -35,8 +43,12 @@
   }
   @media screen and (min-height: 400px){
     .imageIcon{
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
     }
   }
   

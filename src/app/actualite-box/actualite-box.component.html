@@ -1,10 +1,11 @@
 <div class="container">
-    <div class="photo"> <img src="/laboussole_client_web/assets/workplace.jpg" alt="" style="width: 150px;height:110px;"> </div>
+    <div class="photo"> <img [src]="'/laboussole_client_web/assets/'+image" alt="" style="width: 150px;height:110px;"> </div>
     <div class="rightBox">
-        <div class="date" style="color: indigo;font-weight:600;font-size:18px;margin-bottom: 10px;">date</div>
-        <div class="title" style="color: black;font-weight:900;font-size:24px;margin-bottom: 10px;">title</div>
-        <div class="description" style="color: gray;font-weight:500;font-size:18px;margin-bottom: 30px;">description</div>
-        <div class="tags" style="color: green;">tags
+        <div class="date" style="color: #6941C6;font-weight:600;font-size:14px;margin-bottom: 10px;">{{date}}</div>
+        <div class="title" style="color: black;font-weight:900;font-size:16px;margin-bottom: 10px;">{{title}}</div>
+        <div class="description" style="color: gray;font-weight:500;font-size:12px;margin-bottom: 30px;">{{description}}</div>
+        <div class="tags" style="color: #027A48;">
+            {{tags}}
         </div>
     </div>
 </div>
