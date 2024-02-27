@@ -1,0 +1,115 @@
+<div class="menuPage" *ngIf="isMenuIconClicked">
+    <app-nav-mobile-page (menuIconClicked)="toggleMenu()"></app-nav-mobile-page>
+</div>
+<div class="restOfPage" *ngIf="isMenuIconClosed">
+    <app-nav-mobile-header (menuIconClosed)="toggleMenu()"></app-nav-mobile-header>
+</div>
+
+<div style="display: flex; ">
+    <div style="display: flex; margin: 2%; width: 30%;">
+        <a href=""><img src="../../assets/boutonRetour.png" alt="" style="width: 20px; height:15px;"> </a>
+        <a href="" >Retour</a>
+    </div>
+    <div style="display: flex; margin: 2%; ">
+        <a href="#DescriptionMetier">Qu'est ce qu'un enseignant de littérature?</a>
+        <a href="#EcoleFormation" style="margin-left: 15px;">Ou se former?</a>
+        <a href="#Entreprise" style="margin-left: 15px;">Qui recherche ce profil?</a>
+    </div>
+</div>
+
+<div style="text-align: center;width:100% ;height: 200px; background-image:url(../../assets/welcome-photo612x612.jpg);">
+    <h1 style="padding-top: 7%; font-size: xx-large;color: white;">Enseignant de langue et littérature</h1> 
+</div>
+
+<div class="conteneur" style="display: flex; padding: 2%; ">
+
+    <div class="infoscles" style="width:min-content; background-color: #DDDDDD; padding: 2%;">
+        <h2 style="text-align: center;">Infos Clés</h2><br><br><br>
+
+        <img src="../../assets/Symbol.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Durée</strong> <br><br>
+        <span> 3ans-5ans</span><br><br>
+
+        <img src="../../assets/Symbol.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Diplome délivré</strong> <br><br>
+        <span> DIPET 1 et une Licence Technologique</span><br><br>
+
+        <img src="../../assets/Symbol.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Lieu</strong> <br>
+        <span> <li>Université de Yaoundé I: Licence et Master en Lettres Modernes, Anglais, Espagnol</li>
+            <li>Université de Buea: Licence et Master en Lettres Modernes, Anglais</li>
+            <li> Université de Ngaoundéré: Licence et Master en Lettres Modernes</li>
+            <li>Ecole Normale Supérieure de Yaoundé: Licence et Master en Education</li>
+            <li>Ecole Normale Supérieure de Bambili: Licence et Master en Education</li>
+        </span><br><br>
+
+        <img src="../../assets/Symbol.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Conditions d'admission</strong> <br><br>
+        <span>Titulaire du Bacc ou GCE A/L Cycle Licence</span><br><br>
+
+        <img src="../../assets/Symbol.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Cout de laformation</strong> <br><br>
+        <span>50 000 frs/an</span><br><br>
+
+        <img src="../../assets/Symbol.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Langue d'enseignement</strong> <br><br>
+        <span>Français et Anglais</span><br><br>
+
+        <img src="../../assets/Symbol.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Salaire</strong> <br><br>
+        <span>200 000 frs</span><br><br>
+    </div>
+
+    <div class="allinfos" style="width:max-content;margin-left: 2%;">
+
+        <div id="DescriptionMetier">
+           <span></span> <img src="../../assets/pseudo.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Qu'est ce qu'un enseignant de Langue et littérature?</strong> <br>
+            <hr> 
+            <span class="contenu">L'enseignant de langue et littérature est un professionnel de l'éducation qui a pour mission de transmettre sa passion des langues et de la littérature aux élèves. Il joue un rôle crucial dans le développement des compétences linguistiques et littéraires des élèves, tout en contribuant à leur épanouissement personnel et intellectuel
+                <br><br>
+                <span class="missions">Ses principales missions incluent:
+                <li> Planification et animation des cours: Il prépare et dispense des cours de langue et littérature, en s'adaptant au niveau et aux besoins des élèves.</li>
+                <li>Évaluation des acquis: Il évalue les progrès des élèves et leur fournit un feedback constructif.</li>
+                <li>Suivi individualisé: Il accompagne les élèves en difficulté et les encourage à persévérer.</li>
+                <li>Collaboration avec les parents: Il communique régulièrement avec les parents pour les informer des progrès de leurs enfants.</li>
+                <li>Participation à la vie de l'école: Il participe aux réunions et aux projets pédagogiques de l'école. </li>
+                </span>
+                <br><br>
+                <span class="compétences">
+                    Compétences requises: 
+                    <li>Maîtrise approfondie de la langue et de la littérature française</li>
+                    <li>Aptitude pédagogique et capacité à transmettre des connaissances</li>
+                    <li>Goût du contact humain et patience</li>
+                    <li>Capacité à travailler en équipe et à collaborer avec les parents</li>
+                    <li>Rigueur et organisation</li>
+                </span>
+                <br><br>
+                <span class="salaire">
+                    Salaire indicatif:
+                    Le salaire d'un enseignant de langue et littérature varie en fonction de son expérience, de son niveau de qualification et de l'institution dans laquelle il travaille. En moyenne, un enseignant débutant peut espérer un salaire mensuel d'environ 100 000 FCFA.
+                </span>
+            </span>
+            <br><br><br>
+        </div>
+        <div id="EcoleFormation">
+            <span></span> <img src="../../assets/pseudo.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Ou se former?</strong> <br>
+            <hr> 
+            <span class="ecole formation">
+                Ecoles de formation au Cameroun: <br><br>
+                <li>Université de Yaoundé I: Licence et Master en Lettres Modernes, Anglais, Espagnol</li>
+                <li>Université de Buea: Licence et Master en Lettres Modernes, Anglais</li>
+                <li>Université de Ngaoundéré: Licence et Master en Lettres Modernes</li>
+                <li>Ecole Normale Supérieure de Yaoundé: Licence et Master en Education</li>
+                <li>Ecole Normale Supérieure de Bambili: Licence et Master en Education</li>
+            </span>
+             <br><br><br>
+        </div>
+
+         <div id="Entreprise">
+            <span></span> <img src="../../assets/pseudo.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Qui recherche ce profil?</strong> <br>
+            <hr> 
+            <span class="ecole formation">
+                Ecoles de formation au Cameroun: <br><br>
+                <li>Ministère de l'Education de Base: Ecoles primaires et secondaires publiques</li>
+                <li>Ministère des Enseignements Secondaires: Lycées et collèges publics</li>
+                <li>Etablissements scolaires privés: Ecoles primaires, secondaires et lycées privés</li>
+                <li>Centres de formation en langues: Centres de langues privés et associations</li>
+            </span>
+        </div>
+
+    </div>
+</div>
+<app-footer></app-footer>

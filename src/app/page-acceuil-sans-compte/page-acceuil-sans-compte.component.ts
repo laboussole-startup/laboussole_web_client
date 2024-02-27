@@ -22,4 +22,7 @@ export class PageAcceuilSansCompteComponent {
     this.isMenuIconClicked = !this.isMenuIconClicked;
     this.isMenuIconClosed = !this.isMenuIconClosed;
   }
+  formVar(temp: HTMLAnchorElement){
+    console.log(temp);
+  }
 }
