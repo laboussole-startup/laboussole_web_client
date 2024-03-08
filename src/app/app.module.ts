@@ -86,7 +86,8 @@ import { DetailBourseEtudeComponent } from './detail-bourse-etude/detail-bourse-
     AdminVoyagesEtudesInfoPanelComponent,
     DetailBourseEtudeComponent,
     DetailOffreFormationComponent,
-    OffreFormationBoxComponent 
+    OffreFormationBoxComponent,
+    OffreEtudesComponent
   ],
   imports: [
     BrowserModule,
