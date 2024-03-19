@@ -6,10 +6,11 @@ import { Injectable } from '@angular/core';
 })
 export class OffreFormationService {
   constructor(private http: HttpClient) {}
-  url = 'https://dummyjson.com';
+  // url = 'https://dummyjson.com';
+  url = 'http://85.31.233.159';
 
   getFormations() {
-    return this.http.get(this.url + '/products');
+    return this.http.get(this.url + '/metiers/');
   }
   getFormation() {
     return [

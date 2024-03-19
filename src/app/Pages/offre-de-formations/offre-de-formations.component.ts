@@ -29,16 +29,17 @@ export class OffreDeFormationsComponent {
 
     // console.log(this.mobile);
   }
-  
+
   ngOnInit() {
     this.getScreenWidth = window.innerWidth;
     // this.getScreenWidth <= 480? this.mobile = true : this.mobile = false;
 
-    // this.service.getFormations().subscribe((data: any) => {
-    //   this.formations = data.products;
-    //   console.log(this.formations);
-    // });
-    this.formations = this.service.getFormation();
+    this.service.getFormations().subscribe((data: any) => {
+      console.log(data);
+      // this.formations = data;
+      // console.log(this.formations);
+    });
+    // this.formations = this.service.getFormation();
   }
 
   toggleMenu() {

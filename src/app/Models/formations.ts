@@ -1,8 +1,11 @@
 export class Formations {
   constructor(
-    public image: string,
+    public image_url: string,
+    public competencescles: string,
+    public salairemoyen: string,
+    public entreprisesrecrutent: string,
     // public thumbnail: string,
-    public title: string,
+    public nom: string,
     public description: string
   ) {}
 }

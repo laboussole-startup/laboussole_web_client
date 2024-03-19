@@ -40,7 +40,7 @@ export class OffreEtudesComponent {
     //   this.formations = data.products;
     //   console.log(this.formations);
     // });
-    this.formations = this.service.getEtudes();
+    // this.formations = this.service.getEtudes();
   }
 
   toggleMenu() {
