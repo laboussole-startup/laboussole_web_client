@@ -45,20 +45,37 @@ $speed: 0.4s;
     padding: 5px;
     border-radius: 5px;
 }
-@media screen and (min-width:900px) {
+@media screen and (min-width:900px) and (max-width:1049px){
     .navFlexContainerTabletDesktop{
         width: 100%;
         display: grid;
-        grid-template-columns: 1fr 1fr 2fr 2fr 2fr 3fr 3fr 1fr 2fr 1fr 2fr 2fr 1fr;
+        grid-template-columns: 1fr 1fr 2fr 1fr 2fr 2fr 2fr 1fr 2fr 1fr 2fr 2fr 1fr;
         grid-template-rows: 100px;
         align-content: center;
-        font-size: 0.9rem;
+        font-size: 0.5rem;
         color:#757575;
         font-weight: 600;
         grid-template-areas: ". l . n1 n2 n3 n4 . s . su lo .";
         background-color: white;
         grid-gap:1px;
     }
+}
+@media screen and (min-width:1050px){
+  .navFlexContainerTabletDesktop{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 2fr 2fr 3fr 3fr 1fr 2fr 1fr 2fr 2fr 1fr;
+    grid-template-rows: 100px;
+    align-content: center;
+    font-size: 0.9rem;
+    color:#757575;
+    font-weight: 600;
+    grid-template-areas: ". l . n1 n2 n3 n4 . s . su lo .";
+    background-color: white;
+    grid-gap:1px;
+}
+}
+@media screen and (min-width:900px) {
     .nav-item{
       margin-left: 5px;
       
@@ -75,10 +92,12 @@ $speed: 0.4s;
       grid-area: n1;
       align-self: center;
       text-align: end;
+      text-align: center;
     }
     .services{
       grid-area: n2;
       align-self: center;
+      text-align: center;
     }
     .apropos{
       grid-area: n3;
@@ -103,11 +122,13 @@ $speed: 0.4s;
       padding-left:3px;
     }
 
-    .searchInput:focus{
+    .searchInput:focus,.searchInput:focus-visible{
       border:0.3px solid #0F70B7;
+      outline-color: #0F70B7;
     }
     .searchInput:active{
       border:0.3px solid #0F70B7;
+      outline-color: #0F70B7;
     }
 
     .signupBtn{

@@ -8,6 +8,9 @@
   grid-template-rows: 1fr auto;
 
 }
+.contentROP{
+  background-color: #E5E2E2;
+}
 
 .welcomeText {
   grid-column: 2/3;
@@ -127,6 +130,7 @@
   text-align: justify;
   font-size: 0.8rem;
   margin-bottom: 15px;
+  color: #696984;
 }
 
 .temoignages{

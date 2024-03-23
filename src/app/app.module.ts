@@ -30,6 +30,8 @@ import { CdkMenu, CdkMenuItem, CdkMenuTrigger } from '@angular/cdk/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import {MatListModule} from '@angular/material/list';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { MotDePasseOublieComponent } from './mot-de-passe-oublie/mot-de-passe-oublie.component';
 import { PageAdminComponent } from './page-admin/page-admin.component';
@@ -51,7 +53,11 @@ import { AdminVoyagesEtudesInfoPanelComponent } from './admin-voyages-etudes-inf
 import { OffreEtudesComponent } from './Pages/offre-etudes/offre-etudes.component';
 import { OffreFormationBoxComponent } from './Pages/card-offre-formation/offre-formation-box.component';;
 import { DetailOffreFormationComponent } from './detail-offre-formation/detail-offre-formation.component';
-import { DetailBourseEtudeComponent } from './detail-bourse-etude/detail-bourse-etude.component'
+import { DetailBourseEtudeComponent } from './detail-bourse-etude/detail-bourse-etude.component';
+import { SignupResponseComponent } from './signup-response/signup-response.component';
+import { SignupErrorComponent } from './signup-error/signup-error.component';
+import { CentreInteretsComponent } from './centre-interets/centre-interets.component';
+import { CentreInteretBoxComponent } from './centre-interet-box/centre-interet-box.component'
 
 @NgModule({
   declarations: [
@@ -87,7 +93,11 @@ import { DetailBourseEtudeComponent } from './detail-bourse-etude/detail-bourse-
     DetailBourseEtudeComponent,
     DetailOffreFormationComponent,
     OffreFormationBoxComponent,
-    OffreEtudesComponent
+    OffreEtudesComponent,
+    SignupResponseComponent,
+    SignupErrorComponent,
+    CentreInteretsComponent,
+    CentreInteretBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -107,6 +117,8 @@ import { DetailBourseEtudeComponent } from './detail-bourse-etude/detail-bourse-
     MatButtonModule,
     MatMenuModule,
     HttpClientModule,
+    MatListModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

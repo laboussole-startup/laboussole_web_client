@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import { Temoignage } from '../Models/temoignage';
+import { TemoignageService } from '../services/temoignage.service';
 
 @Component({
   selector: 'app-page-acceuil-sans-compte',
@@ -7,6 +9,24 @@ import { Component } from '@angular/core';
 })
 
 export class PageAcceuilSansCompteComponent {
+
+  temoignages!: Array<Temoignage>;
+  temoignages2!:Array<any>;
+
+  currentTemoignageNumber:number=0;
+
+  constructor(private TemoignageService:TemoignageService){
+    this.temoignages = this.TemoignageService.list_temoignages;
+    console.log(this.temoignages)
+  }
+
+  ngOnInit(): void {
+    this.TemoignageService.getTemoignages().subscribe(data => {
+      console.log(data);
+      this.temoignages2 = data;
+    });
+  }
+
   isMenuIconClicked = false;
   isMenuIconClosed = true;
   showSearchBar = false;
@@ -24,5 +44,13 @@ export class PageAcceuilSansCompteComponent {
   }
   formVar(temp: HTMLAnchorElement){
     console.log(temp);
+  }
+  nextTemoignage(){
+    this.currentTemoignageNumber = (this.currentTemoignageNumber+1)%this.temoignages.length
+  }
+
+  prevTemoignage(){
+    this.currentTemoignageNumber = this.currentTemoignageNumber==0? this.temoignages.length:this.currentTemoignageNumber-1
+    this.currentTemoignageNumber = this.currentTemoignageNumber%4
   }
 }
