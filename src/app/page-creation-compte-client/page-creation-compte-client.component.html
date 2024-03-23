@@ -55,10 +55,18 @@
                 les conditions générales et la politique de  confidentialité</div>
         </div>
         <div class="centerContainer">
-            <div class="btnContinue" (click)="creerCompte()">Créer</div>
+            <div class="btnContinue" (click)="verifierCreerCompte()">Créer</div>
             <div class="text" style="width:70%;">  <hr > Or <hr> </div>
             <div class="googleLogin"> <img src="../../assets/icons8-google.svg"  style="margin-right: 2%;"> Login With Google</div>
         </div>
         
     </div>
 </div>
+<ng-template #errorSheet>
+  <div class="sheetContent">
+    {{sheetErrorMessage}}
+     <br/><br/>
+     <button mat-raised-button (click)="closeBottomSheet()" style="background-color: red;color:white;">ok</button>
+  </div>
+  
+</ng-template>
