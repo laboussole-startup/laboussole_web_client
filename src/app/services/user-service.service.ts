@@ -7,9 +7,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class UserServiceService {
 
-  private root_url: string = 'http://laboussole-edu.com:8000/auth/signup/';
+  private root_url: string = 'https://aristideabeng.pythonanywhere.com/auth/signup/';
 
-  private login_url: string = 'http://laboussole-edu.com:8000/auth/jwt/create/';
+  private login_url: string = 'https://aristideabeng.pythonanywhere.com/auth/jwt/create/';
 
   public user_email:string = "";
 
@@ -43,7 +43,7 @@ export class UserServiceService {
       formData.append('serie', serie);
       formData.append('telephone', telephone);
       formData.append('niveau', niveau);
-      formData.append('centre_interets',"allez en brousse avec ca");
+      formData.append('centres_interet',"allez en brousse avec ca");
       formData.append('is_staff', "false");
       formData.append('is_superuser', "false");
       formData.append('is_active', "true");
@@ -83,7 +83,7 @@ export class UserServiceService {
   }
 
   updateCentreInterets(ci:Array<Number>){
-    let update_url:string = 'http://laboussole-edu.com:8000/auth/'+this.user_email+'/';
+    let update_url:string = 'https://aristideabeng.pythonanywhere.com/auth/'+this.user_email+'/';
     let centres = ci.join("|");
     return this.httpClient.put(update_url,{
       "centre_interets":centres

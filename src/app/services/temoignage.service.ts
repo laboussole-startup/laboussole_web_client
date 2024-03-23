@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class TemoignageService {
 
-  private root_url:string='http://laboussole-edu.com:8000/temoignages/';
+  private root_url:string='https://aristideabeng.pythonanywhere.com/temoignages/';
   private view_Url:string='';
 
 

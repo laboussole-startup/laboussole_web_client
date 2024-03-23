@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class CentreInteretsService {
 
-  private root_url:string='http://laboussole-edu.com:8000/centres_interet/';
+  private root_url:string='https://aristideabeng.pythonanywhere.com/centres_interet/';
   constructor(private httpClient: HttpClient) {
 
    }
