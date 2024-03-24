@@ -134,7 +134,7 @@
           <app-offre-formation-box
             routerLink="../detail-bourses-etudes"
             *ngIf="i <= 4"
-            [formationBox]="formation"
+            formationBox]="formation"
           ></app-offre-formation-box>
         </div>
       </div>
@@ -145,7 +145,7 @@
         <div *ngFor="let formation of formations; index as i">
           <app-offre-formation-box
             *ngIf="i <= 2"
-            [formationBox]="formation"
+            [metierBox]="formation"
           ></app-offre-formation-box>
         </div>
       </div>

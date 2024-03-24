@@ -7,10 +7,16 @@ import { Injectable } from '@angular/core';
 export class OffreFormationService {
   constructor(private http: HttpClient) {}
   // url = 'https://dummyjson.com';
-  url = 'http://85.31.233.159';
+  url = 'http://laboussole-edu.com:8000';
 
   getFormations() {
     return this.http.get(this.url + '/metiers/');
+  }
+  getMetierDetails(id: any){
+    return this.http.get(this.url + '/metiers/' + id + '/' )
+  }
+  getFilieres(){
+    return this.http.get(this.url + '/filieres')
   }
   getFormation() {
     return [

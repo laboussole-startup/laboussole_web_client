@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MotDePasseOublieComponent } from './mot-de-passe-oublie/mot-de-passe-oublie.component';
 import { PageAcceuilAdminComponent } from './page-acceuil-admin/page-acceuil-admin.component';
@@ -10,6 +10,8 @@ import { OffreDeFormationsComponent } from './Pages/offre-de-formations/offre-de
 import { OffreEtudesComponent } from './Pages/offre-etudes/offre-etudes.component';
 import { DetailOffreFormationComponent } from './detail-offre-formation/detail-offre-formation.component';
 import { DetailBourseEtudeComponent } from './detail-bourse-etude/detail-bourse-etude.component';
+import { FormationsComponent } from './Pages/formations/formations.component';
+import { DetailsFilieresComponent } from './Pages/details-filieres/details-filieres.component';
 
 const routes: Routes = [
   { path: '', component: PageAcceuilSansCompteComponent },
@@ -17,10 +19,13 @@ const routes: Routes = [
   { path: 'signup', component: PageInscriptionComponent },
   { path: 'motDePasseOublie', component: MotDePasseOublieComponent },
   { path: 'admin', component: PageAcceuilAdminComponent },
-  { path: 'formation', component: OffreDeFormationsComponent },
+  { path: 'metiers', component: OffreDeFormationsComponent },
+  {path:'metiers/:id_metiers', component: DetailOffreFormationComponent},
+  { path: 'formations', component: FormationsComponent},
   { path: 'etudes', component: OffreEtudesComponent },
-  { path: 'detail-offre-formation', component: DetailOffreFormationComponent },
   { path: 'detail-bourses-etudes', component: DetailBourseEtudeComponent },
+  {path: 'formations/:faculte_id', component: DetailsFilieresComponent}
+  
 ];
 
 @NgModule({

@@ -1,14 +1,14 @@
 import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Metier } from 'src/app/Models/metier';
+import { FiliereFormation } from 'src/app/Models/filiere-formation';
 import { OffreFormationService } from 'src/app/services/offre-formation.service';
 
 @Component({
-  selector: 'app-offre-de-formations',
-  templateUrl: './offre-de-formations.component.html',
-  styleUrls: ['./offre-de-formations.component.scss'],
+  selector: 'app-formations',
+  templateUrl: './formations.component.html',
+  styleUrls: ['./formations.component.scss'],
 })
-export class OffreDeFormationsComponent {
+export class FormationsComponent {
   constructor(
     private service: OffreFormationService,
     private router: Router,
@@ -19,7 +19,7 @@ export class OffreDeFormationsComponent {
   isMenuIconClosed = true;
   showSearchBar = false;
   // formation!: Formations[];
-  metiers!: Metier[];
+  formations!: FiliereFormation[];
   // formations: any;
   showSideBar = false;
 
@@ -39,16 +39,16 @@ export class OffreDeFormationsComponent {
     this.getScreenWidth = window.innerWidth;
     // this.getScreenWidth <= 480? this.mobile = true : this.mobile = false;
 
-    this.service.getFormations().subscribe((data: any) => {
+    this.service.getFilieres().subscribe((data: any) => {
       console.log(data);
-      this.metiers = data;
+      this.formations = data;
       // console.log(this.formations);
     });
     // this.formations = this.service.getFormation();
   }
 
-  navigateToDetails(itemId: string) {
-    this.router.navigate(['/metiers', itemId]); // Navigate to details route with item ID
+  navigateToDetails(itemId: number) {
+    this.router.navigate(['/formations', itemId]); // Navigate to details route with item ID
   }
 
   toggleMenu() {

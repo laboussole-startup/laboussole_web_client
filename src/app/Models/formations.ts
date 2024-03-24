@@ -4,7 +4,6 @@ export class Formations {
     public competencescles: string,
     public salairemoyen: string,
     public entreprisesrecrutent: string,
-    // public thumbnail: string,
     public nom: string,
     public description: string
   ) {}
