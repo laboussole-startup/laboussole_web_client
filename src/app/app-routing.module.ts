@@ -19,7 +19,7 @@ import { SignupResponseComponent } from './signup-response/signup-response.compo
 const routes: Routes = [
   { path: '', component: PageAcceuilSansCompteComponent },
   { path: 'login', component: PageConnexionClientComponent },
-  { path: 'signup', component: PageInscriptionComponent },
+  { path: 'signup', component: PageCreationCompteClientComponent },
   { path: 'motDePasseOublie', component: MotDePasseOublieComponent },
   { path: 'admin', component: PageAcceuilAdminComponent },
   { path: 'metiers', component: OffreDeFormationsComponent },
