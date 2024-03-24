@@ -78,6 +78,7 @@
     padding: 16px;
     .recommendations-text {
       display: flex;
+      // justify-content: center;
       justify-content: space-between;
       h2 {
         // margin-top: 24px;
@@ -86,7 +87,7 @@
       }
       .all {
         text-decoration: none;
-        padding: 16px;
+        padding: 16px; 
         border: 1px solid #0f70b7;
         border-radius: 24px;
         color: #0f70b7;
@@ -97,8 +98,8 @@
       margin: 32px 0px;
       display: flex;
       flex-flow: row wrap;
-      justify-content: space-evenly;
-      // align-items: center;
+      // justify-content: space-evenly;
+      justify-content: center;
       // flex-wrap: wrap;
       gap: 32px;
     }

@@ -1,4 +1,3 @@
-<!--
 <div class="menuPage" *ngIf="isMenuIconClicked">
   <app-nav-mobile-page (menuIconClicked)="toggleMenu()"></app-nav-mobile-page>
 </div>
@@ -7,7 +6,6 @@
     (menuIconClosed)="toggleMenu()"
   ></app-nav-mobile-header>
 
- 
   <div class="container">
     <div class="search-formation">
       <div class="search-bar">
@@ -125,16 +123,19 @@
         </div>
       </div>
     </div>
+
+    <!-- content -->
+
     <div class="formation-content">
       <div class="recommendations-text">
         <h2>Recommandations</h2>
         <a href="" class="all">Voir tout</a>
       </div>
       <div class="recommendations">
-        <div *ngFor="let formation of formations; index as i">
-          <app-offre-formation-box
+        <div *ngFor="let metier of metiers; index as i">
+          <app-offre-formation-box (click)="navigateToDetails(metier.id_metiers)"
             *ngIf="i <= 4"
-            [formationBox]="formation"
+            [metierBox]="metier"
           ></app-offre-formation-box>
         </div>
       </div>
@@ -142,10 +143,10 @@
         <h2>Plus Populaires</h2>
       </div>
       <div class="recommendations">
-        <div *ngFor="let formation of formations; index as i">
+        <div *ngFor="let metier of metiers; index as i">
           <app-offre-formation-box
             *ngIf="i <= 2"
-            [formationBox]="formation"
+            [metierBox]="metier" (click)="navigateToDetails(metier.id_metiers)"
           ></app-offre-formation-box>
         </div>
       </div>
@@ -153,10 +154,10 @@
         <h2>Plus Populaires</h2>
       </div>
       <div class="recommendations">
-        <div *ngFor="let formation of formations; index as i">
+        <div *ngFor="let metier of metiers; index as i">
           <app-offre-formation-box
             *ngIf="i <= 2"
-            [formationBox]="formation"
+            [metierBox]="metier" (click)="navigateToDetails(metier.id_metiers)"
           ></app-offre-formation-box>
         </div>
       </div>
@@ -164,7 +165,3 @@
     <app-footer></app-footer>
   </div>
 </div>
-
-  
--->
-

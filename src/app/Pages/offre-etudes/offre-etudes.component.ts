@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { Formations } from 'src/app/Models/formations';
+import { Metier } from 'src/app/Models/metier';
 import { OffreFormationService } from 'src/app/services/offre-formation.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class OffreEtudesComponent {
   isMenuIconClosed = true;
   showSearchBar = false;
   // formation!: Formations[];
-  formations!: Formations[];
+  formations!: Metier[];
   // formations: any;
   showSideBar = false;
 
@@ -40,7 +41,7 @@ export class OffreEtudesComponent {
     //   this.formations = data.products;
     //   console.log(this.formations);
     // });
-    this.formations = this.service.getEtudes();
+    // this.formations = this.service.getEtudes();
   }
 
   toggleMenu() {

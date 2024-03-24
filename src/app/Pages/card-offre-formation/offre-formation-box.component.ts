@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Formations } from 'src/app/Models/formations';
+import { Metier } from 'src/app/Models/metier';
 
 @Component({
   selector: 'app-offre-formation-box',
@@ -8,5 +8,5 @@ import { Formations } from 'src/app/Models/formations';
 })
 export class OffreFormationBoxComponent {
 
-  @Input() formationBox!: Formations;
+  @Input() metierBox!: Metier;
 }

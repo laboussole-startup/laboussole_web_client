@@ -1,29 +1,24 @@
-
 .conteneur {
-    
-    padding-top: 30px;
-    padding-bottom: 30px;
-    background-color: #0F70B7;
-    margin: 0;
-    width: 100vw;
-    height: 100vh;
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Poppins';
-
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #0f70b7;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins";
 }
-a{
-  color: #2DAAE1;
+a {
+  color: #2daae1;
 }
-.row1{
-    
+.row1 {
   color: white;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   margin-bottom: 2%;
-  
 }
 @media (max-width: 500px) {
   form {
@@ -32,17 +27,16 @@ a{
     margin: 0 auto;
     background-color: white;
     padding: 10px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
-  
+
   .row {
-    
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
     height: max-content;
     margin-top: 10px;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
 }
 
@@ -51,19 +45,18 @@ a{
     width: 90%;
     max-width: 450px;
   }
-  .row1{
+  .row1 {
     max-width: 200px;
   }
 }
 
 @media (min-width: 901px) and (max-width: 1400px) {
-  .conteneur{
+  .conteneur {
     display: flex;
     background-color: white;
     padding: 0;
     margin: 0;
     height: max-content;
-    
   }
 
   form {
@@ -71,31 +64,26 @@ a{
     max-width: 500px;
     background-color: white;
     margin-top: 3%;
-    margin-bottom:3%;
-
-
-    
+    margin-bottom: 3%;
   }
-  .row1{
-    background-color: #0F70B7;
+  .row1 {
+    background-color: #0f70b7;
     width: 30%;
     height: 110vh;
     margin: 0;
     text-align: center;
     padding: 50px;
     display: flex;
-      flex-flow: column nowrap;
-      justify-content: center;
-      align-items: center;
-      
-    
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
   }
   @media (max-width: 500px) {
     form {
       width: 90%;
       max-width: 300px;
     }
-    .row1{
+    .row1 {
       visibility: hidden;
     }
   }
@@ -105,45 +93,38 @@ a{
       width: 90%;
       max-width: 450px;
     }
-    .row1{
+    .row1 {
       max-width: 200px;
     }
   }
 
   @media (min-width: 901px) and (max-width: 1400px) {
-    .conteneur{
+    .conteneur {
       display: flex;
       background-color: white;
       padding: 0;
       margin: 0;
       height: max-content;
-      
     }
-  
+
     form {
       width: 80%;
       max-width: 500px;
       background-color: white;
       margin-top: 3%;
-      margin-bottom:3%;
-
-
-      
+      margin-bottom: 3%;
     }
-    .row1{
-      background-color: #0F70B7;
+    .row1 {
+      background-color: #0f70b7;
       width: 30%;
       height: 110vh;
       margin: 0;
       text-align: center;
       padding: 50px;
       display: flex;
-        flex-flow: column nowrap;
-        justify-content: center;
-        align-items: center;
-        
-      
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
     }
-    
   }
 }

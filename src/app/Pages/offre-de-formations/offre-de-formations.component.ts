@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
-import { Formations } from 'src/app/Models/formations';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Metier } from 'src/app/Models/metier';
 import { OffreFormationService } from 'src/app/services/offre-formation.service';
 
 @Component({
@@ -8,13 +9,17 @@ import { OffreFormationService } from 'src/app/services/offre-formation.service'
   styleUrls: ['./offre-de-formations.component.scss'],
 })
 export class OffreDeFormationsComponent {
-  constructor(private service: OffreFormationService) {}
+  constructor(
+    private service: OffreFormationService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   isMenuIconClicked = false;
   isMenuIconClosed = true;
   showSearchBar = false;
   // formation!: Formations[];
-  formations!: Formations[];
+  metiers!: Metier[];
   // formations: any;
   showSideBar = false;
 
@@ -29,16 +34,21 @@ export class OffreDeFormationsComponent {
 
     // console.log(this.mobile);
   }
-  
+
   ngOnInit() {
     this.getScreenWidth = window.innerWidth;
     // this.getScreenWidth <= 480? this.mobile = true : this.mobile = false;
 
-    // this.service.getFormations().subscribe((data: any) => {
-    //   this.formations = data.products;
-    //   console.log(this.formations);
-    // });
-    this.formations = this.service.getFormation();
+    this.service.getFormations().subscribe((data: any) => {
+      console.log(data);
+      this.metiers = data;
+      // console.log(this.formations);
+    });
+    // this.formations = this.service.getFormation();
+  }
+
+  navigateToDetails(itemId: string) {
+    this.router.navigate(['/metiers', itemId]); // Navigate to details route with item ID
   }
 
   toggleMenu() {
