@@ -4,33 +4,49 @@
         <div class="ltext2">Nous sommes ravis de te revoir</div>
     </div>
     <div class="loginForm">
-        <div class="welcomeText" >Welcome Back</div>
-        <div class="loginMessage">Log into your Account</div>
+        <div class="welcomeText" >Content de te revoir</div>
+        <div class="loginMessage">Connecte-toi</div>
+        
+        
         <div class="emailInput">
             <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label>
-                <input matInput >
-              </mat-form-field>
+                <input matInput
+                    placeholder="pat@example.com"
+                    [formControl]="emailControl"
+                    required
+                >
+                <mat-error *ngIf="emailControl.invalid">{{errorMessage}}</mat-error>
+            </mat-form-field>
         </div>
         <div class="passwordInput">
             <mat-form-field appearance="outline">
                 <mat-label>Password</mat-label>
-                <input matInput  [type]="hide ? 'password' : 'text'">
+                <input matInput [formControl]="passwordControl"
+                 [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
-              </mat-form-field>
+            </mat-form-field>
         </div>
         <div class="options">
             <div class="rememberMe" > <input type="checkbox" name="" id="" > Remember me</div>
             <div class="forgotPass" routerLink="/motDePasseOublie" > ForgotPassword?</div>
         </div>
         <div class="centerContainer">
-            <div class="btnContinue">Continue</div>
+            <div class="btnContinue" (click)="checkLogin()">Connexion</div>
             <div class="text" style="width:70%;">  <hr > Or <hr> </div>
             <div class="googleLogin"> <img src="../../assets/icons8-google.svg"  style="margin-right: 2%;"> Login With Google</div>
-            <div class="Signup">New User? <span style="color:#0F70B7;font-weight: 900;">SIGNUP HERE</span> </div>
+            <div class="Signup">New User? <span style="color:#0F70B7;font-weight: 900;" routerLink="/signup">SIGNUP HERE</span> </div>
         </div>
         
     </div>
 </div>
+<ng-template #errorSheet>
+    <div class="sheetContent">
+      {{sheetErrorMessage}}
+       <br/><br/>
+       <button mat-raised-button (click)="closeBottomSheet()" style="background-color: red;color:white;">ok</button>
+    </div>
+    
+  </ng-template>
