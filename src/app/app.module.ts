@@ -102,7 +102,7 @@ import { CentreInteretBoxComponent } from './centre-interet-box/centre-interet-b
     OffreEtudesComponent,
     FormationsComponent,
     FiliereFormationBoxComponent,
-    DetailsFilieresComponent
+    DetailsFilieresComponent,
     SignupResponseComponent,
     SignupErrorComponent,
     CentreInteretsComponent,
