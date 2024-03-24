@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="leftMessageBox">
+        <div class="ltext1">Ma personne, nous sommes ravi de t’accueillir parmi nous...</div>
+        <div class="ltext2">Nous comprenons que choisir une orientation académique et professionnelle est une etape
+            importante de ta vie, et nous sommes là pour te guider tout au long de ce processus. </div>
+ 
+    </div>
+    <div class="loginForm">
+      <div class="centresInteret">
+        <app-centre-interet-box *ngFor="let centre of getSubArray(this.All_Centres,this.start,this.start+10)"  [id]="centre.id" [text_val]="centre.nom" (eventEmitter)="saveChoice($event)"></app-centre-interet-box>
+      </div>
+      <div class="buttons">
+        <button mat-raised-button color="green" (click)="terminateProcess()" style="background-color: #DEDEDE;">terminer</button>
+        <button mat-raised-button color="green" [disabled]="disablebtn" (click)="start=start+10" style="margin-left:20px;background-color:#0F70B7;color:white;">suivant</button>
+      </div>
+    </div>
+</div>
+

@@ -30,6 +30,10 @@ import { CdkMenu, CdkMenuItem, CdkMenuTrigger } from '@angular/cdk/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import {MatListModule} from '@angular/material/list';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MAT_BOTTOM_SHEET_DEFAULT_OPTIONS } from '@angular/material/bottom-sheet';
 
 import { MotDePasseOublieComponent } from './mot-de-passe-oublie/mot-de-passe-oublie.component';
 import { PageAdminComponent } from './page-admin/page-admin.component';
@@ -52,9 +56,16 @@ import { OffreEtudesComponent } from './Pages/offre-etudes/offre-etudes.componen
 import { OffreFormationBoxComponent } from './Pages/card-offre-formation/offre-formation-box.component';
 import { DetailOffreFormationComponent } from './detail-offre-formation/detail-offre-formation.component';
 import { DetailBourseEtudeComponent } from './detail-bourse-etude/detail-bourse-etude.component';
+<<<<<<< HEAD
 import { FormationsComponent } from './Pages/formations/formations.component';
 import { FiliereFormationBoxComponent } from './Pages/filiere-formation-box/filiere-formation-box.component';
 import { DetailsFilieresComponent } from './Pages/details-filieres/details-filieres.component';
+=======
+import { SignupResponseComponent } from './signup-response/signup-response.component';
+import { SignupErrorComponent } from './signup-error/signup-error.component';
+import { CentreInteretsComponent } from './centre-interets/centre-interets.component';
+import { CentreInteretBoxComponent } from './centre-interet-box/centre-interet-box.component'
+>>>>>>> upstream/main
 
 @NgModule({
   declarations: [
@@ -91,9 +102,16 @@ import { DetailsFilieresComponent } from './Pages/details-filieres/details-filie
     DetailOffreFormationComponent,
     OffreFormationBoxComponent,
     OffreEtudesComponent,
+<<<<<<< HEAD
     FormationsComponent,
     FiliereFormationBoxComponent,
     DetailsFilieresComponent
+=======
+    SignupResponseComponent,
+    SignupErrorComponent,
+    CentreInteretsComponent,
+    CentreInteretBoxComponent
+>>>>>>> upstream/main
   ],
   imports: [
     BrowserModule,
@@ -113,6 +131,9 @@ import { DetailsFilieresComponent } from './Pages/details-filieres/details-filie
     MatButtonModule,
     MatMenuModule,
     HttpClientModule,
+    MatListModule,
+    ReactiveFormsModule,
+    MatBottomSheetModule
   ],
   providers: [],
   bootstrap: [AppComponent],

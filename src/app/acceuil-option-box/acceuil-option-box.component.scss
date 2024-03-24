@@ -10,6 +10,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    
   }
 
   .rounded-box:hover{
@@ -19,6 +20,7 @@
   .description{
     padding: 10px;
     text-align: center;
+    color: #696984;
   }
 
   .title{
@@ -26,9 +28,6 @@
     color:#0F70B7;
     font-size: large;
     font-weight: 700;
-  }
-  .description{
-    color: black;
   }
   .imageIcon{
     position: relative;
