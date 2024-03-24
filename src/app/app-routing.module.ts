@@ -1,4 +1,4 @@
- import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CentreInteretsComponent } from './centre-interets/centre-interets.component';
 import { MotDePasseOublieComponent } from './mot-de-passe-oublie/mot-de-passe-oublie.component';
@@ -16,7 +16,6 @@ import { FormationsComponent } from './Pages/formations/formations.component';
 import { DetailsFilieresComponent } from './Pages/details-filieres/details-filieres.component';
 import { SignupErrorComponent } from './signup-error/signup-error.component';
 import { SignupResponseComponent } from './signup-response/signup-response.component';
-
 const routes: Routes = [
   { path: '', component: PageAcceuilSansCompteComponent },
   { path: 'login', component: PageConnexionClientComponent },
@@ -24,16 +23,14 @@ const routes: Routes = [
   { path: 'motDePasseOublie', component: MotDePasseOublieComponent },
   { path: 'admin', component: PageAcceuilAdminComponent },
   { path: 'metiers', component: OffreDeFormationsComponent },
-  {path:'metiers/:id_metiers', component: DetailOffreFormationComponent},
-  { path: 'formations', component: FormationsComponent},
+  { path: 'metiers/:id_metiers', component: DetailOffreFormationComponent },
+  { path: 'formations', component: FormationsComponent },
   { path: 'etudes', component: OffreEtudesComponent },
   { path: 'detail-bourses-etudes', component: DetailBourseEtudeComponent },
-  {path: 'formations/:faculte_id', component: DetailsFilieresComponent},
-  {path: 'signup-success',component:SignupResponseComponent},
-  {path: 'signup-error',component:SignupErrorComponent},
-  {path:'centres-interets',component:CentreInteretsComponent}
-
-
+  { path: 'formations/:faculte_id', component: DetailsFilieresComponent },
+  { path: 'signup-success', component: SignupResponseComponent },
+  { path: 'signup-error', component: SignupErrorComponent },
+  { path: 'centres-interets', component: CentreInteretsComponent },
 ];
 
 @NgModule({
