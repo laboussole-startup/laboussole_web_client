@@ -56,16 +56,14 @@ import { OffreEtudesComponent } from './Pages/offre-etudes/offre-etudes.componen
 import { OffreFormationBoxComponent } from './Pages/card-offre-formation/offre-formation-box.component';
 import { DetailOffreFormationComponent } from './detail-offre-formation/detail-offre-formation.component';
 import { DetailBourseEtudeComponent } from './detail-bourse-etude/detail-bourse-etude.component';
-<<<<<<< HEAD
 import { FormationsComponent } from './Pages/formations/formations.component';
 import { FiliereFormationBoxComponent } from './Pages/filiere-formation-box/filiere-formation-box.component';
 import { DetailsFilieresComponent } from './Pages/details-filieres/details-filieres.component';
-=======
 import { SignupResponseComponent } from './signup-response/signup-response.component';
 import { SignupErrorComponent } from './signup-error/signup-error.component';
 import { CentreInteretsComponent } from './centre-interets/centre-interets.component';
 import { CentreInteretBoxComponent } from './centre-interet-box/centre-interet-box.component'
->>>>>>> upstream/main
+
 
 @NgModule({
   declarations: [
@@ -102,16 +100,13 @@ import { CentreInteretBoxComponent } from './centre-interet-box/centre-interet-b
     DetailOffreFormationComponent,
     OffreFormationBoxComponent,
     OffreEtudesComponent,
-<<<<<<< HEAD
     FormationsComponent,
     FiliereFormationBoxComponent,
-    DetailsFilieresComponent
-=======
+    DetailsFilieresComponent,
     SignupResponseComponent,
     SignupErrorComponent,
     CentreInteretsComponent,
     CentreInteretBoxComponent
->>>>>>> upstream/main
   ],
   imports: [
     BrowserModule,

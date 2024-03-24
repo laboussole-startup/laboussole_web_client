@@ -16,6 +16,80 @@
           LABOUSSOLE te permettra de trouver le métier qui correspond à tes
           attentes et de te former dans les métiers du numérique.
         </div>
+<!-- <<<<<<< main -->
+<!--       </div> -->
+<!--       <div class="imageAcceuil">
+        <img src="../../assets/imageAcceuilLBS.png" alt="" />
+      </div> -->
+<!--     </div> -->
+<!--     <div class="mainMessageBox">
+      <div class="title-1">Nous t’accompagnons vers la reussite</div>
+      <div class="content-text">
+        Nous te proposons une orientation académique et professionnelle qui
+        correspond parfaitement à tes centres d’intérêts et à tes compétences
+        afin d’avoir une insertion socio-professionnelle réussite et nous te
+        formons dans les métiers du numérque pour saisir l’opportunité du
+        télétravail.
+      </div>
+    </div> -->
+<!--   </div> -->
+<!--   <div class="optionsList">
+    <app-acceuil-option-box
+      class="metier"
+      [title]="'Metiers'"
+      [description]="description_Metier"
+      [icon_name]="'direction board.png'"
+      [color]="'#5B72EE'"
+      routerLink="metiers"
+    >
+    </app-acceuil-option-box> -->
+
+<!--     <app-acceuil-option-box
+      class="bourse"
+      [title]="'Bourses D\'etudes'"
+      [description]="description_Bourses"
+      [icon_name]="'mortarboard.png'"
+      [color]="'#F48C06'"
+      routerLink="etudes"
+    >
+    </app-acceuil-option-box> -->
+
+<!--     <app-acceuil-option-box
+      class="voyage"
+      [title]="'Voyages D\'etudes'"
+      [description]="description_Voyages_Etudes"
+      [icon_name]="'office bag.png'"
+      [color]="'#29B9E7'"
+    >
+    </app-acceuil-option-box> -->
+
+<!--     <app-acceuil-option-box
+      class="formation"
+      [title]="'Formation'"
+      [description]="description_Formation"
+      [icon_name]="'open book.png'"
+      [color]="'#41BE90'"
+      routerLink="formations"
+
+    >
+    </app-acceuil-option-box> -->
+<!--   </div>
+  <div class="boxAboutLaboussole">
+    <div class="question">
+      <span style="color: #0761b9"> C'est quoi</span>
+      <span style="color: #00a4e4"> LABOUSSOLE ?</span>
+    </div>
+    <br />
+    <br />
+    <br /> -->
+<!--     <div class="reponse">
+      LABOUSSOLE est une application web intelligente d’aide à l’orientation
+      académique et professionnelle et de formation en ligne dans les métiers du
+      numérique qui permettra aux apprenants soit d’avoir un emploi décent à la
+      fin de leurs formations, soit d’entreprendre, soit de s’autoemployer afin
+      d’avoir une insertion socio-professionnelle réussite..
+      <a href="http://">lire plus</a> -->
+<!-- ======= -->
       </div>
       <div class="imageAcceuil">
         <img src="../../assets/imageAcceuilLBS.png" alt="" />
@@ -30,6 +104,7 @@
         formons dans les métiers du numérque pour saisir l’opportunité du
         télétravail.
       </div>
+<!-- >>>>>>> main -->
     </div>
   </div>
   <div class="optionsList">
@@ -43,6 +118,8 @@
     >
     </app-acceuil-option-box>
 
+<!-- <<<<<<< main -->
+<!-- ======= -->
     <app-acceuil-option-box
       class="bourse"
       [title]="'Bourses D\'etudes'"
@@ -69,7 +146,6 @@
       [icon_name]="'open book.png'"
       [color]="'#41BE90'"
       routerLink="formations"
-
     >
     </app-acceuil-option-box>
   </div>
@@ -90,11 +166,7 @@
       <a href="http://">lire plus</a>
     </div>
 
-    <div class="aboutLaboussoleImage">
-      <img src="../../assets/blackStudents.jpg" alt="" />
-    </div>
-  </div>
-</div>
+<!-- >>>>>>> main -->
     <div class="aboutLaboussoleImage">
       <img src="../../assets/blackStudents.jpg" alt="" />
     </div>
@@ -143,66 +215,30 @@
         src="../../assets/icons8-back-arrow-50.png"
         alt=""
         style="width: 20px; height: 20px; position: relative; top: 5px"
+
+        (click)="prevTemoignage()"
       />
     </span>
     <span class="temoignageBox">
-      <app-temoignage-box></app-temoignage-box>
+      <app-temoignage-box
+      [score]="this.temoignages[currentTemoignageNumber].vote"
+      [name]="this.temoignages[currentTemoignageNumber].nom"
+      [description]="this.temoignages[currentTemoignageNumber].commentaire"
+      ></app-temoignage-box>
     </span>
     <span class="rightArrowIcon">
       <img
         src="../../assets/icons8-arrow-circle-right-50.png"
         alt=""
         style="width: 20px; height: 20px; position: relative; top: 5px"
+
+        (click)="nextTemoignage()"
+
       />
     </span>
   </div>
 </div>
 
-<div class="titleActu">Actualités du jour</div>
-<div class="actualites">
-  <app-actualite-box
-    class="actualites-item"
-    [image]="'ActuImage1.png'"
-    [date]="'November 16, 2014'"
-    [title]="'Three Pillars of User Delight'"
-    [description]="
-      'Delight can be experienced viscerally, behaviourally, and reflectively. A great design is ...'
-    "
-    [tags]="'UI, UX'"
-  ></app-actualite-box>
-  <app-actualite-box
-    [image]="'ActuImage2.png'"
-    [date]="'September 24, 2014'"
-    [title]="'UX Mapping Methods'"
-    [description]="
-      'Visual-design principles can be applied consistently throughout the process of creating a polished UX map...'
-    "
-    [tags]="'Research,  UI Design'"
-  ></app-actualite-box>
-</div>
-<div class="largeScreenBox">
-  <div class="leftActus">
-    <app-actualite-box
-      class="actualites-item"
-      [image]="'ActuImage1.png'"
-      [date]="'November 16, 2014'"
-      [title]="'Three Pillars of User Delight'"
-      [description]="
-        'Delight can be experienced viscerally, behaviourally, and reflectively. A great design is ...'
-      "
-      [tags]="'UI, UX'"
-    ></app-actualite-box>
-    <app-actualite-box
-      [image]="'ActuImage2.png'"
-      [date]="'September 24, 2014'"
-      [title]="'UX Mapping Methods'"
-      [description]="
-        'Visual-design principles can be applied consistently throughout the process of creating a polished UX map...'
-      "
-      [tags]="'Research,  UI Design'"
-    ></app-actualite-box>
-  </div>
-  <!--
 <div class="titleActu">Actualités du jour</div>
 <div class="actualites">
   <app-actualite-box
@@ -260,4 +296,5 @@
     style="width: 200px; height: 200px"
   />
 </div>
+
 <app-footer></app-footer>
