@@ -1,15 +1,14 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-nav-mobile-header',
-  templateUrl: './nav-mobile-header.component.html',
-  styleUrls: ['./nav-mobile-header.component.scss']
+  selector: 'app-logged-in-nav-header',
+  templateUrl: './logged-in-nav-header.component.html',
+  styleUrls: ['./logged-in-nav-header.component.scss']
 })
-export class NavMobileHeaderComponent {
+export class LoggedInNavHeaderComponent {
+
   @Output() menuIconClosed = new EventEmitter<void>();
 
-  username:string = "default";
-  
   showSearchBar = false;
 
   hideMenuIcon = false;
@@ -20,7 +19,5 @@ export class NavMobileHeaderComponent {
   openMenu() {
     this.menuIconClosed.emit();
   }
-  toggleSearchBar(){
 
-  }
 }

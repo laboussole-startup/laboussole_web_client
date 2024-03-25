@@ -2,9 +2,7 @@
   <app-nav-mobile-page (menuIconClicked)="toggleMenu()"></app-nav-mobile-page>
 </div>
 <div class="restOfPage" *ngIf="isMenuIconClosed">
-  <app-nav-mobile-header
-    (menuIconClosed)="toggleMenu()"
-  ></app-nav-mobile-header>
+  <app-nav-mobile-header (menuIconClosed)="toggleMenu()"></app-nav-mobile-header>
   <div class="contentROP">
     <div class="containerImageAcceuil">
       <div class="welcomeText">
@@ -171,98 +169,75 @@
       <img src="../../assets/blackStudents.jpg" alt="" />
     </div>
   </div>
-</div>
 
 <!-- <div class="temoignages">
   <div class="tem-title">Temoignages</div> -->
-<div class="temoignages">
-  <div class="tem-title">Temoignages</div>
-
-  <div class="tem-question">Que pensent t-ils?</div>
-  <div class="tem-text">
-    plusieurs personnes nous on fait confiance et on decidé de le faire savoir.
-    Aussi, nous ne sommes pas les seul a mettre l’orientation au coeur de tout.
+  <div class="temoignages">
+    <div class="tem-title">Temoignages</div>
+  
+    <div class="tem-question">Que pensent t-ils?</div>
+    <div class="tem-text">
+      plusieurs personnes nous on fait confiance et on decidé de le faire savoir.
+      Aussi, nous ne sommes pas les seul a mettre l’orientation au coeur de tout.
+    </div>
+    <div class="sendTemoignage">
+      <span>Laisser un temoignage </span>
+      <span class="rightArrowIcon">
+        <img
+          src="../../assets/icons8-arrow-right-60.png"
+          alt=""
+          style="width: 20px; height: 20px; position: relative; top: 5px"
+        />
+      </span>
+    </div>
+    <!-- <div class="tem-question">Que pensent t-ils?</div>
+    <div class="tem-text">
+      plusieurs personnes nous on fait confiance et on decidé de le faire savoir.
+      Aussi, nous ne sommes pas les seul a mettre l’orientation au coeur de tout.
+    </div>
+    <div class="sendTemoignage">
+      <span>Laisser un temoignage </span>
+      <span class="rightArrowIcon">
+        <img
+          src="../../assets/icons8-arrow-right-60.png"
+          alt=""
+          style="width: 20px; height: 20px; position: relative; top: 5px"
+        />
+      </span>
+    </div> -->
+  
+    <div class="temoignagesSlider">
+      <span class="leftArrowIcon">
+        <img
+          src="../../assets/icons8-back-arrow-50.png"
+          alt=""
+          style="width: 20px; height: 20px; position: relative; top: 5px"
+  
+          (click)="prevTemoignage()"
+        />
+      </span>
+      <span class="temoignageBox">
+        <app-temoignage-box
+        [score]="this.temoignages[currentTemoignageNumber].vote"
+        [name]="this.temoignages[currentTemoignageNumber].nom"
+        [description]="this.temoignages[currentTemoignageNumber].commentaire"
+        ></app-temoignage-box>
+      </span>
+      <span class="rightArrowIcon">
+        <img
+          src="../../assets/icons8-arrow-circle-right-50.png"
+          alt=""
+          style="width: 20px; height: 20px; position: relative; top: 5px"
+  
+          (click)="nextTemoignage()"
+  
+        />
+      </span>
+    </div>
   </div>
-  <div class="sendTemoignage">
-    <span>Laisser un temoignage </span>
-    <span class="rightArrowIcon">
-      <img
-        src="../../assets/icons8-arrow-right-60.png"
-        alt=""
-        style="width: 20px; height: 20px; position: relative; top: 5px"
-      />
-    </span>
-  </div>
-  <!-- <div class="tem-question">Que pensent t-ils?</div>
-  <div class="tem-text">
-    plusieurs personnes nous on fait confiance et on decidé de le faire savoir.
-    Aussi, nous ne sommes pas les seul a mettre l’orientation au coeur de tout.
-  </div>
-  <div class="sendTemoignage">
-    <span>Laisser un temoignage </span>
-    <span class="rightArrowIcon">
-      <img
-        src="../../assets/icons8-arrow-right-60.png"
-        alt=""
-        style="width: 20px; height: 20px; position: relative; top: 5px"
-      />
-    </span>
-  </div> -->
-
-  <div class="temoignagesSlider">
-    <span class="leftArrowIcon">
-      <img
-        src="../../assets/icons8-back-arrow-50.png"
-        alt=""
-        style="width: 20px; height: 20px; position: relative; top: 5px"
-
-        (click)="prevTemoignage()"
-      />
-    </span>
-    <span class="temoignageBox">
-      <app-temoignage-box
-      [score]="this.temoignages[currentTemoignageNumber].vote"
-      [name]="this.temoignages[currentTemoignageNumber].nom"
-      [description]="this.temoignages[currentTemoignageNumber].commentaire"
-      ></app-temoignage-box>
-    </span>
-    <span class="rightArrowIcon">
-      <img
-        src="../../assets/icons8-arrow-circle-right-50.png"
-        alt=""
-        style="width: 20px; height: 20px; position: relative; top: 5px"
-
-        (click)="nextTemoignage()"
-
-      />
-    </span>
-  </div>
-</div>
-
-<div class="titleActu">Actualités du jour</div>
-<div class="actualites">
-  <app-actualite-box
-    class="actualites-item"
-    [image]="'ActuImage1.png'"
-    [date]="'November 16, 2014'"
-    [title]="'Three Pillars of User Delight'"
-    [description]="
-      'Delight can be experienced viscerally, behaviourally, and reflectively. A great design is ...'
-    "
-    [tags]="'UI, UX'"
-  ></app-actualite-box>
-  <app-actualite-box
-    [image]="'ActuImage2.png'"
-    [date]="'September 24, 2014'"
-    [title]="'UX Mapping Methods'"
-    [description]="
-      'Visual-design principles can be applied consistently throughout the process of creating a polished UX map...'
-    "
-    [tags]="'Research,  UI Design'"
-  ></app-actualite-box>
-</div>
-<div class="largeScreenBox">
-  <div class="leftActus">
+  
+  <div class="titleActu">Actualités du jour</div>
+  <div class="actualites">
     <app-actualite-box
       class="actualites-item"
       [image]="'ActuImage1.png'"
@@ -283,18 +258,43 @@
       [tags]="'Research,  UI Design'"
     ></app-actualite-box>
   </div>
-  <!--
-            <div class="RightActus">
-            <app-actualite-large-screen-box></app-actualite-large-screen-box>
-        </div>
-        -->
-</div>
-<div class="photo-footer">
-  <img
-    src="../../assets/photo-footer.png"
-    alt=""
-    style="width: 200px; height: 200px"
-  />
+  <div class="largeScreenBox">
+    <div class="leftActus">
+      <app-actualite-box
+        class="actualites-item"
+        [image]="'ActuImage1.png'"
+        [date]="'November 16, 2014'"
+        [title]="'Three Pillars of User Delight'"
+        [description]="
+          'Delight can be experienced viscerally, behaviourally, and reflectively. A great design is ...'
+        "
+        [tags]="'UI, UX'"
+      ></app-actualite-box>
+      <app-actualite-box
+        [image]="'ActuImage2.png'"
+        [date]="'September 24, 2014'"
+        [title]="'UX Mapping Methods'"
+        [description]="
+          'Visual-design principles can be applied consistently throughout the process of creating a polished UX map...'
+        "
+        [tags]="'Research,  UI Design'"
+      ></app-actualite-box>
+    </div>
+    <!--
+              <div class="RightActus">
+              <app-actualite-large-screen-box></app-actualite-large-screen-box>
+          </div>
+          -->
+  </div>
+  <div class="photo-footer">
+    <img
+      src="../../assets/photo-footer.png"
+      alt=""
+      style="width: 200px; height: 200px"
+    />
+  </div>
+  
+  <app-footer></app-footer>
 </div>
 
-<app-footer></app-footer>
+
