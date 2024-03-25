@@ -56,10 +56,10 @@ saveChoice(data:Number){
    
 }
 terminateProcess(){
- 
+  console.log(Array.from(this.choices))
   this.userService.updateCentreInterets(Array.from(this.choices)).subscribe(data =>{
     console.log(data);
-    this.router.navigate(['']);
+    this.router.navigate(['/']);
   });
   
 }

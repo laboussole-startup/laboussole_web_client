@@ -50,8 +50,11 @@ conditionsControl = new FormControl('',[Validators.required])
         console.log("invalid form");
         this.sheetErrorMessage = "mot de passes non identiques";
         this.openBottomSheet();
+      }else{
+        console.log("isValid");
+        this.creerCompte();
       }
-      console.log("isValid");
+      
     }
   }
 
