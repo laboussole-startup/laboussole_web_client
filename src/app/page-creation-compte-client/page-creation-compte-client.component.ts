@@ -33,7 +33,7 @@ export class PageCreationCompteClientComponent {
 
  confirmPasswordControl= new FormControl('', [Validators.required]);
 
-conditionsControl = new FormControl('',[Validators.required])
+conditionsControl:boolean=false;
 
 
   constructor(private userService:UserServiceService,private router:Router,private bottomSheet: MatBottomSheet){
@@ -41,9 +41,9 @@ conditionsControl = new FormControl('',[Validators.required])
   }
 
   verifierCreerCompte(){
-    if(this.nameControl.value=="" || this.emailControl.value=="" || this.passwordControl.value=="" || this.confirmPasswordControl.value==""){
+    if(this.nameControl.value=="" || this.emailControl.value=="" || this.passwordControl.value=="" || this.confirmPasswordControl.value=="" || !this.conditionsControl){
       console.log("invalid form");
-      this.sheetErrorMessage = "pensez a remplire les champs obligatoire";
+      this.sheetErrorMessage = "pensez a remplire les champs obligatoire et a accepter les conditions";
       this.openBottomSheet();
     }else{
       if(this.passwordControl.value != this.confirmPasswordControl.value){

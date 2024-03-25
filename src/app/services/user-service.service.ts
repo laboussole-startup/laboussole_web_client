@@ -87,7 +87,7 @@ export class UserServiceService {
     let update_url:string = 'https://aristideabeng.pythonanywhere.com/auth/'+this.user_email+'/';
     let centres = ci.join("|");
     return this.httpClient.put(update_url,{
-      "centre_interets":centres
+      "centres_interet":centres
     });
   }
   getUserInfo(){
