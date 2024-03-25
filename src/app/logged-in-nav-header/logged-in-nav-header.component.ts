@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import { UserServiceService } from '../services/user-service.service';
+import { Location } from '@angular/common';
+
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-logged-in-nav-header',
@@ -18,8 +21,14 @@ export class LoggedInNavHeaderComponent {
 
   username:string="";
 
-  constructor(private userService:UserServiceService){
+  constructor(private userService:UserServiceService,private router:Router,private location:Location){
 
+  }
+
+  signOut(){
+    console.log("signing out");
+    this.userService.user_email='';
+    this.router.navigate(['/login']);
   }
 
   ngOnInit(): void{

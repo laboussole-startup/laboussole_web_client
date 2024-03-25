@@ -29,7 +29,7 @@
     
     <div class="home nav-item">Home </div>
    
-    <div class="services nav-item" (click)="showDropdown = !showDropdown">Nos Services </div>
+    <div class="services nav-item" [matMenuTriggerFor]="servicesMenu" >Nos Services </div>
             
     <div class="apropos nav-item">A propos de nous </div>
 
@@ -41,9 +41,9 @@
   <div class="signupBtn nav-item" routerLink="/signup">Signup</div>
   <div class="loginBtn nav-item" routerLink="/login">Login</div>
 </div>
-<div class="dropdown-content" *ngIf="showDropdown">
-  <div class="dropdown-item">Formations</div>
-  <div class="dropdown-item">Etudes a l'etranger</div>
-  <div class="dropdown-item">Bourses D'etudes</div>
-  <div class="dropdown-item">Metiers</div>
-</div>
+<mat-menu #servicesMenu="matMenu">
+  <button mat-menu-item>Metiers</button>
+  <button mat-menu-item>Offres de formation</button>
+  <button mat-menu-item>Bourses d'Etudes</button>
+  <button mat-menu-item>Voyages d'Etudes</button>
+</mat-menu>

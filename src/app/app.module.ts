@@ -19,6 +19,7 @@ import { StarComponent } from './star/star.component';
 import { ActualiteLargeScreenBoxComponent } from './actualite-large-screen-box/actualite-large-screen-box.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
