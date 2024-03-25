@@ -366,9 +366,13 @@
 }
 .btnContinue:hover{
     background-color: white;
-    color:#0F70B7
+    color:#0F70B7;
+    border:solid 2px #0F70B7;
+    cursor: pointer;
 }
 .googleLogin:hover{
     background-color: #0F70B7;
     color:white;
+    border:solid 2px white;
+    cursor: pointer;
 }
