@@ -11,7 +11,7 @@
         <div class="emailInput">
             <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label>
-                <input matInput
+                <input matInput [(ngModel)]="email"
                     placeholder="pat@example.com"
                     [formControl]="emailControl"
                     required

@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+import { UserServiceService } from '../services/user-service.service';
 
 @Component({
   selector: 'app-logged-in-nav-header',
@@ -14,6 +15,16 @@ export class LoggedInNavHeaderComponent {
   hideMenuIcon = false;
 
   showDropdown = false;
+
+  username:string="";
+
+  constructor(private userService:UserServiceService){
+
+  }
+
+  ngOnInit(): void{
+    this.username = this.userService.username;
+  }
 
   // Call this method when you want to open the menu
   openMenu() {

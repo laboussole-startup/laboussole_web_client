@@ -12,6 +12,7 @@ export class UserServiceService {
   private login_url: string = 'https://aristideabeng.pythonanywhere.com/auth/jwt/create/';
 
   public user_email:string = "";
+  public username:any="";
 
 
 
@@ -88,5 +89,9 @@ export class UserServiceService {
     return this.httpClient.put(update_url,{
       "centre_interets":centres
     });
+  }
+  getUserInfo(){
+    let url:string = 'https://aristideabeng.pythonanywhere.com/auth/'+this.user_email+'/';
+    return this.httpClient.get(url);
   }
 }

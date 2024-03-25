@@ -30,11 +30,13 @@ export class PageConnexionClientComponent {
 
  }
  checkLogin(){
+  console.log(this.email)
   this.userService.login(this.emailControl.value, this.passwordControl.value).subscribe(
     (data) => {
       //console.log(data);
       if (data.hasOwnProperty("access") && data.hasOwnProperty("refresh")) {
         console.log("valid login");
+        this.userService.user_email = this.email;
         this.router.navigate(['/']);
       } else {
         this.sheetErrorMessage = "Erreur d'authentification. Veuillez vérifier vos informations de connexion.";

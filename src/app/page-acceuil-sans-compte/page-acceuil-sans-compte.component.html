@@ -1,8 +1,9 @@
 <div class="menuPage" *ngIf="isMenuIconClicked">
-  <app-nav-mobile-page (menuIconClicked)="toggleMenu()"></app-nav-mobile-page>
+  <app-nav-mobile-page *ngIf="!isLoggedIn" (menuIconClicked)="toggleMenu()"></app-nav-mobile-page>
 </div>
 <div class="restOfPage" *ngIf="isMenuIconClosed">
-  <app-nav-mobile-header (menuIconClosed)="toggleMenu()"></app-nav-mobile-header>
+  <app-nav-mobile-header *ngIf="!isLoggedIn" (menuIconClosed)="toggleMenu()"></app-nav-mobile-header>
+  <app-logged-in-nav-header *ngIf="isLoggedIn" (menuIconClosed)="toggleMenu()"></app-logged-in-nav-header>
   <div class="contentROP">
     <div class="containerImageAcceuil">
       <div class="welcomeText">
