@@ -57,7 +57,7 @@
     <div class="allinfos" style="width:max-content;margin-left: 2%;">
 
         <div id="DescriptionMetier">
-           <span></span> <img src="../../assets/pseudo.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Presentation de l’{{filiereItem.nom}} ?</strong> <br>
+           <span></span> <img src="../../assets/pseudo.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Presentation de la {{filiereItem.nom}} ?</strong> <br>
             <hr> 
             <span class="contenu">{{filiereItem.descriptif}}
                 
@@ -83,18 +83,21 @@
             <br><br><br>
         </div>
         <div id="EcoleFormation">
-            <span></span> <img src="../../assets/pseudo.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Les facultés de l’{{filiereItem.nom}}</strong> <br>
+            <span></span> <img src="../../assets/pseudo.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Filieres de la {{filiereItem.nom}}</strong> <br>
             <hr> 
             <span class="ecole formation">
                 Ecoles de formation au Cameroun: <br><br>
                 
-                <app-faculte-box [faculte]="faculte" *ngFor="let faculte of facultes" (click)="navigateToDetails(faculte.faculte_id)" (id)="onIdFromChild($event)"></app-faculte-box>
+                <!-- <app-faculte-box [faculte]="faculte"  *ngFor="let faculte of facultes" (click)="navigateToDetails(faculte.faculte_id)"></app-faculte-box> -->
             </span>
              <br><br><br>
         </div>
 
          <div id="Entreprise">
-            <span></span> <img src="../../assets/pseudo.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Les écoles de l’{{filiereItem.nom}}</strong> <br>
+            <span></span> <img src="../../assets/pseudo.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> 
+            
+            <!-- <strong>Les écoles de l’{{filiereItem.nom}}</strong>  -->
+            <br>
             <hr> 
 
 

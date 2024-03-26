@@ -7,16 +7,34 @@ import { Injectable } from '@angular/core';
 export class OffreFormationService {
   constructor(private http: HttpClient) {}
   // url = 'https://dummyjson.com';
-  url = 'http://laboussole-edu.com:8000';
+  url = 'https://aristideabeng.pythonanywhere.com';
 
   getFormations() {
     return this.http.get(this.url + '/metiers/');
   }
-  getMetierDetails(id: any){
-    return this.http.get(this.url + '/metiers/' + id + '/' )
+  getMetierDetails(id: any) {
+    return this.http.get(this.url + '/metiers/' + id + '/');
   }
-  getFilieres(){
-    return this.http.get(this.url + '/filieres')
+  getUniversites() {
+    return this.http.get(this.url + '/universites/');
+  }
+  getUniversiteDetails(id: any) {
+    return this.http.get(this.url + '/universites/' + id + '/');
+  }
+  getFaculteUniv(id: any) {
+    return this.http.get(this.url + '/facultes/universites/' + id + '/');
+  }
+  getFacultes(id: any) {
+    return this.http.get(this.url + '/facultes/' + id + '/');
+  }
+  getFiliereFac(id: number) {
+    return this.http.get(this.url + '/filieres/faculte/' + id + '/');
+  }
+  getFilieres() {
+    return this.http.get(this.url + '/filieres/');
+  }
+  getFiliereDetails(id: any) {
+    return this.http.get(this.url + '/filieres/' + id + '/');
   }
   getFormation() {
     return [

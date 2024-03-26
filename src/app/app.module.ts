@@ -64,7 +64,10 @@ import { SignupResponseComponent } from './signup-response/signup-response.compo
 import { SignupErrorComponent } from './signup-error/signup-error.component';
 import { CentreInteretsComponent } from './centre-interets/centre-interets.component';
 import { CentreInteretBoxComponent } from './centre-interet-box/centre-interet-box.component';
-import { LoggedInNavHeaderComponent } from './logged-in-nav-header/logged-in-nav-header.component'
+import { LoggedInNavHeaderComponent } from './logged-in-nav-header/logged-in-nav-header.component';
+import { FaculteBoxComponent } from './Pages/faculte-box/faculte-box.component';
+import { DetailsFacultesComponent } from './Pages/details-facultes/details-facultes.component';
+
 
 
 @NgModule({
@@ -109,7 +112,9 @@ import { LoggedInNavHeaderComponent } from './logged-in-nav-header/logged-in-nav
     SignupErrorComponent,
     CentreInteretsComponent,
     CentreInteretBoxComponent,
-    LoggedInNavHeaderComponent
+    LoggedInNavHeaderComponent,
+    FaculteBoxComponent,
+    DetailsFacultesComponent,
   ],
   imports: [
     BrowserModule,
