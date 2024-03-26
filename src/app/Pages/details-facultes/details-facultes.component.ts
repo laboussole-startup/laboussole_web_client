@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Faculte } from 'src/app/Models/faculte';
-import { Universite } from 'src/app/Models/universite';
+import { FiliereFormation } from 'src/app/Models/filiere-formation';
 import { OffreFormationService } from 'src/app/services/offre-formation.service';
 
 @Component({
-  selector: 'app-details-filieres',
-  templateUrl: './details-filieres.component.html',
-  styleUrls: ['./details-filieres.component.scss']
+  selector: 'app-details-facultes',
+  templateUrl: './details-facultes.component.html',
+  styleUrls: ['./details-facultes.component.scss']
 })
-export class DetailsFilieresComponent {
+export class DetailsFacultesComponent {
+
 
   isMenuIconClicked = false;
   isMenuIconClosed = true;
@@ -17,9 +18,8 @@ export class DetailsFilieresComponent {
 
   // about service
   filiereId!: any;
-  filiereItem!: Universite;
-  facultes!: Faculte[];
-  faculte_id!:number;
+  filiereItem!: Faculte;
+  filieres!: FiliereFormation[];
   missions!: string[];
 
   constructor(
@@ -29,12 +29,12 @@ export class DetailsFilieresComponent {
   ) {}
 
   ngOnInit() {
-    this.filiereId = this.filiereRoute.snapshot.paramMap.get('universite_id'); // Get cart item ID from route
+    this.filiereId = this.filiereRoute.snapshot.paramMap.get('faculte_id'); // Get cart item ID from route
     console.log(this.filiereId);
 
     if (this.filiereId) {
       this.service
-        .getUniversiteDetails(this.filiereId)
+        .getFacultes(this.filiereId)
         .subscribe((response: any) => {
           console.log(response);
           this.filiereItem = response;
@@ -44,22 +44,16 @@ export class DetailsFilieresComponent {
           // console.log(this.competences);
         });
     }
-    this.service.getFaculteUniv(this.filiereId).subscribe((data: any) => {
-      console.log(data);
-      this.facultes = data;
+    this.service.getFiliereFac(this.filiereId).subscribe((data: any) => {
+      console.log(data);  
+      this.filieres = data;
     })
-
-   
+    
 
     // this.metierItem = this.service.getCartItemById(this.metierId); // Retrieve specific cart item details
   }
   navigateToDetails(itemId: number) {
-    this.router.navigate(['/facultes/', this.faculte_id]); // Navigate to details route with item ID
-  }
-
-  onIdFromChild(id: number){
-    console.log(id);
-    this.faculte_id=id;
+    this.router.navigate(['/universites', itemId]); // Navigate to details route with item ID
   }
 
   //aside

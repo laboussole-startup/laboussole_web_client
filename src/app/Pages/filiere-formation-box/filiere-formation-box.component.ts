@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FiliereFormation } from 'src/app/Models/filiere-formation';
+import { Universite } from 'src/app/Models/universite';
 
 @Component({
   selector: 'app-filiere-formation-box',
@@ -7,5 +7,5 @@ import { FiliereFormation } from 'src/app/Models/filiere-formation';
   styleUrls: ['./filiere-formation-box.component.scss']
 })
 export class FiliereFormationBoxComponent {
-  @Input() formationBox!: FiliereFormation;
+  @Input() formationBox!: Universite;
 }

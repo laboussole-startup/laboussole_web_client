@@ -1,6 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FiliereFormation } from 'src/app/Models/filiere-formation';
+import { Universite } from 'src/app/Models/universite';
 import { OffreFormationService } from 'src/app/services/offre-formation.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class FormationsComponent {
   isMenuIconClosed = true;
   showSearchBar = false;
   // formation!: Formations[];
-  formations!: FiliereFormation[];
+  formations!: Universite[];
   // formations: any;
   showSideBar = false;
 
@@ -39,7 +39,7 @@ export class FormationsComponent {
     this.getScreenWidth = window.innerWidth;
     // this.getScreenWidth <= 480? this.mobile = true : this.mobile = false;
 
-    this.service.getFilieres().subscribe((data: any) => {
+    this.service.getUniversites().subscribe((data: any) => {
       console.log(data);
       this.formations = data;
       // console.log(this.formations);
@@ -48,7 +48,7 @@ export class FormationsComponent {
   }
 
   navigateToDetails(itemId: number) {
-    this.router.navigate(['/formations', itemId]); // Navigate to details route with item ID
+    this.router.navigate(['/universites', itemId]); // Navigate to details route with item ID
   }
 
   toggleMenu() {
