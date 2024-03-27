@@ -87,7 +87,7 @@
       }
       .all {
         text-decoration: none;
-        padding: 16px; 
+        padding: 16px;
         border: 1px solid #0f70b7;
         border-radius: 24px;
         color: #0f70b7;
@@ -122,6 +122,11 @@
         }
       }
 
+      .formation-content {
+        .recommendations {
+        }
+      }
+
       .search-menu {
         @include search-menu();
 
@@ -132,12 +137,23 @@
     }
 
     .formation-content {
-      gap: 16px;
+      .recommendations {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        gap: 24px;
+      }
     }
   }
 }
 
 @media screen and (min-width: 992px) {
   .container {
+    .formation-content {
+      .recommendations {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+    }
   }
 }

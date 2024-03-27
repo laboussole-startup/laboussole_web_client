@@ -30,6 +30,9 @@ export class OffreFormationService {
   getFiliereFac(id: number) {
     return this.http.get(this.url + '/filieres/faculte/' + id + '/');
   }
+  getFiliereFacMaster(id: number) {
+    return this.http.get(this.url + '/filieres/faculte/' + id + '/' + 5 + '/');
+  }
   getFilieres() {
     return this.http.get(this.url + '/filieres/');
   }
