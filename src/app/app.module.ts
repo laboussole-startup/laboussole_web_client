@@ -67,6 +67,7 @@ import { CentreInteretBoxComponent } from './centre-interet-box/centre-interet-b
 import { LoggedInNavHeaderComponent } from './logged-in-nav-header/logged-in-nav-header.component';
 import { FaculteBoxComponent } from './Pages/faculte-box/faculte-box.component';
 import { DetailsFacultesComponent } from './Pages/details-facultes/details-facultes.component';
+import { LoggedInNavPageComponent } from './logged-in-nav-page/logged-in-nav-page.component';
 
 
 
@@ -115,6 +116,7 @@ import { DetailsFacultesComponent } from './Pages/details-facultes/details-facul
     LoggedInNavHeaderComponent,
     FaculteBoxComponent,
     DetailsFacultesComponent,
+    LoggedInNavPageComponent
   ],
   imports: [
     BrowserModule,

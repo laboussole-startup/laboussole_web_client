@@ -1,0 +1,38 @@
+
+<div class="container">
+    <div class="iconsList">
+        <div class="profile" [matMenuTriggerFor]="profileMenu"> <img src="../../assets/profile-svgrepo-com.svg" alt="" width="30px" height="30px">  Hi, {{username}}</div>
+        <div class="notifications">Notifications</div>
+       
+        <div class="menuIcon" (click)="closeMenu()" ><img src="../../assets/x-close.png" alt="" style="width: 10vw; height: 10vw;"></div>
+    </div>
+    <div class="menuList">
+        <div class="menuItem">Acceuil</div>
+        <div class="menuItem" (click)="showDropdown = !showDropdown">Nos Services</div>
+            <div class="dropdown-content" *ngIf="showDropdown">
+                <div class="dropdown-item">Formation</div>
+                <div class="dropdown-item">Emplois</div>
+                <div class="dropdown-item">Etudes a l'etranger</div>
+            </div>
+        <div class="menuItem">A propos de Nous</div>
+        <div class="menuItem">Contactez-nous</div>
+    </div>
+    <div class="buttonsList">
+        <app-custom-round-button routerLink="/login" [title]="'login'"></app-custom-round-button>
+        <app-custom-round-button  routerLink="/signup" class="signUpBtn" [title]="'sign up'"></app-custom-round-button>
+    </div>
+</div>
+<mat-menu #profileMenu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>person</mat-icon>
+      <span>Profile Settings</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>help</mat-icon>
+      <span>Help Center</span>
+    </button>
+    <button mat-menu-item (click)="signOut()">
+      <mat-icon>notifications</mat-icon>
+      <span>Sign Out</span>
+    </button>
+  </mat-menu>
