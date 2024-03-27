@@ -19,7 +19,8 @@ export class DetailsFacultesComponent {
   // about service
   filiereId!: any;
   filiereItem!: Faculte;
-  filieres!: FiliereFormation[];
+  filieresLicence!: FiliereFormation[];
+  filieresMaster!: FiliereFormation[];
   missions!: string[];
 
   constructor(
@@ -46,8 +47,14 @@ export class DetailsFacultesComponent {
     }
     this.service.getFiliereFac(this.filiereId).subscribe((data: any) => {
       console.log(data);  
-      this.filieres = data;
+      this.filieresLicence = data;
     })
+    this.service.getFiliereFacMaster(this.filiereId).subscribe((data: any) => {
+      console.log(data);  
+      this.filieresMaster = data;
+    })
+
+    
     
 
     // this.metierItem = this.service.getCartItemById(this.metierId); // Retrieve specific cart item details
