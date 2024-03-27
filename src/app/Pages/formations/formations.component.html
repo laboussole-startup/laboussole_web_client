@@ -113,7 +113,7 @@
         </div>
         <div class="recommendations">
           <div *ngFor="let formation of formations; index as i">
-            <app-filiere-formation-box (click)="navigateToDetails(formation.faculte_id)"
+            <app-filiere-formation-box (click)="navigateToDetails(formation.universite_id)"
               *ngIf="i <= 4"
               [formationBox]="formation"
             ></app-filiere-formation-box>
@@ -126,7 +126,7 @@
           <div *ngFor="let formation of formations; index as i">
             <app-filiere-formation-box
               *ngIf="i <= 2"
-              [formationBox]="formation" (click)="navigateToDetails(formation.faculte_id)"
+              [formationBox]="formation" (click)="navigateToDetails(formation.universite_id)"
             ></app-filiere-formation-box>
           </div>
         </div>
@@ -137,7 +137,7 @@
           <div *ngFor="let formation of formations; index as i">
             <app-filiere-formation-box
               *ngIf="i <= 2"
-              [formationBox]="formation" (click)="navigateToDetails(formation.faculte_id)"
+              [formationBox]="formation" (click)="navigateToDetails(formation.universite_id)"
             ></app-filiere-formation-box>
           </div>
         </div>

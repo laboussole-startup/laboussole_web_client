@@ -65,7 +65,10 @@ import { SignupErrorComponent } from './signup-error/signup-error.component';
 import { CentreInteretsComponent } from './centre-interets/centre-interets.component';
 import { CentreInteretBoxComponent } from './centre-interet-box/centre-interet-box.component';
 import { LoggedInNavHeaderComponent } from './logged-in-nav-header/logged-in-nav-header.component';
-import { LoggedInNavPageComponent } from './logged-in-nav-page/logged-in-nav-page.component'
+import { FaculteBoxComponent } from './Pages/faculte-box/faculte-box.component';
+import { DetailsFacultesComponent } from './Pages/details-facultes/details-facultes.component';
+import { LoggedInNavPageComponent } from './logged-in-nav-page/logged-in-nav-page.component';
+
 
 
 @NgModule({
@@ -111,6 +114,8 @@ import { LoggedInNavPageComponent } from './logged-in-nav-page/logged-in-nav-pag
     CentreInteretsComponent,
     CentreInteretBoxComponent,
     LoggedInNavHeaderComponent,
+    FaculteBoxComponent,
+    DetailsFacultesComponent,
     LoggedInNavPageComponent
   ],
   imports: [
