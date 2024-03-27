@@ -17,6 +17,7 @@ import { DetailsFilieresComponent } from './Pages/details-filieres/details-filie
 import { SignupErrorComponent } from './signup-error/signup-error.component';
 import { SignupResponseComponent } from './signup-response/signup-response.component';
 import { DetailsFacultesComponent } from './Pages/details-facultes/details-facultes.component';
+import { ContactezNousComponent } from './contactez-nous/contactez-nous.component';
 const routes: Routes = [
   { path: '', component: PageAcceuilSansCompteComponent },
   { path: 'login', component: PageConnexionClientComponent },
@@ -32,7 +33,8 @@ const routes: Routes = [
   { path: 'signup-success', component: SignupResponseComponent },
   { path: 'signup-error', component: SignupErrorComponent },
   { path: 'centres-interets', component: CentreInteretsComponent },
-  {path:'facultes/:faculte_id', component: DetailsFacultesComponent}
+  {path:'facultes/:faculte_id', component: DetailsFacultesComponent},
+  {path:'contact',component:ContactezNousComponent}
 ];
 
 @NgModule({

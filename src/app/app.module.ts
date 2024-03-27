@@ -68,6 +68,7 @@ import { LoggedInNavHeaderComponent } from './logged-in-nav-header/logged-in-nav
 import { FaculteBoxComponent } from './Pages/faculte-box/faculte-box.component';
 import { DetailsFacultesComponent } from './Pages/details-facultes/details-facultes.component';
 import { LoggedInNavPageComponent } from './logged-in-nav-page/logged-in-nav-page.component';
+import { ContactezNousComponent } from './contactez-nous/contactez-nous.component';
 
 
 
@@ -116,7 +117,8 @@ import { LoggedInNavPageComponent } from './logged-in-nav-page/logged-in-nav-pag
     LoggedInNavHeaderComponent,
     FaculteBoxComponent,
     DetailsFacultesComponent,
-    LoggedInNavPageComponent
+    LoggedInNavPageComponent,
+    ContactezNousComponent
   ],
   imports: [
     BrowserModule,
