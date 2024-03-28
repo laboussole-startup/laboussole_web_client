@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./contactez-nous.component.scss']
 })
 export class ContactezNousComponent {
+  isMenuIconClicked = false;
+  isMenuIconClosed = true;
+  showSearchBar = false;
+  isLoggedIn:boolean=false;
+
+  toggleMenu() {
+    this.isMenuIconClicked = !this.isMenuIconClicked;
+    this.isMenuIconClosed = !this.isMenuIconClosed;
+  }
 
 }

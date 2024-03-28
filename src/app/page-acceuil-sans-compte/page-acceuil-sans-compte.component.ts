@@ -15,7 +15,9 @@ export class PageAcceuilSansCompteComponent {
 
   temoignages!: Array<Temoignage>;
   temoignages2!:Array<any>;
-
+  isMenuIconClicked = false;
+  isMenuIconClosed = true;
+  showSearchBar = false;
 
   isLoggedIn:boolean=false;
 
@@ -51,9 +53,7 @@ export class PageAcceuilSansCompteComponent {
     );
   }
 
-  isMenuIconClicked = false;
-  isMenuIconClosed = true;
-  showSearchBar = false;
+ 
 
   description_Metier:string = "Découvre l'univers des métiers  avec  LABOUSSOLE ! Explorez une multitude de professions passionnantes et trouvez le métier qui correspond à ton profil."
   description_Bourses:string = "LABOUSSOLE te donne accès à un large éventail de bourses d'études pour t’aider à financer tes études et réaliser tes rêves"
