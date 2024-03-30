@@ -50,4 +50,8 @@ export class DetailOffreFormationComponent {
     this.isMenuIconClicked = !this.isMenuIconClicked;
     this.isMenuIconClosed = !this.isMenuIconClosed;
   }
+
+  handleClick(sectionId: string){
+    document.getElementById(sectionId)?.scrollIntoView({behavior: 'smooth'})
+  }
 }

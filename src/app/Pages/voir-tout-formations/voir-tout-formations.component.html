@@ -108,36 +108,12 @@
   
       <div class="formation-content">
         <div class="recommendations-text">
-          <h2>Recommandations</h2>
-          <a class="all" routerLink="/voir-tout-formations" (click)="handleClick()">Voir tout</a>
+          <h2>Les formations</h2>
+          <!-- <a href="" class="all">Voir tout</a> -->
         </div>
         <div class="recommendations">
-          <div *ngFor="let formation of formations; index as i">
-            <app-filiere-formation-box (click)="navigateToDetails(formation.universite_id)"
-              *ngIf="i <= 4"
-              [formationBox]="formation"
-            ></app-filiere-formation-box>
-          </div>
-        </div>
-        <div class="recommendations-text">
-          <h2>Les Plus Populaires</h2>
-        </div>
-        <div class="recommendations">
-          <div *ngFor="let formation of formations; index as i">
-            <app-filiere-formation-box
-              *ngIf="i <= 2"
-              [formationBox]="formation" (click)="navigateToDetails(formation.universite_id)"
-            ></app-filiere-formation-box>
-          </div>
-        </div>
-        <div class="recommendations-text">
-          <h2>Les meilleurs selon le classement</h2>
-        </div>
-        <div class="recommendations">
-          <div *ngFor="let formation of formations; index as i">
-            <app-filiere-formation-box
-              *ngIf="i <= 2"
-              [formationBox]="formation" (click)="navigateToDetails(formation.universite_id)"
+          <div *ngFor="let formation of formations">
+            <app-filiere-formation-box (click)="navigateToDetails(formation.universite_id)" [formationBox]="formation"
             ></app-filiere-formation-box>
           </div>
         </div>
