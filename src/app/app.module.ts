@@ -121,7 +121,7 @@ import { ContactezNousComponent } from './contactez-nous/contactez-nous.componen
     DetailsFacultesComponent,
     LoggedInNavPageComponent,
     VoirTousMetiersComponent,
-    VoirToutFormationsComponent
+    VoirToutFormationsComponent,
     ContactezNousComponent
   ],
   imports: [
