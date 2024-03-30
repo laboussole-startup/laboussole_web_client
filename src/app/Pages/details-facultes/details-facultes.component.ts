@@ -59,7 +59,7 @@ export class DetailsFacultesComponent {
 
     // this.metierItem = this.service.getCartItemById(this.metierId); // Retrieve specific cart item details
   }
-  navigateToDetails(itemId: number) {
+  navigateToParent(itemId: number) {
     this.router.navigate(['/universites', itemId]); // Navigate to details route with item ID
   }
 
