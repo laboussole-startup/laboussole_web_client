@@ -1,14 +1,15 @@
 import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Universite } from 'src/app/Models/universite';
+import { Metier } from 'src/app/Models/metier';
 import { OffreFormationService } from 'src/app/services/offre-formation.service';
 
 @Component({
-  selector: 'app-formations',
-  templateUrl: './formations.component.html',
-  styleUrls: ['./formations.component.scss'],
+  selector: 'app-voir-tous-metiers',
+  templateUrl: './voir-tous-metiers.component.html',
+  styleUrls: ['./voir-tous-metiers.component.scss']
 })
-export class FormationsComponent {
+export class VoirTousMetiersComponent {
+
   constructor(
     private service: OffreFormationService,
     private router: Router,
@@ -19,7 +20,7 @@ export class FormationsComponent {
   isMenuIconClosed = true;
   showSearchBar = false;
   // formation!: Formations[];
-  formations!: Universite[];
+  metiers!: Metier[];
   // formations: any;
   showSideBar = false;
 
@@ -39,24 +40,20 @@ export class FormationsComponent {
     this.getScreenWidth = window.innerWidth;
     // this.getScreenWidth <= 480? this.mobile = true : this.mobile = false;
 
-    this.service.getUniversites().subscribe((data: any) => {
+    this.service.getFormations().subscribe((data: any) => {
       console.log(data);
-      this.formations = data;
+      this.metiers = data;
       // console.log(this.formations);
     });
     // this.formations = this.service.getFormation();
   }
 
-  navigateToDetails(itemId: number) {
-    this.router.navigate(['/universites', itemId]); // Navigate to details route with item ID
+  navigateToDetails(itemId: string) {
+    this.router.navigate(['/metiers', itemId]); // Navigate to details route with item ID
   }
 
   toggleMenu() {
     this.isMenuIconClicked = !this.isMenuIconClicked;
     this.isMenuIconClosed = !this.isMenuIconClosed;
-  }
-
-  handleClick(){
-    console.log('yes');
   }
 }

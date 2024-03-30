@@ -1,14 +1,15 @@
 import { Component, HostListener } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Universite } from 'src/app/Models/universite';
 import { OffreFormationService } from 'src/app/services/offre-formation.service';
 
 @Component({
-  selector: 'app-formations',
-  templateUrl: './formations.component.html',
-  styleUrls: ['./formations.component.scss'],
+  selector: 'app-voir-tout-formations',
+  templateUrl: './voir-tout-formations.component.html',
+  styleUrls: ['./voir-tout-formations.component.scss']
 })
-export class FormationsComponent {
+export class VoirToutFormationsComponent {
+
   constructor(
     private service: OffreFormationService,
     private router: Router,
@@ -54,9 +55,5 @@ export class FormationsComponent {
   toggleMenu() {
     this.isMenuIconClicked = !this.isMenuIconClicked;
     this.isMenuIconClosed = !this.isMenuIconClosed;
-  }
-
-  handleClick(){
-    console.log('yes');
   }
 }

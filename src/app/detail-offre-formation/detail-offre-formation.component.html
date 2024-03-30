@@ -1,119 +1,199 @@
 <div class="menuPage" *ngIf="isMenuIconClicked">
-    <app-nav-mobile-page (menuIconClicked)="toggleMenu()"></app-nav-mobile-page>
+  <app-nav-mobile-page (menuIconClicked)="toggleMenu()"></app-nav-mobile-page>
 </div>
 <div class="restOfPage" *ngIf="isMenuIconClosed">
-    <app-nav-mobile-header (menuIconClosed)="toggleMenu()"></app-nav-mobile-header>
+  <app-nav-mobile-header
+    (menuIconClosed)="toggleMenu()"
+  ></app-nav-mobile-header>
 </div>
 
-<div style="display: flex; ">
-    <div style="display: flex; margin: 2%; width: 30%;">
-        <a href=""><img src="../../assets/boutonRetour.png" alt="" style="width: 20px; height:15px;"> </a>
-        <a routerLink="../formation" >Retour</a>
-    </div>
-    <div style="display: flex; margin: 2%; ">
-        <a href="#DescriptionMetier">Qu'est ce qu'un {{metierItem.nom}}?</a>
-        <a href="#EcoleFormation" style="margin-left: 15px;">Ou se former?</a>
-        <a href="#Entreprise" style="margin-left: 15px;">Qui recherche ce profil?</a>
-    </div>
+<div style="display: flex">
+  <div style="display: flex; margin: 2%; width: 30%">
+    <a href=""
+      ><img
+        src="../../assets/boutonRetour.png"
+        alt=""
+        style="width: 20px; height: 15px"
+      />
+    </a>
+    <a routerLink="../../metiers">Retour</a>
+  </div>
+  <div style="display: flex; margin: 2%">
+    <a (click)="handleClick('DescriptionMetier')"
+      >Qu'est ce qu'un {{ metierItem.nom }}?</a
+    >
+    <a (click)="handleClick('EcoleFormation')" style="margin-left: 15px"
+      >Ou se former?</a
+    >
+    <a (click)="handleClick('Entreprise')" style="margin-left: 15px"
+      >Qui recherche ce profil?</a
+    >
+  </div>
 </div>
 
-<div style="text-align: center;width:100% ;height: 200px; background-image:url(../../assets/computer-eng.jpeg);">
-    <h1 style="padding-top: 7%; font-size: xx-large;color: white;">{{metierItem.nom}}</h1> 
+<div
+  style="
+    text-align: center;
+    width: 100%;
+    height: 200px;
+    background-image: url(../../assets/computer-eng.jpeg);
+  "
+>
+  <h1 style="padding-top: 7%; font-size: xx-large; color: white">
+    {{ metierItem.nom }}
+  </h1>
 </div>
 
-<div class="conteneur" style="display: flex; padding: 2%; ">
- 
-    <!-- side-bar -->
+<div class="conteneur" style="display: flex; padding: 2%">
+  <!-- side-bar -->
 
-    <div class="infoscles" style="width:min-content; background-color: #DDDDDD; padding: 2%;">
-        <h2 style="text-align: center;">Infos Clés</h2><br><br><br>
+  <div
+    class="infoscles"
+    style="width: min-content; background-color: #dddddd; padding: 2%"
+  >
+    <h2 style="text-align: center">Infos Clés</h2>
+    <br /><br /><br />
 
-        <img src="../../assets/Symbol.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Durée</strong> <br><br>
-        <span> 5ans</span><br><br>
+    <img
+      src="../../assets/Symbol.png"
+      alt=""
+      style="width: 15px; height: 15; margin-right: 5px"
+    />
+    <strong>Durée</strong> <br /><br />
+    <span> 5ans</span><br /><br />
 
-        <img src="../../assets/Symbol.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Diplome délivré</strong> <br><br>
-        <span> Diplome de {{metierItem.nom}}</span><br><br>
+    <img
+      src="../../assets/Symbol.png"
+      alt=""
+      style="width: 15px; height: 15; margin-right: 5px"
+    />
+    <strong>Diplome délivré</strong> <br /><br />
+    <span> Diplome de {{ metierItem.nom }}</span
+    ><br /><br />
 
-        <img src="../../assets/Symbol.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Lieu</strong> <br>
-        <span> <li>Ecole Nationale Supérieure Polytechnique de Yaoundé (ENSPY)
-            </li>
-            <li>Université de Yaoundé I</li>
-            <li> Université de Douala</li>
-            <li>Institut Universitaire de Technologie de Douala (IUT)</li>
-            <li>Institut Universitaire Polytechnique de Yaoundé (IUPY)</li>
-        </span><br><br>
+    <img
+      src="../../assets/Symbol.png"
+      alt=""
+      style="width: 15px; height: 15; margin-right: 5px"
+    />
+    <strong>Lieu</strong> <br />
+    <span>
+      <li>Ecole Nationale Supérieure Polytechnique de Yaoundé (ENSPY)</li>
+      <li>Université de Yaoundé I</li>
+      <li>Université de Douala</li>
+      <li>Institut Universitaire de Technologie de Douala (IUT)</li>
+      <li>Institut Universitaire Polytechnique de Yaoundé (IUPY)</li> </span
+    ><br /><br />
 
-        <img src="../../assets/Symbol.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Conditions d'admission</strong> <br><br>
-        <span>Titulaire du Bacc ou GCE A/L Cycle Licence</span><br><br>
+    <img
+      src="../../assets/Symbol.png"
+      alt=""
+      style="width: 15px; height: 15; margin-right: 5px"
+    />
+    <strong>Conditions d'admission</strong> <br /><br />
+    <span>Titulaire du Bacc ou GCE A/L Cycle Licence</span><br /><br />
 
-        <img src="../../assets/Symbol.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Cout de laformation</strong> <br><br>
-        <span>50 000 frs/an</span><br><br>
+    <img
+      src="../../assets/Symbol.png"
+      alt=""
+      style="width: 15px; height: 15; margin-right: 5px"
+    />
+    <strong>Cout de laformation</strong> <br /><br />
+    <span>50 000 frs/an</span><br /><br />
 
-        <img src="../../assets/Symbol.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Langue d'enseignement</strong> <br><br>
-        <span>Français et Anglais</span><br><br>
+    <img
+      src="../../assets/Symbol.png"
+      alt=""
+      style="width: 15px; height: 15; margin-right: 5px"
+    />
+    <strong>Langue d'enseignement</strong> <br /><br />
+    <span>Français et Anglais</span><br /><br />
 
-        <img src="../../assets/Symbol.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Salaire</strong> <br><br>
-        <span> 400 000 FCFA - 1 200 000 FCFA </span><br><br>
+    <img
+      src="../../assets/Symbol.png"
+      alt=""
+      style="width: 15px; height: 15; margin-right: 5px"
+    />
+    <strong>Salaire</strong> <br /><br />
+    <span> 400 000 FCFA - 1 200 000 FCFA </span><br /><br />
+  </div>
+
+  <!-- main-info -->
+
+  <div class="allinfos" style="width: max-content; margin-left: 2%">
+    <div id="DescriptionMetier">
+      <span></span>
+      <img
+        src="../../assets/pseudo.png"
+        alt=""
+        style="width: 15px; height: 15; margin-right: 5px"
+      />
+      <strong>Qu'est ce qu'un {{ metierItem.nom }} ?</strong> <br />
+      <hr />
+      <span class="contenu"
+        >{{ metierItem.description }}
+
+        <br /><br />
+        <span class="compétences">
+          Compétences requises:
+
+          <li *ngFor="let competence of competences">
+            {{ competence | titlecase }}
+          </li>
+        </span>
+        <br /><br />
+        <span class="missions"
+          >Ses principales missions incluent:
+          <li *ngFor="let mission of missions">{{ mission }}</li>
+        </span>
+        <br /><br />
+        <span class="salaire">
+          Salaire indicatif: Le salaire d'un {{ metierItem.nom }} varie en
+          fonction de son expérience, de son niveau de qualification et de
+          l'entreprise dans laquelle il travaille. En moyenne, un débutant peut
+          espérer un salaire mensuel d'environ {{ metierItem.salairemoyen }}.
+        </span>
+      </span>
+      <br /><br /><br />
+    </div>
+    <div id="EcoleFormation">
+      <span></span>
+      <img
+        src="../../assets/pseudo.png"
+        alt=""
+        style="width: 15px; height: 15; margin-right: 5px"
+      />
+      <strong>Ou se former?</strong> <br />
+      <hr />
+      <span class="ecole formation">
+        Ecoles de formation au Cameroun: <br /><br />
+        <!-- <li>Ecole Nationale Supérieure Polytechnique de Yaoundé (ENSPY)
+                </li> -->
+      </span>
+      <br /><br /><br />
     </div>
 
-    <!-- main-info -->
+    <div id="Entreprise">
+      <span></span>
+      <img
+        src="../../assets/pseudo.png"
+        alt=""
+        style="width: 15px; height: 15; margin-right: 5px"
+      />
+      <strong>Qui recherche ce profil?</strong> <br />
+      <hr />
+      <span
+        class="entreprise"
+        *ngFor="let entreprise of metierItem.entreprisesrecrutent"
+      >
+        <br /><br />
 
-    <div class="allinfos" style="width:max-content;margin-left: 2%;">
-
-        <div id="DescriptionMetier">
-           <span></span> <img src="../../assets/pseudo.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Qu'est ce qu'un {{metierItem.nom}} ?</strong> <br>
-            <hr> 
-            <span class="contenu">{{metierItem.description}}
-                
-                <br><br>
-                <span class="compétences" >
-                Compétences requises: 
-                    
-                   
-                    <li *ngFor="let competence of competences">{{competence | titlecase}}  </li>
-                    
-                </span>
-                <br><br>
-                <span class="missions">Ses principales missions incluent:
-                <li *ngFor="let mission of missions"> {{mission}}</li>
-               
-                </span>
-                <br><br>
-                <span class="salaire">
-                    Salaire indicatif:
-                    Le salaire d'un {{metierItem.nom}} varie en fonction de son expérience, de son niveau de qualification et de l'entreprise dans laquelle il travaille. En moyenne, un débutant peut espérer un salaire mensuel d'environ {{metierItem.salairemoyen}}.
-                </span>
-            </span>
-            <br><br><br>
-        </div>
-        <div id="EcoleFormation">
-            <span></span> <img src="../../assets/pseudo.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Ou se former?</strong> <br>
-            <hr> 
-            <span class="ecole formation">
-                Ecoles de formation au Cameroun: <br><br>
-                <li>Ecole Nationale Supérieure Polytechnique de Yaoundé (ENSPY)
-                </li>
-                <li>Université de Yaoundé I</li>
-                <li> Université de Douala</li>
-                <li>Institut Universitaire de Technologie de Douala (IUT)</li>
-                <li>Institut Universitaire Polytechnique de Yaoundé (IUPY)</li>
-            </span>
-             <br><br><br>
-        </div>
-
-         <div id="Entreprise">
-            <span></span> <img src="../../assets/pseudo.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Qui recherche ce profil?</strong> <br>
-            <hr> 
-            <span class="entreprise" *ngFor="let entreprise of metierItem.entreprisesrecrutent">
-                 <br><br>
-                
-                <li>{{entreprise}}</li>
-                <!-- <li>Entreprises privées</li>
+        <li>{{ entreprise }}</li>
+        <!-- <li>Entreprises privées</li>
                 <li>Administrations publiques</li>
                 <li>Organisations internationales</li> -->
-            </span>
-        </div>
-
+      </span>
     </div>
+  </div>
 </div>
 <app-footer></app-footer>

@@ -17,6 +17,8 @@ import { DetailsFilieresComponent } from './Pages/details-filieres/details-filie
 import { SignupErrorComponent } from './signup-error/signup-error.component';
 import { SignupResponseComponent } from './signup-response/signup-response.component';
 import { DetailsFacultesComponent } from './Pages/details-facultes/details-facultes.component';
+import { VoirTousMetiersComponent } from './Pages/voir-tous-metiers/voir-tous-metiers.component';
+import { VoirToutFormationsComponent } from './Pages/voir-tout-formations/voir-tout-formations.component';
 import { ContactezNousComponent } from './contactez-nous/contactez-nous.component';
 const routes: Routes = [
   { path: '', component: PageAcceuilSansCompteComponent },
@@ -34,6 +36,8 @@ const routes: Routes = [
   { path: 'signup-error', component: SignupErrorComponent },
   { path: 'centres-interets', component: CentreInteretsComponent },
   {path:'facultes/:faculte_id', component: DetailsFacultesComponent},
+  {path: 'voir-tout-metiers', component: VoirTousMetiersComponent},
+  {path: 'voir-tout-formations', component: VoirToutFormationsComponent},
   {path:'contact',component:ContactezNousComponent}
 ];
 
