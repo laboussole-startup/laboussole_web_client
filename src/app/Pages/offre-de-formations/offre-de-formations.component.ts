@@ -36,6 +36,7 @@ export class OffreDeFormationsComponent {
   }
 
   ngOnInit() {
+    window.scrollTo(0,0);
     this.getScreenWidth = window.innerWidth;
     // this.getScreenWidth <= 480? this.mobile = true : this.mobile = false;
 

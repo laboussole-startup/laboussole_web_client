@@ -1,0 +1,60 @@
+<div class="menuPage" *ngIf="isMenuIconClicked">
+    <app-nav-mobile-page *ngIf="!isLoggedIn" (menuIconClicked)="toggleMenu()"></app-nav-mobile-page>
+    <app-logged-in-nav-page *ngIf="isLoggedIn" (menuIconClicked)="toggleMenu()"></app-logged-in-nav-page>
+  </div>
+  <div class="restOfPage" *ngIf="isMenuIconClosed">
+    <app-nav-mobile-header *ngIf="!isLoggedIn" (menuIconClosed)="toggleMenu()"></app-nav-mobile-header>
+    <app-logged-in-nav-header *ngIf="isLoggedIn" (menuIconClosed)="toggleMenu()"></app-logged-in-nav-header>
+    <div class="container">
+        <div class="title1">Contact Us</div>
+        <div class="text1">Any question or remarks? Just write us a message!</div>
+
+        <div class="midContainer">
+            <div class="blueBox">
+                <div class="title2">Contact Information</div>
+                <div class="text2">Say something to start a live chat!</div>
+                <img src="../../assets/bxs_phone-call-std.svg" alt="" style="width: 30px;height:30px;margin-bottom: 10px;margin-top: 10px;">
+                <div class="text2">+1012 3456 789</div>
+                <img src="../../assets/ic_sharp-email.svg" alt="" style="width: 30px; height:30px;margin-bottom: 10px;margin-top: 10px;">
+                <div class="text2">demo@gmail.com</div>
+                <img src="../../assets/carbon_location-filled.svg" alt="" style="width: 30px; height:30px;margin-bottom: 10px;margin-top: 10px;">
+                <div class="text2">132 Dartmouth Street Boston, Massachusetts 02156 United States</div>
+        
+                <div class="socialMedia"> 
+                    <img src="../../assets/face book.svg"  alt="" style="width: 60px;height:50px;">
+                    <img src="../../assets/twitter.svg"  alt="" style="width: 50px;height:50px;">
+                    <img src="../../assets/instagram.svg"  alt="" style="width: 60px;height:50px;">
+                    <img src="../../assets/youtub.svg"  alt="" style="width: 50px;height:50px;">
+                </div>
+        
+            </div>
+        
+            <div class="form">
+                <mat-form-field>
+                    <mat-label>first Name</mat-label>
+                    <input matInput>
+                </mat-form-field>
+        
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input matInput>
+                </mat-form-field>
+        
+                <mat-form-field>
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput>
+                </mat-form-field>
+        
+                <mat-form-field>
+                    <mat-label>Message</mat-label>
+                    <textarea matInput></textarea>
+                </mat-form-field>
+                <button mat-raised-button>envoyer message</button>
+            </div>
+        </div>
+    
+       
+    </div>
+    <app-footer></app-footer>
+</div>
+

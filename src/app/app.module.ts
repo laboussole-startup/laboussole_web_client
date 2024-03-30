@@ -70,6 +70,7 @@ import { DetailsFacultesComponent } from './Pages/details-facultes/details-facul
 import { LoggedInNavPageComponent } from './logged-in-nav-page/logged-in-nav-page.component';
 import { VoirTousMetiersComponent } from './Pages/voir-tous-metiers/voir-tous-metiers.component';
 import { VoirToutFormationsComponent } from './Pages/voir-tout-formations/voir-tout-formations.component';
+import { ContactezNousComponent } from './contactez-nous/contactez-nous.component';
 
 
 
@@ -121,6 +122,7 @@ import { VoirToutFormationsComponent } from './Pages/voir-tout-formations/voir-t
     LoggedInNavPageComponent,
     VoirTousMetiersComponent,
     VoirToutFormationsComponent
+    ContactezNousComponent
   ],
   imports: [
     BrowserModule,
