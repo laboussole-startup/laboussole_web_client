@@ -1,10 +1,4 @@
-<div class="menuPage" *ngIf="isMenuIconClicked">
-    <app-nav-mobile-page (menuIconClicked)="toggleMenu()"></app-nav-mobile-page>
-  </div>
-  <div class="restOfPage" *ngIf="isMenuIconClosed">
-    <app-nav-mobile-header
-      (menuIconClosed)="toggleMenu()"
-    ></app-nav-mobile-header>
+<app-nav-bar></app-nav-bar>
   
     <div class="container">
       <div class="search-formation">
@@ -144,5 +138,4 @@
       </div>
       <app-footer></app-footer>
     </div>
-  </div>
   

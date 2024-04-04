@@ -1,11 +1,4 @@
-<div class="menuPage" *ngIf="isMenuIconClicked">
-  <app-nav-mobile-page (menuIconClicked)="toggleMenu()"></app-nav-mobile-page>
-</div>
-<div class="restOfPage" *ngIf="isMenuIconClosed">
-  <app-nav-mobile-header
-    (menuIconClosed)="toggleMenu()"
-  ></app-nav-mobile-header>
-</div>
+<app-nav-bar></app-nav-bar>
 
 <div style="display: flex">
   <div style="display: flex; margin: 2%; width: 30%">
