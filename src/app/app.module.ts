@@ -71,6 +71,8 @@ import { LoggedInNavPageComponent } from './logged-in-nav-page/logged-in-nav-pag
 import { VoirTousMetiersComponent } from './Pages/voir-tous-metiers/voir-tous-metiers.component';
 import { VoirToutFormationsComponent } from './Pages/voir-tout-formations/voir-tout-formations.component';
 import { ContactezNousComponent } from './contactez-nous/contactez-nous.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 
 
@@ -122,7 +124,9 @@ import { ContactezNousComponent } from './contactez-nous/contactez-nous.componen
     LoggedInNavPageComponent,
     VoirTousMetiersComponent,
     VoirToutFormationsComponent,
-    ContactezNousComponent
+    ContactezNousComponent,
+    AboutUsComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

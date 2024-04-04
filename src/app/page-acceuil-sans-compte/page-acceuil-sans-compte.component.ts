@@ -2,8 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { Temoignage } from '../Models/temoignage';
 import { TemoignageService } from '../services/temoignage.service';
 import { UserServiceService } from '../services/user-service.service';
-import { UserInfo } from '../Models/userInfo';
-import { User } from '../Models/user';
+
 
 @Component({
   selector: 'app-page-acceuil-sans-compte',
@@ -15,11 +14,7 @@ export class PageAcceuilSansCompteComponent {
 
   temoignages!: Array<Temoignage>;
   temoignages2!:Array<any>;
-  isMenuIconClicked = false;
-  isMenuIconClosed = true;
-  showSearchBar = false;
-
-  isLoggedIn:boolean=false;
+ 
 
   currentTemoignageNumber:number=0;
 
@@ -33,25 +28,9 @@ export class PageAcceuilSansCompteComponent {
       console.log(data);
       this.temoignages2 = data;
     });
-
-    this.verifyLogin();
   }
 
-  verifyLogin(){
-    this.userService.getUserInfo().subscribe(
-      (data) => {
-        console.log(data);
-        let v:UserInfo = data as UserInfo;
-        this.isLoggedIn=true;
-        this.userService.username= v.username;
-        
-      },
-      (error) => {
-        this.isLoggedIn=false;
-        console.error("An error occurred:", error);      
-      }
-    );
-  }
+  
 
  
 
@@ -62,10 +41,7 @@ export class PageAcceuilSansCompteComponent {
   
 
 
-  toggleMenu() {
-    this.isMenuIconClicked = !this.isMenuIconClicked;
-    this.isMenuIconClosed = !this.isMenuIconClosed;
-  }
+  
   formVar(temp: HTMLAnchorElement){
     console.log(temp);
   }

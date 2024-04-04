@@ -18,6 +18,10 @@ export class OffreDeFormationsComponent {
   isMenuIconClicked = false;
   isMenuIconClosed = true;
   showSearchBar = false;
+
+  isLoggedIn:boolean=false;
+
+  
   // formation!: Formations[];
   metiers!: Metier[];
   // formations: any;
@@ -56,4 +60,5 @@ export class OffreDeFormationsComponent {
     this.isMenuIconClicked = !this.isMenuIconClicked;
     this.isMenuIconClosed = !this.isMenuIconClosed;
   }
+  
 }

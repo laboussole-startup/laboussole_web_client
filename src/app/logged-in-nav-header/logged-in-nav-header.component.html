@@ -1,7 +1,6 @@
 <div class="navflexcontainer">
-    <div>
+    <div routerLink="/">
       <img
-        routerLink=""
         class="logo_icon"
         src="../../assets/logo laboussole 1.png"
         alt=""
@@ -25,16 +24,16 @@
   </div>
   <div class="navFlexContainerTabletDesktop">
   
-      <div class="logo_icon"><img src="../../assets/logo laboussole 1.png" alt=""  style="width: 60px; height: 60px;"></div>
+      <div class="logo_icon" routerLink="/"><img src="../../assets/logo laboussole 1.png" alt=""  style="width: 60px; height: 60px;"></div>
       
-      <div class="home nav-item">Home </div>
+      <div class="home nav-item" routerLink="/">Home </div>
      
       <div class="services nav-item" [matMenuTriggerFor]="servicesMenu" (click)="showDropdown = !showDropdown">Nos Services </div>
               
-      <div class="apropos nav-item">A propos de nous </div>
+      <div class="apropos nav-item" routerLink="/aboutus">A propos de nous </div>
   
   
-    <div class="contact nav-item" routerLink="contact">Contactez Nous</div>
+    <div class="contact nav-item" routerLink="/contact">Contactez Nous</div>
     <div class="searchBox nav-item">
       <input type="text" class="searchInput" name="" id="" placeholder="search" />
     </div>
@@ -43,8 +42,6 @@
   </div>
   <div class="dropdown-content" *ngIf="showDropdown">
     <div class="dropdown-item">Formations</div>
-    <div class="dropdown-item">Etudes a l'etranger</div>
-    <div class="dropdown-item">Bourses D'etudes</div>
     <div class="dropdown-item">Metiers</div>
   </div>
 
@@ -64,9 +61,7 @@
     </button>
   </mat-menu>
   <mat-menu #servicesMenu="matMenu">
-    <button mat-menu-item>Metiers</button>
-    <button mat-menu-item>Offres de formation</button>
-    <button mat-menu-item>Bourses d'Etudes</button>
-    <button mat-menu-item>Voyages d'Etudes</button>
+    <button mat-menu-item routerLink="/metiers">Metiers</button>
+    <button mat-menu-item routerLink="/universites">Offres de formation</button>
   </mat-menu>
   

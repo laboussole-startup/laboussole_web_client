@@ -20,6 +20,7 @@ import { DetailsFacultesComponent } from './Pages/details-facultes/details-facul
 import { VoirTousMetiersComponent } from './Pages/voir-tous-metiers/voir-tous-metiers.component';
 import { VoirToutFormationsComponent } from './Pages/voir-tout-formations/voir-tout-formations.component';
 import { ContactezNousComponent } from './contactez-nous/contactez-nous.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 const routes: Routes = [
   { path: '', component: PageAcceuilSansCompteComponent },
   { path: 'login', component: PageConnexionClientComponent },
@@ -38,7 +39,8 @@ const routes: Routes = [
   {path:'facultes/:faculte_id', component: DetailsFacultesComponent},
   {path: 'voir-tout-metiers', component: VoirTousMetiersComponent},
   {path: 'voir-tout-formations', component: VoirToutFormationsComponent},
-  {path:'contact',component:ContactezNousComponent}
+  {path:'contact',component:ContactezNousComponent},
+  {path: 'aboutus',component:AboutUsComponent}
 ];
 
 @NgModule({

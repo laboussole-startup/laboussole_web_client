@@ -1,10 +1,4 @@
-<div class="menuPage" *ngIf="isMenuIconClicked">
-  <app-nav-mobile-page *ngIf="!isLoggedIn" (menuIconClicked)="toggleMenu()"></app-nav-mobile-page>
-  <app-logged-in-nav-page *ngIf="isLoggedIn" (menuIconClicked)="toggleMenu()"></app-logged-in-nav-page>
-</div>
-<div class="restOfPage" *ngIf="isMenuIconClosed">
-  <app-nav-mobile-header *ngIf="!isLoggedIn" (menuIconClosed)="toggleMenu()"></app-nav-mobile-header>
-  <app-logged-in-nav-header *ngIf="isLoggedIn" (menuIconClosed)="toggleMenu()"></app-logged-in-nav-header>
+<app-nav-bar></app-nav-bar>
   <div class="contentROP">
     <div class="containerImageAcceuil">
       <div class="welcomeText">
@@ -114,7 +108,7 @@
       [description]="description_Metier"
       [icon_name]="'direction board.png'"
       [color]="'#5B72EE'"
-      routerLink="metiers"
+      routerLink="/metiers"
     >
     </app-acceuil-option-box>
 
@@ -126,7 +120,7 @@
       [description]="description_Bourses"
       [icon_name]="'mortarboard.png'"
       [color]="'#F48C06'"
-      routerLink="etudes"
+      routerLink="/etudes"
     >
     </app-acceuil-option-box>
 
@@ -145,7 +139,7 @@
       [description]="description_Formation"
       [icon_name]="'open book.png'"
       [color]="'#41BE90'"
-      routerLink="universites"
+      routerLink="/universites"
     >
     </app-acceuil-option-box>
   </div>
@@ -297,6 +291,6 @@
   </div>
   
   <app-footer></app-footer>
-</div>
+
 
 
