@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CommonModule } from '@angular/common';
 
 import { PageAcceuilSansCompteComponent } from './page-acceuil-sans-compte/page-acceuil-sans-compte.component';
 import { PageConnexionClientComponent } from './page-connexion-client/page-connexion-client.component';
@@ -73,6 +74,9 @@ import { VoirToutFormationsComponent } from './Pages/voir-tout-formations/voir-t
 import { ContactezNousComponent } from './contactez-nous/contactez-nous.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ProfileInfoComponent } from './profile-info/profile-info.component';
+import { ChangerMdpComponent } from './changer-mdp/changer-mdp.component';
 
 
 
@@ -126,9 +130,13 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     VoirToutFormationsComponent,
     ContactezNousComponent,
     AboutUsComponent,
-    NavBarComponent
+    NavBarComponent,
+    UserProfileComponent,
+    ProfileInfoComponent,
+    ChangerMdpComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

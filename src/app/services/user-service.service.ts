@@ -13,6 +13,7 @@ export class UserServiceService {
 
   public user_email:string = "";
   public username:any="";
+  public chosenImage!:File;
 
 
 
@@ -90,6 +91,100 @@ export class UserServiceService {
       "centres_interet":centres
     });
   }
+  updatePassword(pass:string){
+    let update_url:string = 'https://aristideabeng.pythonanywhere.com/auth/'+this.user_email+'/';
+    return this.httpClient.put(update_url,{
+      "password":pass
+    });
+  }
+  updateProfile(
+    prenom: string,
+    genre: string="NON DEFINI",
+    dernierDiplome: string='AUCUN',
+    serie: string='AUCUN',
+    telephone: string='+237',
+    niveau: string='AUCUN',
+    photo?: File,
+    dateOfBirth: string = '2000-01-01' // 
+    ){
+      let update_url:string = 'https://aristideabeng.pythonanywhere.com/auth/'+this.user_email+'/';
+      return new Promise((resolve, reject) => {
+       
+        let formData = new FormData();
+        if(prenom != ""){
+          formData.append('last_name', prenom);
+        }
+       if(dateOfBirth){
+        formData.append('date_de_naissance', dateOfBirth); // Ensure date format is 'YYYY-MM-DD'
+       }
+       if(genre != ""){
+        formData.append('genre', genre);
+       }
+        if(dernierDiplome != ""){
+          formData.append('dernier_diplome', dernierDiplome);
+        }
+        if(serie != ""){
+          formData.append('serie', serie);
+        }
+       if(telephone!=""){
+        formData.append('telephone', telephone);
+       }
+        if(niveau != ""){
+          formData.append('niveau', niveau);
+        }
+        
+       
+    
+        // Check if photo is provided
+        if (photo) {
+          formData.append('photo_de_profil', photo);
+          resolve(this.httpClient.put(update_url, formData).toPromise());
+        } else {
+          // Load image from assets folder
+          const imagePath = '/assets/photo_icon.jpg'; // Change this to the actual path of your image
+          fetch(imagePath)
+            .then(response => response.blob())
+            .then(blob => {
+              const imageFile = new File([blob], 'photo_icon.jpg', { type: 'image/jpeg' });
+              formData.append('photo_de_profil', imageFile);
+    
+              // Once file is appended to formData, you can make the POST request
+              resolve(this.httpClient.put(update_url, formData).toPromise());
+            })
+            .catch(error => {
+              reject('Error loading image: ' + error);
+            });
+        }
+      });
+    }
+  updateProfilePhoto(photo?: File){
+      let update_url:string = 'https://aristideabeng.pythonanywhere.com/auth/'+this.user_email+'/';
+      return new Promise((resolve, reject) => {
+       
+      let formData = new FormData();
+    
+        // Check if photo is provided
+        if (photo) {
+          formData.append('photo_de_profil', photo);
+          resolve(this.httpClient.put(update_url, formData).toPromise());
+        } else {
+          // Load image from assets folder
+          const imagePath = '/assets/photo_icon.jpg'; // Change this to the actual path of your image
+          fetch(imagePath)
+            .then(response => response.blob())
+            .then(blob => {
+              const imageFile = new File([blob], 'photo_icon.jpg', { type: 'image/jpeg' });
+              formData.append('photo_de_profil', imageFile);
+    
+              // Once file is appended to formData, you can make the POST request
+              resolve(this.httpClient.put(update_url, formData).toPromise());
+            })
+            .catch(error => {
+              reject('Error loading image: ' + error);
+            });
+        }
+      });
+  }  
   getUserInfo(){
     let url:string = 'https://aristideabeng.pythonanywhere.com/auth/'+this.user_email+'/';
     return this.httpClient.get(url);

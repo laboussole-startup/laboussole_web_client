@@ -21,6 +21,7 @@ import { VoirTousMetiersComponent } from './Pages/voir-tous-metiers/voir-tous-me
 import { VoirToutFormationsComponent } from './Pages/voir-tout-formations/voir-tout-formations.component';
 import { ContactezNousComponent } from './contactez-nous/contactez-nous.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 const routes: Routes = [
   { path: '', component: PageAcceuilSansCompteComponent },
   { path: 'login', component: PageConnexionClientComponent },
@@ -40,7 +41,8 @@ const routes: Routes = [
   {path: 'voir-tout-metiers', component: VoirTousMetiersComponent},
   {path: 'voir-tout-formations', component: VoirToutFormationsComponent},
   {path:'contact',component:ContactezNousComponent},
-  {path: 'aboutus',component:AboutUsComponent}
+  {path: 'aboutus',component:AboutUsComponent},
+  {path: 'profil',component:UserProfileComponent}
 ];
 
 @NgModule({
