@@ -7,9 +7,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class UserServiceService {
 
-  private root_url: string = 'https://aristideabeng.pythonanywhere.com/auth/signup/';
+  //private root_url: string = 'https://aristideabeng.pythonanywhere.com/auth/signup/';
+  private root_url: string = 'https://laboussole-back-end.onrender.com/auth/signup/';
 
-  private login_url: string = 'https://aristideabeng.pythonanywhere.com/auth/jwt/create/';
+  //private login_url: string = 'https://aristideabeng.pythonanywhere.com/auth/jwt/create/';
+  private login_url: string = 'https://laboussole-back-end.onrender.com/auth/jwt/create/';
 
   public user_email:string = "";
   public username:any="";
@@ -85,14 +87,14 @@ export class UserServiceService {
   }
 
   updateCentreInterets(ci:Array<Number>){
-    let update_url:string = 'https://aristideabeng.pythonanywhere.com/auth/'+this.user_email+'/';
+    let update_url:string = 'https://laboussole-back-end.onrender.com/auth/'+this.user_email+'/';
     let centres = ci.join("|");
     return this.httpClient.put(update_url,{
       "centres_interet":centres
     });
   }
   updatePassword(pass:string){
-    let update_url:string = 'https://aristideabeng.pythonanywhere.com/auth/'+this.user_email+'/';
+    let update_url:string = 'https://laboussole-back-end.onrender.com/auth/'+this.user_email+'/';
     return this.httpClient.put(update_url,{
       "password":pass
     });
@@ -107,7 +109,7 @@ export class UserServiceService {
     photo?: File,
     dateOfBirth: string = '2000-01-01' // 
     ){
-      let update_url:string = 'https://aristideabeng.pythonanywhere.com/auth/'+this.user_email+'/';
+      let update_url:string = 'https://laboussole-back-end.onrender.com/auth/'+this.user_email+'/';
       return new Promise((resolve, reject) => {
        
         let formData = new FormData();
@@ -158,7 +160,7 @@ export class UserServiceService {
       });
     }
   updateProfilePhoto(photo?: File){
-      let update_url:string = 'https://aristideabeng.pythonanywhere.com/auth/'+this.user_email+'/';
+      let update_url:string = 'https://laboussole-back-end.onrender.com/auth/'+this.user_email+'/';
       return new Promise((resolve, reject) => {
        
       let formData = new FormData();
@@ -186,7 +188,7 @@ export class UserServiceService {
       });
   }  
   getUserInfo(){
-    let url:string = 'https://aristideabeng.pythonanywhere.com/auth/'+this.user_email+'/';
+    let url:string = 'https://laboussole-back-end.onrender.com/auth/'+this.user_email+'/';
     return this.httpClient.get(url);
   }
 }

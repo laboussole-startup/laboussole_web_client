@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Universite } from 'src/app/Models/universite';
 
 @Component({
@@ -8,4 +8,42 @@ import { Universite } from 'src/app/Models/universite';
 })
 export class FiliereFormationBoxComponent {
   @Input() formationBox!: Universite;
+
+  ngOnInit(){
+    console.log(this.formationBox.nom)
+    console.log(this.formationBox.images_pc)
+    let im:string | null = this.convertDriveLinkToDirectDownloadLink(this.formationBox.images_pc);
+    console.log(im)
+    this.formationBox.images_pc=im?im:this.formationBox.images_pc;
+    console.log(this.formationBox.images_pc)
+  }
+
+  convertDriveLinkToDirectDownloadLink(driveLink: string): string | null {
+    if(driveLink){
+      const regexDirectDownload = /https:\/\/drive\.google\.com\/thumbnail\?&id=([^/]+)/;
+      const matchDirectDownload = driveLink.match(regexDirectDownload);
+  
+      if (matchDirectDownload && matchDirectDownload.length === 2) {
+          // The link is already in the desired format, return it as is
+          return driveLink;
+      }
+  
+      // Check if the provided link matches the Google Drive file link pattern
+      const regexFileLink = /https:\/\/drive\.google\.com\/file\/d\/([^/]+)\/view\?usp=sharing/;
+      const matchFileLink = driveLink.match(regexFileLink);
+  
+      if (matchFileLink && matchFileLink.length === 2) {
+          const fileId = matchFileLink[1];
+          const directDownloadLink = `https://drive.google.com/thumbnail?&id=${fileId}`;
+          return directDownloadLink;
+      } else {
+          console.error("Invalid Google Drive shareable link format.");
+          return null;
+      }
+    }else{
+      return null;
+    }
+    // Check if the provided link matches the Google Drive direct download link pattern
+   
+}
 }

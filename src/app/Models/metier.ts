@@ -7,6 +7,9 @@ export class Metier {
         public entreprisesrecrutent: string,
         public nom: string,
         public description: string,
-        public principales_missions: string
+        public principales_missions: string,
+        public images_pc:string,
+        public images_tablettes:string,
+        public images_telephone:string
       ) {}
 }

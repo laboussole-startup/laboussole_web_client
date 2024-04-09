@@ -46,7 +46,7 @@ export class OffreDeFormationsComponent {
 
     this.service.getFormations().subscribe((data: any) => {
       console.log(data);
-      this.metiers = data;
+      this.metiers = data.results;
       // console.log(this.formations);
     });
     // this.formations = this.service.getFormation();
