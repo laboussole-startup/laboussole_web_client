@@ -157,11 +157,11 @@
       />
       <strong>Ou se former?</strong> <br />
       <hr />
-      <span class="ecole formation">
-        Ecoles de formation au Cameroun: <br /><br />
-        <!-- <li>Ecole Nationale Supérieure Polytechnique de Yaoundé (ENSPY)
-                </li> -->
-      </span>
+      <ul>
+        <li *ngFor="let entry of lieu | keyvalue">
+          {{entry.key}} de {{entry.value}}
+        </li>
+      </ul>
       <br /><br /><br />
     </div>
 

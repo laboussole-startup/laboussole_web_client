@@ -127,7 +127,12 @@
       />
       <strong>Les écoles de l’{{ filiereItem.nom }}</strong> <br />
       <hr />
-
+      <app-faculte-box
+          [faculte]="faculte"
+          *ngFor="let faculte of ecoles"
+          (click)="navigateToDetails(faculte.faculte_id)"
+          (id)="onIdFromChild($event)"
+        ></app-faculte-box>
       <!-- important -->
 
       <!-- <span class="entreprise" *ngFor="let entreprise of filiereItem.entreprisesrecrutent">

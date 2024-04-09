@@ -18,7 +18,8 @@ export class DetailsFilieresComponent {
   // about service
   filiereId!: any;
   filiereItem!: Universite;
-  facultes!: Faculte[];
+  facultes: Array<Faculte> = new Array()
+  ecoles:Array<Faculte> = new Array()
   faculte_id!:number;
   missions!: string[];
 
@@ -46,7 +47,19 @@ export class DetailsFilieresComponent {
     }
     this.service.getFaculteUniv(this.filiereId).subscribe((data: any) => {
       console.log(data);
-      this.facultes = data;
+      let filter:Array<Faculte> = data as Array<Faculte>;
+      const sub="faculté";
+
+      for(let f of filter){
+        console.log(f)
+        console.log(f.nom.toLowerCase().includes(sub))
+        if(f.nom.toLowerCase().includes(sub)){
+          this.facultes.push(f);
+        }else{
+          this.ecoles.push(f);
+        }
+      }
+
     })
 
    
