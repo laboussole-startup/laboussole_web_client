@@ -10,6 +10,7 @@ export class Metier {
         public principales_missions: string,
         public images_pc:string,
         public images_tablettes:string,
-        public images_telephone:string
+        public images_telephone:string,
+        public filieres:string
       ) {}
 }

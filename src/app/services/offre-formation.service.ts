@@ -36,6 +36,9 @@ export class OffreFormationService {
   getFilieres() {
     return this.http.get(this.url + '/filieres/');
   }
+  getSimilarFilieres(name:string) {
+    return this.http.get(this.url + '/filieres/?name='+name);
+  }
   getFiliereDetails(id: any) {
     return this.http.get(this.url + '/filieres/' + id + '/');
   }

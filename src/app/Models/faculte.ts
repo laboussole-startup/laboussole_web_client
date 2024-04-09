@@ -6,7 +6,10 @@ export class Faculte {
     public condition_admission: string,
     public email: string,
     public telephnone: string,
-    public universite_id: number,
-    public imageurl: string
+    public universite: number,
+    public imageurl: string,
+    public images_pc:string,
+    public images_tablettes:string,
+    public images_telephone:string,
   ) {}
 }

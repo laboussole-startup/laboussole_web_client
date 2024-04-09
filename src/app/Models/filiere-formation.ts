@@ -6,7 +6,11 @@
     public cout: string,
     public langue_enseignement: string,
     public diplome_delivre: string,
-    public faculte_id:number,
-    public imageurl:string
+    public faculte:number,
+    public imageurl:string,
+    public images_pc:string,
+    public images_tablettes:string,
+    public images_telephone:string,
+    public centre_interet:string
   ) {}
 }

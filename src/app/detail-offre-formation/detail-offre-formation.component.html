@@ -53,7 +53,7 @@
       style="width: 15px; height: 15; margin-right: 5px"
     />
     <strong>Durée</strong> <br /><br />
-    <span> 5ans</span><br /><br />
+    <span> {{linked_filiere.duree}}ans</span><br /><br />
 
     <img
       src="../../assets/Symbol.png"
@@ -61,7 +61,7 @@
       style="width: 15px; height: 15; margin-right: 5px"
     />
     <strong>Diplome délivré</strong> <br /><br />
-    <span> Diplome de {{ metierItem.nom }}</span
+    <span> {{ linked_filiere.diplome_delivre }}</span
     ><br /><br />
 
     <img
@@ -71,11 +71,10 @@
     />
     <strong>Lieu</strong> <br />
     <span>
-      <li>Ecole Nationale Supérieure Polytechnique de Yaoundé (ENSPY)</li>
-      <li>Université de Yaoundé I</li>
-      <li>Université de Douala</li>
-      <li>Institut Universitaire de Technologie de Douala (IUT)</li>
-      <li>Institut Universitaire Polytechnique de Yaoundé (IUPY)</li> </span
+      <li *ngFor="let entry of lieu | keyvalue">
+        {{entry.key}} de {{entry.value}}
+      </li>
+    </span
     ><br /><br />
 
     <img
@@ -84,7 +83,7 @@
       style="width: 15px; height: 15; margin-right: 5px"
     />
     <strong>Conditions d'admission</strong> <br /><br />
-    <span>Titulaire du Bacc ou GCE A/L Cycle Licence</span><br /><br />
+    <span>{{linked_faculte.condition_admission}}e</span><br /><br />
 
     <img
       src="../../assets/Symbol.png"
@@ -92,7 +91,7 @@
       style="width: 15px; height: 15; margin-right: 5px"
     />
     <strong>Cout de laformation</strong> <br /><br />
-    <span>50 000 frs/an</span><br /><br />
+    <span>{{linked_filiere.cout}} frs/an</span><br /><br />
 
     <img
       src="../../assets/Symbol.png"
@@ -100,7 +99,7 @@
       style="width: 15px; height: 15; margin-right: 5px"
     />
     <strong>Langue d'enseignement</strong> <br /><br />
-    <span>Français et Anglais</span><br /><br />
+    <span>{{linked_filiere.langue_enseignement}}</span><br /><br />
 
     <img
       src="../../assets/Symbol.png"
@@ -108,7 +107,7 @@
       style="width: 15px; height: 15; margin-right: 5px"
     />
     <strong>Salaire</strong> <br /><br />
-    <span> 400 000 FCFA - 1 200 000 FCFA </span><br /><br />
+    <span> {{metierItem.salairemoyen}} </span><br /><br />
   </div>
 
   <!-- main-info -->
