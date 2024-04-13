@@ -5,7 +5,7 @@
         <span>
           <img src="../../../assets/search.svg" alt="" />
         </span>
-        <input type="text" placeholder="Search..." />
+        <input type="text" placeholder="Search..." (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query" />
       </div>
       <div
         class="search-menu"
@@ -127,7 +127,6 @@
       <div class="recommendations">
         <div *ngFor="let metier of metiers; index as i">
           <app-offre-formation-box (click)="navigateToDetails(metier.id_metiers)"
-            *ngIf="i <= 4"
             [metierBox]="metier"
           ></app-offre-formation-box>
         </div>

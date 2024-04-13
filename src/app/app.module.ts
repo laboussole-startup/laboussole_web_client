@@ -77,6 +77,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ProfileInfoComponent } from './profile-info/profile-info.component';
 import { ChangerMdpComponent } from './changer-mdp/changer-mdp.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 
 
@@ -133,7 +134,8 @@ import { ChangerMdpComponent } from './changer-mdp/changer-mdp.component';
     NavBarComponent,
     UserProfileComponent,
     ProfileInfoComponent,
-    ChangerMdpComponent
+    ChangerMdpComponent,
+    SearchResultsComponent
   ],
   imports: [
     CommonModule,

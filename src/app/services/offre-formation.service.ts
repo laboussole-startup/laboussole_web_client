@@ -12,11 +12,17 @@ export class OffreFormationService {
   getFormations() {
     return this.http.get(this.url + '/metiers/');
   }
+  searchMetiers(s:string){
+    return this.http.get(this.url + '/metiers/?search='+s);
+  }
   getMetierDetails(id: any) {
     return this.http.get(this.url + '/metiers/' + id + '/');
   }
   getUniversites() {
     return this.http.get(this.url + '/universites/');
+  }
+  searchUniversites(s:string){
+    return this.http.get(this.url + '/universites/?search='+s);
   }
   getUniversiteDetails(id: any) {
     return this.http.get(this.url + '/universites/' + id + '/');
@@ -26,6 +32,12 @@ export class OffreFormationService {
   }
   getFacultes(id: any) {
     return this.http.get(this.url + '/facultes/' + id + '/');
+  }
+  searchEcoles(s:string){
+    return this.http.get(this.url + '/facultes/?search='+s);
+  }
+  getPageEcole(url:string){
+    return this.http.get(url);
   }
   getFiliereFac(id: number) {
     return this.http.get(this.url + '/filieres/faculte/' + id + '/');

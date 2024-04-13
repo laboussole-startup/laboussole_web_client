@@ -6,7 +6,7 @@
           <span>
             <img src="../../../assets/search.svg" alt="" />
           </span>
-          <input type="text" placeholder="Search..." />
+          <input type="text" placeholder="Search..." (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query" />
         </div>
         <div
           class="search-menu"

@@ -11,6 +11,9 @@
 .small-screen-menu {
   display: none;
 }
+div:empty{
+  display: none;
+}
 .menu-icon {
   width: 80%;
   margin: auto;

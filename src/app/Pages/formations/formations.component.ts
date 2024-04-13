@@ -2,6 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Universite } from 'src/app/Models/universite';
 import { OffreFormationService } from 'src/app/services/offre-formation.service';
+import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-formations',
@@ -12,8 +13,11 @@ export class FormationsComponent {
   constructor(
     private service: OffreFormationService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private searchService:SearchService
   ) {}
+
+  query:string="";
 
   isMenuIconClicked = false;
   isMenuIconClosed = true;
@@ -58,5 +62,12 @@ export class FormationsComponent {
 
   handleClick(){
     console.log('yes');
+  }
+
+  onEnterKeyPressed(){
+    this.searchService.setSearchQuery("");
+    this.searchService.setFormationsQuery(this.query);
+    this.searchService.setMetiersQuery("");
+    this.router.navigateByUrl("/search-results")
   }
 }

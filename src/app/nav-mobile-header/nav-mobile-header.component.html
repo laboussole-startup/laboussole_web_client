@@ -11,7 +11,7 @@
     <!-- <div class="searchBar" *ngIf="showSearchBar"> <input type="text" name="" id="" class="searchBar"> </div>
         <div  (click)="showSearchBar = !showSearchBar"><img class="searchIcon" src="../../assets/search-lg.png" alt=""></div>-->
     <form class="inputbox">
-      <input required="required" />
+      <input required="required" name="query" (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query"  />
       <button type="reset" class="del"></button>
     </form>
     <div
@@ -36,7 +36,7 @@
 
   <div class="contact nav-item" routerLink="/contact">Contactez Nous</div>
   <div class="searchBox nav-item">
-    <input type="text" class="searchInput" name="" id="" placeholder="search" />
+    <input type="text" class="searchInput" name="" id="" placeholder="search" (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query" />
   </div>
   <div class="signupBtn nav-item" routerLink="/signup">Signup</div>
   <div class="loginBtn nav-item" routerLink="/login">Login</div>

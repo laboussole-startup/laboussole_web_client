@@ -2,6 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Metier } from 'src/app/Models/metier';
 import { OffreFormationService } from 'src/app/services/offre-formation.service';
+import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-offre-de-formations',
@@ -12,7 +13,8 @@ export class OffreDeFormationsComponent {
   constructor(
     private service: OffreFormationService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private searchService:SearchService
   ) {}
 
   isMenuIconClicked = false;
@@ -21,7 +23,7 @@ export class OffreDeFormationsComponent {
 
   isLoggedIn:boolean=false;
 
-  
+  query:string = "";
   // formation!: Formations[];
   metiers!: Metier[];
   // formations: any;
@@ -59,6 +61,13 @@ export class OffreDeFormationsComponent {
   toggleMenu() {
     this.isMenuIconClicked = !this.isMenuIconClicked;
     this.isMenuIconClosed = !this.isMenuIconClosed;
+  }
+
+  onEnterKeyPressed(){
+    this.searchService.setSearchQuery("");
+    this.searchService.setFormationsQuery("");
+    this.searchService.setMetiersQuery(this.query);
+    this.router.navigateByUrl("/search-results")
   }
   
 }

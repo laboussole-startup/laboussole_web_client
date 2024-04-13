@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Faculte } from 'src/app/Models/faculte';
 import { Universite } from 'src/app/Models/universite';
 
 @Component({
@@ -7,7 +8,7 @@ import { Universite } from 'src/app/Models/universite';
   styleUrls: ['./filiere-formation-box.component.scss']
 })
 export class FiliereFormationBoxComponent {
-  @Input() formationBox!: Universite;
+  @Input() formationBox!: Universite | Faculte;
 
   ngOnInit(){
     console.log(this.formationBox.nom)

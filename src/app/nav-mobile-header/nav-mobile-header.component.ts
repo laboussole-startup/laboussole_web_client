@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { SearchService } from '../services/search.service';
 
 @Component({
   selector: 'app-nav-mobile-header',
@@ -6,8 +8,15 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./nav-mobile-header.component.scss']
 })
 export class NavMobileHeaderComponent {
-  @Output() menuIconClosed = new EventEmitter<void>();
 
+
+  constructor(private searchService:SearchService,private router:Router){
+
+  }
+
+  @Output() menuIconClosed = new EventEmitter<void>();
+  
+  query:string="";
   username:string = "default";
   
   showSearchBar = false;
@@ -22,5 +31,11 @@ export class NavMobileHeaderComponent {
   }
   toggleSearchBar(){
 
+  }
+  onEnterKeyPressed(){
+    this.searchService.setSearchQuery(this.query)
+    this.searchService.setFormationsQuery("");
+    this.searchService.setMetiersQuery("");
+    this.router.navigateByUrl("/search-results")
   }
 }

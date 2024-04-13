@@ -1,6 +1,8 @@
 import { Component, Input,OnInit} from '@angular/core';
 import { SafeResourceUrl } from '@angular/platform-browser';
+import { Faculte } from 'src/app/Models/faculte';
 import { Metier } from 'src/app/Models/metier';
+import { Universite } from 'src/app/Models/universite';
 
 @Component({
   selector: 'app-offre-formation-box',

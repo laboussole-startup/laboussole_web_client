@@ -3,6 +3,7 @@ import { UserServiceService } from '../services/user-service.service';
 import { Location } from '@angular/common';
 
 import { Router } from '@angular/router';
+import { SearchService } from '../services/search.service';
 
 @Component({
   selector: 'app-logged-in-nav-header',
@@ -21,7 +22,9 @@ export class LoggedInNavHeaderComponent {
 
   username:string="";
 
-  constructor(private userService:UserServiceService,private router:Router,private location:Location){
+  query:string="";
+
+  constructor(private userService:UserServiceService,private router:Router,private location:Location,private searchService:SearchService){
 
   }
 
@@ -40,4 +43,10 @@ export class LoggedInNavHeaderComponent {
     this.menuIconClosed.emit();
   }
 
+  onEnterKeyPressed(){
+    this.searchService.setSearchQuery(this.query);
+    this.searchService.setFormationsQuery("");
+    this.searchService.setMetiersQuery("");
+    this.router.navigateByUrl("/search-results")
+  }
 }
