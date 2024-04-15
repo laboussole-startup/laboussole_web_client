@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { SearchService } from '../services/search.service';
+import { UserServiceService } from '../services/user-service.service';
 
 @Component({
   selector: 'app-nav-mobile-header',
@@ -10,7 +11,7 @@ import { SearchService } from '../services/search.service';
 export class NavMobileHeaderComponent {
 
 
-  constructor(private searchService:SearchService,private router:Router){
+  constructor(private searchService:SearchService,private router:Router,private userService:UserServiceService){
 
   }
 
@@ -31,6 +32,11 @@ export class NavMobileHeaderComponent {
   }
   toggleSearchBar(){
 
+  }
+  signOut(){
+    console.log("signing out");
+    this.userService.user_email='';
+    this.router.navigate(['/login']);
   }
   onEnterKeyPressed(){
     this.searchService.setSearchQuery(this.query)

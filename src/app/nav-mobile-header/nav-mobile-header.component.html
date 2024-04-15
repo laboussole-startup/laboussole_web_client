@@ -1,26 +1,29 @@
 <div class="navflexcontainer">
-  <div routerLink="/">
-    <img
-      
-      class="logo_icon"
-      src="../../assets/logo laboussole 1.png"
-      alt=""
-    />
-  </div>
-  <div class="rightPlacedIcons">
-    <!-- <div class="searchBar" *ngIf="showSearchBar"> <input type="text" name="" id="" class="searchBar"> </div>
-        <div  (click)="showSearchBar = !showSearchBar"><img class="searchIcon" src="../../assets/search-lg.png" alt=""></div>-->
-    <form class="inputbox">
-      <input required="required" name="query" (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query"  />
-      <button type="reset" class="del"></button>
-    </form>
-    <div
+  <div class="leftContainer">
+    <div routerLink="/">
+      <div
       (click)="openMenu()"
       [ngStyle]="{ display: hideMenuIcon ? 'none' : 'block' }"
     >
       <img class="menuIcon" src="../../assets/menu drawer.png" alt="" />
-
+  
     </div>
+      <img
+        
+        class="logo_icon"
+        src="../../assets/logo laboussole 1.png"
+        alt=""
+      />
+    </div>
+  </div>
+ 
+  <div class="rightPlacedIcons">
+    <form class="inputbox">
+      <input required="required" name="query" (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query"  />
+      <button type="reset" class="del"></button>
+    </form>
+    <div class="profile" [matMenuTriggerFor]="profileMenu"> <img src="../../assets/profile-svgrepo-com.svg" alt="" width="30px" height="30px"></div>
+   
   </div>
 </div>
 <div class="navFlexContainerTabletDesktop">
@@ -44,4 +47,14 @@
 <mat-menu #servicesMenu="matMenu">
   <button mat-menu-item routerLink="/metiers">Metiers</button>
   <button mat-menu-item routerLink="/universites">Offres de formation</button>
+</mat-menu>
+<mat-menu #profileMenu="matMenu">
+  <button mat-menu-item routerLink="/signup">
+    <mat-icon>person</mat-icon>
+    <span>Creer un compte</span>
+  </button>
+  <button mat-menu-item routerLink="/login">
+    <mat-icon>login</mat-icon>
+    <span>Connexion</span>
+  </button>
 </mat-menu>

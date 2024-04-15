@@ -197,18 +197,29 @@ $speed: 0.4s;
     color:#0F70B7;
 }
 
-.menuIcon{
-  position: relative;
-  right: 10px;
-}
+//.menuIcon{
+  //position: relative;
+//  right: 10px;
+//}
+.leftContainer{
+  display: flex;
+  flex-flow: row nowrap;
 
+}
+.profile{
+  position: relative;
+  right:10px;
+}
 .logo_icon{
   margin-bottom: 20px;
   position: relative;
-  top: 10px;
-  left: 10px;
+  cursor: pointer;
+  left: 40px;
 }
-
+.menuIcon{
+  position:relative;
+  top: 35px;
+}
 .inputbox {
     height: $size;
     width: $width;
