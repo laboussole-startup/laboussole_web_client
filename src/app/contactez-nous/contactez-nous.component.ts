@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-contactez-nous',
@@ -11,6 +11,9 @@ export class ContactezNousComponent {
   showSearchBar = false;
   isLoggedIn:boolean=false;
 
+  ngOnInit(){
+    window.scrollTo(0,0);
+  }
   toggleMenu() {
     this.isMenuIconClicked = !this.isMenuIconClicked;
     this.isMenuIconClosed = !this.isMenuIconClosed;

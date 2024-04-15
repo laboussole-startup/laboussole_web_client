@@ -1,6 +1,5 @@
 <app-nav-bar></app-nav-bar>
   <div class="contentROP">
-   
     <div class="containerImageAcceuil">
       <div class="welcomeText">
         <div class="header-text">
@@ -158,7 +157,7 @@
       numérique qui permettra aux apprenants soit d’avoir un emploi décent à la
       fin de leurs formations, soit d’entreprendre, soit de s’autoemployer afin
       d’avoir une insertion socio-professionnelle réussite..
-      <a href="http://">lire plus</a>
+      <a routerLink="/aboutus">lire plus</a>
     </div>
 
 <!-- >>>>>>> main -->
@@ -236,46 +235,28 @@
   <div class="titleActu">Actualités du jour</div>
   <div class="actualites">
     <app-actualite-box
+    *ngFor="let article of allArticles"
       class="actualites-item"
-      [image]="'ActuImage1.png'"
-      [date]="'November 16, 2014'"
-      [title]="'Three Pillars of User Delight'"
-      [description]="
-        'Delight can be experienced viscerally, behaviourally, and reflectively. A great design is ...'
-      "
-      [tags]="'UI, UX'"
-    ></app-actualite-box>
-    <app-actualite-box
-      [image]="'ActuImage2.png'"
-      [date]="'September 24, 2014'"
-      [title]="'UX Mapping Methods'"
-      [description]="
-        'Visual-design principles can be applied consistently throughout the process of creating a polished UX map...'
-      "
-      [tags]="'Research,  UI Design'"
+      [image]="article.image_pc"
+      [date]="article.date"
+      [title]="article.titre"
+      [description]="article.contenu"
+      [tags]="article.domaine"
+      (click)="viewArticle(article.id_actualite)"
     ></app-actualite-box>
   </div>
   <div class="largeScreenBox">
     <div class="leftActus">
       <app-actualite-box
-        class="actualites-item"
-        [image]="'ActuImage1.png'"
-        [date]="'November 16, 2014'"
-        [title]="'Three Pillars of User Delight'"
-        [description]="
-          'Delight can be experienced viscerally, behaviourally, and reflectively. A great design is ...'
-        "
-        [tags]="'UI, UX'"
-      ></app-actualite-box>
-      <app-actualite-box
-        [image]="'ActuImage2.png'"
-        [date]="'September 24, 2014'"
-        [title]="'UX Mapping Methods'"
-        [description]="
-          'Visual-design principles can be applied consistently throughout the process of creating a polished UX map...'
-        "
-        [tags]="'Research,  UI Design'"
-      ></app-actualite-box>
+    *ngFor="let article of allArticles"
+      class="actualites-item"
+      [image]="article.image_pc"
+      [date]="article.date"
+      [title]="article.titre"
+      [description]="article.contenu"
+      [tags]="article.domaine"
+      (click)="viewArticle(article.id_actualite)"
+    ></app-actualite-box>
     </div>
     <!--
               <div class="RightActus">

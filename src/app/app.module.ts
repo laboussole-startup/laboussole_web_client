@@ -78,6 +78,11 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ProfileInfoComponent } from './profile-info/profile-info.component';
 import { ChangerMdpComponent } from './changer-mdp/changer-mdp.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { DetailsActualitesComponent } from './details-actualites/details-actualites.component';
+import { DetailsNotificationsComponent } from './details-notifications/details-notifications.component';
+import { NotificationsListComponent } from './notifications-list/notifications-list.component';
+import { NotificationTemplateComponent } from './notification-template/notification-template.component';
+import { TemoignagesInputComponent } from './temoignages-input/temoignages-input.component';
 
 
 
@@ -135,7 +140,12 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     UserProfileComponent,
     ProfileInfoComponent,
     ChangerMdpComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    DetailsActualitesComponent,
+    DetailsNotificationsComponent,
+    NotificationsListComponent,
+    NotificationTemplateComponent,
+    TemoignagesInputComponent
   ],
   imports: [
     CommonModule,

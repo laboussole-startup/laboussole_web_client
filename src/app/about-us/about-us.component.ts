@@ -14,6 +14,7 @@ export class AboutUsComponent {
   isLoggedIn:boolean=false;
 
   ngOnInit(){
+    window.scrollTo(0,0);
   }
   nextImage(){
 

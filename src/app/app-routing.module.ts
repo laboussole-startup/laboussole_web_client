@@ -23,6 +23,8 @@ import { ContactezNousComponent } from './contactez-nous/contactez-nous.componen
 import { AboutUsComponent } from './about-us/about-us.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { DetailsActualitesComponent } from './details-actualites/details-actualites.component';
+import { DetailsNotificationsComponent } from './details-notifications/details-notifications.component';
 const routes: Routes = [
   { path: '', component: PageAcceuilSansCompteComponent },
   { path: 'login', component: PageConnexionClientComponent },
@@ -44,7 +46,9 @@ const routes: Routes = [
   {path:'contact',component:ContactezNousComponent},
   {path: 'aboutus',component:AboutUsComponent},
   {path: 'profil',component:UserProfileComponent},
-  {path:'search-results',component:SearchResultsComponent}
+  {path:'search-results',component:SearchResultsComponent},
+  {path:'details-actualites',component:DetailsActualitesComponent},
+  {path:'details-notifications',component:DetailsNotificationsComponent}
 ];
 
 @NgModule({

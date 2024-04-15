@@ -24,6 +24,8 @@ export class UserProfileComponent {
       this.current_location="edit profile";
     }else if(n==3){
       this.current_location="changer mot de pass"
+    }else if(n==2){
+      this.current_location="notifications"
     }
   }
   ngOnInit(){

@@ -2,6 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Universite } from 'src/app/Models/universite';
 import { OffreFormationService } from 'src/app/services/offre-formation.service';
+import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-voir-tout-formations',
@@ -13,12 +14,14 @@ export class VoirToutFormationsComponent {
   constructor(
     private service: OffreFormationService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private searchService:SearchService
   ) {}
 
   isMenuIconClicked = false;
   isMenuIconClosed = true;
   showSearchBar = false;
+  query:string = "";
   // formation!: Formations[];
   formations!: Universite[];
   // formations: any;
@@ -55,5 +58,11 @@ export class VoirToutFormationsComponent {
   toggleMenu() {
     this.isMenuIconClicked = !this.isMenuIconClicked;
     this.isMenuIconClosed = !this.isMenuIconClosed;
+  }
+  onEnterKeyPressed(){
+    this.searchService.setSearchQuery("");
+    this.searchService.setFormationsQuery("");
+    this.searchService.setMetiersQuery(this.query);
+    this.router.navigateByUrl("/search-results")
   }
 }

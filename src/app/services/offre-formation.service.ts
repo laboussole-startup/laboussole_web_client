@@ -12,6 +12,9 @@ export class OffreFormationService {
   getFormations() {
     return this.http.get(this.url + '/metiers/');
   }
+  getFormationsPage(p:string){
+    return this.http.get(p);
+  }
   searchMetiers(s:string){
     return this.http.get(this.url + '/metiers/?search='+s);
   }
@@ -54,6 +57,27 @@ export class OffreFormationService {
   getFiliereDetails(id: any) {
     return this.http.get(this.url + '/filieres/' + id + '/');
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   getFormation() {
     return [
       {

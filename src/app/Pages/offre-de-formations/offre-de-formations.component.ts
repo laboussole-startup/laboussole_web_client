@@ -21,11 +21,13 @@ export class OffreDeFormationsComponent {
   isMenuIconClosed = true;
   showSearchBar = false;
 
-  isLoggedIn:boolean=false;
-
   query:string = "";
   // formation!: Formations[];
   metiers!: Metier[];
+  initialMetierList:Array<Metier> = new Array()
+  recommendationsList:Array<Metier> = new Array()
+  popularMetierList:Array<Metier> = new Array()
+
   // formations: any;
   showSideBar = false;
 
@@ -49,9 +51,14 @@ export class OffreDeFormationsComponent {
     this.service.getFormations().subscribe((data: any) => {
       console.log(data);
       this.metiers = data.results;
+      let res:Array<Metier> = data.results as Array<Metier>
+
+      this.initialMetierList = res.slice(0,20);
+      this.popularMetierList = res.slice(20,30);
+      this.recommendationsList= res.slice(30,40);
       // console.log(this.formations);
     });
-    // this.formations = this.service.getFormation();
+   
   }
 
   navigateToDetails(itemId: string) {

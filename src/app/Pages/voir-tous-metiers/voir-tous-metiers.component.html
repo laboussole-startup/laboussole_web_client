@@ -6,7 +6,7 @@
           <span>
             <img src="../../../assets/search.svg" alt="" />
           </span>
-          <input type="text" placeholder="Search..." />
+          <input type="text" placeholder="Search..." (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query" />
         </div>
         <div
           class="search-menu"
@@ -132,6 +132,10 @@
             ></app-offre-formation-box>
           </div>
         </div>
+      </div>
+      <div class="contentNavigation">
+         <button  *ngIf='previousPage' class="btnPlus" mat-raised-button style="background-color: red;color:white;" (click)="fetchPage(previousPage)">precedent</button>
+         <button *ngIf='nextPage'  class="btnPlus" mat-raised-button style="background-color: #0f70b7;color:white;" (click)="fetchPage(nextPage)">suivant</button>
       </div>
       <app-footer></app-footer>
     </div>

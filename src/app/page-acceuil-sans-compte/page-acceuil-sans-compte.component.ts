@@ -1,5 +1,8 @@
 import { Component,OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Article } from '../Models/article';
 import { Temoignage } from '../Models/temoignage';
+import { ActualitesService } from '../services/actualites.service';
 import { TemoignageService } from '../services/temoignage.service';
 import { UserServiceService } from '../services/user-service.service';
 
@@ -14,16 +17,19 @@ export class PageAcceuilSansCompteComponent {
 
   temoignages!: Array<Temoignage>;
   temoignages2!:Array<any>;
+  allArticles!:Array<Article>
  
 
   currentTemoignageNumber:number=0;
 
-  constructor(private TemoignageService:TemoignageService,private userService:UserServiceService){
+  constructor(private TemoignageService:TemoignageService,private userService:UserServiceService,private articleService:ActualitesService,
+    private router:Router){
     this.temoignages = this.TemoignageService.list_temoignages;
     console.log(this.temoignages)
   }
 
   ngOnInit(): void {
+    this.fetchAllArticles();
     this.TemoignageService.getTemoignages().subscribe(data => {
       console.log(data);
       this.temoignages2 = data;
@@ -40,7 +46,20 @@ export class PageAcceuilSansCompteComponent {
   description_Formation:string = "LABOUSSOLE te donne les informations sur toutes les offres de formations au Cameroun et au Congo afin que tu puisses choisir aisément ta Filière d’étude."
   
 
+  fetchAllArticles(){
+    this.articleService.getAllArticles().subscribe(
+      (data:any)=>{
+        console.log(data);
+        this.allArticles = data as Array<Article>;
+      }
+    )
+  }
 
+  viewArticle(id:number){
+    console.log(id);
+    this.articleService.setCurrentArticle(id);
+    this.router.navigateByUrl("/details-actualites")
+  }
   
   formVar(temp: HTMLAnchorElement){
     console.log(temp);

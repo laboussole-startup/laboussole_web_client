@@ -7,3 +7,27 @@ span,li{
     margin-left: 6%;
     font-size: small;
 }
+@media screen and (max-width:700px) {
+    .conteneur{
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    .infoscles{
+        width: 100%;
+        background-color: #dddddd; 
+        padding: 2%;
+    }
+}
+@media screen and (min-width:701px) {
+    .infoscles{
+        background-color: #dddddd; 
+        padding: 2%;
+    }
+    .conteneur{
+        display: flex;
+        flex-flow: row nowrap;
+    }
+}
+#DescriptionMetier{
+    margin-top: 50px;
+}

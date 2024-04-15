@@ -16,7 +16,7 @@
             <div class="icon"><img src="../../assets/newspaper.png" alt="" width="20px" height="20px"></div>
             <div class="label">Edit Profile information</div>
         </div>
-        <div class="option-item">
+        <div class="option-item" (click)="changeLocation(2)">
             <div class="icon"><img src="../../assets/icons8-notification-50.png" alt="" width="25px" height="25px"></div>
             <div class="label">Notifications</div>
         </div>
@@ -44,12 +44,16 @@
     <div class="pages">
         <app-profile-info *ngIf="location_number==1"></app-profile-info>
         <app-changer-mdp *ngIf="location_number==3"></app-changer-mdp>
+        <app-notifications-list *ngIf="location_number==2"></app-notifications-list>
     </div>
     
 </div>
 <div class="desktop-container">
-    <img class="circleProfile" src="" alt="" width="150px" height="150px">
-    <div class="name">DEFAULT NAME</div>
+    <img class="circleProfile" [src]="profile_image" alt="" width="150px" height="150px">
+    <button mat-mini-fab class="floatingBtn" (click)="fileInput.click()" aria-label="Example icon button with a filter list icon">
+        <mat-icon>add_a_photo</mat-icon>
+      </button>
+    <div class="name">{{username}}</div>
 
     <div class="content">
         <div class="options">
@@ -57,7 +61,7 @@
                 <div class="icon"><img src="../../assets/newspaper.png" alt="" width="20px" height="20px"></div>
                 <div class="label">Edit Profile information</div>
             </div>
-            <div class="option-item">
+            <div class="option-item" (click)="changeLocation(2)">
                 <div class="icon"><img src="../../assets/icons8-notification-50.png" alt="" width="25px" height="25px"></div>
                 <div class="label">Notifications</div>
             </div>
@@ -65,10 +69,12 @@
                 <div class="icon"><img src="../../assets/icons8-lock-50.png" alt="" width="25px" height="25px"></div>
                 <div class="label">Changer mot de passe</div>
             </div>
-            <div class="option-item">
+           <!-- <div class="option-item">
                 <div class="icon"><img src="../../assets/icons8-language-50.png" alt="" width="25px" height="25px"></div>
                 <div class="label">Language</div>
             </div>
+
+            -->
             <div class="option-item">
                 <div class="icon"><img src="../../assets/icons8-help-50.png" alt="" width="25px" height="25px"></div>
                 <div class="label">Help & Support</div>
@@ -85,6 +91,7 @@
         <div class="pages">
             <app-profile-info *ngIf="location_number==1 || location_number==0"></app-profile-info>
             <app-changer-mdp *ngIf="location_number==3"></app-changer-mdp>
+            <app-notifications-list *ngIf="location_number==2"></app-notifications-list>
         </div>
     </div>
    
