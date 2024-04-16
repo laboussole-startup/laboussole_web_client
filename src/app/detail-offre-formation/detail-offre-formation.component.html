@@ -111,7 +111,7 @@
 
   <!-- main-info -->
 
-  <div class="allinfos" style="width: max-content; margin-left: 2%">
+  <div class="allinfos" style="margin-left: 2%">
     <div id="DescriptionMetier">
       <span></span>
       <img
@@ -121,30 +121,30 @@
       />
       <strong>Qu'est ce qu'un {{ metierItem.nom }} ?</strong> <br />
       <hr />
-      <span class="contenu"
+      <div class="contenu"
         >{{ metierItem.description }}
 
         <br /><br />
-        <span class="compétences">
+        <div class="compétences">
           Compétences requises:
 
           <li *ngFor="let competence of competences">
             {{ competence | titlecase }}
           </li>
-        </span>
+        </div>
         <br /><br />
-        <span class="missions"
+        <div class="missions"
           >Ses principales missions incluent:
           <li *ngFor="let mission of missions">{{ mission }}</li>
-        </span>
+        </div>
         <br /><br />
-        <span class="salaire">
+        <div class="salaire">
           Salaire indicatif: Le salaire d'un {{ metierItem.nom }} varie en
           fonction de son expérience, de son niveau de qualification et de
           l'entreprise dans laquelle il travaille. En moyenne, un débutant peut
           espérer un salaire mensuel d'environ {{ metierItem.salairemoyen }}.
-        </span>
-      </span>
+        </div>
+      </div>
       <br /><br /><br />
     </div>
     <div id="EcoleFormation">

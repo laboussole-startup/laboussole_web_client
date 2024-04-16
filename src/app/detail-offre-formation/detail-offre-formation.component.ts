@@ -30,7 +30,12 @@ export class DetailOffreFormationComponent {
     private service: OffreFormationService
   ) {}
 
+  ngDoCheck(){
+    window.scrollTo(0,0)
+  }
+
   ngOnInit() {
+    window.scrollTo(0,0)
     this.metierId = this.metierRoute.snapshot.paramMap.get('id_metiers'); // Get cart item ID from route
     console.log(this.metierId);
 

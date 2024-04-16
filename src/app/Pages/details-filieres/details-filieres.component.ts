@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit,DoCheck } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Faculte } from 'src/app/Models/faculte';
 import { Universite } from 'src/app/Models/universite';
@@ -28,8 +28,8 @@ export class DetailsFilieresComponent {
     private service: OffreFormationService,
     private router: Router
   ) {}
-
   ngOnInit() {
+    window.scrollTo(0,0);
     this.filiereId = this.filiereRoute.snapshot.paramMap.get('universite_id'); // Get cart item ID from route
     console.log(this.filiereId);
 
@@ -65,6 +65,10 @@ export class DetailsFilieresComponent {
    
 
     // this.metierItem = this.service.getCartItemById(this.metierId); // Retrieve specific cart item details
+  }
+
+  ngDoCheck(){
+    window.scrollTo(0,0);
   }
   navigateToDetails(itemId: number) {
     this.router.navigate(['/facultes/', this.faculte_id]); // Navigate to details route with item ID

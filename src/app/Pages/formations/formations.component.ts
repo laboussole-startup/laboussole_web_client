@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit,DoCheck } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Universite } from 'src/app/Models/universite';
 import { OffreFormationService } from 'src/app/services/offre-formation.service';
@@ -40,6 +40,7 @@ export class FormationsComponent {
   }
 
   ngOnInit() {
+    window.scrollTo(0,0);
     this.getScreenWidth = window.innerWidth;
     // this.getScreenWidth <= 480? this.mobile = true : this.mobile = false;
 
@@ -51,6 +52,9 @@ export class FormationsComponent {
     // this.formations = this.service.getFormation();
   }
 
+  ngDoCheck(){
+    window.scrollTo(0,0);
+  }
   navigateToDetails(itemId: number) {
     this.router.navigate(['/universites', itemId]); // Navigate to details route with item ID
   }

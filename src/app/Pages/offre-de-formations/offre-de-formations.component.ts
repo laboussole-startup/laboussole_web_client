@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, DoCheck } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Metier } from 'src/app/Models/metier';
 import { OffreFormationService } from 'src/app/services/offre-formation.service';
@@ -42,7 +42,9 @@ export class OffreDeFormationsComponent {
 
     // console.log(this.mobile);
   }
-
+  ngDoCheck(){
+    window.scrollTo(0,0);
+  }
   ngOnInit() {
     window.scrollTo(0,0);
     this.getScreenWidth = window.innerWidth;
