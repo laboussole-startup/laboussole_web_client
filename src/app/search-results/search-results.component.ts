@@ -30,8 +30,11 @@ export class SearchResultsComponent {
     ){
 
   }
-
+  ngDoCheck(){
+    window.scrollTo(0,0);
+  }
   ngOnInit(){
+    window.scrollTo(0,0)
     console.log(this.searchService.searchQuery);
     console.log(this.searchService.formationQuery);
     console.log(this.searchService.metierQuery);

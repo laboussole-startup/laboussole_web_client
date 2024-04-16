@@ -4,6 +4,7 @@ import { Metier } from 'src/app/Models/metier';
 import { OffreFormationService } from 'src/app/services/offre-formation.service';
 import { SearchService } from 'src/app/services/search.service';
 
+
 @Component({
   selector: 'app-offre-de-formations',
   templateUrl: './offre-de-formations.component.html',
@@ -14,7 +15,8 @@ export class OffreDeFormationsComponent {
     private service: OffreFormationService,
     private router: Router,
     private route: ActivatedRoute,
-    private searchService:SearchService
+    private searchService:SearchService,
+   
   ) {}
 
   isMenuIconClicked = false;
@@ -46,6 +48,7 @@ export class OffreDeFormationsComponent {
     window.scrollTo(0,0);
   }
   ngOnInit() {
+  
     window.scrollTo(0,0);
     this.getScreenWidth = window.innerWidth;
     // this.getScreenWidth <= 480? this.mobile = true : this.mobile = false;
@@ -62,6 +65,8 @@ export class OffreDeFormationsComponent {
     });
    
   }
+
+ 
 
   navigateToDetails(itemId: string) {
     this.router.navigate(['/metiers', itemId]); // Navigate to details route with item ID

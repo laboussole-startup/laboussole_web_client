@@ -21,6 +21,10 @@ import { ActualiteLargeScreenBoxComponent } from './actualite-large-screen-box/a
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
+import { MatDialogActions, MatDialogModule } from '@angular/material/dialog';
+import { MatDialogClose } from '@angular/material/dialog';
+import { MatDialogTitle } from '@angular/material/dialog';
+import { MatDialogContent } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
@@ -83,6 +87,7 @@ import { DetailsNotificationsComponent } from './details-notifications/details-n
 import { NotificationsListComponent } from './notifications-list/notifications-list.component';
 import { NotificationTemplateComponent } from './notification-template/notification-template.component';
 import { TemoignagesInputComponent } from './temoignages-input/temoignages-input.component';
+import { AskLoginDialogComponent } from './ask-login-dialog/ask-login-dialog.component';
 
 
 
@@ -145,7 +150,8 @@ import { TemoignagesInputComponent } from './temoignages-input/temoignages-input
     DetailsNotificationsComponent,
     NotificationsListComponent,
     NotificationTemplateComponent,
-    TemoignagesInputComponent
+    TemoignagesInputComponent,
+    AskLoginDialogComponent
   ],
   imports: [
     CommonModule,
@@ -168,7 +174,8 @@ import { TemoignagesInputComponent } from './temoignages-input/temoignages-input
     HttpClientModule,
     MatListModule,
     ReactiveFormsModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],

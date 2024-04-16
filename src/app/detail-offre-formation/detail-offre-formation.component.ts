@@ -6,6 +6,9 @@ import { map } from 'rxjs';
 import { FiliereFormation } from '../Models/filiere-formation';
 import { Faculte } from '../Models/faculte';
 import { Universite } from '../Models/universite';
+import { MatDialog} from '@angular/material/dialog';
+import { AskLoginDialogComponent } from 'src/app/ask-login-dialog/ask-login-dialog.component';
+import { UserServiceService } from '../services/user-service.service';
 
 @Component({
   selector: 'app-detail-offre-formation',
@@ -27,7 +30,9 @@ export class DetailOffreFormationComponent {
   lieu:Map<string,string> = new Map();
   constructor(
     private metierRoute: ActivatedRoute,
-    private service: OffreFormationService
+    private service: OffreFormationService,
+    public dialog: MatDialog,
+    private userService:UserServiceService,
   ) {}
 
   ngDoCheck(){
@@ -35,6 +40,11 @@ export class DetailOffreFormationComponent {
   }
 
   ngOnInit() {
+    if(!this.userService.user_email){
+      setTimeout(() => {
+        this.openDialog("0ms","0ms");
+      }, 5000);
+    }
     window.scrollTo(0,0)
     this.metierId = this.metierRoute.snapshot.paramMap.get('id_metiers'); // Get cart item ID from route
     console.log(this.metierId);
@@ -104,6 +114,13 @@ export class DetailOffreFormationComponent {
     // this.metierItem = this.service.getCartItemById(this.metierId); // Retrieve specific cart item details
   }
 
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(AskLoginDialogComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
   //aside
   toggleMenu() {
     this.isMenuIconClicked = !this.isMenuIconClicked;
