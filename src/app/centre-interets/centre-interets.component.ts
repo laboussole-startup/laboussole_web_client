@@ -12,7 +12,7 @@ import { UserServiceService } from '../services/user-service.service';
 })
 export class CentreInteretsComponent {
 
-  All_Centres:Array<CentreInteret> = [];
+  All_Centres:Array<CentreInteret> = new Array();
   choices:Set<Number> = new Set<Number>();
   start:number=0;
   disablebtn:boolean = false;
@@ -25,12 +25,11 @@ export class CentreInteretsComponent {
   ngOnInit(): void {
     this.centreInteretService.getCentresInterets().subscribe(data => {
       console.log(data);
-      for (let d of data) {
-        if (d.hasOwnProperty("id") && d.hasOwnProperty("nom") && d.hasOwnProperty("filieres_id") && d.hasOwnProperty("imageurl")) {
-          this.All_Centres.push(
-            new CentreInteret(d.id, d.nom, d.filieres_id, d.imageurl)
-          );
-        }
+      data = data as Array<CentreInteret>;
+      let arr:Array<CentreInteret> = this.getSubArray(data,0,15)
+      console.log(arr)
+      for (let d of arr) {
+       this.All_Centres.push(d);
       }
     });
   }
@@ -59,8 +58,9 @@ terminateProcess(){
   console.log(Array.from(this.choices))
   this.userService.updateCentreInterets(Array.from(this.choices)).subscribe(data =>{
     console.log(data);
-    this.router.navigate(['/']);
+    
   });
+  this.router.navigate(['/']);
   
 }
   
