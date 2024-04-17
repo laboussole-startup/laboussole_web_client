@@ -1,5 +1,6 @@
 import { Component ,OnInit} from '@angular/core';
 import { UserInfo } from '../Models/userInfo';
+import { NotificationsService } from '../services/notifications.service';
 import { UserServiceService } from '../services/user-service.service';
 
 @Component({
@@ -13,8 +14,10 @@ export class UserProfileComponent {
   username:string="";
   profile_image:string="";
   selectedFile!: File;
+  unread_notif_count:string='';
+  val:string | null='';
 
-  constructor(private userService:UserServiceService){
+  constructor(private userService:UserServiceService,private notificationsService:NotificationsService){
 
   }
 
@@ -28,8 +31,17 @@ export class UserProfileComponent {
       this.current_location="notifications"
     }
   }
+  ngDoCheck(){
+    this.val = localStorage.getItem('notifications');
+    this.val=this.val=='0'?'':this.val;
+    this.unread_notif_count = this.val?this.val:'';
+    
+    console.log(this.unread_notif_count)
+  }
   ngOnInit(){
+    window.scrollTo(0,0);
     this.verifyLogin();
+   
   }
   onFileSelected(event:any): void {
     this.selectedFile = event.target.files[0];

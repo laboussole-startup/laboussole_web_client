@@ -34,7 +34,14 @@
             <div class="forgotPass" routerLink="/motDePasseOublie" > ForgotPassword?</div>
         </div>
         <div class="centerContainer">
-            <div class="btnContinue" (click)="checkLogin()">Connexion</div>
+            <mat-progress-spinner
+            *ngIf="showSpinner"
+            class="example-margin"
+            [color]="color"
+            [mode]="mode"
+            [value]="value">
+          </mat-progress-spinner>
+            <div *ngIf="!showSpinner" class="btnContinue" (click)="checkLogin()">Connexion</div>
             <!-- 
                 <div class="text" style="width:70%;">  <hr > Or <hr> </div>
             <div class="googleLogin"> <img src="../../assets/icons8-google.svg"  style="margin-right: 2%;"> Login With Google</div>

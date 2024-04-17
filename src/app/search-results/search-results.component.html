@@ -1,5 +1,12 @@
 <app-nav-bar></app-nav-bar>
 <div class="container">
+    <mat-progress-spinner
+    *ngIf="showSpinner"
+    class="example-margin"
+    [color]="color"
+    [mode]="mode"
+    [value]="value">
+  </mat-progress-spinner>
     <div *ngIf="resultatsEcoles.length > 0" class="label">Ecoles</div>
     <div class="ecoles" *ngIf="resultatsEcoles.length >0">
         <app-filiere-formation-box
@@ -24,7 +31,8 @@
         (click)="navigateToDetailsUniversite(universite.universite_id)">
         </app-filiere-formation-box>
     </div>
-    <div class="errorBox" *ngIf="resultatsEcoles.length==0 && resultatsMetiers.length==0 && resultatsUniversites.length==0 ">
+    
+    <div class="errorBox" *ngIf="resultatsEcoles.length==0 && resultatsMetiers.length==0 && resultatsUniversites.length==0 && !showSpinner">
        Oops! Aucun resultat pour la recherche {{query}}
     </div>
 </div>

@@ -58,9 +58,9 @@ export class OffreDeFormationsComponent {
       this.metiers = data.results;
       let res:Array<Metier> = data.results as Array<Metier>
 
-      this.initialMetierList = res.slice(0,20);
-      this.popularMetierList = res.slice(20,30);
-      this.recommendationsList= res.slice(30,40);
+      this.initialMetierList = res.slice(0,10);
+      this.popularMetierList = res.slice(20,25);
+      this.recommendationsList= res.slice(30,35);
       // console.log(this.formations);
     });
    

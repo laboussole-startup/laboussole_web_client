@@ -55,7 +55,14 @@
                 les conditions générales et la politique de  confidentialité</div>
         </div>
         <div class="centerContainer">
-            <div class="btnContinue" (click)="verifierCreerCompte()">Créer</div>
+          <mat-progress-spinner
+            *ngIf="showSpinner"
+            class="example-margin"
+            [color]="color"
+            [mode]="mode"
+            [value]="value">
+          </mat-progress-spinner>
+            <div   *ngIf="!showSpinner" class="btnContinue" (click)="verifierCreerCompte()">Créer</div>
             <div class="login">tu as déja un compte? <span style="color:#0F70B7;font-weight: 900;" routerLink="/login">Connecte-toi</span> </div>
            
           <!--

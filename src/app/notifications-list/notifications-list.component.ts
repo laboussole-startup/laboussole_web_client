@@ -24,12 +24,25 @@ export class NotificationsListComponent {
       (data:any)=>{
         console.log(data);
         this.allNotifications = data as Array<Notification>
+
       }
     )
   }
 
+  
+
   viewNotification(id:number){
     this.notificationService.setCurrentNotification(id)
     this.router.navigateByUrl("/details-notifications")
+    // Set data in localStorage
+    const value = localStorage.getItem('notification'+id);
+    if(value){
+      
+    }else{
+      this.notificationService.reduceUnReadNotifications(id);
+      localStorage.setItem('notification'+id,'1');
+    }
+    
+
   }
 }

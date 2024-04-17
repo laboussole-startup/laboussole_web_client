@@ -21,17 +21,15 @@ import { ActualiteLargeScreenBoxComponent } from './actualite-large-screen-box/a
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-import { MatDialogActions, MatDialogModule } from '@angular/material/dialog';
-import { MatDialogClose } from '@angular/material/dialog';
-import { MatDialogTitle } from '@angular/material/dialog';
-import { MatDialogContent } from '@angular/material/dialog';
+import {  MatDialogModule } from '@angular/material/dialog';
+import {MatBadgeModule} from '@angular/material/badge';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import { MatSort, MatSortModule } from '@angular/material/sort';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import {  MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
 import { CdkMenu, CdkMenuItem, CdkMenuTrigger } from '@angular/cdk/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
@@ -39,7 +37,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
-import { MAT_BOTTOM_SHEET_DEFAULT_OPTIONS } from '@angular/material/bottom-sheet';
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSliderModule} from '@angular/material/slider';
 
 import { MotDePasseOublieComponent } from './mot-de-passe-oublie/mot-de-passe-oublie.component';
 import { PageAdminComponent } from './page-admin/page-admin.component';
@@ -175,7 +174,9 @@ import { AskLoginDialogComponent } from './ask-login-dialog/ask-login-dialog.com
     MatListModule,
     ReactiveFormsModule,
     MatBottomSheetModule,
-    MatDialogModule
+    MatDialogModule,
+    MatBadgeModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { UserServiceService } from '../services/user-service.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatBottomSheet, MatBottomSheetConfig } from '@angular/material/bottom-sheet';
+import {ThemePalette} from '@angular/material/core';
+import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 
 
 
@@ -20,6 +22,12 @@ export class PageConnexionClientComponent {
  email:string = "";
  password:string = "";
 
+ showSpinner:boolean = false;
+
+  color: ThemePalette = 'primary';
+  mode: ProgressSpinnerMode = 'indeterminate';
+  value = 50;
+
  emailControl = new FormControl('', [Validators.required, Validators.email]);
  errorMessage = 'Email invalide ou déjà pris';
 
@@ -31,24 +39,28 @@ export class PageConnexionClientComponent {
  }
  checkLogin(){
   console.log(this.email)
+  this.showSpinner=true;
   this.userService.login(this.emailControl.value, this.passwordControl.value).subscribe(
     (data) => {
-      //console.log(data);
+      console.log(data);
       if (data.hasOwnProperty("access") && data.hasOwnProperty("refresh")) {
         console.log("valid login");
         this.userService.user_email = this.email;
         this.router.navigate(['/']);
       } else {
+        this.showSpinner = false;
         this.sheetErrorMessage = "Erreur d'authentification. Veuillez vérifier vos informations de connexion.";
         this.openBottomSheet();
       }
     },
     (error) => {
       console.error("An error occurred:", error);
+      this.showSpinner = false;
       // Handle error here, for example:
       
         this.sheetErrorMessage = "Erreur d'authentification. Veuillez vérifier vos informations de connexion.";
         this.openBottomSheet();
+
     
     }
   );

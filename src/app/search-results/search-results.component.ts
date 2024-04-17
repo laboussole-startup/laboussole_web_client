@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, TitleStrategy } from '@angular/router';
 import { Faculte } from '../Models/faculte';
 import { Metier } from '../Models/metier';
 import { Universite } from '../Models/universite';
 import { OffreFormationService } from '../services/offre-formation.service';
 import { SearchService } from '../services/search.service';
+import {ThemePalette} from '@angular/material/core';
+import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-search-results',
@@ -24,6 +26,12 @@ export class SearchResultsComponent {
   count_metiers:number | null=0;
   next_link_metiers:string | null ="";
 
+  showSpinner:boolean = false;
+
+  color: ThemePalette = 'primary';
+  mode: ProgressSpinnerMode = 'indeterminate';
+  value = 50;
+
   constructor(private searchService:SearchService,
     private formationService:OffreFormationService,
     private router:Router
@@ -41,8 +49,10 @@ export class SearchResultsComponent {
 
     if(this.searchService.searchQuery != ""){
       this.query = this.searchService.searchQuery 
+      this.showSpinner = true;
       this.formationService.searchEcoles(this.searchService.searchQuery).subscribe(
         (data:any)=>{
+          this.showSpinner=false;
           console.log("*******LOGGING ECOLES***************");
           console.log(data);
           this.resultatsEcoles=data as Array<Faculte>;
@@ -51,6 +61,7 @@ export class SearchResultsComponent {
       );
       this.formationService.searchMetiers(this.searchService.searchQuery).subscribe(
         (data:any)=>{
+          this.showSpinner=false;
           console.log("*******LOGGING METIERS***************");
           console.log(data);
           this.resultatsMetiers = data.results as Array<Metier>;
@@ -62,6 +73,7 @@ export class SearchResultsComponent {
       );
       this.formationService.searchUniversites(this.searchService.searchQuery).subscribe(
         (data:any)=>{
+          this.showSpinner=false;
           console.log("*******LOGGING UNIVERSITES***************");
           console.log(data);
           this.resultatsUniversites = data as Array<Universite>;
@@ -69,23 +81,28 @@ export class SearchResultsComponent {
       );
 
     }else if(this.searchService.formationQuery != ""){
+      this.showSpinner=true;
       this.query = this.searchService.formationQuery
       this.formationService.searchEcoles(this.searchService.formationQuery).subscribe(
         (data:any)=>{
+          this.showSpinner=false;
           console.log(data);
           this.resultatsEcoles = data;
         }
       )
       this.formationService.searchUniversites(this.searchService.searchQuery).subscribe(
         (data:any)=>{
+          this.showSpinner=false;
           console.log(data);
           this.resultatsUniversites = data;
         }
       )
     }else if(this.searchService.metierQuery != ""){
+      this.showSpinner=true;
       this.query = this.searchService.metierQuery
       this.formationService.searchMetiers(this.searchService.metierQuery).subscribe(
         (data:any)=>{
+          this.showSpinner=false;
           console.log(data);
           this.resultatsMetiers = data.results as Array<Metier>;
           if(data.results){

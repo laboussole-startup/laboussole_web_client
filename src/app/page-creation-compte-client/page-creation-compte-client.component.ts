@@ -3,6 +3,8 @@ import { UserServiceService } from '../services/user-service.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatBottomSheet, MatBottomSheetConfig } from '@angular/material/bottom-sheet';
+import {ThemePalette} from '@angular/material/core';
+import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-page-creation-compte-client',
@@ -20,6 +22,12 @@ export class PageCreationCompteClientComponent {
   password:string="";
   confirmPassword:string="";
   sheetErrorMessage:string="";
+
+  showSpinner:boolean = false;
+
+  color: ThemePalette = 'primary';
+  mode: ProgressSpinnerMode = 'indeterminate';
+  value = 50;
 
  
  nameControl = new FormControl('', [Validators.required]);
@@ -60,6 +68,7 @@ conditionsControl:boolean=false;
 
   creerCompte() {
     console.log([this.nom, this.prenom, this.email, this.password]);
+    this.showSpinner=true;
     this.userService.createCompte(this.nom, this.prenom, this.email, this.password)
       .then((response) => {
         console.log(response);

@@ -9,6 +9,8 @@ export class NotificationsService {
   private root_url:string='https://laboussole-back-end.onrender.com/notifications/';
   public currentNotificationId:number = 0;
 
+  public unreadNotifs = new Set();
+
   constructor(private httpClient: HttpClient) {
   }
 
@@ -21,4 +23,13 @@ export class NotificationsService {
   setCurrentNotification(id:number){
     this.currentNotificationId=id;
   }
+  addUnReadNotification(id:number){
+   this.unreadNotifs.add(id)
+    localStorage.setItem('notifications',this.unreadNotifs.size+'');
+  }
+  reduceUnReadNotifications(id:number){
+    this.unreadNotifs.delete(id)
+    localStorage.setItem('notifications',this.unreadNotifs.size+'');
+  }
+
 }
