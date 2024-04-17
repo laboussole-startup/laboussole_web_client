@@ -121,6 +121,19 @@
 
     <div class="formation-content">
       <div class="recommendations-text">
+        <h2>Recommandations</h2>
+      </div>
+      <div class="recommendations">
+        <div *ngFor="let metier of popularMetierList; index as i">
+          <app-offre-formation-box
+            [metierBox]="metier" (click)="navigateToDetails(metier.id_metiers)"
+          ></app-offre-formation-box>
+        </div>
+      </div>
+      <div class="seeAll">
+        <button class="btnPlus" mat-raised-button style="background-color: #0f70b7;color:white;" routerLink="/voir-tout-metiers">voir plus</button>
+      </div>
+      <div class="recommendations-text">
         <h2>Tous les metiers</h2>
         <a href="" class="all" routerLink="/voir-tout-metiers">Voir tout</a>
       </div>
@@ -134,16 +147,7 @@
       <div class="seeAll">
         <button class="btnPlus" mat-raised-button style="background-color: #0f70b7;color:white;" routerLink="/voir-tout-metiers">voir plus</button>
       </div>
-      <div class="recommendations-text">
-        <h2>Recommandations</h2>
-      </div>
-      <div class="recommendations">
-        <div *ngFor="let metier of popularMetierList; index as i">
-          <app-offre-formation-box
-            [metierBox]="metier" (click)="navigateToDetails(metier.id_metiers)"
-          ></app-offre-formation-box>
-        </div>
-      </div>
+      
       <div class="recommendations-text">
         <h2>Plus Populaires</h2>
       </div>
