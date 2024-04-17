@@ -60,11 +60,12 @@ export class DetailsFilieresComponent {
       console.log(data);
       let filter:Array<Faculte> = data as Array<Faculte>;
       const sub="faculté";
+      const sub2="faculte"
 
       for(let f of filter){
         console.log(f)
         console.log(f.nom.toLowerCase().includes(sub))
-        if(f.nom.toLowerCase().includes(sub)){
+        if(f.nom.toLowerCase().includes(sub) || f.nom.toLocaleLowerCase().includes(sub2)){
           this.facultes.push(f);
         }else{
           this.ecoles.push(f);

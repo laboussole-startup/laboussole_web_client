@@ -19,6 +19,8 @@ export class DetailsFacultesComponent {
   isMenuIconClosed = true;
   showSearchBar = false;
 
+  panelOpenState = false;
+
   // about service
   filiereId!: any;
   filiereItem!: Faculte;
