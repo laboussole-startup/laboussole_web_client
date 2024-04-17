@@ -1,12 +1,15 @@
 <app-nav-bar></app-nav-bar>
 <div class="container">
-    <mat-progress-spinner
+    <div style="display: flex;justify-content:center;align-items:center;width: 100%;">
+        <mat-progress-spinner
     *ngIf="showSpinner"
     class="example-margin"
     [color]="color"
     [mode]="mode"
     [value]="value">
   </mat-progress-spinner>
+    </div>
+    
     <div *ngIf="resultatsEcoles.length > 0" class="label">Ecoles</div>
     <div class="ecoles" *ngIf="resultatsEcoles.length >0">
         <app-filiere-formation-box
