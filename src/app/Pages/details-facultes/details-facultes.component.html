@@ -29,8 +29,8 @@
             <span></span> <img src="../../assets/pseudo.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Filieres de la {{filiereItem.nom}}</strong> <br>
             <hr> 
             <span class="ecole formation">
-                Cycle Licence: <br><br>
-
+               
+                <div class="label">Cycle Licence:</div>
                 <mat-accordion>
                     <mat-expansion-panel *ngFor="let licence of filieresLicence" 
                             (opened)="panelOpenState = true"
@@ -45,7 +45,7 @@
                   </mat-accordion>
                 <br>
 
-                Cycle Master: <br><br>
+              <div class="label">Cycle Master:</div>   <br><br>
                 <mat-accordion>
                     <mat-expansion-panel *ngFor="let master of filieresMaster"
                             (opened)="panelOpenState = true"
