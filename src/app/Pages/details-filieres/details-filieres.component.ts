@@ -37,7 +37,7 @@ export class DetailsFilieresComponent {
     if(!this.userService.user_email){
       setTimeout(() => {
         this.openDialog("0ms","0ms");
-      }, 5000);
+      }, 20000);
     }
   
     window.scrollTo(0,0);

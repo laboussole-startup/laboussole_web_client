@@ -43,7 +43,7 @@ export class DetailOffreFormationComponent {
     if(!this.userService.user_email){
       setTimeout(() => {
         this.openDialog("0ms","0ms");
-      }, 5000);
+      }, 20000);
     }
     window.scrollTo(0,0)
     this.metierId = this.metierRoute.snapshot.paramMap.get('id_metiers'); // Get cart item ID from route

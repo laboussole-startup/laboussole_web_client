@@ -38,7 +38,7 @@ export class DetailsFacultesComponent {
     if(!this.userService.user_email){
       setTimeout(() => {
         this.openDialog("0ms","0ms");
-      }, 5000);
+      }, 20000);
     }
     this.filiereId = this.filiereRoute.snapshot.paramMap.get('faculte_id'); // Get cart item ID from route
     console.log(this.filiereId);
