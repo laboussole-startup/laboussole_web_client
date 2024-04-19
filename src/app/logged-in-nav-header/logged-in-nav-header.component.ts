@@ -47,6 +47,6 @@ export class LoggedInNavHeaderComponent {
     this.searchService.setSearchQuery(this.query);
     this.searchService.setFormationsQuery("");
     this.searchService.setMetiersQuery("");
-    this.router.navigateByUrl("/search-results")
+    this.router.navigate(["/search-results"]);
   }
 }

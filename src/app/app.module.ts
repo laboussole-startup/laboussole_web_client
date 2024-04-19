@@ -88,6 +88,7 @@ import { NotificationsListComponent } from './notifications-list/notifications-l
 import { NotificationTemplateComponent } from './notification-template/notification-template.component';
 import { TemoignagesInputComponent } from './temoignages-input/temoignages-input.component';
 import { AskLoginDialogComponent } from './ask-login-dialog/ask-login-dialog.component';
+import { NotificationDialogComponent } from './notification-dialog/notification-dialog.component';
 
 
 
@@ -151,7 +152,8 @@ import { AskLoginDialogComponent } from './ask-login-dialog/ask-login-dialog.com
     NotificationsListComponent,
     NotificationTemplateComponent,
     TemoignagesInputComponent,
-    AskLoginDialogComponent
+    AskLoginDialogComponent,
+    NotificationDialogComponent
   ],
   imports: [
     CommonModule,

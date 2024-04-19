@@ -10,80 +10,7 @@
           LABOUSSOLE te permettra de trouver le métier qui correspond à tes
           attentes et de te former dans les métiers du numérique.
         </div>
-<!-- <<<<<<< main -->
-<!--       </div> -->
-<!--       <div class="imageAcceuil">
-        <img src="../../assets/imageAcceuilLBS.png" alt="" />
-      </div> -->
-<!--     </div> -->
-<!--     <div class="mainMessageBox">
-      <div class="title-1">Nous t’accompagnons vers la reussite</div>
-      <div class="content-text">
-        Nous te proposons une orientation académique et professionnelle qui
-        correspond parfaitement à tes centres d’intérêts et à tes compétences
-        afin d’avoir une insertion socio-professionnelle réussite et nous te
-        formons dans les métiers du numérque pour saisir l’opportunité du
-        télétravail.
-      </div>
-    </div> -->
-<!--   </div> -->
-<!--   <div class="optionsList">
-    <app-acceuil-option-box
-      class="metier"
-      [title]="'Metiers'"
-      [description]="description_Metier"
-      [icon_name]="'direction board.png'"
-      [color]="'#5B72EE'"
-      routerLink="metiers"
-    >
-    </app-acceuil-option-box> -->
 
-<!--     <app-acceuil-option-box
-      class="bourse"
-      [title]="'Bourses D\'etudes'"
-      [description]="description_Bourses"
-      [icon_name]="'mortarboard.png'"
-      [color]="'#F48C06'"
-      routerLink="etudes"
-    >
-    </app-acceuil-option-box> -->
-
-<!--     <app-acceuil-option-box
-      class="voyage"
-      [title]="'Voyages D\'etudes'"
-      [description]="description_Voyages_Etudes"
-      [icon_name]="'office bag.png'"
-      [color]="'#29B9E7'"
-    >
-    </app-acceuil-option-box> -->
-
-<!--     <app-acceuil-option-box
-      class="formation"
-      [title]="'Formation'"
-      [description]="description_Formation"
-      [icon_name]="'open book.png'"
-      [color]="'#41BE90'"
-      routerLink="formations"
-
-    >
-    </app-acceuil-option-box> -->
-<!--   </div>
-  <div class="boxAboutLaboussole">
-    <div class="question">
-      <span style="color: #0761b9"> C'est quoi</span>
-      <span style="color: #00a4e4"> LABOUSSOLE ?</span>
-    </div>
-    <br />
-    <br />
-    <br /> -->
-<!--     <div class="reponse">
-      LABOUSSOLE est une application web intelligente d’aide à l’orientation
-      académique et professionnelle et de formation en ligne dans les métiers du
-      numérique qui permettra aux apprenants soit d’avoir un emploi décent à la
-      fin de leurs formations, soit d’entreprendre, soit de s’autoemployer afin
-      d’avoir une insertion socio-professionnelle réussite..
-      <a href="http://">lire plus</a> -->
-<!-- ======= -->
       </div>
       <div class="imageAcceuil">
         <img src="../../assets/imageAcceuilLBS.png" alt="" />
@@ -98,9 +25,8 @@
         formons dans les métiers du numérque pour saisir l’opportunité du
         télétravail.
       </div>
-<!-- >>>>>>> main -->
     </div>
-  </div>
+    
   <div class="optionsList">
     <app-acceuil-option-box
       class="metier"
@@ -111,26 +37,6 @@
       routerLink="/metiers"
     >
     </app-acceuil-option-box>
-
-<!-- <<<<<<< main -->
-<!-- <app-acceuil-option-box
-      class="bourse"
-      [title]="'Bourses D\'etudes'"
-      [description]="description_Bourses"
-      [icon_name]="'mortarboard.png'"
-      [color]="'#F48C06'"
-      routerLink="/etudes"
-    >
-    </app-acceuil-option-box>
-
-    <app-acceuil-option-box
-      class="voyage"
-      [title]="'Voyages D\'etudes'"
-      [description]="description_Voyages_Etudes"
-      [icon_name]="'office bag.png'"
-      [color]="'#29B9E7'"
-    >
-    </app-acceuil-option-box> -->
     
 
     <app-acceuil-option-box
@@ -186,21 +92,6 @@
         />
       </span>
     </div>
-    <!-- <div class="tem-question">Que pensent t-ils?</div>
-    <div class="tem-text">
-      plusieurs personnes nous on fait confiance et on decidé de le faire savoir.
-      Aussi, nous ne sommes pas les seul a mettre l’orientation au coeur de tout.
-    </div>
-    <div class="sendTemoignage">
-      <span>Laisser un temoignage </span>
-      <span class="rightArrowIcon">
-        <img
-          src="../../assets/icons8-arrow-right-60.png"
-          alt=""
-          style="width: 20px; height: 20px; position: relative; top: 5px"
-        />
-      </span>
-    </div> -->
   
     <div class="temoignagesSlider">
       <span class="leftArrowIcon">
@@ -258,11 +149,6 @@
       (click)="viewArticle(article.id_actualite)"
     ></app-actualite-box>
     </div>
-    <!--
-              <div class="RightActus">
-              <app-actualite-large-screen-box></app-actualite-large-screen-box>
-          </div>
-          -->
   </div>
   <div class="photo-footer">
     <img
@@ -271,8 +157,13 @@
       style="width: 200px; height: 200px"
     />
   </div>
-  
   <app-footer></app-footer>
+  <div #floatingDiv class="notification">
+    <img class="img-close-notification" src="../../assets/x-close.png" alt="" (click)="closePopup()">
+    <img class="main-img" src="../../assets/blackStudents.jpg" alt="">
+  </div>
+</div>
+ 
 
 
 

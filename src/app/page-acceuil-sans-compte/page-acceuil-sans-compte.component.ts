@@ -1,10 +1,12 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,ElementRef,OnInit,Renderer2, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Article } from '../Models/article';
 import { Temoignage } from '../Models/temoignage';
 import { ActualitesService } from '../services/actualites.service';
 import { TemoignageService } from '../services/temoignage.service';
 import { UserServiceService } from '../services/user-service.service';
+
 
 
 @Component({
@@ -18,12 +20,19 @@ export class PageAcceuilSansCompteComponent {
   temoignages!: Array<Temoignage>;
   temoignages2!:Array<any>;
   allArticles!:Array<Article>
+
+  showPopupNotification:boolean = false;
  
 
   currentTemoignageNumber:number=0;
 
-  constructor(private TemoignageService:TemoignageService,private userService:UserServiceService,private articleService:ActualitesService,
-    private router:Router){
+  @ViewChild('floatingDiv') floatingDiv!: ElementRef;
+
+  constructor(private TemoignageService:TemoignageService,
+              private userService:UserServiceService,
+              private articleService:ActualitesService,
+              private router:Router,
+              private renderer: Renderer2){
     this.temoignages = this.TemoignageService.list_temoignages;
     console.log(this.temoignages)
   }
@@ -34,6 +43,21 @@ export class PageAcceuilSansCompteComponent {
       console.log(data);
       this.temoignages2 = data;
     });
+    setTimeout(() => {
+      
+      // Get the current scroll position
+      const scrollY = window.scrollY;
+
+      if (this.floatingDiv && this.floatingDiv.nativeElement) {
+        this.renderer.setStyle(this.floatingDiv.nativeElement, 'top', `${scrollY}px`);
+        this.showPopupNotification = true;
+        this.disableScroll();
+      }
+
+    // Set the top position of the floating div to the current scroll position
+    
+    }, 2000);
+    
   }
 
   
@@ -72,4 +96,33 @@ export class PageAcceuilSansCompteComponent {
     this.currentTemoignageNumber = this.currentTemoignageNumber==0? this.temoignages.length:this.currentTemoignageNumber-1
     this.currentTemoignageNumber = this.currentTemoignageNumber%4
   }
+  closePopup(){
+    this.enableScroll();
+    this.showPopupNotification=false;
+    this.renderer.setStyle(this.floatingDiv.nativeElement, 'display', 'none');
+  }
+  disableScroll(): void {
+    // Calculate the current scroll position
+    const scrollY = window.scrollY;
+  
+    // Apply CSS to the body to prevent scrolling
+    this.renderer.setStyle(document.body, 'overflow', 'hidden');
+    this.renderer.setStyle(document.body, 'position', 'fixed');
+    this.renderer.setStyle(document.body, 'top', `-${scrollY-50}px`);
+  }
+  
+  enableScroll(): void {
+    // Retrieve the scroll position from the body's top style property
+    const scrollY = parseInt(document.body.style.top || '0', 10);
+  
+    // Remove the applied CSS to enable scrolling
+    this.renderer.removeStyle(document.body, 'overflow');
+    this.renderer.removeStyle(document.body, 'position');
+    this.renderer.removeStyle(document.body, 'top');
+  
+    // Restore the scroll position
+    window.scrollTo(0, Math.abs(scrollY));
+  }
+  
+ 
 }
