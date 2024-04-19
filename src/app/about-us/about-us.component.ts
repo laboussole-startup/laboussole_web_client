@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit,Renderer2} from '@angular/core';
 
 @Component({
   selector: 'app-about-us',
@@ -13,8 +13,13 @@ export class AboutUsComponent {
 
   isLoggedIn:boolean=false;
 
+  constructor(private renderer: Renderer2){
+    
+  }
+
   ngOnInit(){
     window.scrollTo(0,0);
+    this.enableScroll();
   }
   nextImage(){
 
@@ -25,6 +30,19 @@ export class AboutUsComponent {
   toggleMenu() {
     this.isMenuIconClicked = !this.isMenuIconClicked;
     this.isMenuIconClosed = !this.isMenuIconClosed;
+  }
+
+  enableScroll(): void {
+    // Retrieve the scroll position from the body's top style property
+    const scrollY = parseInt(document.body.style.top || '0', 10);
+  
+    // Remove the applied CSS to enable scrolling
+    this.renderer.removeStyle(document.body, 'overflow');
+    this.renderer.removeStyle(document.body, 'position');
+    this.renderer.removeStyle(document.body, 'top');
+  
+    // Restore the scroll position
+    window.scrollTo(0, Math.abs(scrollY));
   }
 
 }

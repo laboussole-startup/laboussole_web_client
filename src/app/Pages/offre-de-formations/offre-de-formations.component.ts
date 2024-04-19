@@ -1,4 +1,4 @@
-import { Component, HostListener, DoCheck } from '@angular/core';
+import { Component, HostListener, DoCheck,ElementRef,OnInit,Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Metier } from 'src/app/Models/metier';
 import { OffreFormationService } from 'src/app/services/offre-formation.service';
@@ -16,6 +16,7 @@ export class OffreDeFormationsComponent {
     private router: Router,
     private route: ActivatedRoute,
     private searchService:SearchService,
+    private renderer: Renderer2
    
   ) {}
 
@@ -48,6 +49,7 @@ export class OffreDeFormationsComponent {
     window.scrollTo(0,0);
   }
   ngOnInit() {
+    this.enableScroll()
   
     window.scrollTo(0,0);
     this.getScreenWidth = window.innerWidth;
@@ -82,6 +84,19 @@ export class OffreDeFormationsComponent {
     this.searchService.setFormationsQuery("");
     this.searchService.setMetiersQuery(this.query);
     this.router.navigateByUrl("/search-results")
+  }
+
+  enableScroll(): void {
+    // Retrieve the scroll position from the body's top style property
+    const scrollY = parseInt(document.body.style.top || '0', 10);
+  
+    // Remove the applied CSS to enable scrolling
+    this.renderer.removeStyle(document.body, 'overflow');
+    this.renderer.removeStyle(document.body, 'position');
+    this.renderer.removeStyle(document.body, 'top');
+  
+    // Restore the scroll position
+    window.scrollTo(0, Math.abs(scrollY));
   }
   
 }

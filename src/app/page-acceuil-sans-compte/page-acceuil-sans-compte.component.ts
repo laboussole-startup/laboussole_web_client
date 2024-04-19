@@ -49,14 +49,14 @@ export class PageAcceuilSansCompteComponent {
       const scrollY = window.scrollY;
 
       if (this.floatingDiv && this.floatingDiv.nativeElement) {
-        this.renderer.setStyle(this.floatingDiv.nativeElement, 'top', `${scrollY}px`);
+        this.renderer.setStyle(this.floatingDiv.nativeElement, 'top', `${scrollY+100}px`);
         this.showPopupNotification = true;
         this.disableScroll();
       }
 
     // Set the top position of the floating div to the current scroll position
     
-    }, 2000);
+    }, 1000);
     
   }
 
@@ -108,7 +108,7 @@ export class PageAcceuilSansCompteComponent {
     // Apply CSS to the body to prevent scrolling
     this.renderer.setStyle(document.body, 'overflow', 'hidden');
     this.renderer.setStyle(document.body, 'position', 'fixed');
-    this.renderer.setStyle(document.body, 'top', `-${scrollY-50}px`);
+    this.renderer.setStyle(document.body, 'top', `-${scrollY}px`);
   }
   
   enableScroll(): void {
