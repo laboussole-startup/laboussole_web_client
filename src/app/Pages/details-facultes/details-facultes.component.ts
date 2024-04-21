@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Faculte } from 'src/app/Models/faculte';
 import { FiliereFormation } from 'src/app/Models/filiere-formation';
@@ -20,6 +20,7 @@ export class DetailsFacultesComponent {
   showSearchBar = false;
 
   panelOpenState = false;
+  hideAll:boolean = false;
 
   // about service
   filiereId!: any;
@@ -33,15 +34,11 @@ export class DetailsFacultesComponent {
     private service: OffreFormationService,
     private router: Router,
     public dialog: MatDialog,
-    private userService:UserServiceService
+    private userService:UserServiceService,
+    private elementRef: ElementRef
   ) {}
 
   ngOnInit() {
-    if(!this.userService.user_email){
-      setTimeout(() => {
-        this.openDialog("0ms","0ms");
-      }, 20000);
-    }
     this.filiereId = this.filiereRoute.snapshot.paramMap.get('faculte_id'); // Get cart item ID from route
     console.log(this.filiereId);
 
@@ -64,6 +61,21 @@ export class DetailsFacultesComponent {
     this.service.getFiliereFacMaster(this.filiereId).subscribe((data: any) => {
       console.log(data);  
       this.filieresMaster = data;
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Call your function here
+            this.onScroll40Percent();
+            observer.disconnect(); // Disconnect the observer to avoid further observations
+          }
+        });
+      }, { threshold: 0.8 }); // Use a threshold of 0.4 to trigger when 40% of the observed element is visible
+  
+      // Identify the element that represents the 40% mark of the page
+      const fortyPercentElement = this.elementRef.nativeElement.querySelector('#blurMark');
+      
+      // Start observing the element
+      observer.observe(fortyPercentElement);
     })
 
     
@@ -86,5 +98,17 @@ export class DetailsFacultesComponent {
   toggleMenu() {
     this.isMenuIconClicked = !this.isMenuIconClicked;
     this.isMenuIconClosed = !this.isMenuIconClosed;
+  }
+  onScroll40Percent() {
+    // Your function logic when the user has scrolled 40% of the page
+    console.log('User has scrolled 40% of the page');
+    if(!this.userService.user_email){
+      const fortyPercentElement:HTMLDivElement = this.elementRef.nativeElement.querySelector('#blurMark');
+      fortyPercentElement.style.filter = 'blur(2.5px)';
+      this.hideAll=true;
+    }else{
+      this.hideAll=false;
+    }
+   
   }
 }

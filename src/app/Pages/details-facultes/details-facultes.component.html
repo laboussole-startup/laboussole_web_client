@@ -25,12 +25,12 @@
             </span>
             <br><br><br>
         </div>
-        <div id="EcoleFormation">
+        <div id="EcoleFormation" id="blurMark">
             <span></span> <img src="../../assets/pseudo.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Filieres de la {{filiereItem.nom}}</strong> <br>
             <hr> 
             <span class="ecole formation">
                
-                <div class="label">Cycle Licence:</div>
+                <div class="label" >Cycle Licence:</div>
                 <mat-accordion>
                     <mat-expansion-panel *ngFor="let licence of filieresLicence" 
                             (opened)="panelOpenState = true"
@@ -45,8 +45,8 @@
                   </mat-accordion>
                 <br>
 
-              <div class="label">Cycle Master:</div>   <br><br>
-                <mat-accordion>
+              <div class="label" *ngIf="!hideAll">Cycle Master:</div>   <br><br>
+                <mat-accordion *ngIf="!hideAll">
                     <mat-expansion-panel *ngFor="let master of filieresMaster"
                             (opened)="panelOpenState = true"
                             (closed)="panelOpenState = false">
@@ -63,12 +63,16 @@
              <br><br><br>
         </div>
 
-         <div id="Entreprise">
+         <div id="Entreprise" *ngIf="!hideAll">
             <span></span> <img src="../../assets/pseudo.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> 
             
             <!-- <strong>Les écoles de l’{{filiereItem.nom}}</strong>  -->
             <br>
             <hr> 
+        </div>
+        <div class="createAccount" *ngIf="hideAll" style="display: flex;width:100%;justify-content:center;align-items:center;flex-flow: column nowrap;gap: 10px;position: relative;bottom: 50px;">
+          <div><button mat-raised-button style="background-color: #0F70B7;color:white;" routerLink="/signup">Creer mon compte</button></div>
+        <div style="color:#0F70B7;width: 100%;text-align: center;">Creer un compte pour lire la totalité de cet article</div> 
         </div>
 
     </div>
