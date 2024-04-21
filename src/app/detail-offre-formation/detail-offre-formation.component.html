@@ -126,7 +126,7 @@
 
         <br /><br />
         <div class="compétences">
-          Compétences requises:
+          <span style="font-weight:bold"> Compétences requises:</span> <br> <br>
 
           <li *ngFor="let competence of competences">
             {{ competence | titlecase }}
@@ -134,7 +134,9 @@
         </div>
         <br /><br />
         <div class="missions" 
-          >Ses principales missions incluent:
+          > 
+          <span style="font-weight:bold"> Ses principales missions incluent:</span>
+          <br> <br>
           <li *ngFor="let mission of missions">{{ mission }}</li>
         </div>
         <br /><br />
