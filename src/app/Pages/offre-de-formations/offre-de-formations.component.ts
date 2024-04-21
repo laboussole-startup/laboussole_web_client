@@ -16,13 +16,15 @@ export class OffreDeFormationsComponent {
     private router: Router,
     private route: ActivatedRoute,
     private searchService:SearchService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private elementRef: ElementRef
    
   ) {}
 
   isMenuIconClicked = false;
   isMenuIconClosed = true;
   showSearchBar = false;
+  overlay!:HTMLDivElement | null;
 
   query:string = "";
   // formation!: Formations[];
@@ -68,6 +70,42 @@ export class OffreDeFormationsComponent {
    
   }
 
+  showMobileMenu(){
+    const menu:HTMLDivElement =  this.elementRef.nativeElement.querySelector('.mobileMenu');
+    console.log(menu)
+    if (menu) {
+      this.overlay = document.createElement('div');
+        this.overlay.style.position = 'fixed';
+        this.overlay.style.top = '0';
+        this.overlay.style.left = '0';
+        this.overlay.style.width = '100%';
+        this.overlay.style.height = '100%';
+        this.overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // Adjust transparency here
+        this.overlay.style.zIndex = '2'; // Ensure it's on top of everything else
+        document.body.appendChild(this.overlay);
+      console.log("menu is ok")
+      menu.style.display = 'block';
+      menu.style.position = 'fixed'; // Position the element relative to the viewport
+      menu.style.top = '0'; // Position it at the top of the viewport
+      menu.style.left = '0'; // Position it at the left of the viewport
+      menu.style.width = '80%'; // Make it occupy the full width of the viewport
+      menu.style.height = '100%'; // Make it occupy the full height of the viewport
+      menu.style.zIndex = '3'; // Ensure it's on top of other elements
+    
+      // Optionally, you can set other styles as needed, such as background color or transparency
+      menu.style.backgroundColor = 'rgba(255, 255, 255)'; // Semi-transparent black background
+    }
+
+  }
+  
+  closeMenu(){
+    this.hideOverlay();
+    const menu:HTMLDivElement =  this.elementRef.nativeElement.querySelector('.mobileMenu');
+    if(menu){
+      menu.style.display = 'none';
+    }
+
+  }
  
 
   navigateToDetails(itemId: string) {
@@ -97,6 +135,13 @@ export class OffreDeFormationsComponent {
   
     // Restore the scroll position
     window.scrollTo(0, Math.abs(scrollY));
+  }
+
+  hideOverlay() {
+    if (this.overlay && this.overlay.parentNode) {
+        this.overlay.parentNode.removeChild(this.overlay);
+        this.overlay = null; // Reset overlay reference
+    }
   }
   
 }

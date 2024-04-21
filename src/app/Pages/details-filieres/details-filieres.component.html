@@ -27,40 +27,6 @@
 </div>
 
 <div class="conteneur" style="display: flex; padding: 2%">
-  <!-- side-bar -->
-  <!-- 
-    <div class="infoscles" style="width:min-content; background-color: #DDDDDD; padding: 2%;">
-        <h2 style="text-align: center;">Infos Clés</h2><br><br><br>
-
-        <img src="../../assets/Symbol.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Durée</strong> <br><br>
-        <span> 5ans</span><br><br>
-
-        <img src="../../assets/Symbol.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Diplome délivré</strong> <br><br>
-        <span> Diplome de {{filiereItem.nom}}</span><br><br>
-
-        <img src="../../assets/Symbol.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Lieu</strong> <br>
-        <span> <li>Ecole Nationale Supérieure Polytechnique de Yaoundé (ENSPY)
-            </li>
-            <li>Université de Yaoundé I</li>
-            <li> Université de Douala</li>
-            <li>Institut Universitaire de Technologie de Douala (IUT)</li>
-            <li>Institut Universitaire Polytechnique de Yaoundé (IUPY)</li>
-        </span><br><br>
-
-        <img src="../../assets/Symbol.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Conditions d'admission</strong> <br><br>
-        <span>Titulaire du Bacc ou GCE A/L Cycle Licence</span><br><br>
-
-        <img src="../../assets/Symbol.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Cout de laformation</strong> <br><br>
-        <span>50 000 frs/an</span><br><br>
-
-        <img src="../../assets/Symbol.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Langue d'enseignement</strong> <br><br>
-        <span>Français et Anglais</span><br><br>
-
-        <img src="../../assets/Symbol.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Salaire</strong> <br><br>
-        <span> 400 000 FCFA - 1 200 000 FCFA </span><br><br>
-    </div> -->
-
-  <!-- main-info -->
 
   <div class="allinfos" style="width: max-content; margin-left: 2%">
     <div id="DescriptionMetier">
@@ -76,23 +42,6 @@
         >{{ filiereItem.descriptif }}
 
         <br /><br />
-        <!-- <span class="compétences" >
-                Compétences requises: 
-                    
-                   
-                    <li *ngFor="let competence of competences">{{competence | titlecase}}  </li>
-                    
-                </span>
-                <br><br>
-                <span class="missions">Ses principales missions incluent:
-                <li *ngFor="let mission of missions"> {{mission}}</li>
-               
-                </span>
-                <br><br>
-                <span class="salaire">
-                    Salaire indicatif:
-                    Le salaire d'un {{filiereItem.nom}} varie en fonction de son expérience, de son niveau de qualification et de l'entreprise dans laquelle il travaille. En moyenne, un débutant peut espérer un salaire mensuel d'environ {{filiereItem.salairemoyen}}.
-                </span> -->
       </span>
       <br /><br /><br />
     </div>
@@ -133,13 +82,6 @@
           (click)="navigateToDetails(faculte.faculte_id)"
           (id)="onIdFromChild($event)"
         ></app-faculte-box>
-      <!-- important -->
-
-      <!-- <span class="entreprise" *ngFor="let entreprise of filiereItem.entreprisesrecrutent">
-                 <br><br>
-                
-                <li>{{entreprise}}</li> -->
-      <!-- </span> -->
     </div>
   </div>
 </div>

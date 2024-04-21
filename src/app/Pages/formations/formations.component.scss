@@ -115,8 +115,7 @@
         .search-bar {
           width: 601px;
   
-          span {
-          }
+        
           input {
             width: 577px;
           }
@@ -125,9 +124,7 @@
         .search-menu {
           @include search-menu();
   
-          img {
-            // width: 10px;
-          }
+         
         }
       }
   
@@ -152,4 +149,28 @@
       }
     }
   }
+
+  @media screen and (max-width:600px){
+    .mobileMenu{
+      width: 80vw;
+      height: 100vh;
+      display: none;
+      padding-left: 20px;
+    }
+  
+    .titleMenu{
+      margin-top: 200px;
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+  
+    .menuItem{
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      
+    }
+  }
+  
   

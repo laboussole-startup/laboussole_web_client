@@ -17,8 +17,7 @@
               Université d’Etat &nbsp; <img src="../../../assets/arrow-down.svg" alt="" />
             </button>
             <mat-menu #menu="matMenu" yPosition="below">
-              <button mat-menu-item>Item 1</button>
-              <button mat-menu-item>Item 2</button>
+              
             </mat-menu>
           </div>
           <div>
@@ -26,8 +25,7 @@
               Institutions publiques &nbsp; <img src="../../../assets/arrow-down.svg" alt="" />
             </button>
             <mat-menu #menu="matMenu" yPosition="below">
-              <button mat-menu-item>Item 1</button>
-              <button mat-menu-item>Item 2</button>
+              
             </mat-menu>
           </div>
           <div>
@@ -36,8 +34,7 @@
               <img src="../../../assets/arrow-down.svg" alt="" />
             </button>
             <mat-menu #menu="matMenu" yPosition="below">
-              <button mat-menu-item>Item 1</button>
-              <button mat-menu-item>Item 2</button>
+              
             </mat-menu>
           </div>
           <div>
@@ -46,14 +43,13 @@
               <img src="../../../assets/arrow-down.svg" alt="" />
             </button>
             <mat-menu #menu="matMenu" yPosition="below">
-              <button mat-menu-item>Item 1</button>
-              <button mat-menu-item>Item 2</button>
+              
             </mat-menu>
           </div>
         </div>
       </div>
       <div class="menu-icon">
-        <button *ngIf="getScreenWidth <= 600" mat-button>
+        <button *ngIf="getScreenWidth <= 600" mat-button (click)="showMobileMenu()">
           <img src="../../../assets/menu.svg" alt="" />
         </button>
         <div class="side-bar" onclick="">
@@ -62,8 +58,7 @@
               Marketing &nbsp; <img src="../../../assets/arrow-down.svg" alt="" />
             </button>
             <mat-menu #menu="matMenu" yPosition="below">
-              <button mat-menu-item>Item 1</button>
-              <button mat-menu-item>Item 2</button>
+             
             </mat-menu>
           </div>
           <div>
@@ -71,8 +66,7 @@
               Economie &nbsp; <img src="../../../assets/arrow-down.svg" alt="" />
             </button>
             <mat-menu #menu="matMenu" yPosition="below">
-              <button mat-menu-item>Item 1</button>
-              <button mat-menu-item>Item 2</button>
+              
             </mat-menu>
           </div>
           <div>
@@ -81,8 +75,7 @@
               <img src="../../../assets/arrow-down.svg" alt="" />
             </button>
             <mat-menu #menu="matMenu" yPosition="below">
-              <button mat-menu-item>Item 1</button>
-              <button mat-menu-item>Item 2</button>
+             
             </mat-menu>
           </div>
           <div>
@@ -91,8 +84,7 @@
               <img src="../../../assets/arrow-down.svg" alt="" />
             </button>
             <mat-menu #menu="matMenu" yPosition="below">
-              <button mat-menu-item>Item 1</button>
-              <button mat-menu-item>Item 2</button>
+              
             </mat-menu>
           </div>
         </div>
@@ -137,5 +129,15 @@
         </div>
       </div>
       <app-footer></app-footer>
+    </div>
+    <div class="mobileMenu">
+      <img src="../../../assets/x_close - icon - black.png" alt="" (click)="closeMenu()" width="20" height="20" style="position: relative;left: 90%;margin-top: 20px;">
+      <div class="titleMenu">Metiers par domaine</div>
+      <div class="menuItem">Communication</div>
+      <div class="menuItem">Droit</div>
+      <div class="menuItem">Psychologie</div>
+      <div class="menuItem">Médecine</div>
+      <div class="menuItem">Géographie</div>
+      <div class="menuItem">Informatique</div>
     </div>
   
