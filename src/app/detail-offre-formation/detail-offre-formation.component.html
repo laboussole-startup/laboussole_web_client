@@ -133,12 +133,12 @@
           </li>
         </div>
         <br /><br />
-        <div class="missions"
+        <div class="missions" 
           >Ses principales missions incluent:
           <li *ngFor="let mission of missions">{{ mission }}</li>
         </div>
         <br /><br />
-        <div class="salaire">
+        <div class="salaire" id="blurMark">
           Salaire indicatif: Le salaire d'un {{ metierItem.nom }} varie en
           fonction de son expérience, de son niveau de qualification et de
           l'entreprise dans laquelle il travaille. En moyenne, un débutant peut
@@ -147,14 +147,14 @@
       </div>
       <br /><br /><br />
     </div>
-    <div id="EcoleFormation">
+    <div id="EcoleFormation" *ngIf="!hideAll">
       <span></span>
       <img
         src="../../assets/pseudo.png"
         alt=""
         style="width: 15px; height: 15; margin-right: 5px"
       />
-      <strong>Ou se former?</strong> <br />
+      <strong id="blurMark">Ou se former?</strong> <br />
       <hr />
       <ul>
         <li *ngFor="let entry of lieu | keyvalue">
@@ -164,7 +164,7 @@
       <br /><br /><br />
     </div>
 
-    <div id="Entreprise">
+    <div id="Entreprise" *ngIf="!hideAll">
       <span></span>
       <img
         src="../../assets/pseudo.png"
@@ -180,10 +180,11 @@
         <br /><br />
 
         <li>{{ entreprise }}</li>
-        <!-- <li>Entreprises privées</li>
-                <li>Administrations publiques</li>
-                <li>Organisations internationales</li> -->
       </span>
+    </div>
+    <div class="createAccount" *ngIf="hideAll" style="display: flex;width:100%;justify-content:center;align-items:center;flex-flow: column nowrap;gap: 10px;position: relative;bottom: 50px;">
+      <div><button mat-raised-button style="background-color: #0F70B7;color:white;" routerLink="/signup">Creer mon compte</button></div>
+    <div>Creer un compte pour lire la totalite de cet article</div> 
     </div>
   </div>
 </div>

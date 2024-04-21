@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener } from '@angular/core';
 import { Metier } from '../Models/metier';
 import { ActivatedRoute } from '@angular/router';
 import { OffreFormationService } from '../services/offre-formation.service';
@@ -28,11 +28,15 @@ export class DetailOffreFormationComponent {
   linked_filiere!:FiliereFormation;
   linked_faculte!:Faculte;
   lieu:Map<string,string> = new Map();
+  hideAll:boolean=false;
+
+  scrollTimeout: any; 
   constructor(
     private metierRoute: ActivatedRoute,
     private service: OffreFormationService,
     public dialog: MatDialog,
     private userService:UserServiceService,
+    private elementRef: ElementRef
   ) {}
 
   ngDoCheck(){
@@ -40,11 +44,7 @@ export class DetailOffreFormationComponent {
   }
 
   ngOnInit() {
-    if(!this.userService.user_email){
-      setTimeout(() => {
-        this.openDialog("0ms","0ms");
-      }, 20000);
-    }
+
     window.scrollTo(0,0)
     this.metierId = this.metierRoute.snapshot.paramMap.get('id_metiers'); // Get cart item ID from route
     console.log(this.metierId);
@@ -95,6 +95,21 @@ export class DetailOffreFormationComponent {
                             let u = data as Universite;
                             console.log(u);
                             this.lieu.set(f.nom,u.nom);
+                            const observer = new IntersectionObserver((entries) => {
+                              entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                  // Call your function here
+                                  this.onScroll40Percent();
+                                  observer.disconnect(); // Disconnect the observer to avoid further observations
+                                }
+                              });
+                            }, { threshold: 0.8 }); // Use a threshold of 0.4 to trigger when 40% of the observed element is visible
+                        
+                            // Identify the element that represents the 40% mark of the page
+                            const fortyPercentElement = this.elementRef.nativeElement.querySelector('#blurMark');
+                            
+                            // Start observing the element
+                            observer.observe(fortyPercentElement);
                           }
                         )
 
@@ -130,4 +145,18 @@ export class DetailOffreFormationComponent {
   handleClick(sectionId: string){
     document.getElementById(sectionId)?.scrollIntoView({behavior: 'smooth'})
   }
+
+  onScroll40Percent() {
+    // Your function logic when the user has scrolled 40% of the page
+    console.log('User has scrolled 40% of the page');
+    if(!this.userService.user_email){
+      const fortyPercentElement:HTMLDivElement = this.elementRef.nativeElement.querySelector('#blurMark');
+      fortyPercentElement.style.filter = 'blur(2.5px)';
+      this.hideAll=true;
+    }else{
+      this.hideAll=false;
+    }
+   
+  }
 }
+
