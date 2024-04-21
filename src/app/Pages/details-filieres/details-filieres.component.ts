@@ -34,11 +34,6 @@ export class DetailsFilieresComponent {
     private userService:UserServiceService
   ) {}
   ngOnInit() {
-    if(!this.userService.user_email){
-      setTimeout(() => {
-        this.openDialog("0ms","0ms");
-      }, 20000);
-    }
   
     window.scrollTo(0,0);
     this.filiereId = this.filiereRoute.snapshot.paramMap.get('universite_id'); // Get cart item ID from route
