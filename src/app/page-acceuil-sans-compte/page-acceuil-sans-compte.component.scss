@@ -116,12 +116,12 @@
 .notification{
   position: absolute;
   //top: 10vh;
-  display: flex;
+  display: none;
   flex-flow: row-reverse;
   justify-content: center;
   align-items:flex-start;
   width: 100%;
-  z-index: 2;
+  z-index: 3;
   
 }
 .notification .main-img{
@@ -318,12 +318,12 @@
   .notification{
     position: absolute;
     //top: 30vh;
-    display: flex;
+    display: none;
     flex-flow: row-reverse;
     justify-content: center;
     align-items: flex-start;
     width: 100%;
-    z-index: 2;
+    z-index: 3;
     cursor: pointer;
   }
   .img-close-notification{
@@ -344,12 +344,12 @@
   .notification{
     position: absolute;
     //top: 20vh;
-    display: flex;
+    display: none;
     flex-flow: row-reverse;
     justify-content: center;
     align-items: flex-start;
     width: 100%;
-    z-index: 2;
+    z-index: 3;
     cursor:pointer;
   }
   .notification .main-img{
@@ -365,4 +365,17 @@
     right:50px;
   }
  
+}
+/* Add this CSS in your component's CSS file or global styles */
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.floating-div {
+  animation: zoomIn 2s ease-out; /* Adjust duration and timing function as needed */
 }

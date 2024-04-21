@@ -26,6 +26,8 @@ export class PageAcceuilSansCompteComponent {
 
   currentTemoignageNumber:number=0;
 
+  private overlay!: HTMLDivElement | null;
+
   @ViewChild('floatingDiv') floatingDiv!: ElementRef;
 
   constructor(private TemoignageService:TemoignageService,
@@ -49,9 +51,24 @@ export class PageAcceuilSansCompteComponent {
       const scrollY = window.scrollY;
 
       if (this.floatingDiv && this.floatingDiv.nativeElement) {
+        this.renderer.setStyle(this.floatingDiv.nativeElement, 'display', 'flex');
         this.renderer.setStyle(this.floatingDiv.nativeElement, 'top', `${scrollY+100}px`);
+        this.renderer.addClass(this.floatingDiv.nativeElement, 'floating-div'); // Start animation
         this.showPopupNotification = true;
+       
         this.disableScroll();
+
+        this.overlay = document.createElement('div');
+        this.overlay.style.position = 'fixed';
+        this.overlay.style.top = '0';
+        this.overlay.style.left = '0';
+        this.overlay.style.width = '100%';
+        this.overlay.style.height = '100%';
+        this.overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // Adjust transparency here
+        this.overlay.style.zIndex = '2'; // Ensure it's on top of everything else
+        document.body.appendChild(this.overlay);
+        
+
       }
 
     // Set the top position of the floating div to the current scroll position
@@ -122,7 +139,15 @@ export class PageAcceuilSansCompteComponent {
   
     // Restore the scroll position
     window.scrollTo(0, Math.abs(scrollY));
+    this.hideOverlay()
   }
+
+  hideOverlay() {
+    if (this.overlay && this.overlay.parentNode) {
+        this.overlay.parentNode.removeChild(this.overlay);
+        this.overlay = null; // Reset overlay reference
+    }
+}
   
  
 }
