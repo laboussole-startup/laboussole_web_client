@@ -17,7 +17,7 @@
     <div class="allinfos" style="width:max-content;margin-left: 2%;">
 
         <div id="DescriptionMetier">
-           <span></span> <img src="../../assets/pseudo.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Presentation de la {{filiereItem.nom}} ?</strong> <br>
+           <span></span> <img src="../../assets/pseudo.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Presentation de  {{filiereItem.nom}} ?</strong> <br>
             <hr> 
             <span class="contenu">{{filiereItem.descriptif}}
                 
@@ -25,13 +25,13 @@
             </span>
             <br><br><br>
         </div>
-        <div id="EcoleFormation" id="blurMark">
-            <span></span> <img src="../../assets/pseudo.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Filieres de la {{filiereItem.nom}}</strong> <br>
+        <div id="EcoleFormation" >
+            <span></span> <img src="../../assets/pseudo.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> <strong>Filieres de  {{filiereItem.nom}}</strong> <br>
             <hr> 
             <span class="ecole formation">
                
                 <div class="label" >Cycle Licence:</div>
-                <mat-accordion>
+                <mat-accordion id="blurMark">
                     <mat-expansion-panel *ngFor="let licence of filieresLicence" 
                             (opened)="panelOpenState = true"
                             (closed)="panelOpenState = false">

@@ -52,15 +52,13 @@ export class DetailsFacultesComponent {
           // this.missions = this.filiereItem.principales_missions.split(',');
           console.log(this.filiereItem);
           // console.log(this.competences);
+
+         
         });
     }
     this.service.getFiliereFac(this.filiereId).subscribe((data: any) => {
       console.log(data);  
       this.filieresLicence = data;
-    })
-    this.service.getFiliereFacMaster(this.filiereId).subscribe((data: any) => {
-      console.log(data);  
-      this.filieresMaster = data;
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -76,6 +74,11 @@ export class DetailsFacultesComponent {
       
       // Start observing the element
       observer.observe(fortyPercentElement);
+    })
+    this.service.getFiliereFacMaster(this.filiereId).subscribe((data: any) => {
+      console.log(data);  
+      this.filieresMaster = data;
+      
     })
 
     
