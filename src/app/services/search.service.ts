@@ -8,6 +8,7 @@ export class SearchService {
   public searchQuery:string="";
   public formationQuery:string="";
   public metierQuery:string="";
+  searchingCategory:boolean = false;
 
   constructor() { 
     

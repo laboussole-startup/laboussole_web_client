@@ -8,10 +8,11 @@
           </span>
           <input type="text" placeholder="Search..." (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query" />
         </div>
-        <div
+        <!--
+          <div
           class="search-menu"
           [ngClass]="{ 'small-screen-menu': getScreenWidth <= 600 }"
-        >
+          >
           <div>
             <button mat-button [matMenuTriggerFor]="menu">
               Université d’Etat &nbsp; <img src="../../../assets/arrow-down.svg" alt="" />
@@ -47,8 +48,11 @@
             </mat-menu>
           </div>
         </div>
+        -->
       </div>
-      <div class="menu-icon">
+      <!--
+
+        <div class="menu-icon">
         <button *ngIf="getScreenWidth <= 600" mat-button (click)="showMobileMenu()">
           <img src="../../../assets/menu.svg" alt="" />
         </button>
@@ -89,6 +93,9 @@
           </div>
         </div>
       </div>
+
+      -->
+      
   
       <!-- content -->
   

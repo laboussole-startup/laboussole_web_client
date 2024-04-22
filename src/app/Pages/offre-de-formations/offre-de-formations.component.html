@@ -12,14 +12,14 @@
         [ngClass]="{ 'small-screen-menu': getScreenWidth <= 600 }"
       >
         <div>
-          <button mat-button [matMenuTriggerFor]="menu">
+          <button mat-button [matMenuTriggerFor]="menu" (click)="searchCategory('market')">
             Marketing &nbsp; <img src="../../../assets/arrow-down.svg" alt="" />
           </button>
           <mat-menu #menu="matMenu" yPosition="below">
           </mat-menu>
         </div>
         <div>
-          <button mat-button [matMenuTriggerFor]="menu">
+          <button mat-button [matMenuTriggerFor]="menu" (click)="searchCategory('econo finance')">
             Economie &nbsp; <img src="../../../assets/arrow-down.svg" alt="" />
           </button>
           <mat-menu #menu="matMenu" yPosition="below">
@@ -27,7 +27,7 @@
           </mat-menu>
         </div>
         <div>
-          <button mat-button [matMenuTriggerFor]="menu">
+          <button mat-button [matMenuTriggerFor]="menu" (click)="searchCategory('math')">
             Mathématique &nbsp;
             <img src="../../../assets/arrow-down.svg" alt="" />
           </button>
@@ -35,7 +35,7 @@
           </mat-menu>
         </div>
         <div>
-          <button mat-button [matMenuTriggerFor]="menu">
+          <button mat-button [matMenuTriggerFor]="menu" (click)="searchCategory('socio')">
             Sociologie &nbsp;
             <img src="../../../assets/arrow-down.svg" alt="" />
           </button>
@@ -44,7 +44,7 @@
           </mat-menu>
         </div>
         <div>
-          <button mat-button [matMenuTriggerFor]="menu">
+          <button mat-button [matMenuTriggerFor]="menu" (click)="searchCategory('geographie geo')">
             Géographie &nbsp;
             <img src="../../../assets/arrow-down.svg" alt="" />
           </button>
@@ -53,7 +53,7 @@
           </mat-menu>
         </div>
         <div class="large-screen-menu" *ngIf="getScreenWidth >= 992">
-          <button mat-button [matMenuTriggerFor]="menu">
+          <button mat-button [matMenuTriggerFor]="menu" (click)="searchCategory('Droit avocat juriste juge magistrat juridique')">
             Droit &nbsp;
             <img src="../../../assets/arrow-down.svg" alt="" />
           </button>
@@ -152,10 +152,14 @@
 <div class="mobileMenu">
   <img src="../../../assets/x_close - icon - black.png" alt="" (click)="closeMenu()" width="20" height="20" style="position: relative;left: 90%;margin-top: 20px;">
   <div class="titleMenu">Metiers par domaine</div>
-  <div class="menuItem">Communication</div>
-  <div class="menuItem">Droit</div>
-  <div class="menuItem">Psychologie</div>
-  <div class="menuItem">Médecine</div>
-  <div class="menuItem">Géographie</div>
-  <div class="menuItem">Informatique</div>
+  <div class="menuItem" (click)="searchCategory('communication publicite journali')">Communication</div>
+  <div class="menuItem" (click)="searchCategory('Droit avocat juriste juge magistrat juridique')">Droit</div>
+  <div class="menuItem" (click)="searchCategory('Psycho')">Psychologie</div>
+  <div class="menuItem" (click)="searchCategory('medecin medical sante dentiste chirurgi cardio ')">Médecine</div>
+  <div class="menuItem" (click)="searchCategory('geographie geo')">Géographie</div>
+  <div class="menuItem" (click)="searchCategory('informati ')">Informatique</div>
+  <div class="menuItem" (click)="searchCategory('econo finance')">Economie</div>
+  <div class="menuItem" (click)="searchCategory('math')">Mathématique</div>
+  <div class="menuItem" (click)="searchCategory('socio')">Sociologie</div>
+  <div class="menuItem" (click)="searchCategory('market community ')">Marketing</div>
 </div>

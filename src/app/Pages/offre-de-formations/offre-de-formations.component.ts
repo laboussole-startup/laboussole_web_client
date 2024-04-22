@@ -106,6 +106,15 @@ export class OffreDeFormationsComponent {
     }
 
   }
+
+  searchCategory(category:string){
+    this.closeMenu()
+    this.searchService.setSearchQuery("");
+    this.searchService.setFormationsQuery("");
+    this.searchService.searchingCategory=true;
+    this.searchService.setMetiersQuery(category);
+    this.router.navigateByUrl("/search-results")
+  }
  
 
   navigateToDetails(itemId: string) {
