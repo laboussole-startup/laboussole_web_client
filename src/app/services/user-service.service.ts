@@ -86,9 +86,9 @@ export class UserServiceService {
     this.user_email=email
   }
 
-  updateCentreInterets(ci:Array<Number>){
+  updateCentreInterets(ci:Array<string>){
     let update_url:string = 'https://laboussole-back-end.onrender.com/auth/'+this.user_email+'/';
-    let centres = ci.join("|");
+    let centres = ci.join(" ");
     return this.httpClient.put(update_url,{
       "centres_interet":centres
     });

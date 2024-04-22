@@ -1,6 +1,7 @@
 import { Component,ElementRef,OnInit,Renderer2, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { AskLoginDialogComponent } from '../ask-login-dialog/ask-login-dialog.component';
 import { Article } from '../Models/article';
 import { Temoignage } from '../Models/temoignage';
 import { ActualitesService } from '../services/actualites.service';
@@ -34,6 +35,7 @@ export class PageAcceuilSansCompteComponent {
               private userService:UserServiceService,
               private articleService:ActualitesService,
               private router:Router,
+              public dialog: MatDialog,
               private renderer: Renderer2){
     this.temoignages = this.TemoignageService.list_temoignages;
     console.log(this.temoignages)
@@ -147,7 +149,21 @@ export class PageAcceuilSansCompteComponent {
         this.overlay.parentNode.removeChild(this.overlay);
         this.overlay = null; // Reset overlay reference
     }
-}
-  
- 
+  }
+
+  laisserTemoignage(){
+    if(this.userService.user_email){
+      this.router.navigateByUrl("/temoignages")
+    }else{
+      this.openDialog("1ms","0ms")
+    }
+    
+  }
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(AskLoginDialogComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
 }

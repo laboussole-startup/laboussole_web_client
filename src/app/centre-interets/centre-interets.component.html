@@ -7,7 +7,7 @@
     </div>
     <div class="loginForm">
       <div class="centresInteret">
-        <app-centre-interet-box *ngFor="let centre of this.getSubArray(All_Centres,start,start+5)"  [id]="centre.id" [text_val]="centre.nom" (eventEmitter)="saveChoice($event)"></app-centre-interet-box>
+        <app-centre-interet-box *ngFor="let centre of this.getSubArray(All_Centres,start,start+7)"  [id]="centre.id" [text_val]="centre.nom" (eventEmitter)="saveChoice($event)"></app-centre-interet-box>
       </div>
       <div class="buttons">
         <button mat-raised-button  (click)="terminateProcess()" style="background-color: #DEDEDE;">terminer</button>

@@ -25,6 +25,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { DetailsActualitesComponent } from './details-actualites/details-actualites.component';
 import { DetailsNotificationsComponent } from './details-notifications/details-notifications.component';
+import { TemoignagesInputComponent } from './temoignages-input/temoignages-input.component';
 const routes: Routes = [
   { path: '', component: PageAcceuilSansCompteComponent },
   { path: 'login', component: PageConnexionClientComponent },
@@ -48,7 +49,8 @@ const routes: Routes = [
   {path: 'profil',component:UserProfileComponent},
   {path:'search-results',component:SearchResultsComponent},
   {path:'details-actualites',component:DetailsActualitesComponent},
-  {path:'details-notifications',component:DetailsNotificationsComponent}
+  {path:'details-notifications',component:DetailsNotificationsComponent},
+  {path:'temoignages',component:TemoignagesInputComponent}
 ];
 
 @NgModule({

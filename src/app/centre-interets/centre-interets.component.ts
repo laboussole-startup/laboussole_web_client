@@ -13,7 +13,7 @@ import { UserServiceService } from '../services/user-service.service';
 export class CentreInteretsComponent {
 
   All_Centres:Array<CentreInteret> = new Array();
-  choices:Set<Number> = new Set<Number>();
+  choices:Set<string> = new Set<string>();
   start:number=0;
   disablebtn:boolean = false;
 
@@ -45,7 +45,7 @@ export class CentreInteretsComponent {
     return array.slice(start, end + 1); // +1 to include the element at end index
 }
 
-saveChoice(data:Number){
+saveChoice(data:string){
   if(this.choices.has(data)){
     this.choices.delete(data);
   }else{
