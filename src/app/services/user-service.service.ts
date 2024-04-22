@@ -47,7 +47,7 @@ export class UserServiceService {
       formData.append('serie', serie);
       formData.append('telephone', telephone);
       formData.append('niveau', niveau);
-      formData.append('centres_interet',"allez en brousse avec ca");
+      formData.append('centres_interet',"informati medecin medic");
       formData.append('is_staff', "false");
       formData.append('is_superuser', "false");
       formData.append('is_active', "true");
