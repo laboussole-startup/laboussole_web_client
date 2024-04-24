@@ -48,35 +48,63 @@ export class PageAcceuilSansCompteComponent {
       console.log(data);
       this.temoignages2 = data;
     });
-    this.timeoutId = setTimeout(() => {
-      
-      // Get the current scroll position
-      const scrollY = window.scrollY;
+    const currentDate = new Date();
 
-      if (this.floatingDiv && this.floatingDiv.nativeElement) {
-        this.renderer.setStyle(this.floatingDiv.nativeElement, 'display', 'flex');
-        this.renderer.setStyle(this.floatingDiv.nativeElement, 'top', `${scrollY+100}px`);
-        this.renderer.addClass(this.floatingDiv.nativeElement, 'floating-div'); // Start animation
-        this.showPopupNotification = true;
-       
-        this.disableScroll();
+    const currentDay = currentDate.getDate(); // Get the day (1-31)
+    const currentMonth = currentDate.getMonth() + 1; // Get the month (0-11), adding 1 to make it 1-12
+    const currentYear = currentDate.getFullYear(); // Get the year (e.g., 2024)
 
-        this.overlay = document.createElement('div');
-        this.overlay.style.position = 'fixed';
-        this.overlay.style.top = '0';
-        this.overlay.style.left = '0';
-        this.overlay.style.width = '100%';
-        this.overlay.style.height = '100%';
-        this.overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // Adjust transparency here
-        this.overlay.style.zIndex = '2'; // Ensure it's on top of everything else
-        document.body.appendChild(this.overlay);
-        
-
+    let dt = localStorage.getItem("currentdate");
+    let launch:boolean = false;
+    if(dt){
+      if(dt==currentDay+'/'+currentMonth+'/'+currentYear){
+        launch=false;
+      }else{
+        launch=true;
       }
-
-    // Set the top position of the floating div to the current scroll position
+    }else{
+      launch = true;
+    }
+    if(launch){
+      this.timeoutId = setTimeout(() => {
+      
+        // Get the current scroll position
+        const scrollY = window.scrollY;
+  
+        if (this.floatingDiv && this.floatingDiv.nativeElement) {
+          this.renderer.setStyle(this.floatingDiv.nativeElement, 'display', 'flex');
+          this.renderer.setStyle(this.floatingDiv.nativeElement, 'top', `${scrollY+100}px`);
+          this.renderer.addClass(this.floatingDiv.nativeElement, 'floating-div'); // Start animation
+          this.showPopupNotification = true;
+         
+          this.disableScroll();
+  
+          this.overlay = document.createElement('div');
+          this.overlay.style.position = 'fixed';
+          this.overlay.style.top = '0';
+          this.overlay.style.left = '0';
+          this.overlay.style.width = '100%';
+          this.overlay.style.height = '100%';
+          this.overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // Adjust transparency here
+          this.overlay.style.zIndex = '2'; // Ensure it's on top of everything else
+          document.body.appendChild(this.overlay);
+          
+  
+        }
+  
+        const currentDate = new Date();
+  
+        const currentDay = currentDate.getDate(); // Get the day (1-31)
+        const currentMonth = currentDate.getMonth() + 1; // Get the month (0-11), adding 1 to make it 1-12
+        const currentYear = currentDate.getFullYear(); // Get the year (e.g., 2024)
+  
+        localStorage.setItem("currentdate",currentDay+'/'+currentMonth+'/'+currentYear);
+  
+      // Set the top position of the floating div to the current scroll position
+      
+      }, 10000);
+    }
     
-    }, 10000);
     
   }
 
