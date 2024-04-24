@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Notification } from '../Models/notification';
+import { NotificationsService } from '../services/notifications.service';
 import { SearchService } from '../services/search.service';
 import { UserServiceService } from '../services/user-service.service';
 
@@ -11,7 +13,11 @@ import { UserServiceService } from '../services/user-service.service';
 export class NavMobileHeaderComponent {
 
 
-  constructor(private searchService:SearchService,private router:Router,private userService:UserServiceService){
+  constructor(
+    private searchService:SearchService,
+    private router:Router,
+    private userService:UserServiceService,
+    private notificationService:NotificationsService){
 
   }
 
@@ -26,12 +32,50 @@ export class NavMobileHeaderComponent {
 
   showDropdown = false;
 
+  unread_notif_count:string='';
+  val:string | null='';
+
   // Call this method when you want to open the menu
   openMenu() {
     this.menuIconClosed.emit();
   }
   toggleSearchBar(){
 
+  }
+  
+ ngOnInit(){
+  this.notificationService.getAllNotifications().subscribe(
+    (data:any)=>{
+      console.log(data);
+      let allNotifs = data as Array<Notification>
+      for(let notif of allNotifs){
+        let value = localStorage.getItem('notification'+notif.id_notification);
+        if(!value){
+          this.notificationService.addUnReadNotification(notif.id_notification);
+        }
+      }
+      this.val = localStorage.getItem('notifications');
+      this.val=this.val=='0'?'':this.val;
+      this.unread_notif_count = this.val?this.val:'';
+  
+      console.log(this.unread_notif_count)
+
+    }
+  );
+ }
+
+ goToNotifications(){
+  this.notificationService.displayNotificationList=true;
+   this.router.navigateByUrl("/profil")
+ }
+
+  ngDoCheck(){
+    
+    this.val = localStorage.getItem('notifications');
+    this.val=this.val=='0'?'':this.val;
+    this.unread_notif_count = this.val?this.val:'';
+    
+    console.log(this.unread_notif_count)
   }
   signOut(){
     console.log("signing out");

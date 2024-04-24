@@ -19,6 +19,9 @@ export class OffreFormationService {
   searchMetiers(s:string){
     return this.http.get(this.url + '/metiers/?search='+s);
   }
+  getMetiersRecommendations(s:string){
+    return this.http.get(this.url + '/metiers/reccomendations/?search='+s);
+  }
   getMetierDetails(id: any) {
     return this.http.get(this.url + '/metiers/' + id + '/');
   }
@@ -39,6 +42,9 @@ export class OffreFormationService {
   }
   searchEcoles(s:string){
     return this.http.get(this.url + '/facultes/?search='+s);
+  }
+  getFacultesReccomendations(s:string){
+    return this.http.get(this.url + '/facultes/reccomendations/?search='+s);
   }
   getPageEcole(url:string){
     return this.http.get(url);

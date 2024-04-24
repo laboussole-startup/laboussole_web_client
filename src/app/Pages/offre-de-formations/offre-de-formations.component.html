@@ -112,7 +112,7 @@
         <h2>Recommandations</h2>
       </div>
       <div class="recommendations">
-        <div *ngFor="let metier of popularMetierList; index as i">
+        <div *ngFor="let metier of initialReccomendationsList; index as i">
           <app-offre-formation-box
             [metierBox]="metier" (click)="navigateToDetails(metier.id_metiers)"
           ></app-offre-formation-box>

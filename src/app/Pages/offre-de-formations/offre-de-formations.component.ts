@@ -1,8 +1,11 @@
 import { Component, HostListener, DoCheck,ElementRef,OnInit,Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Metier } from 'src/app/Models/metier';
+import { User } from 'src/app/Models/user';
+import { UserInfo } from 'src/app/Models/userInfo';
 import { OffreFormationService } from 'src/app/services/offre-formation.service';
 import { SearchService } from 'src/app/services/search.service';
+import { UserServiceService } from 'src/app/services/user-service.service';
 
 
 @Component({
@@ -17,7 +20,8 @@ export class OffreDeFormationsComponent {
     private route: ActivatedRoute,
     private searchService:SearchService,
     private renderer: Renderer2,
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    private userService:UserServiceService
    
   ) {}
 
@@ -29,7 +33,8 @@ export class OffreDeFormationsComponent {
   query:string = "";
   // formation!: Formations[];
   metiers!: Metier[];
-  initialMetierList:Array<Metier> = new Array()
+  initialMetierList:Array<Metier> = new Array();
+  initialReccomendationsList:Array<Metier> =new Array();
   recommendationsList:Array<Metier> = new Array()
   popularMetierList:Array<Metier> = new Array()
 
@@ -64,9 +69,27 @@ export class OffreDeFormationsComponent {
 
       this.initialMetierList = res.slice(0,10);
       this.popularMetierList = res.slice(20,25);
-      this.recommendationsList= res.slice(30,35);
       // console.log(this.formations);
     });
+    if(this.userService.user_email){
+      this.userService.getUserInfo().subscribe(
+        (data:any) => {
+          console.log(data);
+          let user = data as UserInfo;
+          console.log(user.centres_interet);
+
+          this.service.getMetiersRecommendations(user.centres_interet).subscribe(
+            (data:any) => {
+              console.log(data);
+              let res:Array<Metier> = data.results as Array<Metier>
+              this.recommendationsList = res;
+              this.initialReccomendationsList = this.recommendationsList.slice(0,5);
+            }
+          )
+        }
+      )
+    }
+   
    
   }
 

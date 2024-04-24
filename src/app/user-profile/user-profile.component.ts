@@ -17,7 +17,8 @@ export class UserProfileComponent {
   unread_notif_count:string='';
   val:string | null='';
 
-  constructor(private userService:UserServiceService,private notificationsService:NotificationsService){
+  constructor(private userService:UserServiceService,
+    private notificationsService:NotificationsService){
 
   }
 
@@ -41,7 +42,10 @@ export class UserProfileComponent {
   ngOnInit(){
     window.scrollTo(0,0);
     this.verifyLogin();
-   
+   if(this.notificationsService.displayNotificationList){
+    this.changeLocation(2);
+    this.notificationsService.displayNotificationList = false;
+   }
   }
   onFileSelected(event:any): void {
     this.selectedFile = event.target.files[0];

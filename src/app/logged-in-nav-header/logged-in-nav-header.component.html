@@ -22,6 +22,9 @@
       <input required="required" name="query" (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query"  />
       <button type="reset" class="del"></button>
     </form>
+    <div class="notifications">
+      <mat-icon  [matBadge]="unread_notif_count" [matBadgeHidden]="unread_notif_count == ''" matBadgeColor="warn" style="position:relative;right:20px;" (click)="goToNotifications()">notifications</mat-icon>
+    </div>
     <div class="profile" [matMenuTriggerFor]="profileMenu"> <img src="../../assets/profile-svgrepo-com.svg" alt="" width="30px" height="30px"></div>
    
   </div>
@@ -41,7 +44,7 @@
     <div class="searchBox nav-item">
       <input type="text" class="searchInput" name="" id="" placeholder="search"  (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query" />
     </div>
-    <div class="signupBtn nav-item">Notifications</div>
+    <div class="signupBtn nav-item" [matBadge]="unread_notif_count" [matBadgeHidden]="unread_notif_count == ''" matBadgeColor="warn"  (click)="goToNotifications()">Notifications</div>
     <div class="loginBtn nav-item" [matMenuTriggerFor]="profileMenu"> <img src="../../assets/profile-svgrepo-com.svg" alt="" width="30px" height="30px">  Hi, {{username}}</div>
   </div>
   <div class="dropdown-content" *ngIf="showDropdown">

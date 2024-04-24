@@ -11,6 +11,8 @@ export class NotificationsService {
 
   public unreadNotifs = new Set();
 
+  public displayNotificationList:boolean = false;
+
   constructor(private httpClient: HttpClient) {
   }
 

@@ -26,7 +26,7 @@ export class NotificationsListComponent {
         this.allNotifications = data as Array<Notification>
 
       }
-    )
+    );
   }
 
   

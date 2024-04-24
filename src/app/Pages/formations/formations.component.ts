@@ -1,8 +1,11 @@
 import { Component, HostListener, OnInit,DoCheck,Renderer2, ElementRef, } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Faculte } from 'src/app/Models/faculte';
 import { Universite } from 'src/app/Models/universite';
+import { UserInfo } from 'src/app/Models/userInfo';
 import { OffreFormationService } from 'src/app/services/offre-formation.service';
 import { SearchService } from 'src/app/services/search.service';
+import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-formations',
@@ -16,7 +19,8 @@ export class FormationsComponent {
     private route: ActivatedRoute,
     private searchService:SearchService,
     private renderer: Renderer2,
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    private userService: UserServiceService
   ) {}
 
   query:string="";
@@ -29,6 +33,9 @@ export class FormationsComponent {
   // formations: any;
   showSideBar = false;
   overlay!:HTMLDivElement | null;
+
+  reccomendationsList: Array<Faculte> = new Array();
+  initialReccomendationsList: Array<Faculte> = new Array()
 
   public getScreenWidth: any;
 
@@ -53,7 +60,24 @@ export class FormationsComponent {
       this.formations = data;
       // console.log(this.formations);
     });
-    // this.formations = this.service.getFormation();
+    if(this.userService.user_email){
+      this.userService.getUserInfo().subscribe(
+        (data:any) => {
+          console.log(data);
+          let user = data as UserInfo;
+          console.log(user.centres_interet);
+
+          this.service.getMetiersRecommendations(user.centres_interet).subscribe(
+            (data:any) => {
+              console.log(data);
+              let res:Array<Faculte> = data.results as Array<Faculte>
+              this.reccomendationsList = res;
+              this.initialReccomendationsList = this.reccomendationsList.slice(0,5);
+            }
+          )
+        }
+      )
+    }
   }
 
   ngDoCheck(){

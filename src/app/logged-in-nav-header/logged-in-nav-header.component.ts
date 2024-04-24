@@ -4,6 +4,8 @@ import { Location } from '@angular/common';
 
 import { Router } from '@angular/router';
 import { SearchService } from '../services/search.service';
+import { NotificationsService } from '../services/notifications.service';
+import { Notification } from '../Models/notification';
 
 @Component({
   selector: 'app-logged-in-nav-header',
@@ -24,7 +26,16 @@ export class LoggedInNavHeaderComponent {
 
   query:string="";
 
-  constructor(private userService:UserServiceService,private router:Router,private location:Location,private searchService:SearchService){
+  unread_notif_count:string='';
+  val:string | null='';
+
+
+  constructor(private userService:UserServiceService,
+    private router:Router,
+    private location:Location,
+    private searchService:SearchService,
+    private notificationService:NotificationsService
+    ){
 
   }
 
@@ -34,8 +45,31 @@ export class LoggedInNavHeaderComponent {
     this.router.navigate(['/login']);
   }
 
+  goToNotifications(){
+    this.notificationService.displayNotificationList=true;
+     this.router.navigateByUrl("/profil")
+   }
+
   ngOnInit(): void{
     this.username = this.userService.username;
+    this.notificationService.getAllNotifications().subscribe(
+      (data:any)=>{
+        console.log(data);
+        let allNotifs = data as Array<Notification>
+        for(let notif of allNotifs){
+          let value = localStorage.getItem('notification'+notif.id_notification);
+          if(!value){
+            this.notificationService.addUnReadNotification(notif.id_notification);
+          }
+        }
+        this.val = localStorage.getItem('notifications');
+        this.val=this.val=='0'?'':this.val;
+        this.unread_notif_count = this.val?this.val:'';
+    
+        console.log(this.unread_notif_count)
+  
+      }
+    );
   }
 
   // Call this method when you want to open the menu
