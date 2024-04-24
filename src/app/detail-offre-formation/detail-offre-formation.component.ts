@@ -49,6 +49,15 @@ export class DetailOffreFormationComponent {
     this.metierId = this.metierRoute.snapshot.paramMap.get('id_metiers'); // Get cart item ID from route
     console.log(this.metierId);
 
+    if(!this.userService.user_email){
+      const fortyPercentElement:HTMLDivElement = this.elementRef.nativeElement.querySelector('#blurMark');
+      fortyPercentElement.style.filter = 'blur(2.5px)';
+      this.hideAll=true;
+    }else{
+      this.hideAll=false;
+    }
+    
+
     if (this.metierId) {
       this.service
         .getMetierDetails(this.metierId)
@@ -149,13 +158,6 @@ export class DetailOffreFormationComponent {
   onScroll40Percent() {
     // Your function logic when the user has scrolled 40% of the page
     console.log('User has scrolled 40% of the page');
-    if(!this.userService.user_email){
-      const fortyPercentElement:HTMLDivElement = this.elementRef.nativeElement.querySelector('#blurMark');
-      fortyPercentElement.style.filter = 'blur(2.5px)';
-      this.hideAll=true;
-    }else{
-      this.hideAll=false;
-    }
    
   }
 }
