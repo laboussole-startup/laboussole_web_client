@@ -23,6 +23,7 @@ export class PageAcceuilSansCompteComponent {
   allArticles!:Array<Article>
 
   showPopupNotification:boolean = false;
+  private timeoutId: any;
  
 
   currentTemoignageNumber:number=0;
@@ -47,7 +48,7 @@ export class PageAcceuilSansCompteComponent {
       console.log(data);
       this.temoignages2 = data;
     });
-    setTimeout(() => {
+    this.timeoutId = setTimeout(() => {
       
       // Get the current scroll position
       const scrollY = window.scrollY;
@@ -81,7 +82,9 @@ export class PageAcceuilSansCompteComponent {
 
   
 
- 
+ ngOnDestroy(){
+  this.clearTimeout();
+ }
 
   description_Metier:string = "Découvre l'univers des métiers  avec  LABOUSSOLE ! Explorez une multitude de professions passionnantes et trouvez le métier qui correspond à ton profil."
   description_Bourses:string = "LABOUSSOLE te donne accès à un large éventail de bourses d'études pour t’aider à financer tes études et réaliser tes rêves"
@@ -165,5 +168,11 @@ export class PageAcceuilSansCompteComponent {
       enterAnimationDuration,
       exitAnimationDuration,
     });
+  }
+  clearTimeout() {
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId); // Clear the timeout if it's set
+      this.timeoutId = null; // Reset the timeout ID
+    }
   }
 }
