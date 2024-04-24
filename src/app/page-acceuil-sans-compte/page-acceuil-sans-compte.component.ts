@@ -75,7 +75,7 @@ export class PageAcceuilSansCompteComponent {
 
     // Set the top position of the floating div to the current scroll position
     
-    }, 1000);
+    }, 10000);
     
   }
 
