@@ -112,6 +112,7 @@ export class PageAcceuilSansCompteComponent {
 
  ngOnDestroy(){
   this.clearTimeout();
+  this.closePopup();
  }
 
   description_Metier:string = "Découvre l'univers des métiers  avec  LABOUSSOLE ! Explorez une multitude de professions passionnantes et trouvez le métier qui correspond à ton profil."
