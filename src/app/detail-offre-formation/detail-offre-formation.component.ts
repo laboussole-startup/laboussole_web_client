@@ -39,9 +39,6 @@ export class DetailOffreFormationComponent {
     private elementRef: ElementRef
   ) {}
 
-  ngDoCheck(){
-    window.scrollTo(0,0)
-  }
 
   ngOnInit() {
 
@@ -152,7 +149,14 @@ export class DetailOffreFormationComponent {
   }
 
   handleClick(sectionId: string){
-    document.getElementById(sectionId)?.scrollIntoView({behavior: 'smooth'})
+    console.log(sectionId);
+    const sectionElement = document.getElementById(sectionId);
+    if (sectionElement) {
+      const yOffset = sectionElement.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({ top: yOffset, behavior: 'smooth' });
+     }else{
+      console.log("section not found")
+     }
   }
 
   onScroll40Percent() {
