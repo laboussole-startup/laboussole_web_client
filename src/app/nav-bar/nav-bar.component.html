@@ -4,5 +4,5 @@
 </div>
 <div class="restOfPage" *ngIf="isMenuIconClosed">
     <app-nav-mobile-header *ngIf="!isLoggedIn" (menuIconClosed)="toggleMenu()"></app-nav-mobile-header>
-    <app-logged-in-nav-header *ngIf="isLoggedIn" (menuIconClosed)="toggleMenu()"></app-logged-in-nav-header>
+    <app-logged-in-nav-header *ngIf="isLoggedIn" (menuIconClosed)="toggleMenu()" (loggedOut)="reloadComponent()"></app-logged-in-nav-header>
 </div>

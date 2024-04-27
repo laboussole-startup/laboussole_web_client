@@ -16,6 +16,8 @@ export class LoggedInNavHeaderComponent {
 
   @Output() menuIconClosed = new EventEmitter<void>();
 
+  @Output() loggedOut = new EventEmitter<void>();
+
   showSearchBar = false;
 
   hideMenuIcon = false;
@@ -41,8 +43,10 @@ export class LoggedInNavHeaderComponent {
 
   signOut(){
     console.log("signing out");
+   
     this.userService.user_email='';
-    this.router.navigate(['/login']);
+    this.loggedOut.emit()
+    this.router.navigate(['/']);
   }
 
   goToNotifications(){

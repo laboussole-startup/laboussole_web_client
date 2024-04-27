@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserInfo } from '../Models/userInfo';
 import { UserServiceService } from '../services/user-service.service';
 
@@ -14,10 +15,17 @@ export class NavBarComponent {
 
   isLoggedIn:boolean=false;
 
-  constructor(private userService:UserServiceService){
+  constructor(private userService:UserServiceService,private router:Router){
   }
 
   ngOnInit(): void {
+    this.verifyLogin();
+  }
+
+  reloadComponent() {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/']);
+    });
     this.verifyLogin();
   }
 
