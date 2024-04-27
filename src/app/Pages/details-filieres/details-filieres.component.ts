@@ -74,9 +74,6 @@ export class DetailsFilieresComponent {
     // this.metierItem = this.service.getCartItemById(this.metierId); // Retrieve specific cart item details
   }
 
-  ngDoCheck(){
-    window.scrollTo(0,0);
-  }
   navigateToDetails(itemId: number) {
     this.router.navigate(['/facultes/', this.faculte_id]); // Navigate to details route with item ID
   }
