@@ -84,6 +84,7 @@ export class OffreDeFormationsComponent {
               let res:Array<Metier> = data.results as Array<Metier>
               this.recommendationsList = res;
               this.initialReccomendationsList = this.recommendationsList.slice(0,5);
+              this.searchService.metierRecommandations = this.recommendationsList;
             }
           )
         }
@@ -142,6 +143,15 @@ export class OffreDeFormationsComponent {
 
   navigateToDetails(itemId: string) {
     this.router.navigate(['/metiers', itemId]); // Navigate to details route with item ID
+  }
+  voirToutesReccomandatins(){
+    this.searchService.showMetierReccomandations=true;
+    this.router.navigateByUrl("/voir-tout-metiers");
+  }
+
+  voirTousMetiers(){
+    this.searchService.showMetierReccomandations=false;
+    this.router.navigateByUrl("/voir-tout-metiers");
   }
 
   toggleMenu() {

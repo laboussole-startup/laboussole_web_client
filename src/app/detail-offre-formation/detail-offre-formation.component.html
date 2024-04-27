@@ -45,8 +45,8 @@
   >
     <h2 style="text-align: center">Infos Clés</h2>
     <br /><br /><br />
-
-    <img
+<!--
+   <img
       src="../../assets/Symbol.png"
       alt=""
       style="width: 15px; height: 15; margin-right: 5px"
@@ -63,20 +63,7 @@
     <span> {{ linked_filiere.diplome_delivre }}</span
     ><br /><br />
 
-    <img
-      src="../../assets/Symbol.png"
-      alt=""
-      style="width: 15px; height: 15; margin-right: 5px"
-    />
-    <strong>Lieu</strong> <br />
-    <span>
-      <li *ngFor="let entry of lieu | keyvalue">
-        {{entry.key}} de {{entry.value}}
-      </li>
-    </span
-    ><br /><br />
-
-    <img
+     <img
       src="../../assets/Symbol.png"
       alt=""
       style="width: 15px; height: 15; margin-right: 5px"
@@ -99,6 +86,26 @@
     />
     <strong>Langue d'enseignement</strong> <br /><br />
     <span>{{linked_filiere.langue_enseignement}}</span><br /><br />
+  
+-->
+   
+
+    
+
+    <img
+      src="../../assets/Symbol.png"
+      alt=""
+      style="width: 15px; height: 15; margin-right: 5px"
+    />
+    <strong>Lieu</strong> <br />
+    <span class="lieuContainer">
+      <li *ngFor="let entry of lieu | keyvalue" (click)="goToFaculte(entry.key.faculte_id)">
+        {{entry.key.nom}} de {{entry.value.nom}}
+      </li>
+    </span
+    ><br /><br />
+
+   
 
     <img
       src="../../assets/Symbol.png"

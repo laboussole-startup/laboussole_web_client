@@ -1,6 +1,6 @@
 import { Component, ElementRef, HostListener } from '@angular/core';
 import { Metier } from '../Models/metier';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OffreFormationService } from '../services/offre-formation.service';
 import { map } from 'rxjs';
 import { FiliereFormation } from '../Models/filiere-formation';
@@ -27,7 +27,7 @@ export class DetailOffreFormationComponent {
   missions!: string[];
   linked_filiere!:FiliereFormation;
   linked_faculte!:Faculte;
-  lieu:Map<string,string> = new Map();
+  lieu:Map<Faculte,Universite> = new Map();
   hideAll:boolean=false;
 
   scrollTimeout: any; 
@@ -36,6 +36,7 @@ export class DetailOffreFormationComponent {
     private service: OffreFormationService,
     public dialog: MatDialog,
     private userService:UserServiceService,
+    private router:Router,
     private elementRef: ElementRef
   ) {}
 
@@ -94,13 +95,12 @@ export class DetailOffreFormationComponent {
                         
                         let f = data as Faculte;
                         console.log(f)
-                        this.lieu.set(f.nom,"");
 
                         this.service.getUniversiteDetails(f.universite).subscribe(
                           (data:any)=>{
                             let u = data as Universite;
                             console.log(u);
-                            this.lieu.set(f.nom,u.nom);
+                            this.lieu.set(f,u);
                             const observer = new IntersectionObserver((entries) => {
                               entries.forEach(entry => {
                                 if (entry.isIntersecting) {
@@ -157,6 +157,10 @@ export class DetailOffreFormationComponent {
      }else{
       console.log("section not found")
      }
+  }
+  goToFaculte(id:number){
+    console.log(id);
+    this.router.navigate(['/facultes/', id]);
   }
 
   onScroll40Percent() {

@@ -5,7 +5,7 @@ export class Faculte {
     public descriptif: string,
     public condition_admission: string,
     public email: string,
-    public telephnone: string,
+    public telephone: string,
     public universite: number,
     public imageurl: string,
     public images_pc:string,
