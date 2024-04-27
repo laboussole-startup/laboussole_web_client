@@ -47,7 +47,7 @@ export class DetailOffreFormationComponent {
     console.log(this.metierId);
 
     if(!this.userService.user_email){
-      const fortyPercentElement:HTMLDivElement = this.elementRef.nativeElement.querySelector('#blurMark');
+      const fortyPercentElement:HTMLDivElement = this.elementRef.nativeElement.querySelector('#blurMark1');
       fortyPercentElement.style.filter = 'blur(2.5px)';
       this.hideAll=true;
     }else{

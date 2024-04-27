@@ -111,7 +111,7 @@
 
   <!-- main-info -->
 
-  <div class="allinfos" style="margin-left: 2%" id="blurMark">
+  <div class="allinfos" style="margin-left: 2%" >
     <div id="DescriptionMetier">
       <span></span>
       <img
@@ -119,24 +119,24 @@
         alt=""
         style="width: 15px; height: 15; margin-right: 5px"
       />
-      <strong>Qu'est ce qu'un {{ metierItem.nom }} ?</strong> <br />
+      <strong style="filter:blur(0px);">Qu'est ce qu'un {{ metierItem.nom }} ?</strong> <br />
       <hr />
-      <div class="contenu"
+      <div class="contenu" id="blurMark1"
         >{{ metierItem.description }}
 
         <br /><br />
-        <div class="compétences">
-          <span style="font-weight:bold"> Compétences requises:</span> <br> <br>
+        <span style="font-weight:bold"> Compétences requises:</span> <br> <br>
 
+        <div class="compétences" id="blurMark2">
           <li *ngFor="let competence of competences">
             {{ competence | titlecase }}
           </li>
         </div>
         <br /><br />
-        <div class="missions" 
-          > 
-          <span style="font-weight:bold"> Ses principales missions incluent:</span>
+        <span style="font-weight:bold"> Ses principales missions incluent:</span>
           <br> <br>
+        <div class="missions" id="blurMark3"> 
+          
           <li *ngFor="let mission of missions">{{ mission }}</li>
         </div>
         <br /><br />
@@ -156,7 +156,7 @@
         alt=""
         style="width: 15px; height: 15; margin-right: 5px"
       />
-      <strong id="blurMark">Ou se former?</strong> <br />
+      <strong>Ou se former?</strong> <br />
       <hr />
       <ul>
         <li *ngFor="let entry of lieu | keyvalue">
