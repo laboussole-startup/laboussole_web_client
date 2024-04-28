@@ -67,7 +67,9 @@ export class DetailOffreFormationComponent {
           this.missions = this.metierItem.principales_missions.split(',');
           console.log(this.metierItem);
           console.log(this.competences);
-          this.service.getFiliereDetails(this.metierItem.filieres).subscribe(
+          /**
+           * 
+           *  this.service.getFiliereDetails(this.metierItem.filieres).subscribe(
             (data:any) =>{
               console.log("fetched for filiere")
               console.log(data);
@@ -127,6 +129,9 @@ export class DetailOffreFormationComponent {
 
             }
           )
+           * 
+           */
+         
 
         
         });

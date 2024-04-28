@@ -16,6 +16,7 @@ export class OffreFormationBoxComponent {
   ngOnInit(){
     console.log(this.metierBox.nom)
     console.log(this.metierBox.images_pc)
+    console.log(this.metierBox.logo)
     let im:string | null = this.convertDriveLinkToDirectDownloadLink(this.metierBox.images_pc);
     console.log(im)
     this.metierBox.images_pc=im?im:this.metierBox.images_pc;

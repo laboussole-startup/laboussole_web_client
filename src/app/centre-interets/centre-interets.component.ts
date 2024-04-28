@@ -26,23 +26,26 @@ export class CentreInteretsComponent {
     this.centreInteretService.getCentresInterets().subscribe(data => {
       console.log(data);
       data = data as Array<CentreInteret>;
-      let arr:Array<CentreInteret> = this.getSubArray(data,0,15)
-      console.log(arr)
-      for (let d of arr) {
+      
+      for (let d of data) {
        this.All_Centres.push(d);
       }
     });
   }
   getSubArray<T>(array: T[], start: number, end: number): T[] {
+    console.log("start is "+start);
+    console.log("end is "+end);
     // Ensure start index is within bounds
     if(start>array.length-11 && start>0){
       this.disablebtn = true;
     }
-    start = Math.max(start, 0);
+    let temp_start = Math.max(start, 0);
     // Ensure end index is within bounds
     end = Math.min(end, array.length - 1);
+
     // Return the subarray between start and end indices using slice
-    return array.slice(start, end + 1); // +1 to include the element at end index
+    return array.slice(temp_start, end + 1); // +1 to include the element at end index
+   
 }
 
 saveChoice(data:string){

@@ -7,11 +7,11 @@
     </div>
     <div class="loginForm">
       <div class="centresInteret">
-        <app-centre-interet-box *ngFor="let centre of this.getSubArray(All_Centres,start,start+7)"  [id]="centre.id" [text_val]="centre.nom" (eventEmitter)="saveChoice($event)"></app-centre-interet-box>
+        <app-centre-interet-box *ngFor="let centre of this.getSubArray(All_Centres,start,start+6)"  [id]="centre.id" [text_val]="centre.nom" (eventEmitter)="saveChoice($event)"></app-centre-interet-box>
       </div>
       <div class="buttons">
         <button mat-raised-button  (click)="terminateProcess()" style="background-color: #DEDEDE;">terminer</button>
-        <button mat-raised-button  [disabled]="disablebtn" (click)="start=start+5" style="margin-left:20px;"
+        <button mat-raised-button  [disabled]="disablebtn" (click)="start=start+7" style="margin-left:20px;"
         [ngStyle]="{'background-color': disablebtn ? 'white' : '#0F70B7', 'color': disablebtn ? '#0F70B7' : 'white'}"
         >suivant</button>
       </div>

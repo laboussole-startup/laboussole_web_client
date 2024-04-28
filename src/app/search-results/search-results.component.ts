@@ -16,7 +16,7 @@ import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 export class SearchResultsComponent {
 
 
-  defaultMetier:Metier=new Metier("1","dfs","fads","dfdasf","afds","afds","dsaf","dfas","dsfa","dsaf","dfsa","adfs");
+  defaultMetier:Metier=new Metier("1","dfs","fads","dfdasf","afds","afds","dsaf","dfas","dsfa","dsaf","dfsa","adfs","saA","ASDSAD","asdsa");
   
   resultatsEcoles:Array<Faculte>=new Array()
   resultatsMetiers:Array<Metier>=new Array()
