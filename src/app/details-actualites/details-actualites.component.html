@@ -1,13 +1,12 @@
 <app-nav-bar></app-nav-bar>
 <div class="img">
-    <img src="../../assets/blackStudents.jpg" alt="">
+    <img [src]="currentArticle.image_pc" alt="">
 </div>
 
 <div class="container">
     <div class="titre">{{currentArticle.titre}}</div>
     <div class="date">{{currentArticle.date}}</div>
     <div class="domaine">{{currentArticle.domaine}}</div>
-    <div class="image">{{currentArticle.image_pc}}</div>
     <div class="contenu">{{currentArticle.contenu}}</div>
     <div class="nom">{{currentArticle.nom}}</div>
 </div>

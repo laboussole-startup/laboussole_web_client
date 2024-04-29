@@ -12,3 +12,32 @@ height: 80%;
 object-fit: cover; 
 object-position: center;
 }
+
+.container{
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap:10px
+
+}
+.titre{
+    margin-top: 30px;
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+.date{
+    color: gray;
+}
+.domaine{
+    color:#027A48;;
+}
+.contenu{
+    width: 80%;
+    word-spacing: 10%;
+    text-align: justify;
+}
+.nom{
+    align-self: end;
+    margin-right: 30%;
+}

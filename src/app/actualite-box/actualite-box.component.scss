@@ -9,6 +9,7 @@
         padding-right: 50px;
         align-items: center;
         margin-bottom: 50px;
+        margin-left: 10px;
       
     }
 }
@@ -30,4 +31,9 @@
 .rightBox{
     margin-top: 20px;
     margin-left: 20px;
+}
+.description{
+    width: 30%;
+    height: 20px;
+    overflow: hidden;
 }
