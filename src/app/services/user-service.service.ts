@@ -188,6 +188,9 @@ export class UserServiceService {
       });
   }  
   getUserInfo(){
+    if (!this.user_email){
+      this.user_email = localStorage.getItem('user_email');
+    }
     let url:string = 'https://laboussole-back-end.onrender.com/auth/'+this.user_email+'/';
     return this.httpClient.get(url);
   }
