@@ -47,10 +47,6 @@
     <div class="signupBtn nav-item" [matBadge]="unread_notif_count" [matBadgeHidden]="unread_notif_count == ''" matBadgeColor="warn"  (click)="goToNotifications()">Notifications</div>
     <div class="loginBtn nav-item" [matMenuTriggerFor]="profileMenu"> <img src="../../assets/profile-svgrepo-com.svg" alt="" width="30px" height="30px">  Hi, {{username}}</div>
   </div>
-  <div class="dropdown-content" *ngIf="showDropdown">
-    <div class="dropdown-item">Formations</div>
-    <div class="dropdown-item">Metiers</div>
-  </div>
 
 
   <mat-menu #profileMenu="matMenu">
