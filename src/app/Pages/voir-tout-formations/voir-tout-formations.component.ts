@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Faculte } from 'src/app/Models/faculte';
 import { Universite } from 'src/app/Models/universite';
 import { OffreFormationService } from 'src/app/services/offre-formation.service';
 import { SearchService } from 'src/app/services/search.service';
@@ -24,6 +25,8 @@ export class VoirToutFormationsComponent {
   query:string = "";
   // formation!: Formations[];
   formations!: Universite[];
+  reccomandations!:Array<Faculte>;
+  showingRecs:boolean = false;
   // formations: any;
   showSideBar = false;
 
@@ -40,19 +43,35 @@ export class VoirToutFormationsComponent {
   }
 
   ngOnInit() {
+    window.scrollTo(0,0);
     this.getScreenWidth = window.innerWidth;
     // this.getScreenWidth <= 480? this.mobile = true : this.mobile = false;
 
+
+    if(this.searchService.showFormationsReccomandations){
+
+      this.reccomandations = this.searchService.formationsReccomandations;
+      this.showingRecs=true;
+
+  }else{
     this.service.getUniversites().subscribe((data: any) => {
       console.log(data);
       this.formations = data;
       // console.log(this.formations);
     });
+  }
+    
     // this.formations = this.service.getFormation();
   }
 
   navigateToDetails(itemId: number) {
-    this.router.navigate(['/universites', itemId]); // Navigate to details route with item ID
+    if(this.showingRecs){
+      this.router.navigate(['/facultes', itemId]);
+      
+    }else{
+      this.router.navigate(['/universites', itemId]); // Navigate to details route with item ID
+    }
+    
   }
 
   toggleMenu() {

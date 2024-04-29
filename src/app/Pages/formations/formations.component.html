@@ -111,6 +111,9 @@
             ></app-filiere-formation-box>
           </div>
         </div>
+        <div class="seeAll">
+          <button class="btnPlus" mat-raised-button style="background-color: #0f70b7;color:white;" (click)="voirToutesLesReccomandations()">voir plus</button>
+        </div>
         <div class="recommendations-text">
           <h2>Toutes les Universités</h2>
         </div>
@@ -120,6 +123,9 @@
               [formationBox]="formation" (click)="navigateToDetails(formation.universite_id)"
             ></app-filiere-formation-box>
           </div>
+        </div>
+        <div class="seeAll">
+          <button class="btnPlus" mat-raised-button style="background-color: #0f70b7;color:white;" (click)="handleClick()">voir plus</button>
         </div>
       </div>
       <app-footer></app-footer>

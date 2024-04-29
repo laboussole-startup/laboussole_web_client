@@ -82,6 +82,7 @@ export class FormationsComponent {
               let res:Array<Faculte> = data.results as Array<Faculte>
               this.reccomendationsList = res;
               this.initialReccomendationsList = this.reccomendationsList.slice(0,5);
+              this.searchService.formationsReccomandations = res;
             }
           )
         }
@@ -102,7 +103,8 @@ export class FormationsComponent {
   }
 
   handleClick(){
-    console.log('yes');
+    this.searchService.showFormationsReccomandations=false;
+    this.router.navigateByUrl("/voir-tout-formations");
   }
 
   onEnterKeyPressed(){
@@ -157,6 +159,11 @@ export class FormationsComponent {
         this.overlay.parentNode.removeChild(this.overlay);
         this.overlay = null; // Reset overlay reference
     }
+  }
+
+  voirToutesLesReccomandations(){
+    this.searchService.showFormationsReccomandations=true;
+    this.router.navigateByUrl("/voir-tout-formations");
   }
 
   closeMenu(){

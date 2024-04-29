@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Faculte } from '../Models/faculte';
 import { Metier } from '../Models/metier';
 
 @Injectable({
@@ -12,6 +13,8 @@ export class SearchService {
   searchingCategory:boolean = false;
   public showMetierReccomandations:boolean = false;
   public metierRecommandations:Array<Metier> = new Array();
+  public showFormationsReccomandations:boolean = false;
+  public formationsReccomandations:Array<Faculte> = new Array();
 
   constructor() { 
     
