@@ -18,7 +18,8 @@ object-position: center;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    gap:10px
+    gap:10px;
+    margin-bottom:100px;
 
 }
 .titre{
@@ -36,8 +37,14 @@ object-position: center;
     width: 80%;
     word-spacing: 10%;
     text-align: justify;
+    line-height: 1.5;
 }
 .nom{
     align-self: end;
     margin-right: 30%;
+    color: gray;
+    font-style: italic;
+}
+app-footer{
+    margin-top: 100px;
 }

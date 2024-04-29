@@ -1,6 +1,7 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit,ElementRef, Renderer2 } from '@angular/core';
 import { Article } from '../Models/article';
 import { ActualitesService } from '../services/actualites.service';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-details-actualites',
@@ -9,15 +10,29 @@ import { ActualitesService } from '../services/actualites.service';
 })
 export class DetailsActualitesComponent {
 
-  currentArticle!:Article;
+  currentArticle:Article=new Article(0,"","","","","","","","");
 
-  constructor(private articleService:ActualitesService){
+  contentHtml:string = `${this.currentArticle.contenu}`;
+
+  constructor(private articleService:ActualitesService,
+    private sanitizer: DomSanitizer,
+    private renderer: Renderer2,
+    private elementRef: ElementRef
+    ){
 
   }
 
   ngOnInit(){
     this.fetchCurrentArticle();
   }
+  
+  ngAfterViewInit() {
+    const div = this.renderer.createElement('div');
+    div.innerHTML = this.currentArticle.contenu;
+    this.renderer.appendChild(this.elementRef.nativeElement, div);
+  }
+
+
   fetchCurrentArticle(){
     this.articleService.getArticleById(this.articleService.currentArticleId).subscribe(
       (data:any)=>{
@@ -25,6 +40,7 @@ export class DetailsActualitesComponent {
         this.currentArticle = data as Article;
         let im:string | null = this.convertDriveLinkToDirectDownloadLink(this.currentArticle.image_pc);
         this.currentArticle.image_pc = im?im:"";
+        this.contentHtml = `${this.currentArticle.contenu}`;
       }
     )
   }
@@ -54,5 +70,10 @@ export class DetailsActualitesComponent {
     }else{
       return null;
     }
+  }
+
+  // Method to sanitize HTML content
+  sanitizeHTML(htmlContent: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(htmlContent);
   }
 }
