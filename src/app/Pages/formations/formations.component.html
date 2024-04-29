@@ -106,7 +106,7 @@
         </div>
         <div class="recommendations">
           <div *ngFor="let formation of initialReccomendationsList; index as i">
-            <app-filiere-formation-box (click)="navigateToDetails(formation.faculte_id)"
+            <app-filiere-formation-box (click)="navigateToFaculteDetails(formation.faculte_id)"
               [formationBox]="formation"
             ></app-filiere-formation-box>
           </div>
