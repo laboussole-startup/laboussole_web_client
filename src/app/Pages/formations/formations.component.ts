@@ -76,7 +76,7 @@ export class FormationsComponent {
             final_centres = final_centres + this.centreInteretService.champ_lexical.get(c);
           }
 
-          this.service.getMetiersRecommendations(final_centres).subscribe(
+          this.service.getFacultesReccomendations(final_centres).subscribe(
             (data:any) => {
               console.log(data);
               let res:Array<Faculte> = data.results as Array<Faculte>
