@@ -88,10 +88,6 @@ export class FormationsComponent {
       )
     }
   }
-
-  ngDoCheck(){
-    window.scrollTo(0,0);
-  }
   navigateToDetails(itemId: number) {
     this.router.navigate(['/universites', itemId]); // Navigate to details route with item ID
   }
