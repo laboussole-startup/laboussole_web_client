@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AskLoginDialogComponent } from '../ask-login-dialog/ask-login-dialog.component';
 import { Article } from '../Models/article';
 import { Temoignage } from '../Models/temoignage';
+import { UserInfo } from '../Models/userInfo';
 import { ActualitesService } from '../services/actualites.service';
 import { TemoignageService } from '../services/temoignage.service';
 import { UserServiceService } from '../services/user-service.service';
@@ -19,8 +20,10 @@ import { UserServiceService } from '../services/user-service.service';
 export class PageAcceuilSansCompteComponent {
 
   temoignages!: Array<Temoignage>;
-  temoignages2!:Array<any>;
-  allArticles!:Array<Article>
+  temoignagesList!:Array<any>;
+  allArticles!:Array<Article>;
+
+  picturesMap:Map<string,string> = new Map();
 
   showPopupNotification:boolean = false;
   private timeoutId: any;
@@ -46,8 +49,29 @@ export class PageAcceuilSansCompteComponent {
     this.fetchAllArticles();
     this.TemoignageService.getTemoignages().subscribe(data => {
       console.log(data);
-      this.temoignages2 = data;
+      this.temoignages = data as Array<Temoignage>
     });
+    this.TemoignageService.getTemoignages().subscribe(
+      (data:any)=>{
+        console.log(data);
+        let d = data as Array<Temoignage>
+
+        for(let tem of d){
+          this.userService.getUserByMail(tem.nom).subscribe(
+            (data:any)=>{
+              console.log(data);
+              let us = data as UserInfo
+              tem.nom = us.username
+              if(us.photo_de_profil){
+                this.picturesMap.set(tem.nom,us.photo_de_profil)
+              }
+              
+            }
+          )
+        }
+        this.temoignagesList = d.reverse();
+      }
+    )
     const currentDate = new Date();
 
     const currentDay = currentDate.getDate(); // Get the day (1-31)
