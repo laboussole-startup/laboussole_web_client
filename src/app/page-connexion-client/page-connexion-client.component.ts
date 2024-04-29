@@ -44,9 +44,10 @@ export class PageConnexionClientComponent {
     (data) => {
       console.log(data);
       if (data.hasOwnProperty("access") && data.hasOwnProperty("refresh")) {
-        console.log("valid login");
-        this.userService.user_email = this.email;
-        this.router.navigate(['/']);
+         console.log("valid login");
+         this.userService.user_email = this.email;
+         localStorage.setItem('user_email', this.email); // Saving user email in local storage
+         this.router.navigate(['/']);
       } else {
         this.showSpinner = false;
         this.sheetErrorMessage = "Erreur d'authentification. Veuillez vérifier vos informations de connexion.";
