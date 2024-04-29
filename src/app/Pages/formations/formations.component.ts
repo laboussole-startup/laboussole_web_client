@@ -92,6 +92,10 @@ export class FormationsComponent {
     this.router.navigate(['/universites', itemId]); // Navigate to details route with item ID
   }
 
+  navigateToFaculteDetails(itemId: number) {
+    this.router.navigate(['/facultes', itemId]); // Navigate to details route with item ID
+  }
+
   toggleMenu() {
     this.isMenuIconClicked = !this.isMenuIconClicked;
     this.isMenuIconClosed = !this.isMenuIconClosed;
