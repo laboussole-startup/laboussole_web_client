@@ -191,4 +191,9 @@ export class UserServiceService {
     let url:string = 'https://laboussole-back-end.onrender.com/auth/'+this.user_email+'/';
     return this.httpClient.get(url);
   }
+
+  getUserByMail(mail:string){
+    let url:string = 'https://laboussole-back-end.onrender.com/auth/'+mail+'/';
+    return this.httpClient.get(url);
+  }
 }

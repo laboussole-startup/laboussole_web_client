@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Faculte } from 'src/app/Models/faculte';
 import { Universite } from 'src/app/Models/universite';
 import { UserInfo } from 'src/app/Models/userInfo';
+import { CentreInteretsService } from 'src/app/services/centre-interets.service';
 import { OffreFormationService } from 'src/app/services/offre-formation.service';
 import { SearchService } from 'src/app/services/search.service';
 import { UserServiceService } from 'src/app/services/user-service.service';
@@ -20,7 +21,8 @@ export class FormationsComponent {
     private searchService:SearchService,
     private renderer: Renderer2,
     private elementRef: ElementRef,
-    private userService: UserServiceService
+    private userService: UserServiceService,
+    private centreInteretService:CentreInteretsService
   ) {}
 
   query:string="";
@@ -66,8 +68,15 @@ export class FormationsComponent {
           console.log(data);
           let user = data as UserInfo;
           console.log(user.centres_interet);
+          let final_centres:string = "";
 
-          this.service.getMetiersRecommendations(user.centres_interet).subscribe(
+          let ci:Array<string> = user.centres_interet.split(" ");
+
+          for(let c of ci){
+            final_centres = final_centres + this.centreInteretService.champ_lexical.get(c);
+          }
+
+          this.service.getMetiersRecommendations(final_centres).subscribe(
             (data:any) => {
               console.log(data);
               let res:Array<Faculte> = data.results as Array<Faculte>

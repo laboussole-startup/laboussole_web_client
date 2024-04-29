@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-temoignage-template',
@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./temoignage-template.component.scss']
 })
 export class TemoignageTemplateComponent {
+
+  @Input() Name:string = "default";
+  @Input() text:string = "default";
+  @Input() date:string = "default";
+  @Input() picture!:string | undefined;
+
 
 }

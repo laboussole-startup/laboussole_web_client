@@ -1,3 +1,3 @@
 export class Temoignage{
-    constructor(public nom:string,public commentaire:string,public vote:number,public imageRef?:string){}
+    constructor(public nom:string,public telephone:string,public contenu:string,public profession:string,public imageRef?:string){}
 }

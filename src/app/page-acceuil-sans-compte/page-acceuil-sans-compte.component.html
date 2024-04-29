@@ -105,9 +105,9 @@
       </span>
       <span class="temoignageBox">
         <app-temoignage-box
-        [score]="this.temoignages[currentTemoignageNumber].vote"
+        [score]="+this.temoignages[currentTemoignageNumber].telephone"
         [name]="this.temoignages[currentTemoignageNumber].nom"
-        [description]="this.temoignages[currentTemoignageNumber].commentaire"
+        [description]="this.temoignages[currentTemoignageNumber].contenu"
         ></app-temoignage-box>
       </span>
       <span class="rightArrowIcon">

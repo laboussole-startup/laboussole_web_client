@@ -16,6 +16,11 @@
             </span>
     </div>
     <div class="temoignageList">
-        <app-temoignage-template></app-temoignage-template>
+        <app-temoignage-template *ngFor="let tem of temoignageList"
+        [Name]="tem.nom"
+        [text]="tem.contenu"
+        [date]="tem.profession"
+        [picture]="picturesMap.get(tem.nom)"
+        ></app-temoignage-template>
     </div>
 </div>
