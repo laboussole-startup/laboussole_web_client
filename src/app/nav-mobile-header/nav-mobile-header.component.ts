@@ -80,7 +80,7 @@ export class NavMobileHeaderComponent {
   signOut(){
     console.log("signing out");
     this.userService.user_email='';
-    localStorage.setItem('user_email', this.email);
+    localStorage.setItem('user_email',"");
     this.router.navigate(['/']);
   }
   onEnterKeyPressed(){
