@@ -45,6 +45,7 @@ export class LoggedInNavHeaderComponent {
     console.log("signing out");
    
     this.userService.user_email='';
+    localStorage.setItem('user_email', "");
     this.loggedOut.emit()
     this.router.navigate(['/']);
   }
