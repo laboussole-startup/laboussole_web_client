@@ -26,6 +26,7 @@ export class DetailOffreFormationComponent {
   competences!: string[];
   missions!: string[];
   entreprises!:Array<string>;
+  formations:Array<Faculte> = new Array();
   linked_filiere!:FiliereFormation;
   linked_faculte!:Faculte;
   lieu:Map<Faculte,Universite> = new Map();
@@ -69,70 +70,20 @@ export class DetailOffreFormationComponent {
           this.entreprises = this.metierItem.entreprisesrecrutent.split(',');
           console.log(this.metierItem);
           console.log(this.competences);
-          /**
-           * 
-           *  this.service.getFiliereDetails(this.metierItem.filieres).subscribe(
-            (data:any) =>{
-              console.log("fetched for filiere")
-              console.log(data);
-              this.linked_filiere = data as FiliereFormation;
 
-
-
-              this.service.getFacultes(this.linked_filiere.faculte).subscribe(
-                (data:any)=>{
-                  console.log("fetched faculte");
-                  console.log(data)
-                  this.linked_faculte = data as Faculte;
-                }
-              )
-
-              this.service.getSimilarFilieres(this.linked_filiere.nom).subscribe(
-                (data)=>{
-                  console.log(data);
-                  let a:Array<FiliereFormation> = data as Array<FiliereFormation>;
-
-                  for(let fil of a){
-                    console.log(fil)
-                    this.service.getFacultes(fil.faculte).subscribe(
-                      (data:any)=>{
-                        
-                        let f = data as Faculte;
-                        console.log(f)
-
-                        this.service.getUniversiteDetails(f.universite).subscribe(
-                          (data:any)=>{
-                            let u = data as Universite;
-                            console.log(u);
-                            this.lieu.set(f,u);
-                            const observer = new IntersectionObserver((entries) => {
-                              entries.forEach(entry => {
-                                if (entry.isIntersecting) {
-                                  // Call your function here
-                                  this.onScroll40Percent();
-                                  observer.disconnect(); // Disconnect the observer to avoid further observations
-                                }
-                              });
-                            }, { threshold: 0.8 }); // Use a threshold of 0.4 to trigger when 40% of the observed element is visible
-                        
-                            // Identify the element that represents the 40% mark of the page
-                            const fortyPercentElement = this.elementRef.nativeElement.querySelector('#blurMark');
-                            
-                            // Start observing the element
-                            observer.observe(fortyPercentElement);
-                          }
-                        )
-
-                      }
-                    )
-                  }
-                }
-              )
-
-            }
-          )
-           * 
-           */
+          let facs:Array<string> =this.metierItem.faculte.split(',');
+          console.log(facs)
+          for(let i of facs){
+            let id:number = Number(i)
+            console.log(id);
+            this.service.getFacultes(id).subscribe(
+              (data:any)=>{
+                console.log(data);
+                let fac:Faculte = data as Faculte;
+                this.formations.push(fac);
+              }
+            )
+          }
          
 
         
