@@ -39,6 +39,7 @@ export class DetailsFacultesComponent {
   ) {}
 
   ngOnInit() {
+    window.scrollTo(0,0)
     this.filiereId = this.filiereRoute.snapshot.paramMap.get('faculte_id'); // Get cart item ID from route
     console.log(this.filiereId);
 

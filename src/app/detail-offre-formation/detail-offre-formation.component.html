@@ -99,8 +99,8 @@
     />
     <strong>Lieu</strong> <br />
     <span class="lieuContainer">
-      <li *ngFor="let fac of formations" class="clickable" (click)="goToFaculte(fac.faculte_id)">
-        {{fac.nom}}
+      <li *ngFor="let entry of lieu | keyvalue" (click)="goToFaculte(entry.key.faculte_id)">
+        {{entry.key.nom}} de {{entry.value.nom}}
       </li>
     </span
     ><br /><br />
@@ -165,9 +165,9 @@
       />
       <strong>Ou se former?</strong> <br />
       <hr />
-      <ul>
-        <li *ngFor="let fac of formations" class="clickable" (click)="goToFaculte(fac.faculte_id)">
-          {{fac.nom}}
+      <ul class="lieuContainer">
+        <li *ngFor="let entry of lieu | keyvalue" (click)="goToFaculte(entry.key.faculte_id)">
+          {{entry.key.nom}} de {{entry.value.nom}}
         </li>
       </ul>
       <br /><br /><br />

@@ -80,10 +80,23 @@ export class DetailOffreFormationComponent {
               (data:any)=>{
                 console.log(data);
                 let fac:Faculte = data as Faculte;
-                this.formations.push(fac);
+                //this.lieu.set(fac,new Universite(0,'','','','','','','','','',''));
+                this.service.getUniversiteDetails(fac.universite).subscribe(
+                  (data:any) => {
+                    console.log(data);
+                    let univ:Universite = data as Universite;
+                    this.lieu.set(fac,univ);
+                  }
+                )
               }
             )
           }
+          if(this.userService.user_email){
+            const fortyPercentElement:HTMLDivElement = this.elementRef.nativeElement.querySelector('#blurMark1');
+            fortyPercentElement.style.filter = 'blur(0px)';
+            this.hideAll=false;
+          }
+          
          
 
         
