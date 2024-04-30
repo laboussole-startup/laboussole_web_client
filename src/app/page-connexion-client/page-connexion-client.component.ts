@@ -39,14 +39,17 @@ export class PageConnexionClientComponent {
  }
  checkLogin(){
   console.log(this.email)
+  console.log(this.emailControl.value)
   this.showSpinner=true;
   this.userService.login(this.emailControl.value, this.passwordControl.value).subscribe(
     (data) => {
       console.log(data);
       if (data.hasOwnProperty("access") && data.hasOwnProperty("refresh")) {
          console.log("valid login");
-         this.userService.user_email = this.email;
-         localStorage.setItem('user_email', this.email); // Saving user email in local storage
+         this.userService.user_email = this.email.trim();
+         console.log(this.email)
+         console.log(this.emailControl.value)
+         localStorage.setItem('user_email', this.email.trim()); // Saving user email in local storage
          this.router.navigate(['/']);
       } else {
         this.showSpinner = false;
