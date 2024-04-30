@@ -25,6 +25,7 @@ export class DetailOffreFormationComponent {
   metierItem!: Metier;
   competences!: string[];
   missions!: string[];
+  entreprises!:Array<string>;
   linked_filiere!:FiliereFormation;
   linked_faculte!:Faculte;
   lieu:Map<Faculte,Universite> = new Map();
@@ -65,6 +66,7 @@ export class DetailOffreFormationComponent {
           this.metierItem = response;
           this.competences = this.metierItem.competencescles.split(',');
           this.missions = this.metierItem.principales_missions.split(',');
+          this.entreprises = this.metierItem.entreprisesrecrutent.split(',');
           console.log(this.metierItem);
           console.log(this.competences);
           /**
