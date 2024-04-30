@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
 export class TemoignageBoxComponent {
 
   @Input() score: number = 3.5;
-  @Input() image_url: string = "../../assets/photo_icon.jpg"
+  @Input() image_url: string | undefined = ""
   @Input() name: string = "Name"
   @Input() description: string = "description";
 
