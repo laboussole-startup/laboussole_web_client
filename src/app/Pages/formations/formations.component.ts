@@ -80,9 +80,9 @@ export class FormationsComponent {
             (data:any) => {
               console.log(data);
               let res:Array<Faculte> = data.results as Array<Faculte>
-              this.reccomendationsList = res;
+              this.reccomendationsList = this.shuffleArray(res);
               this.initialReccomendationsList = this.reccomendationsList.slice(0,5);
-              this.searchService.formationsReccomandations = res;
+              this.searchService.formationsReccomandations =   this.shuffleArray(res);
             }
           )
         }
@@ -173,5 +173,14 @@ export class FormationsComponent {
       menu.style.display = 'none';
     }
 
+  }
+
+  shuffleArray<T>(array: T[]): T[] {
+    const shuffledArray = array.slice(); // Make a copy of the original array
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1)); // Generate random index
+        [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]]; // Swap elements
+    }
+    return shuffledArray;
   }
 }

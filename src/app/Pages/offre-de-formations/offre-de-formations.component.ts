@@ -90,9 +90,9 @@ export class OffreDeFormationsComponent {
             (data:any) => {
               console.log(data);
               let res:Array<Metier> = data.results as Array<Metier>
-              this.recommendationsList = res;
+              this.recommendationsList = this.shuffleArray(res);
               this.initialReccomendationsList = this.recommendationsList.slice(0,5);
-              this.searchService.metierRecommandations = this.recommendationsList;
+              this.searchService.metierRecommandations = this.shuffleArray(this.recommendationsList);
             }
           )
         }
@@ -192,6 +192,15 @@ export class OffreDeFormationsComponent {
         this.overlay.parentNode.removeChild(this.overlay);
         this.overlay = null; // Reset overlay reference
     }
+  }
+
+  shuffleArray<T>(array: T[]): T[] {
+    const shuffledArray = array.slice(); // Make a copy of the original array
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1)); // Generate random index
+        [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]]; // Swap elements
+    }
+    return shuffledArray;
   }
   
 }
