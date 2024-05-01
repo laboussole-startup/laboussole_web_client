@@ -89,7 +89,14 @@
          <div id="Entreprise" *ngIf="!hideAll">
             <span></span> <img src="../../assets/pseudo.png" alt="" style="width: 15px; height:15; margin-right: 5px;"> 
             
-            <!-- <strong>Les écoles de l’{{filiereItem.nom}}</strong>  -->
+            <span
+            class="entreprise"
+            *ngFor="let metier of metiers"
+          >
+            <br /><br />
+    
+            <li>{{ metier.nom  }}</li>
+          </span>
             <br>
             <hr> 
         </div>

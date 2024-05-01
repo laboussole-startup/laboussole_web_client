@@ -25,6 +25,12 @@ export class OffreFormationService {
   getMetierDetails(id: any) {
     return this.http.get(this.url + '/metiers/' + id + '/');
   }
+  getMetiersLinkedToFaculte(id: any) {
+    return this.http.get(this.url + '/metiers/facultesdebouches/' + id + '/');
+  }
+  getMetiersLinkedToFiliere(id: any) {
+    return this.http.get(this.url + '/metiers/filieresdebouches/' + id + '/');
+  }
   getUniversites() {
     return this.http.get(this.url + '/universites/');
   }

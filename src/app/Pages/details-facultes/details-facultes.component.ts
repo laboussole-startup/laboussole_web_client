@@ -6,6 +6,7 @@ import { OffreFormationService } from 'src/app/services/offre-formation.service'
 import { MatDialog} from '@angular/material/dialog';
 import { AskLoginDialogComponent } from 'src/app/ask-login-dialog/ask-login-dialog.component';
 import { UserServiceService } from 'src/app/services/user-service.service';
+import { Metier } from 'src/app/Models/metier';
 
 @Component({
   selector: 'app-details-facultes',
@@ -28,6 +29,7 @@ export class DetailsFacultesComponent {
   filieresLicence!: FiliereFormation[];
   filieresMaster!: FiliereFormation[];
   missions!: string[];
+  metiers:Array<Metier> = new Array();
 
   constructor(
     private filiereRoute: ActivatedRoute,
@@ -48,18 +50,35 @@ export class DetailsFacultesComponent {
         .getFacultes(this.filiereId)
         .subscribe((response: any) => {
           console.log(response);
-          this.filiereItem = response;
+          this.filiereItem = response as Faculte;
           // this.competences = this.filiereItem.competencescles.split(',');
           // this.missions = this.filiereItem.principales_missions.split(',');
           console.log(this.filiereItem);
           // console.log(this.competences);
 
+          
          
         });
     }
     this.service.getFiliereFac(this.filiereId).subscribe((data: any) => {
       console.log(data);  
-      this.filieresLicence = data;
+      this.filieresLicence = data as Array<FiliereFormation>
+
+      for(let fil of this.filieresLicence){
+        this.service.getMetiersLinkedToFiliere(fil.filieres_id).subscribe(
+          (data:any)=>{
+            console.log("------------------------------------------")
+            console.log(fil.nom);
+            console.log(data);
+            let res:Array<Metier> = data.results as Array<Metier>;
+            let met:Metier  = res.slice(0,1)[0];
+            console.log(met);
+            if(met)
+            this.metiers.push(res.slice(0,1)[0]);
+          }
+        )
+      }
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -80,8 +99,9 @@ export class DetailsFacultesComponent {
       console.log(data);  
       this.filieresMaster = data;
       
-    })
+    });
 
+    
     
     
 

@@ -1,5 +1,6 @@
    export class FiliereFormation {
   constructor(
+    public filieres_id:number,
     public nom: string,
     public descriptif: string,
     public duree: number,
