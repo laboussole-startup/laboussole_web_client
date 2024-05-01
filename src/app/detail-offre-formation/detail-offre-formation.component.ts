@@ -65,13 +65,13 @@ export class DetailOffreFormationComponent {
           console.log("returned with metier details")
           // console.log(response);
           this.metierItem = response;
-          this.competences = this.metierItem.competencescles.split(',');
-          this.missions = this.metierItem.principales_missions.split(',');
-          this.entreprises = this.metierItem.entreprisesrecrutent.split(',');
+          this.competences = this.removeBraces(this.metierItem.competencescles).split(',');
+          this.missions = this.removeBraces(this.metierItem.principales_missions).split(',');
+          this.entreprises = this.removeBraces(this.metierItem.entreprisesrecrutent).split(',');
           console.log(this.metierItem);
           console.log(this.competences);
 
-          let facs:Array<string> =this.metierItem.faculte.split(',');
+          let facs:Array<string> =this.removeBraces(this.metierItem.faculte).split(',');
           console.log(facs)
           for(let i of facs){
             let id:number = Number(i)
@@ -138,6 +138,9 @@ export class DetailOffreFormationComponent {
     // Your function logic when the user has scrolled 40% of the page
     console.log('User has scrolled 40% of the page');
    
+  }
+  removeBraces(str: string): string {
+    return str.replace(/[{}]/g, '');
   }
 }
 

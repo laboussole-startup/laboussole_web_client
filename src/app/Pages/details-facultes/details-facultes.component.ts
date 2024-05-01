@@ -115,4 +115,7 @@ export class DetailsFacultesComponent {
     }
    
   }
+  removeBraces(str: string): string {
+    return str.replace(/[{}]/g, '');
+  }
 }
