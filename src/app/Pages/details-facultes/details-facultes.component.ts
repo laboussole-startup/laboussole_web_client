@@ -116,6 +116,10 @@ export class DetailsFacultesComponent {
    
   }
   removeBraces(str: string): string {
-    return str.replace(/[{}]/g, '');
+    if(str){
+      return str.replace(/[{}]/g, '');
+    }
+    return str;
+    
   }
 }
