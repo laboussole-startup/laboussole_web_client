@@ -142,4 +142,8 @@ export class DetailsFacultesComponent {
     return str;
     
   }
+
+  goToMetierDetails(id:string){
+    this.router.navigate(['/metiers', id]); // Navigate to details route with item ID
+  }
 }
