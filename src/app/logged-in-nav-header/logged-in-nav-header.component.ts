@@ -28,6 +28,8 @@ export class LoggedInNavHeaderComponent {
 
   query:string="";
 
+  hideOthers:boolean=false;
+
   unread_notif_count:string='';
   val:string | null='';
 
@@ -87,5 +89,9 @@ export class LoggedInNavHeaderComponent {
     this.searchService.setFormationsQuery("");
     this.searchService.setMetiersQuery("");
     this.router.navigate(["/search-results"]);
+  }
+  handleClick(){
+    this.hideOthers=!this.hideOthers;
+    console.log(this.hideOthers)
   }
 }

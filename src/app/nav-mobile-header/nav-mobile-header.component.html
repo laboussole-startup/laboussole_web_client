@@ -1,5 +1,5 @@
 <div class="navflexcontainer">
-  <div class="leftContainer">
+  <div class="leftContainer" *ngIf="!hideOthers">
     <div routerLink="/">
       <div
       (click)="openMenu()"
@@ -18,12 +18,12 @@
   </div>
  
   <div class="rightPlacedIcons">
-    <form class="inputbox">
-      <input required="required" name="query" (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query"  />
-      <button type="reset" class="del"></button>
+    <form class="inputbox" >
+      <input required="required" (focus)="handleClick()" (blur)="handleClick()" placeholder="trouve une école ou un metier..." name="query" (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query"  />
+      <button type="reset" class="del" ></button>
     </form>
    
-    <div class="profile" [matMenuTriggerFor]="profileMenu"> <img src="../../assets/profile-svgrepo-com.svg" alt="" width="30px" height="30px"></div>
+    <div class="profile" *ngIf="!hideOthers" [matMenuTriggerFor]="profileMenu"> <img src="../../assets/profile-svgrepo-com.svg" alt="" width="30px" height="30px"></div>
    
   </div>
 </div>
@@ -40,7 +40,7 @@
 
   <div class="contact nav-item" routerLink="/contact">Contactez Nous</div>
   <div class="searchBox nav-item">
-    <input type="text" class="searchInput" name="" id="" placeholder="search" (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query" />
+    <input type="text" class="searchInput" name="" id="" placeholder="trouve une école ou un metier..." (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query" />
   </div>
   <div class="signupBtn nav-item" routerLink="/signup">signup</div>
   <div class="loginBtn nav-item" routerLink="/login">Connexion</div>

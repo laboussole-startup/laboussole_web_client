@@ -1,5 +1,5 @@
 <div class="navflexcontainer">
-  <div class="leftContainer">
+  <div class="leftContainer" *ngIf="!hideOthers">
     <div routerLink="/">
       <div
       (click)="openMenu()"
@@ -19,13 +19,13 @@
  
   <div class="rightPlacedIcons">
     <form class="inputbox">
-      <input required="required" name="query" (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query"  />
+      <input required="required"  (focus)="handleClick()" (blur)="handleClick()" placeholder="trouve une école ou un metier..." name="query" (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query"  />
       <button type="reset" class="del"></button>
     </form>
-    <div class="notifications">
+    <div class="notifications" *ngIf="!hideOthers">
       <mat-icon  [matBadge]="unread_notif_count" [matBadgeHidden]="unread_notif_count == ''" matBadgeColor="warn" style="position:relative;right:20px;" (click)="goToNotifications()">notifications</mat-icon>
     </div>
-    <div class="profile" [matMenuTriggerFor]="profileMenu"> <img src="../../assets/profile-svgrepo-com.svg" alt="" width="30px" height="30px"></div>
+    <div class="profile" *ngIf="!hideOthers" [matMenuTriggerFor]="profileMenu"> <img src="../../assets/profile-svgrepo-com.svg" alt="" width="30px" height="30px"></div>
    
   </div>
 </div>
