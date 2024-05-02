@@ -18,6 +18,7 @@
   margin-bottom: 20px;
 }
 .socialMedia{
+  width: 100%;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
@@ -32,4 +33,13 @@
   flex-flow: row wrap;
   justify-content: space-around;
   padding-left: 10px;
+}
+.phone,.mail,.location,.conditions{
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 5px;
+  align-items: center;
+}
+.legal{
+  font-weight: 900;
 }
