@@ -153,8 +153,16 @@
   </div>
   <app-footer></app-footer>
   <div #floatingDiv class="notification">
-    <img class="img-close-notification" src="../../assets/x-close.png" alt="" (click)="closePopup()">
-    <img class="main-img" src="../../assets/blackStudents.jpg" (click)="viewArticle(1)" alt="">
+    <div class="popup" style="width:100%;display: flex;flex-flow: column nowrap;align-items: center;">
+      <span class="close-wrapper"><img class="img-close-notification" src="../../assets/x-close.png" alt="" (click)="closePopup()"></span>  
+      <img class="main-img" [src]="popupArticle_image" (click)="viewArticle(popupArticle_id)" alt="">
+      <span class="bottom-bar" style="background-color:#0761b9;min-height: 5vh;border-bottom-left-radius: 15px;border-bottom-right-radius: 15px;display: flex;flex-flow: row nowrap;align-items: center;padding-top:10px;">
+
+        <span style="flex-grow: 9;color: white;margin-left: 20px;font-size:1.2rem;">{{popupArticle_heading}}</span>
+        <span style="flex-grow: 1;"><img src="../../assets/icons8-arrow-right-50.png" alt="" width="30" height="30" (click)="viewArticle(popupArticle_id)"></span>
+
+      </span> 
+    </div>
   </div>
 </div>
  

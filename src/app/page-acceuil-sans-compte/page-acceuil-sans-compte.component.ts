@@ -23,6 +23,10 @@ export class PageAcceuilSansCompteComponent {
   temoignagesList!:Array<any>;
   allArticles!:Array<Article>;
 
+  popupArticle_image:string = "";
+  popupArticle_heading:string = "";
+  popupArticle_id:number=1;
+
   picturesMap:Map<string,string> = new Map();
 
   showPopupNotification:boolean = false;
@@ -46,16 +50,21 @@ export class PageAcceuilSansCompteComponent {
   }
 
   ngOnInit(): void {
+
+
     window.scrollTo(0,0);
+
     this.fetchAllArticles();
     this.TemoignageService.getTemoignages().subscribe(data => {
       console.log(data);
       this.temoignages = data as Array<Temoignage>
+
     });
     this.TemoignageService.getTemoignages().subscribe(
       (data:any)=>{
         console.log(data);
         let d = data as Array<Temoignage>
+        
 
         for(let tem of d){
           this.userService.getUserByMail(tem.nom).subscribe(
@@ -90,7 +99,8 @@ export class PageAcceuilSansCompteComponent {
     }else{
       launch = true;
     }
-    if(launch){
+    
+    if(false){
       this.timeoutId = setTimeout(() => {
       
         // Get the current scroll position
@@ -127,12 +137,35 @@ export class PageAcceuilSansCompteComponent {
   
       // Set the top position of the floating div to the current scroll position
       
-      }, 10000);
+      }, 1000);
     }
     
     
   }
+  ngAfterViewInit(){
+    const scrollY = window.scrollY;
+    console.log(this.floatingDiv);
+    if (this.floatingDiv && this.floatingDiv.nativeElement) {
+      this.renderer.setStyle(this.floatingDiv.nativeElement, 'display', 'flex');
+      this.renderer.setStyle(this.floatingDiv.nativeElement, 'top', `${scrollY+100}px`);
+      this.renderer.addClass(this.floatingDiv.nativeElement, 'floating-div'); // Start animation
+      this.showPopupNotification = true;
+     
+      this.disableScroll();
 
+      this.overlay = document.createElement('div');
+      this.overlay.style.position = 'fixed';
+      this.overlay.style.top = '0';
+      this.overlay.style.left = '0';
+      this.overlay.style.width = '100%';
+      this.overlay.style.height = '100%';
+      this.overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // Adjust transparency here
+      this.overlay.style.zIndex = '2'; // Ensure it's on top of everything else
+      document.body.appendChild(this.overlay);
+      
+
+    }
+  }
   
 
  ngOnDestroy(){
@@ -151,6 +184,14 @@ export class PageAcceuilSansCompteComponent {
       (data:any)=>{
         console.log(data);
         this.allArticles = data as Array<Article>;
+        for(let art of this.allArticles){
+          if(art.image_tablette.includes('popup')){
+            this.popupArticle_heading = art.titre;
+            this.popupArticle_id = art.id_actualite;
+            let im:string | null = this.convertDriveLinkToDirectDownloadLink(art.image_pc);
+            this.popupArticle_image =im?im:"";
+          }
+        }
       }
     )
   }
@@ -227,6 +268,32 @@ export class PageAcceuilSansCompteComponent {
     if (this.timeoutId) {
       clearTimeout(this.timeoutId); // Clear the timeout if it's set
       this.timeoutId = null; // Reset the timeout ID
+    }
+  }
+  convertDriveLinkToDirectDownloadLink(driveLink: string): string | null {
+    if(driveLink){
+      const regexDirectDownload = /https:\/\/drive\.google\.com\/thumbnail\?&id=([^/]+)/;
+      const matchDirectDownload = driveLink.match(regexDirectDownload);
+  
+      if (matchDirectDownload && matchDirectDownload.length === 2) {
+          // The link is already in the desired format, return it as is
+          return driveLink;
+      }
+  
+      // Check if the provided link matches the Google Drive file link pattern
+      const regexFileLink = /https:\/\/drive\.google\.com\/file\/d\/([^/]+)\/view\?usp=sharing/;
+      const matchFileLink = driveLink.match(regexFileLink);
+  
+      if (matchFileLink && matchFileLink.length === 2) {
+          const fileId = matchFileLink[1];
+          const directDownloadLink = `https://drive.google.com/thumbnail?&id=${fileId}`;
+          return directDownloadLink;
+      } else {
+          console.error("Invalid Google Drive shareable link format.");
+          return null;
+      }
+    }else{
+      return null;
     }
   }
 }

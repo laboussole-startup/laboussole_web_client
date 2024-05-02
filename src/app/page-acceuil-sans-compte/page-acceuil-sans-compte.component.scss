@@ -123,9 +123,9 @@
   position: absolute;
   //top: 10vh;
   display: none;
-  flex-flow: row-reverse;
-  justify-content: center;
-  align-items:flex-start;
+  flex-flow:column-reverse;
+  justify-content: flex-start;
+  align-items:center;
   width: 100%;
   z-index: 3;
   
@@ -141,8 +141,13 @@
 .img-close-notification{
   width: 50px;
   height:50px;
-  position:relative;
-  right:50px;
+
+}
+.close-wrapper{
+  width: 60%;
+}
+.bottom-bar{
+  width: 60%;
 }
 .aboutLaboussoleImage{
   width: 100%;
@@ -333,9 +338,9 @@
     position: absolute;
     //top: 30vh;
     display: none;
-    flex-flow: row-reverse;
-    justify-content: center;
-    align-items: flex-start;
+    flex-flow: column-reverse;
+    justify-content: flex-start;
+    align-items:center;
     width: 100%;
     z-index: 3;
     cursor: pointer;
@@ -343,8 +348,12 @@
   .img-close-notification{
     width: 40px;
     height:40px;
-    position:relative;
-    right:40px;
+  }
+  .close-wrapper{
+    width: 80%;
+  }
+  .bottom-bar{
+    width: 80%;
   }
   .notification .main-img{
     width: 80%;
@@ -358,10 +367,9 @@
   .notification{
     position: absolute;
     //top: 20vh;
-    display: none;
-    flex-flow: row-reverse;
-    justify-content: center;
-    align-items: flex-start;
+    flex-flow: column-reverse;
+    justify-content: flex-start;
+    align-items:center;
     width: 100%;
     z-index: 3;
     cursor:pointer;
@@ -375,8 +383,12 @@
   .img-close-notification{
     width: 50px;
     height:50px;
-    position:relative;
-    right:50px;
+  }
+  .close-wrapper{
+    width: 70%;
+  }
+  .bottom-bar{
+    width: 70%;
   }
  
 }
@@ -406,4 +418,23 @@ app-nav-bar{
 app-footer{
   position: relative;
   top:18vh;
+}
+
+.img-close-notification{
+  align-self: end;
+}
+.close-wrapper{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: end;
+  position: relative;
+  top:60px;
+}
+
+@media screen and (min-width:700px) {
+  .popup{
+    position: relative;
+    bottom: 100px;
+    height: 90vh;
+  }
 }
