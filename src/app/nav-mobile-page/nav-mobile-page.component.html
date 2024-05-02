@@ -10,13 +10,13 @@
         <div class="menuItem" (click)="showDropdown = !showDropdown">Nos Services</div>
             <div class="dropdown-content" *ngIf="showDropdown">
                 <div class="dropdown-item" routerLink="/universites">Formation</div>
-                <div class="dropdown-item" routerLink="/metiers">Metiers</div>
+                <div class="dropdown-item" routerLink="/metiers">Métiers</div>
             </div>
         <div class="menuItem" routerLink="/aboutus">A propos de Nous</div>
         <div class="menuItem" routerLink="/contact">Contactez-nous</div>
     </div>
     <div class="buttonsList">
-        <app-custom-round-button routerLink="/login" [title]="'login'"></app-custom-round-button>
-        <app-custom-round-button  routerLink="/signup" class="signUpBtn" [title]="'sign up'"></app-custom-round-button>
+        <app-custom-round-button routerLink="/login" [title]="'Créer un compte'"></app-custom-round-button>
+        <app-custom-round-button  routerLink="/signup" class="signUpBtn" [title]="'Connexion'"></app-custom-round-button>
     </div>
 </div>

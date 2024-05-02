@@ -31,7 +31,7 @@
 
     <div class="logo_icon" routerLink="/"><img src="../../assets/logo laboussole 1.png" alt=""  style="width: 60px; height: 60px;"></div>
     
-    <div class="home nav-item" routerLink="/">Home </div>
+    <div class="home nav-item" routerLink="/">Acceuil </div>
    
     <div class="services nav-item" [matMenuTriggerFor]="servicesMenu" >Nos Services </div>
             
@@ -42,17 +42,17 @@
   <div class="searchBox nav-item">
     <input type="text" class="searchInput" name="" id="" placeholder="search" (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query" />
   </div>
-  <div class="signupBtn nav-item" routerLink="/signup">Signup</div>
-  <div class="loginBtn nav-item" routerLink="/login">Login</div>
+  <div class="signupBtn nav-item" routerLink="/signup">signup</div>
+  <div class="loginBtn nav-item" routerLink="/login">Connexion</div>
 </div>
 <mat-menu #servicesMenu="matMenu">
-  <button mat-menu-item routerLink="/metiers">Metiers</button>
+  <button mat-menu-item routerLink="/metiers">Métiers</button>
   <button mat-menu-item routerLink="/universites">Offres de formation</button>
 </mat-menu>
 <mat-menu #profileMenu="matMenu">
   <button mat-menu-item routerLink="/signup">
     <mat-icon>person</mat-icon>
-    <span>Creer un compte</span>
+    <span>Créer un compte</span>
   </button>
   <button mat-menu-item routerLink="/login">
     <mat-icon>login</mat-icon>
