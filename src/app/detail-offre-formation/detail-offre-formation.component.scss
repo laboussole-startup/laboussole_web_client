@@ -53,3 +53,18 @@ span,li{
     margin-bottom: 10px;
     text-decoration: underline;
 }
+app-nav-bar{
+    position:fixed;
+    width: 100%;
+    z-index: 100; /* Specify a z-index to control stacking order */
+    /* Other styles as needed */
+  }
+  app-footer{
+    position: relative;
+    top:18vh;
+  }
+
+  .containerROP{
+    position: relative;
+    top:13vh;
+  }

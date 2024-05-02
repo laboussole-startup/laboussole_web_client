@@ -23,6 +23,8 @@
   
   .container {
     width: 100%;
+    position: relative;
+    top:12vh;
     .search-formation {
       height: 326px;
       padding-top: 150px;
@@ -181,5 +183,15 @@
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 20px;
+  }
+  app-nav-bar{
+    position:fixed;
+    width: 100%;
+    z-index: 100; /* Specify a z-index to control stacking order */
+    /* Other styles as needed */
+  }
+  app-footer{
+    position: relative;
+    top:18vh;
   }
   
