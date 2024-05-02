@@ -1,4 +1,5 @@
 import { Component,Input } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-actualite-box',
@@ -12,8 +13,10 @@ export class ActualiteBoxComponent {
 @Input() description:string = ""
 @Input() tags:string = ""
 
+descriptionHtml:any;
 
-constructor(){
+
+constructor(private sanitizer: DomSanitizer,){
 
 }
 
@@ -22,6 +25,9 @@ ngOnInit(){
   if(image){
     this.image=image;
   }
+}
+ngDoCheck(){
+  this.descriptionHtml= this.sanitizeHTML(this.description)
 }
 convertDriveLinkToDirectDownloadLink(driveLink: string): string | null {
   if(driveLink){
@@ -50,5 +56,8 @@ convertDriveLinkToDirectDownloadLink(driveLink: string): string | null {
   }
 }
 
-
+ // Method to sanitize HTML content
+ sanitizeHTML(htmlContent: string): SafeHtml {
+  return this.sanitizer.bypassSecurityTrustHtml(htmlContent);
+}
 }

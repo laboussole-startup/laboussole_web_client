@@ -46,6 +46,7 @@ export class PageAcceuilSansCompteComponent {
   }
 
   ngOnInit(): void {
+    window.scrollTo(0,0);
     this.fetchAllArticles();
     this.TemoignageService.getTemoignages().subscribe(data => {
       console.log(data);
