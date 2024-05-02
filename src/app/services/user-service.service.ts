@@ -29,7 +29,7 @@ export class UserServiceService {
     genre: string="NON DEFINI",
     dernierDiplome: string='AUCUN',
     serie: string='AUCUN',
-    telephone: string='+237',
+    telephone: string='+',
     niveau: string='AUCUN',
     photo?: File,
     dateOfBirth: string = '2000-01-01' // Default value for date of birth
