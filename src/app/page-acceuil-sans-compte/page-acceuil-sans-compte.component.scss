@@ -33,8 +33,12 @@
 
 .header-text{
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 400;
   margin-bottom: 1vh;
+}
+.nowText{
+  font-weight: 900;
+  font-size: 1.1rem;
 }
 .small-header-text{
   font-size: 0.7rem;
@@ -227,8 +231,12 @@
 
   .header-text{
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 400;
     margin-bottom: 1vh;
+  }
+  .nowText{
+    font-weight: 900;
+    font-size: 1.6rem;
   }
   .small-header-text{
     font-size: 1rem;
@@ -275,8 +283,12 @@
   }
   .header-text{
     font-size: 1.8rem;
-    font-weight: bold;
+    font-weight: 400;
     margin-top: 10vh;
+  }
+  .nowText{
+    font-weight: 900;
+    font-size: 1.9rem;
   }
   .small-header-text{
     font-size: 1rem;
