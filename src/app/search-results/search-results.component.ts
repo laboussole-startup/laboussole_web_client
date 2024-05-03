@@ -43,9 +43,46 @@ export class SearchResultsComponent {
   }
   ngOnInit(){
     window.scrollTo(0,0)
+
     console.log(this.searchService.searchQuery);
     console.log(this.searchService.formationQuery);
     console.log(this.searchService.metierQuery);
+
+    this.searchService.getSearchQuery().subscribe(query => {
+
+      this.query = this.searchService.searchQuery 
+      this.showSpinner = true;
+      this.formationService.searchEcoles(this.searchService.searchQuery).subscribe(
+        (data:any)=>{
+          this.showSpinner=false;
+          console.log("*******LOGGING ECOLES***************");
+          console.log(data);
+          this.resultatsEcoles=data as Array<Faculte>;
+
+        }
+      );
+      this.formationService.searchMetiers(this.searchService.searchQuery).subscribe(
+        (data:any)=>{
+          this.showSpinner=false;
+          console.log("*******LOGGING METIERS***************");
+          console.log(data);
+          this.resultatsMetiers = data.results as Array<Metier>;
+          if(data.results){
+            this.next_link_metiers=data.next;
+            this.count_metiers=data.count;
+          }
+        }
+      );
+      this.formationService.searchUniversites(this.searchService.searchQuery).subscribe(
+        (data:any)=>{
+          this.showSpinner=false;
+          console.log("*******LOGGING UNIVERSITES***************");
+          console.log(data);
+          this.resultatsUniversites = data as Array<Universite>;
+        }
+      );
+        
+    });
 
     if(this.searchService.searchQuery != ""){
       this.query = this.searchService.searchQuery 
@@ -122,6 +159,9 @@ export class SearchResultsComponent {
   }
   navigateToDetailsEcole(id:number){
     this.router.navigate(['/facultes/',id]);
+  }
 
+  ngOnDestroy(){
+    this.searchService.alreadyOnSearchPage=false;
   }
 }

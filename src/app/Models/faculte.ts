@@ -7,6 +7,7 @@ export class Faculte {
     public email: string,
     public telephone: string,
     public universite: number,
+    public logo:string,
     public imageurl: string,
     public images_pc:string,
     public images_tablettes:string,

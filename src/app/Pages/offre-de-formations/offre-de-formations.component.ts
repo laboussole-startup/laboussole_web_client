@@ -171,6 +171,7 @@ export class OffreDeFormationsComponent {
     this.searchService.setSearchQuery("");
     this.searchService.setFormationsQuery("");
     this.searchService.setMetiersQuery(this.query);
+    this.searchService.alreadyOnSearchPage=true;
     this.router.navigateByUrl("/search-results")
   }
 

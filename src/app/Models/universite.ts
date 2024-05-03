@@ -7,6 +7,7 @@ export class Universite {
     public email: string,
     public telephone: string,
     public site_web: string,
+    public logo:string,
     public imageurl: string,
     public images_pc:string,
     public images_tablettes:string,

@@ -13,10 +13,10 @@ export class FiliereFormationBoxComponent {
   ngOnInit(){
     console.log(this.formationBox.nom)
     console.log(this.formationBox.images_pc)
-    let im:string | null = this.convertDriveLinkToDirectDownloadLink(this.formationBox.images_pc);
+    let im:string | null = this.convertDriveLinkToDirectDownloadLink(this.formationBox.logo);
     console.log(im)
-    this.formationBox.images_pc=im?im:this.formationBox.images_pc;
-    console.log(this.formationBox.images_pc)
+    this.formationBox.logo=im?im:this.formationBox.logo;
+    console.log(this.formationBox.logo)
   }
 
   convertDriveLinkToDirectDownloadLink(driveLink: string): string | null {

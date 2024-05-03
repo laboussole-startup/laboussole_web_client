@@ -111,6 +111,7 @@ export class FormationsComponent {
     this.searchService.setSearchQuery("");
     this.searchService.setFormationsQuery(this.query);
     this.searchService.setMetiersQuery("");
+    this.searchService.alreadyOnSearchPage=true;
     this.router.navigateByUrl("/search-results")
   }
   enableScroll(): void {

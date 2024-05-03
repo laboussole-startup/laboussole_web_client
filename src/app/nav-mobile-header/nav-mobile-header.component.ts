@@ -90,7 +90,12 @@ export class NavMobileHeaderComponent {
     this.searchService.setSearchQuery(this.query)
     this.searchService.setFormationsQuery("");
     this.searchService.setMetiersQuery("");
-    this.router.navigate(["/search-results"]);
+    if(this.searchService.alreadyOnSearchPage){
+      this.searchService.setSearchQuerye(this.query)
+    }else{
+      this.searchService.alreadyOnSearchPage=true;
+      this.router.navigate(['/search-results', 'l']);
+    }
   }
   handleClick(){
     this.hideOthers=!this.hideOthers;
