@@ -54,8 +54,8 @@ export class DetailsFilieresComponent {
     this.service.getFaculteUniv(this.filiereId).subscribe((data: any) => {
       console.log(data);
       let filter:Array<Faculte> = data as Array<Faculte>;
-      const sub="faculté";
-      const sub2="faculte"
+      const sub="facult";
+      const sub2="facult"
 
       for(let f of filter){
         console.log(f)

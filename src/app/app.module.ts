@@ -93,6 +93,7 @@ import { NotificationDialogComponent } from './notification-dialog/notification-
 import { TemoignageTemplateComponent } from './temoignage-template/temoignage-template.component';
 import { InputTemoignageDialogComponent } from './input-temoignage-dialog/input-temoignage-dialog.component';
 import { ConditionsUtilisationsComponent } from './conditions-utilisations/conditions-utilisations.component';
+import { FaqTemplateComponent } from './faq-template/faq-template.component';
 
 
 
@@ -160,7 +161,8 @@ import { ConditionsUtilisationsComponent } from './conditions-utilisations/condi
     NotificationDialogComponent,
     TemoignageTemplateComponent,
     InputTemoignageDialogComponent,
-    ConditionsUtilisationsComponent
+    ConditionsUtilisationsComponent,
+    FaqTemplateComponent
   ],
   imports: [
     CommonModule,
