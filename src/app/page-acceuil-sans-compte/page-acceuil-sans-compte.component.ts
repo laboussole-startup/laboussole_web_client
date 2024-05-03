@@ -3,9 +3,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AskLoginDialogComponent } from '../ask-login-dialog/ask-login-dialog.component';
 import { Article } from '../Models/article';
+import { Notification } from '../Models/notification';
 import { Temoignage } from '../Models/temoignage';
 import { UserInfo } from '../Models/userInfo';
 import { ActualitesService } from '../services/actualites.service';
+import { NotificationsService } from '../services/notifications.service';
 import { TemoignageService } from '../services/temoignage.service';
 import { UserServiceService } from '../services/user-service.service';
 
@@ -42,6 +44,7 @@ export class PageAcceuilSansCompteComponent {
   constructor(private TemoignageService:TemoignageService,
               private userService:UserServiceService,
               private articleService:ActualitesService,
+              private notificationService:NotificationsService,
               private router:Router,
               public dialog: MatDialog,
               private renderer: Renderer2){
@@ -81,7 +84,27 @@ export class PageAcceuilSansCompteComponent {
         }
         this.temoignagesList = d.reverse();
       }
+    );
+
+    this.notificationService.getAllNotifications().subscribe(
+      (data:any)=>{
+        console.log(data);
+        let notifs:Array<Notification> = data as Array<Notification>;
+        for(let notif of notifs){
+          if(notif.image_tablette.includes('popup')){
+            this.popupArticle_heading = notif.titre;
+            this.popupArticle_id = notif.id_notification;
+            let im:string | null = this.convertDriveLinkToDirectDownloadLink(notif.image_pc);
+            this.popupArticle_image =im?im:"";
+          }
+        }
+      }
     )
+   
+    
+    
+  }
+  ngAfterViewInit(){
     const currentDate = new Date();
 
     const currentDay = currentDate.getDate(); // Get the day (1-31)
@@ -100,7 +123,7 @@ export class PageAcceuilSansCompteComponent {
       launch = true;
     }
     
-    if(false){
+    if(launch){
       this.timeoutId = setTimeout(() => {
       
         // Get the current scroll position
@@ -137,33 +160,7 @@ export class PageAcceuilSansCompteComponent {
   
       // Set the top position of the floating div to the current scroll position
       
-      }, 1000);
-    }
-    
-    
-  }
-  ngAfterViewInit(){
-    const scrollY = window.scrollY;
-    console.log(this.floatingDiv);
-    if (this.floatingDiv && this.floatingDiv.nativeElement) {
-      this.renderer.setStyle(this.floatingDiv.nativeElement, 'display', 'flex');
-      this.renderer.setStyle(this.floatingDiv.nativeElement, 'top', `${scrollY+100}px`);
-      this.renderer.addClass(this.floatingDiv.nativeElement, 'floating-div'); // Start animation
-      this.showPopupNotification = true;
-     
-      this.disableScroll();
-
-      this.overlay = document.createElement('div');
-      this.overlay.style.position = 'fixed';
-      this.overlay.style.top = '0';
-      this.overlay.style.left = '0';
-      this.overlay.style.width = '100%';
-      this.overlay.style.height = '100%';
-      this.overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // Adjust transparency here
-      this.overlay.style.zIndex = '2'; // Ensure it's on top of everything else
-      document.body.appendChild(this.overlay);
-      
-
+      }, 10000);
     }
   }
   
@@ -184,14 +181,7 @@ export class PageAcceuilSansCompteComponent {
       (data:any)=>{
         console.log(data);
         this.allArticles = data as Array<Article>;
-        for(let art of this.allArticles){
-          if(art.image_tablette.includes('popup')){
-            this.popupArticle_heading = art.titre;
-            this.popupArticle_id = art.id_actualite;
-            let im:string | null = this.convertDriveLinkToDirectDownloadLink(art.image_pc);
-            this.popupArticle_image =im?im:"";
-          }
-        }
+        
       }
     )
   }
@@ -269,6 +259,20 @@ export class PageAcceuilSansCompteComponent {
       clearTimeout(this.timeoutId); // Clear the timeout if it's set
       this.timeoutId = null; // Reset the timeout ID
     }
+  }
+  viewNotification(id:number){
+    this.notificationService.setCurrentNotification(id)
+    this.router.navigateByUrl("/details-notifications")
+    // Set data in localStorage
+    const value = localStorage.getItem('notification'+id);
+    if(value){
+      
+    }else{
+      this.notificationService.reduceUnReadNotifications(id);
+      localStorage.setItem('notification'+id,'1');
+    }
+    
+
   }
   convertDriveLinkToDirectDownloadLink(driveLink: string): string | null {
     if(driveLink){

@@ -34,7 +34,7 @@ export class PageCreationCompteClientComponent {
 
 
  emailControl = new FormControl('', [Validators.required, Validators.email]);
- errorMessage = 'Email invalide ou déjà pris';
+ errorMessage = 'Entrez une adresse mail valide';
 
  passwordControl = new FormControl('', [Validators.required]);
  passerrormsg = 'obligatoire';

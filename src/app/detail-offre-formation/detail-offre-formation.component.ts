@@ -91,6 +91,26 @@ export class DetailOffreFormationComponent {
               }
             )
           }
+          let ecoles:Array<string> =this.removeBraces(this.metierItem.ecole).split(',');
+          console.log(ecoles)
+          for(let i of ecoles){
+            let id:number = Number(i)
+            console.log(id);
+            this.service.getFacultes(id).subscribe(
+              (data:any)=>{
+                console.log(data);
+                let fac:Faculte = data as Faculte;
+                //this.lieu.set(fac,new Universite(0,'','','','','','','','','',''));
+                this.service.getUniversiteDetails(fac.universite).subscribe(
+                  (data:any) => {
+                    console.log(data);
+                    let univ:Universite = data as Universite;
+                    this.lieu.set(fac,univ);
+                  }
+                )
+              }
+            )
+          }
           if(this.userService.user_email){
             const fortyPercentElement:HTMLDivElement = this.elementRef.nativeElement.querySelector('#blurMark1');
             fortyPercentElement.style.filter = 'blur(0px)';
