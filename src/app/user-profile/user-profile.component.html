@@ -24,11 +24,7 @@
             <div class="icon"><img src="../../assets/icons8-lock-50.png" alt="" width="25px" height="25px"></div>
             <div class="label">Changer mot de passe</div>
         </div>
-        <div class="option-item">
-            <div class="icon"><img src="../../assets/icons8-language-50.png" alt="" width="25px" height="25px"></div>
-            <div class="label">Language</div>
-        </div>
-        <div class="option-item">
+        <div class="option-item" (click)="changeLocation(4)">
             <div class="icon"><img src="../../assets/icons8-help-50.png" alt="" width="25px" height="25px"></div>
             <div class="label">Help & Support</div>
         </div>
@@ -45,6 +41,7 @@
         <app-profile-info *ngIf="location_number==1"></app-profile-info>
         <app-changer-mdp *ngIf="location_number==3"></app-changer-mdp>
         <app-notifications-list *ngIf="location_number==2"></app-notifications-list>
+        <app-faq-page *ngIf="location_number==4"></app-faq-page>
     </div>
     
 </div>
@@ -75,7 +72,7 @@
             </div>
 
             -->
-            <div class="option-item">
+            <div class="option-item" (click)="changeLocation(3)">
                 <div class="icon"><img src="../../assets/icons8-help-50.png" alt="" width="25px" height="25px"></div>
                 <div class="label">Help & Support</div>
             </div>
@@ -92,6 +89,7 @@
             <app-profile-info *ngIf="location_number==1 || location_number==0"></app-profile-info>
             <app-changer-mdp *ngIf="location_number==3"></app-changer-mdp>
             <app-notifications-list *ngIf="location_number==2"></app-notifications-list>
+            <app-faq-page *ngIf="location_number==4"></app-faq-page>
         </div>
     </div>
    

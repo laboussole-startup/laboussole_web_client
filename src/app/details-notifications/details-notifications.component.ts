@@ -31,8 +31,7 @@ export class DetailsNotificationsComponent {
       (data:any)=>{
         console.log(data);
         this.currentNotification = data as Notification
-        let im:string | null = this.convertDriveLinkToDirectDownloadLink(this.currentNotification.image_pc);
-        this.bannerImage =im?im:"";
+        this.bannerImage =this.currentNotification.image_pc;
         this.contentHtml = `${this.currentNotification.contenu}`;
         if(!this.userService.user_email){
           const fortyPercentElement:HTMLDivElement = this.elementRef.nativeElement.querySelector('#blurMark1');

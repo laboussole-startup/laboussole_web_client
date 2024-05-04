@@ -94,8 +94,7 @@ export class PageAcceuilSansCompteComponent {
           if(notif.image_tablette.includes('popup')){
             this.popupArticle_heading = notif.titre;
             this.popupArticle_id = notif.id_notification;
-            let im:string | null = this.convertDriveLinkToDirectDownloadLink(notif.image_pc);
-            this.popupArticle_image =im?im:"";
+            this.popupArticle_image =notif.image_pc;
           }
         }
       }

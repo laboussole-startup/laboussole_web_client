@@ -21,10 +21,7 @@ constructor(private sanitizer: DomSanitizer,){
 }
 
 ngOnInit(){
-  let image= this.convertDriveLinkToDirectDownloadLink(this.image)?this.convertDriveLinkToDirectDownloadLink(this.image):"";
-  if(image){
-    this.image=image;
-  }
+  
 }
 ngDoCheck(){
   this.descriptionHtml= this.sanitizeHTML(this.description)

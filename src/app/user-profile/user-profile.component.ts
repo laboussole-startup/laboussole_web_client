@@ -30,6 +30,8 @@ export class UserProfileComponent {
       this.current_location="changer mot de pass"
     }else if(n==2){
       this.current_location="notifications"
+    }else if(n==4){
+      this.current_location="FAQ"
     }
   }
   ngDoCheck(){
