@@ -14,7 +14,7 @@
     <div class="options" *ngIf="location_number==0">
         <div class="option-item" (click)="changeLocation(1)">
             <div class="icon"><img src="../../assets/newspaper.png" alt="" width="20px" height="20px"></div>
-            <div class="label">Edit Profile information</div>
+            <div class="label">Modifier profil</div>
         </div>
         <div class="option-item" (click)="changeLocation(2)">
             <div class="icon"><img src="../../assets/icons8-notification-50.png" alt="" width="25px" height="25px"></div>
@@ -26,15 +26,15 @@
         </div>
         <div class="option-item" (click)="changeLocation(4)">
             <div class="icon"><img src="../../assets/icons8-help-50.png" alt="" width="25px" height="25px"></div>
-            <div class="label">Help & Support</div>
+            <div class="label">FAQ</div>
         </div>
         <div class="option-item" routerLink="/contact">
             <div class="icon"><img src="../../assets/icons8-contact-50.png" alt="" width="25px" height="25px"></div>
-            <div class="label">Contact us</div>
+            <div class="label">Contactez nous</div>
         </div>
-        <div class="option-item">
+        <div class="option-item" routerLink="/conditions">
             <div class="icon"><img src="../../assets/icons8-privacy-80.png" alt="" width="25px" height="25px"></div>
-            <div class="label">Privacy Policy</div>
+            <div class="label">Conditions d'utilisation</div>
         </div>
     </div>
     <div class="pages">
@@ -56,7 +56,7 @@
         <div class="options">
             <div class="option-item" (click)="changeLocation(1)">
                 <div class="icon"><img src="../../assets/newspaper.png" alt="" width="20px" height="20px"></div>
-                <div class="label">Edit Profile information</div>
+                <div class="label">Modifier profil</div>
             </div>
             <div class="option-item" (click)="changeLocation(2)">
                 <div class="icon"><img src="../../assets/icons8-notification-50.png" alt="" width="25px" height="25px"></div>
@@ -64,7 +64,7 @@
             </div>
             <div class="option-item" (click)="changeLocation(3)">
                 <div class="icon"><img src="../../assets/icons8-lock-50.png" alt="" width="25px" height="25px"></div>
-                <div class="label">Changer mot de passe</div>
+                <div class="label">Changer mot de pass</div>
             </div>
            <!-- <div class="option-item">
                 <div class="icon"><img src="../../assets/icons8-language-50.png" alt="" width="25px" height="25px"></div>
@@ -74,15 +74,15 @@
             -->
             <div class="option-item" (click)="changeLocation(3)">
                 <div class="icon"><img src="../../assets/icons8-help-50.png" alt="" width="25px" height="25px"></div>
-                <div class="label">Help & Support</div>
+                <div class="label">FAQ</div>
             </div>
             <div class="option-item" routerLink="/contact">
                 <div class="icon"><img src="../../assets/icons8-contact-50.png" alt="" width="25px" height="25px"></div>
-                <div class="label">Contact us</div>
+                <div class="label">Contactez nous</div>
             </div>
-            <div class="option-item">
+            <div class="option-item" routerLink="/conditions">
                 <div class="icon"><img src="../../assets/icons8-privacy-80.png" alt="" width="25px" height="25px"></div>
-                <div class="label">Privacy Policy</div>
+                <div class="label">Conditions d'utilisation</div>
             </div>
         </div>
         <div class="pages">

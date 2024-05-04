@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-faq-page',
-  templateUrl: './faq-page.component.html',
-  styleUrls: ['./faq-page.component.scss']
+  selector: 'app-single-faq-page',
+  templateUrl: './single-faq-page.component.html',
+  styleUrls: ['./single-faq-page.component.scss']
 })
-export class FaqPageComponent {
+export class SingleFaqPageComponent {
 
+  ngOnInit(){
+    window.scrollTo(0,0);
+  }
   faq: { question: string, answer: string }[] = [
     {
         question: "J'ai oublié mon mot de passe. Que dois-je faire ?",
@@ -49,4 +52,5 @@ export class FaqPageComponent {
         answer: "Vous pouvez contacter notre équipe d'assistance en envoyant un e-mail à laboussolesangmelima@gmail.com, vous pouvez également nous contacter via whatsapp ou en appel normal à ce numéro +237 672435162."
     }
 ];
+
 }

@@ -1,8 +1,9 @@
 .container{
     display: flex;
-    min-width: 270px;
+    min-width: 200px;
     flex-flow: column nowrap;
     gap:10px;
+    padding-left: 20px;
 }
 
 .content{

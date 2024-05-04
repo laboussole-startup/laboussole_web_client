@@ -95,6 +95,7 @@ import { InputTemoignageDialogComponent } from './input-temoignage-dialog/input-
 import { ConditionsUtilisationsComponent } from './conditions-utilisations/conditions-utilisations.component';
 import { FaqTemplateComponent } from './faq-template/faq-template.component';
 import { FaqPageComponent } from './faq-page/faq-page.component';
+import { SingleFaqPageComponent } from './single-faq-page/single-faq-page.component';
 
 
 
@@ -164,7 +165,8 @@ import { FaqPageComponent } from './faq-page/faq-page.component';
     InputTemoignageDialogComponent,
     ConditionsUtilisationsComponent,
     FaqTemplateComponent,
-    FaqPageComponent
+    FaqPageComponent,
+    SingleFaqPageComponent
   ],
   imports: [
     CommonModule,

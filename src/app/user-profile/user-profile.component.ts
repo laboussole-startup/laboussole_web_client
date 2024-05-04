@@ -25,7 +25,7 @@ export class UserProfileComponent {
   changeLocation(n:number){
     this.location_number=n;
     if(n==1){
-      this.current_location="edit profile";
+      this.current_location="modifier profil";
     }else if(n==3){
       this.current_location="changer mot de pass"
     }else if(n==2){
