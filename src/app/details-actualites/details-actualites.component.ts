@@ -38,8 +38,6 @@ export class DetailsActualitesComponent {
       (data:any)=>{
         console.log(data);
         this.currentArticle = data as Article;
-        let im:string | null = this.convertDriveLinkToDirectDownloadLink(this.currentArticle.image_pc);
-        this.currentArticle.image_pc = im?im:"";
         this.contentHtml = `${this.currentArticle.contenu}`;
       }
     )
