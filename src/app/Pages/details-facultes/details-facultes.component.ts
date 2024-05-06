@@ -128,7 +128,7 @@ export class DetailsFacultesComponent {
     console.log('User has scrolled 40% of the page');
     if(!this.userService.user_email){
       const fortyPercentElement:HTMLDivElement = this.elementRef.nativeElement.querySelector('#blurMark');
-      fortyPercentElement.style.filter = 'blur(2.5px)';
+      fortyPercentElement.style.filter = 'blur(4.5px)';
       this.hideAll=true;
     }else{
       this.hideAll=false;

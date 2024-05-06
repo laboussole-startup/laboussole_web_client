@@ -21,7 +21,7 @@
         </div>
         <div class="passwordInput">
             <mat-form-field appearance="outline">
-                <mat-label>Password</mat-label>
+                <mat-label>Mot de pass</mat-label>
                 <input matInput [formControl]="passwordControl"
                  [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
@@ -30,8 +30,8 @@
             </mat-form-field>
         </div>
         <div class="options">
-            <div class="rememberMe" > <input type="checkbox" name="" id="" > Remember me</div>
-            <div class="forgotPass" routerLink="/motDePasseOublie" > ForgotPassword?</div>
+            <div class="rememberMe" > <input type="checkbox" name="" id="" > se souvenir de moi?</div>
+            <div class="forgotPass" routerLink="/motDePasseOublie" > mot de pass oublié?</div>
         </div>
         <div class="centerContainer">
             <mat-progress-spinner

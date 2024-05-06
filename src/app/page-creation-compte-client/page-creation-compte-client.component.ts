@@ -51,7 +51,7 @@ conditionsControl:boolean=false;
   verifierCreerCompte(){
     if(this.nameControl.value=="" || this.emailControl.value=="" || this.passwordControl.value=="" || this.confirmPasswordControl.value=="" || !this.conditionsControl){
       console.log("invalid form");
-      this.sheetErrorMessage = "pensez a remplire les champs obligatoire et a accepter les conditions";
+      this.sheetErrorMessage = "Pensez à remplir les champs obligatoires et à accepter les conditions.";
       this.openBottomSheet();
     }else{
       if(this.passwordControl.value != this.confirmPasswordControl.value){
@@ -59,8 +59,18 @@ conditionsControl:boolean=false;
         this.sheetErrorMessage = "mot de passes non identiques";
         this.openBottomSheet();
       }else{
-        console.log("isValid");
-        this.creerCompte();
+        if(this.emailControl.invalid){
+          this.sheetErrorMessage = "Email Invalide";
+          this.openBottomSheet();
+        } else if(this.nameControl.invalid){
+          this.sheetErrorMessage = "Nom Invalide";
+          this.openBottomSheet();
+        }
+        else{
+          console.log("isValid");
+          this.creerCompte();
+        }
+        
       }
       
     }
