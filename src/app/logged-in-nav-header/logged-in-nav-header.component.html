@@ -25,13 +25,19 @@
     <div class="notifications" *ngIf="!hideOthers">
       <mat-icon  [matBadge]="unread_notif_count" [matBadgeHidden]="unread_notif_count == ''" matBadgeColor="warn" style="position:relative;right:20px;" (click)="goToNotifications()">notifications</mat-icon>
     </div>
-    <div class="profile" *ngIf="!hideOthers" [matMenuTriggerFor]="profileMenu"> <img src="../../assets/profile-svgrepo-com.svg" alt="" width="30px" height="30px"></div>
+    <div class="profile" *ngIf="!hideOthers" [matMenuTriggerFor]="profileMenu">
+      <img *ngIf="picture==''" src="../../assets/profile-svgrepo-com.svg" alt="" width="30px" height="30px" >
+
+      <img *ngIf="picture" [src]="picture" alt="" width="30px" height="30px" style="border-radius: 50%;">
+      </div>
    
   </div>
 </div>
   <div class="navFlexContainerTabletDesktop">
   
-      <div class="logo_icon" routerLink="/"><img src="../../assets/logo laboussole 1.png" alt=""  style="width: 60px; height: 60px;"></div>
+      <div class="logo_icon" routerLink="/">
+        <img src="../../assets/logo laboussole 1.png" alt=""  style="width: 60px; height: 60px;">
+      </div>
       
       <div class="home nav-item" routerLink="/">Acceuil </div>
      
@@ -45,7 +51,12 @@
       <input type="text" class="searchInput" name="" id="" placeholder="trouve ta formation.."  (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query" />
     </div>
     <div class="signupBtn nav-item" [matBadge]="unread_notif_count" [matBadgeHidden]="unread_notif_count == ''" matBadgeColor="warn"  (click)="goToNotifications()">Notifications</div>
-    <div class="loginBtn nav-item" [matMenuTriggerFor]="profileMenu"> <img src="../../assets/profile-svgrepo-com.svg" alt="" width="30px" height="30px">  Hi, {{username}}</div>
+    <div class="loginBtn nav-item" [matMenuTriggerFor]="profileMenu">
+      <img *ngIf="picture==''" src="../../assets/profile-svgrepo-com.svg" alt="" width="30px" height="30px">
+
+      <img *ngIf="picture" [src]="picture" alt="" width="30px" height="30px" style="border-radius: 50%;">
+        Hi, {{username}}
+      </div>
   </div>
 
 

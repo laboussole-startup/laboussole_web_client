@@ -15,6 +15,7 @@ export class UserServiceService {
 
   public user_email:string = "";
   public username:any="";
+  public user_photo:string | null="";
   public chosenImage!:File;
 
 
@@ -58,7 +59,7 @@ export class UserServiceService {
         resolve(this.httpClient.post(this.root_url, formData).toPromise());
       } else {
         // Load image from assets folder
-        const imagePath = '/assets/photo_icon.jpg'; // Change this to the actual path of your image
+        const imagePath = '/assets/profile-svgrepo-com.svg'; // Change this to the actual path of your image
         fetch(imagePath)
           .then(response => response.blob())
           .then(blob => {
@@ -143,7 +144,7 @@ export class UserServiceService {
           resolve(this.httpClient.put(update_url, formData).toPromise());
         } else {
           // Load image from assets folder
-          const imagePath = '/assets/photo_icon.jpg'; // Change this to the actual path of your image
+          const imagePath = '/profile-svgrepo-com.svg'; // Change this to the actual path of your image
           fetch(imagePath)
             .then(response => response.blob())
             .then(blob => {
@@ -171,7 +172,7 @@ export class UserServiceService {
           resolve(this.httpClient.put(update_url, formData).toPromise());
         } else {
           // Load image from assets folder
-          const imagePath = '/assets/photo_icon.jpg'; // Change this to the actual path of your image
+          const imagePath = '/assets/profile-svgrepo-com.svg'; // Change this to the actual path of your image
           fetch(imagePath)
             .then(response => response.blob())
             .then(blob => {

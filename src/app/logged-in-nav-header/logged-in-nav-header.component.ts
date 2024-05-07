@@ -33,6 +33,8 @@ export class LoggedInNavHeaderComponent {
   unread_notif_count:string='';
   val:string | null='';
 
+  picture:string |null="";
+
 
   constructor(private userService:UserServiceService,
     private router:Router,
@@ -40,7 +42,7 @@ export class LoggedInNavHeaderComponent {
     private searchService:SearchService,
     private notificationService:NotificationsService
     ){
-
+      this.picture = this.userService.user_photo;
   }
 
   signOut(){
