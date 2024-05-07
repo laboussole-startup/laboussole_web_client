@@ -86,6 +86,9 @@ img{
         justify-content: center;
         gap: 120px;
     }
+    .pages{
+        max-width: 70%;
+    }
 }
 
 app-nav-bar{
@@ -93,14 +96,13 @@ app-nav-bar{
     width: 100%;
     z-index: 100; /* Specify a z-index to control stacking order */
     /* Other styles as needed */
+    
 }
 app-footer{
     position: relative;
     top:18vh;
 }
-div.container{
+.container{
     width: 100%;
-    position: relative;
-    top:14vh;
-
+    margin-top: 14vh;
 }

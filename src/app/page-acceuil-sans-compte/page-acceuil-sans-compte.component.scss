@@ -10,8 +10,7 @@
 }
 .contentROP{
   background-color: white;
-  position: relative;
-  top:12vh;
+  margin-top: 12vh;
 }
 
 .welcomeText {
@@ -127,13 +126,13 @@
   justify-content: flex-start;
   align-items:center;
   width: 100%;
-  z-index: 3;
+  z-index: 300;
   
 }
 .notification .main-img{
   width: 60%;
   height: 60%;
-  object-fit: cover; 
+  object-fit: contain; 
   object-position: center;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add the box shadow */
@@ -221,6 +220,7 @@
   margin-left:5vw;
   font-size: 1.2rem;
   font-weight: 800;
+  margin-bottom: 20px;
 }
 
 .largeScreenBox{
@@ -232,6 +232,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 @media screen and (min-width:700px) {
@@ -258,7 +259,9 @@
   .largeScreenBox{
     display: block;
   }
-  
+  .actions{
+    display: flex;
+  }
   .containerImageAcceuil {
     display: grid;
     background-color: #EEF8FC;
@@ -334,6 +337,9 @@
  
 }
 @media screen and (max-width:600px) {
+  .actions{
+    display: none;
+  }
   .notification{
     position: absolute;
     //top: 30vh;
@@ -342,7 +348,7 @@
     justify-content: flex-start;
     align-items:center;
     width: 100%;
-    z-index: 3;
+    z-index: 300;
     cursor: pointer;
   }
   .img-close-notification{
@@ -358,12 +364,15 @@
   .notification .main-img{
     width: 80%;
     height: 80%;
-    object-fit: cover; 
+    object-fit: contain; 
     object-position: center;
   }
  
 }
 @media screen and (min-width:600px) and  (max-width:1000px) {
+  .actions{
+    display: none;
+  }
   .notification{
     position: absolute;
     //top: 20vh;
@@ -371,13 +380,13 @@
     justify-content: flex-start;
     align-items:center;
     width: 100%;
-    z-index: 3;
+    z-index: 300;
     cursor:pointer;
   }
   .notification .main-img{
     width: 70%;
     height: 70%;
-    object-fit: cover; 
+    object-fit: contain; 
     object-position: center;
   }
   .img-close-notification{
@@ -416,8 +425,7 @@ app-nav-bar{
   /* Other styles as needed */
 }
 app-footer{
-  position: relative;
-  top:18vh;
+  margin-top: 18vh;
 }
 
 .img-close-notification{

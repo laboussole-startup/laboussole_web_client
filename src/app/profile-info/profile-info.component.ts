@@ -1,5 +1,6 @@
 
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { MatBottomSheet, MatBottomSheetConfig } from '@angular/material/bottom-sheet';
 import { UserInfo } from '../Models/userInfo';
 import { UserServiceService } from '../services/user-service.service';
 
@@ -10,7 +11,11 @@ import { UserServiceService } from '../services/user-service.service';
 })
 export class ProfileInfoComponent {
 
-  constructor(private userService:UserServiceService){
+  @ViewChild('errorSheet') errorSheetTemplate = {} as TemplateRef<any>;
+
+  sheetErrorMessage:string="";
+
+  constructor(private userService:UserServiceService,private bottomSheet: MatBottomSheet){
 
   }
 
@@ -33,6 +38,9 @@ export class ProfileInfoComponent {
     console.log(d);
     this.userService.updateProfile(this.prenom,this.genre,this.diplome,this.pays,this.telephone,this.ville,undefined,d)  .then((response) => {
       console.log(response);
+
+      this.sheetErrorMessage="Enregistrement réussi."
+      this.openBottomSheet();
       
     })
     .catch((error) => {
@@ -96,4 +104,19 @@ export class ProfileInfoComponent {
     return `${year}-${month}-${day}`;
   }
 
+  openBottomSheet(config?: MatBottomSheetConfig){
+    this.bottomSheet.open(this.errorSheetTemplate, config);
+  }
+  closeBottomSheet(){
+    this.bottomSheet.dismiss(this.errorSheetTemplate);
+  }
+  onPaysSelectionChange(){
+    if(this.pays=='cameroun'){
+      this.telephone="+237"
+    }else if(this.pays=='congo'){
+      this.telephone="+242"
+    }else{
+      this.telephone=""
+    }
+  }
 }

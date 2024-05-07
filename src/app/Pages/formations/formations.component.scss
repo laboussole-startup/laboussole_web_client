@@ -23,8 +23,7 @@
   
   .container {
     width: 100%;
-    position: relative;
-    top:12vh;
+    margin-top:12vh;
     .search-formation {
       height: 326px;
       padding-top: 150px;
@@ -140,6 +139,13 @@
         }
       }
     }
+
+    .mobileMenu{
+      width: 80vw;
+      height: 100vh;
+      display: none;
+      padding-left: 20px;
+    }
   }
   
   @media screen and (min-width: 992px) {
@@ -150,6 +156,12 @@
           gap: 20px;
         }
       }
+    }
+    .mobileMenu{
+      width: 80vw;
+      height: 100vh;
+      display: none;
+      padding-left: 20px;
     }
   }
 
@@ -191,7 +203,6 @@
     /* Other styles as needed */
   }
   app-footer{
-    position: relative;
-    top:18vh;
+    margin-top: 18vh;
   }
   

@@ -52,8 +52,8 @@ export class FormationsComponent {
   }
 
   ngOnInit() {
-    window.scrollTo(0,0);
     this.enableScroll();
+    window.scrollTo(0,0);
     this.getScreenWidth = window.innerWidth;
     // this.getScreenWidth <= 480? this.mobile = true : this.mobile = false;
 
@@ -62,7 +62,11 @@ export class FormationsComponent {
       this.formations = data;
       // console.log(this.formations);
     });
-    if(this.userService.user_email){
+    console.log(this.userService.user_email);
+    let m:string | null = localStorage.getItem('user_email');
+    console.log(m);
+
+    if(m){
       this.userService.getUserInfo().subscribe(
         (data:any) => {
           console.log(data);
@@ -71,6 +75,8 @@ export class FormationsComponent {
           let final_centres:string = "";
 
           let ci:Array<string> = user.centres_interet.split(" ");
+          console.log("-----ci------")
+          console.log(ci);
 
           for(let c of ci){
             final_centres = final_centres + this.centreInteretService.champ_lexical.get(c);

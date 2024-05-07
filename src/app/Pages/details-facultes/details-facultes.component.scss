@@ -1,4 +1,4 @@
-a{
+a,.a{
     text-decoration: none;
     font-size: 14px;
     cursor: pointer;
@@ -23,11 +23,9 @@ app-nav-bar{
     /* Other styles as needed */
   }
   app-footer{
-    position: relative;
-    top:18vh;
+   margin-top: 18vh;
   }
 
   .containerROP{
-    position: relative;
-    top:13vh;
+    margin-top: 13vh;
   }

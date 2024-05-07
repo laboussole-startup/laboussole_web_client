@@ -1,33 +1,46 @@
 .container{
     display: flex;
     flex-flow: row nowrap;
-    gap: 10px;
-}
-.firstline{
-    display: flex;
-    flex-flow: row nowrap;
-}
-.name{
-    flex-grow: 9;
-}
-.deleteIcon{
-    flex-grow: 1;
-}
-.box{
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 5px;
-    width: 100%;
-    height: 70px;
-    background-color: #F0F1F2;;
-    border-radius: 33px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 8px;
+    align-items: center;
+    height: 250px;
+    width: 90vw;
+    gap: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .senderImage{
     width: 70px;
     height: 70px;
-    border-radius: 50%;
+    
     background-color: #F0F1F2;;
+}
+.lireplus{
+    align-self: flex-end;
+    margin-right: 10px;
+    color: #0F70B7;
+    cursor: pointer;
+}
+.box{
+    display: flex;
+    flex-flow: column nowrap;
+    overflow-x: hidden;
+    height: 90%;
+    width: 60%;
+    max-width: 80%;
+    gap: 10px;
+}
+.deleteIcon{
+    align-self: flex-end;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.titre{
+    margin-bottom: 30px;
+    font-weight: 900;
+}
+.text{
+    width: 100%;
+    height: 40%;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }

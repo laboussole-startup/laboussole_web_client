@@ -42,7 +42,7 @@
   
     <div class="contact nav-item" routerLink="/contact">Contactez Nous</div>
     <div class="searchBox nav-item">
-      <input type="text" class="searchInput" name="" id="" placeholder="search"  (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query" />
+      <input type="text" class="searchInput" name="" id="" placeholder="trouve ta formation.."  (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query" />
     </div>
     <div class="signupBtn nav-item" [matBadge]="unread_notif_count" [matBadgeHidden]="unread_notif_count == ''" matBadgeColor="warn"  (click)="goToNotifications()">Notifications</div>
     <div class="loginBtn nav-item" [matMenuTriggerFor]="profileMenu"> <img src="../../assets/profile-svgrepo-com.svg" alt="" width="30px" height="30px">  Hi, {{username}}</div>

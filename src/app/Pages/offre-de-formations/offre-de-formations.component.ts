@@ -71,7 +71,10 @@ export class OffreDeFormationsComponent {
       this.popularMetierList = res.slice(20,25);
       // console.log(this.formations);
     });
-    if(this.userService.user_email){
+    console.log(this.userService.user_email);
+    let m:string | null = localStorage.getItem('user_email');
+    console.log(m);
+    if(m){
       this.userService.getUserInfo().subscribe(
         (data:any) => {
           console.log(data);

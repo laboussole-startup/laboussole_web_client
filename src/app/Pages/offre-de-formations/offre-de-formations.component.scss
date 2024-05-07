@@ -41,8 +41,7 @@ div:empty{
 }
 .container {
   width: 100%;
-  position: relative;
-  top:12vh;
+  margin-top: 12vh;
   .search-formation {
     height: 326px;
     padding-top: 150px;
@@ -199,6 +198,5 @@ app-nav-bar{
   /* Other styles as needed */
 }
 app-footer{
-  position: relative;
-  top:18vh;
+  margin-top: 18vh;
 }
