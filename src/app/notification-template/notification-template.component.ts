@@ -9,9 +9,15 @@ import { NotificationsService } from '../services/notifications.service';
 })
 export class NotificationTemplateComponent {
   @Input() notification!:Notification
+  contentHtml:string = "";
 
-  constructor(private notificationService:NotificationsService){}
+  constructor(private notificationService:NotificationsService){
+    
+  }
 
+  ngOnInit(){
+    this.contentHtml = `${this.notification.contenu}`;
+  }
   checkUnReadNotification(id:number):boolean{
     const value = localStorage.getItem('notification'+id);
     if(value){

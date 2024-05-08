@@ -6,7 +6,7 @@
          <div>TROUVE TA VOIE </div>  <div class="nowText">MAINTENANT!</div> 
         </div>
         <div class="small-header-text">
-          <strong>LABOUSSOLE</strong>  t’oriente vers la carrière qui te correspond
+          <strong>LABOUSSOLE</strong>  <span class="subtle-text" routerLink="/universites"> t’oriente</span> vers la <span class="subtle-text" routerLink="/metiers"> carrière</span>  qui te correspond
         </div>
         <div class="actions" style="cursor:pointer;font-weight:900;font-size:0.8rem;margin-top:40px;flex-flow:row nowrap;justify-content:center;gap:10px;">
           <div class="metier" routerLink="/metiers"  style="width:fit-content;color:white;background-color: #0F70B7;padding: 15px;border-radius: 25px;">Trouve ton métier</div>
@@ -158,7 +158,7 @@
   <div #floatingDiv class="notification">
     <div class="popup" style="width:100%;display: flex;flex-flow: column nowrap;align-items: center;">
       <span class="close-wrapper"><img class="img-close-notification" src="../../assets/x-close.png" alt="" (click)="closePopup()"></span>  
-      <img class="main-img" [src]="popupArticle_image" (click)="viewArticle(popupArticle_id)" alt="">
+      <img class="main-img" [src]="popupArticle_image" (click)="viewNotification(popupArticle_id)" alt="">
       <span class="bottom-bar" style="background-color:#0761b9;min-height: 5vh;border-bottom-left-radius: 15px;border-bottom-right-radius: 15px;display: flex;flex-flow: row nowrap;align-items: center;padding-top:10px;">
 
         <span style="flex-grow: 9;color: white;margin-left: 20px;font-size:1.2rem;">{{popupArticle_heading}}</span>

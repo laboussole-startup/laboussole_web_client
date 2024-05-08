@@ -36,10 +36,12 @@ export class UserServiceService {
     dateOfBirth: string = '2000-01-01' // Default value for date of birth
   ): Promise<any> {
     return new Promise((resolve, reject) => {
+      let l:string = prenom?prenom:nom;
+
       let formData = new FormData();
       formData.append('username', nom);
       formData.append('first_name', nom);
-      formData.append('last_name', prenom);
+      formData.append('last_name', l);
       formData.append('date_de_naissance', dateOfBirth); // Ensure date format is 'YYYY-MM-DD'
       formData.append('genre', genre);
       formData.append('email', email);
@@ -59,11 +61,11 @@ export class UserServiceService {
         resolve(this.httpClient.post(this.root_url, formData).toPromise());
       } else {
         // Load image from assets folder
-        const imagePath = '/assets/profile-svgrepo-com.svg'; // Change this to the actual path of your image
+        const imagePath = '/assets/photo.jpg'; // Change this to the actual path of your image
         fetch(imagePath)
           .then(response => response.blob())
           .then(blob => {
-            const imageFile = new File([blob], 'photo_icon.jpg', { type: 'image/jpeg' });
+            const imageFile = new File([blob], 'photo.jpg', { type: 'image/jpeg' });
             formData.append('photo_de_profil', imageFile);
   
             // Once file is appended to formData, you can make the POST request
@@ -144,11 +146,11 @@ export class UserServiceService {
           resolve(this.httpClient.put(update_url, formData).toPromise());
         } else {
           // Load image from assets folder
-          const imagePath = '/profile-svgrepo-com.svg'; // Change this to the actual path of your image
+          const imagePath = '/photo.jpg'; // Change this to the actual path of your image
           fetch(imagePath)
             .then(response => response.blob())
             .then(blob => {
-              const imageFile = new File([blob], 'photo_icon.jpg', { type: 'image/jpeg' });
+              const imageFile = new File([blob], 'photo.jpg', { type: 'image/jpeg' });
               formData.append('photo_de_profil', imageFile);
     
               // Once file is appended to formData, you can make the POST request
@@ -172,11 +174,11 @@ export class UserServiceService {
           resolve(this.httpClient.put(update_url, formData).toPromise());
         } else {
           // Load image from assets folder
-          const imagePath = '/assets/profile-svgrepo-com.svg'; // Change this to the actual path of your image
+          const imagePath = '/assets/photo.jpg'; // Change this to the actual path of your image
           fetch(imagePath)
             .then(response => response.blob())
             .then(blob => {
-              const imageFile = new File([blob], 'photo_icon.jpg', { type: 'image/jpeg' });
+              const imageFile = new File([blob], 'photo.jpg', { type: 'image/jpeg' });
               formData.append('photo_de_profil', imageFile);
     
               // Once file is appended to formData, you can make the POST request

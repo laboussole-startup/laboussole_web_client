@@ -88,8 +88,20 @@ conditionsControl:boolean=false;
         }
       })
       .catch((error) => {
-        console.log(error);
-            this.router.navigate(['/signup-error']);
+        this.showSpinner=false;
+        console.log(error.error.errors[0]);
+        console.log(error.status);
+        if(error.error.errors[0]=='User with email already exits '){
+          console.log("Un compte a déjà été créé avec cet email.");
+          this.sheetErrorMessage = "Un compte a déjà été créé avec cet email.";
+          this.openBottomSheet();
+         
+        }else{
+          this.router.navigate(['/signup-error']);
+        }
+       
+
+        
       });
   }
 

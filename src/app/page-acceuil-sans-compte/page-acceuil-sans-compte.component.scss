@@ -337,6 +337,9 @@
  
 }
 @media screen and (max-width:600px) {
+  .subtle-text{
+    color: #0F70B7;
+  }
   .actions{
     display: none;
   }
@@ -370,6 +373,9 @@
  
 }
 @media screen and (min-width:600px) and  (max-width:1000px) {
+  .subtle-text{
+    color: #0F70B7;
+  }
   .actions{
     display: none;
   }
