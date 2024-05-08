@@ -14,13 +14,14 @@ export class LoggedInNavPageComponent {
   showDropdown = false;
   showSearchBar = false;
   username:string="";
+  picture:string |null="";
   // Call this method when you want to close the menu
   closeMenu() {
     this.menuIconClicked.emit();
   }
 
   constructor(private userService:UserServiceService, private router:Router){
-  
+    this.picture = this.userService.user_photo;
   }
 
   ngOnInit(){
