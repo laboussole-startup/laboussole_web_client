@@ -10,7 +10,7 @@
             <div class="emailInput">
                 <mat-form-field appearance="outline">
                     <mat-label>Email</mat-label>
-                    <input matInput >
+                    <input matInput [(ngModel)]="email">
                   </mat-form-field>
             </div>
            
@@ -18,7 +18,7 @@
             <div class="centerContainer">
                 <div class="btnContinue" (click)="changeStep(2)">Continue</div>
                
-                <div class="googleLogin"> retour</div>
+                <div class="googleLogin" routerLink="/login"> retour</div>
                 <div class="Signup">New User? <span style="color:#0F70B7;font-weight: 900;">SIGNUP HERE</span> </div>
             </div>
             
@@ -28,11 +28,10 @@
     <div class="stepTwo" *ngIf="step2">
         <div class="confirmationText">
             <div class="title">Verifiez votre e-mail</div>
-            <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            </div>
+            <div>Nous vous avons envoyé un mail pour consulter votre nouveau mot de passe.</div>
 
             <div class="retry"> Je n'ai pas recu de mail? <span style="color:#0F70B7;">Renvoyer</span> </div>
-            <div class="next" (click)="changeStep(3)"> Suivant </div>
+            <div class="next" (click)="changeStep(4)"> Suivant </div>
         </div>
     </div>
     <div class="stepThree" *ngIf="step3">
@@ -58,18 +57,19 @@
             <div class="centerContainer">
                 <div class="btnContinue" (click)="verifyLogin()">Continue</div>
                
-                <div class="googleLogin"> retour</div>
+                <div class="googleLogin" (click)="changeStep(1)"> retour</div>
             </div>
             
         </div>
     </div>
     <div class="stepSuccess" *ngIf="successMessage">
-            <img src="/laboussole_client_web/assets/success-icon.png" alt="">
-            <div style="color:green;"> Felicitations </div>
-            <div> Ton mot de passe a ete change avec succes</div>
+            <img src="../../assets/success-icon.png" alt="">
+            <div style="color:green;"> Félicitations!</div>
+            <div>Votre mot de passe a été changé avec succès.</div>
+            <div class="googleLogin" routerLink="/login"> retour</div>
     </div>
     <div class="errorMessage" *ngIf="errorMessage">
-        <img src="/laboussole_client_web/assets/error-icon.png" alt="">
+        <img src="../../assets/error-icon.png" alt="">
         <div> Error</div>
         <div> Des problemes sont survenus lors de cette action veuillez reessayer</div>
 
@@ -77,3 +77,11 @@
     </div>
     
 </div>
+<ng-template #errorSheet>
+    <div class="sheetContent">
+      {{sheetErrorMessage}}
+       <br/><br/>
+       <button mat-raised-button (click)="closeBottomSheet()" style="background-color: red;color:white;">ok</button>
+    </div>
+    
+  </ng-template>

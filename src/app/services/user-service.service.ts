@@ -146,7 +146,7 @@ export class UserServiceService {
           resolve(this.httpClient.put(update_url, formData).toPromise());
         } else {
           // Load image from assets folder
-          const imagePath = '/photo.jpg'; // Change this to the actual path of your image
+          const imagePath = '/assets/photo.jpg'; // Change this to the actual path of your image
           fetch(imagePath)
             .then(response => response.blob())
             .then(blob => {
@@ -204,6 +204,11 @@ export class UserServiceService {
 
   getUserByMail(mail:string){
     let url:string = 'https://laboussole-back-end.onrender.com/auth/'+mail+'/';
+    return this.httpClient.get(url);
+  }
+
+  recoverAccount(mail:string){
+    let url:string = 'https://laboussole-back-end.onrender.com/auth/recover/'+mail+'/';
     return this.httpClient.get(url);
   }
 }

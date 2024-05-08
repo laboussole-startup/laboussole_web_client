@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef, ViewChild } from '@angular/core';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import { UserServiceService } from '../services/user-service.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatBottomSheet, MatBottomSheetConfig } from '@angular/material/bottom-sheet';
 
 @Component({
   selector: 'app-mot-de-passe-oublie',
@@ -10,14 +13,22 @@ import {MatButtonModule} from '@angular/material/button';
 })
 export class MotDePasseOublieComponent {
 
+  @ViewChild('errorSheet') errorSheetTemplate = {} as TemplateRef<any>;
+
+  sheetErrorMessage:string="";
+
+  emailControl = new FormControl('', [Validators.required, Validators.email]);
+  errorMsg = 'Entrez une adresse mail valide';
+
   hide:boolean = false;
   step1:boolean = false;
   step2:boolean = false;
   step3:boolean = false;
   successMessage:boolean = false;
   errorMessage:boolean = false;
+  email:string = ""
 
-    constructor(){
+    constructor(private userService:UserServiceService,private bottomSheet: MatBottomSheet){
       this.changeStep(1);
     }
 
@@ -34,12 +45,29 @@ export class MotDePasseOublieComponent {
        this.errorMessage = false;
 
     } else if(step == 2){
-      this.step2 = true;
-
-      this.step1=false;
-      this.step3=false;
-      this.successMessage = false;
-      this.errorMessage = false;
+      if(this.email){
+        this.userService.recoverAccount(this.email).subscribe(
+          (data: any) => {
+            if (data.status === "CODE_SENT") {
+              this.step2 = true;
+              this.step1 = false;
+              this.step3 = false;
+              this.successMessage = false;
+              this.errorMessage = false;
+            }
+          },
+          (error: any) => {
+            // Handle error here
+            console.error("An error occurred:", error);
+              this.sheetErrorMessage = "Aucun compte n'existe avec cet email";
+              this.openBottomSheet();
+              console.log("Aucun compte n'existe avec cet email");
+            // Display an error message or perform any other action as needed
+          }
+        );
+      }
+      
+      
     }else if(step == 3){
       this.step3=true;
 
@@ -62,6 +90,13 @@ export class MotDePasseOublieComponent {
       this.successMessage = false;
       this.step3 = false;
     }
+  }
+
+  openBottomSheet(config?: MatBottomSheetConfig){
+    this.bottomSheet.open(this.errorSheetTemplate, config);
+  }
+  closeBottomSheet(){
+    this.bottomSheet.dismiss(this.errorSheetTemplate);
   }
 
 }

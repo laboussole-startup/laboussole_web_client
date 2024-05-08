@@ -95,7 +95,7 @@ export class LoggedInNavHeaderComponent {
       this.searchService.setSearchQuerye(this.query)
     }else{
       this.searchService.alreadyOnSearchPage=true;
-      this.router.navigate(['/search-results', 'l']);
+      this.router.navigate(['/search-results']);
     }
     
 

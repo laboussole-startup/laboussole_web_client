@@ -49,7 +49,7 @@ const routes: Routes = [
   {path:'contact',component:ContactezNousComponent},
   {path: 'aboutus',component:AboutUsComponent},
   {path: 'profil',component:UserProfileComponent},
-  {path:'search-results/:param',component:SearchResultsComponent},
+  {path:'search-results',component:SearchResultsComponent},
   {path:'details-actualites',component:DetailsActualitesComponent},
   {path:'details-notifications',component:DetailsNotificationsComponent},
   {path:'temoignages',component:TemoignagesInputComponent},

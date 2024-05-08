@@ -96,7 +96,11 @@ conditionsControl:boolean=false;
           this.sheetErrorMessage = "Un compte a déjà été créé avec cet email.";
           this.openBottomSheet();
          
-        }else{
+        }else if(error.error.errors[0]=='User with username already exits '){
+          this.sheetErrorMessage = "Ce nom d'utilisateur a déjà été pris.";
+          this.openBottomSheet();
+        }
+        else{
           this.router.navigate(['/signup-error']);
         }
        
