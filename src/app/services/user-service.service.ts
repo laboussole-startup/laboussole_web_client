@@ -220,4 +220,11 @@ export class UserServiceService {
       "new_password":new_password
     });
   }
+  contactus(mail:string,message:string){
+    let url:string = 'https://laboussole-back-end.onrender.com/auth/contact/'+mail+'/';
+    return this.httpClient.post(url,{
+      "user_email":mail,
+      "message":message
+    });
+  }
 }

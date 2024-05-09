@@ -34,28 +34,39 @@
             <div class="form">
                 <mat-form-field>
                     <mat-label>Nom</mat-label>
-                    <input matInput>
+                    <input matInput [(ngModel)]="nom">
                 </mat-form-field>
         
                 <mat-form-field>
                     <mat-label>Email</mat-label>
-                    <input matInput>
+                    <input matInput [formControl]="emailControl"
+                    required>
                 </mat-form-field>
         
                 <mat-form-field>
                     <mat-label>Numéro téléphone</mat-label>
-                    <input matInput>
+                    <input matInput [(ngModel)]="telephone">
                 </mat-form-field>
         
                 <mat-form-field>
-                    <mat-label>Email</mat-label>
-                    <textarea matInput></textarea>
+                    <mat-label>Message</mat-label>
+                    <textarea matInput [(ngModel)]="message"></textarea>
                 </mat-form-field>
-                <button style="color:white;background-color:#0F70B7;" mat-raised-button>Envoyer  Message</button>
+                <button style="color:white;background-color:#0F70B7;" mat-raised-button (click)="envoyerMessage()">Envoyer  Message</button>
             </div>
         </div>
     
        
     </div>
     <app-footer></app-footer>
+
+    <ng-template #errorSheet>
+        <div class="sheetContent" style="color: #0F70B7;">
+          {{sheetErrorMessage}}
+           <br/><br/>
+           <button mat-raised-button (click)="closeBottomSheet()" *ngIf="!message_sent" style="background-color: red;color:white;">ok</button>
+           <button mat-raised-button (click)="closeBottomSheet()" *ngIf="message_sent" style="background-color: green;color:white;">ok</button>
+        </div>
+        
+      </ng-template>
 
