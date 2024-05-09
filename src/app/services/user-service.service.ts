@@ -62,11 +62,11 @@ export class UserServiceService {
         resolve(this.httpClient.post(this.root_url, formData).toPromise());
       } else {
         // Load image from assets folder
-        const imagePath = '/assets/avatar.svg'; // Change this to the actual path of your image
+        const imagePath = '/assets/photo.jpg'; // Change this to the actual path of your image
         fetch(imagePath)
           .then(response => response.blob())
           .then(blob => {
-            const imageFile = new File([blob], 'avatar.svg', { type: 'image/*' });
+            const imageFile = new File([blob], 'photo.jpg', { type: 'image/*' });
             formData.append('photo_de_profil', imageFile);
   
             // Once file is appended to formData, you can make the POST request
@@ -147,11 +147,11 @@ export class UserServiceService {
           resolve(this.httpClient.put(update_url, formData).toPromise());
         } else {
           // Load image from assets folder
-          const imagePath = '/assets/avatar.svg'; // Change this to the actual path of your image
+          const imagePath = '/assets/photo.jpg'; // Change this to the actual path of your image
           fetch(imagePath)
             .then(response => response.blob())
             .then(blob => {
-              const imageFile = new File([blob], 'avatar.svg', { type: 'image/*' });
+              const imageFile = new File([blob], 'photo.jpg', { type: 'image/*' });
               formData.append('photo_de_profil', imageFile);
     
               // Once file is appended to formData, you can make the POST request
@@ -175,11 +175,11 @@ export class UserServiceService {
           resolve(this.httpClient.put(update_url, formData).toPromise());
         } else {
           // Load image from assets folder
-          const imagePath = '/assets/avatar.svg'; // Change this to the actual path of your image
+          const imagePath = '/assets/photo.jpg'; // Change this to the actual path of your image
           fetch(imagePath)
             .then(response => response.blob())
             .then(blob => {
-              const imageFile = new File([blob], 'avatar.svg', { type: 'image/*' });
+              const imageFile = new File([blob], 'photo.jpg', { type: 'image/*' });
               formData.append('photo_de_profil', imageFile);
     
               // Once file is appended to formData, you can make the POST request
