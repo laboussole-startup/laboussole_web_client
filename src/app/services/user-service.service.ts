@@ -211,4 +211,13 @@ export class UserServiceService {
     let url:string = 'https://laboussole-back-end.onrender.com/auth/recover/'+mail+'/';
     return this.httpClient.get(url);
   }
+
+  recoverPassword(mail:string,code:number,new_password:string){
+    let url:string = 'https://laboussole-back-end.onrender.com/auth/recover/'+mail+'/';
+    return this.httpClient.post(url,{
+      "user_email":mail,
+      "code":code,
+      "new_password":new_password
+    });
+  }
 }

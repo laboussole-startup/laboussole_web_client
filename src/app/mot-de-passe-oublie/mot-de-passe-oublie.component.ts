@@ -28,12 +28,28 @@ export class MotDePasseOublieComponent {
   errorMessage:boolean = false;
   email:string = ""
 
+  code:number=0;
+  nouveau_pass:string="";
+  conf_nouveau_pass:string="";
+
     constructor(private userService:UserServiceService,private bottomSheet: MatBottomSheet){
       this.changeStep(1);
     }
 
   verifyLogin():void{
-    this.changeStep(4);
+    if(this.nouveau_pass==this.conf_nouveau_pass){
+      this.userService.recoverPassword(this.email,this.code,this.conf_nouveau_pass).subscribe(
+        (data:any)=>{
+          console.log(data);
+          this.changeStep(4);
+        },
+        (error:any)=>{
+          console.log(error);
+          this.changeStep(5);
+        }
+      )
+    }
+    
   }
   changeStep(step:number):void{
     if(step == 1){
