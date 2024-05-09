@@ -204,6 +204,7 @@ $speed: 0.4s;
 .leftContainer{
   display: flex;
   flex-flow: row nowrap;
+  align-items: center;
 
 }
 .profile{
@@ -344,4 +345,9 @@ $speed: 0.4s;
       }
     }
   
+  }
+
+  .menuIcon{
+    position: relative;
+    top:40px;
   }

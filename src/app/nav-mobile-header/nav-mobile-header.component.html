@@ -5,9 +5,7 @@
       (click)="openMenu()"
       [ngStyle]="{ display: hideMenuIcon ? 'none' : 'block' }"
     >
-    <button class="menuIcon" mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
+      <img class="menuIcon" src="../../assets/menu-vector.svg" alt="" />
   
     </div>
       <img
@@ -31,7 +29,7 @@
 </div>
 <div class="navFlexContainerTabletDesktop">
 
-    <div class="logo_icon" routerLink="/"><img src="../../assets/logo laboussole 1.png" alt=""  style="width: 60px; height: 60px;"></div>
+    <div class="logo_icon" routerLink="/"><img src="../../assets/logolaboussole1.svg" alt=""  style="width: 60px; height: 60px;"></div>
     
     <div class="home nav-item" routerLink="/">Acceuil </div>
    
@@ -42,7 +40,7 @@
 
   <div class="contact nav-item" routerLink="/contact">Contactez Nous</div>
   <div class="searchBox nav-item">
-    <input type="text" class="searchInput" name="" id="" placeholder="trouve ton metiér..." (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query" />
+    <input type="text" class="searchInput" name="" id="" placeholder="trouve ton métier..." (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query" />
   </div>
   <div class="signupBtn nav-item" routerLink="/signup">inscription</div>
   <div class="loginBtn nav-item" routerLink="/login">Connexion</div>
