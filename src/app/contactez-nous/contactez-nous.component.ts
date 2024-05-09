@@ -82,7 +82,7 @@ export class ContactezNousComponent {
         (error:any)=>{
           console.log(error);
           this.message_sent=false;
-          this.sheetErrorMessage="Une erreur est survenue pendant l'envoi du message ou aucun compte n'existe avec cet e-mail.";
+          this.sheetErrorMessage="Une erreur est survenue pendant l'envoi du message. Assurez-vous d'être connecté(e) avec cet e-mail";
           this.openBottomSheet();
           
         }

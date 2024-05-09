@@ -221,9 +221,9 @@ export class UserServiceService {
     });
   }
   contactus(mail:string,message:string){
-    let url:string = 'https://laboussole-back-end.onrender.com/auth/contact/'+mail+'/';
+    let url:string = 'https://laboussole-back-end.onrender.com/auth/contact/'+this.user_email+'/';
     return this.httpClient.post(url,{
-      "user_email":mail,
+      "user_email":this.user_email,
       "message":message
     });
   }
