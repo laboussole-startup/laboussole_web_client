@@ -1,18 +1,19 @@
 <div class="navflexcontainer">
   <div class="leftContainer" *ngIf="!hideOthers">
-    <div routerLink="/">
+    <div>
       <div
       (click)="openMenu()"
       [ngStyle]="{ display: hideMenuIcon ? 'none' : 'block' }"
     >
       <img class="menuIcon" src="../../assets/menu-vector.svg" alt="" />
   
-    </div>
+    </div routerLink="/" >
       <img
         
         class="logo_icon"
         src="../../assets/logolaboussole1.svg"
         alt=""
+        routerLink="/"
       />
     </div>
   </div>
