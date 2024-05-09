@@ -5,7 +5,9 @@
       (click)="openMenu()"
       [ngStyle]="{ display: hideMenuIcon ? 'none' : 'block' }"
     >
-      <img class="menuIcon" src="../../assets/menu drawer.png" alt="" />
+    <button class="menuIcon" mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
   
     </div>
       <img
@@ -21,7 +23,7 @@
  
   <div class="rightPlacedIcons">
     <form class="inputbox">
-      <input required="required" (focus)="handleClick()" (blur)="handleClick()"  placeholder="trouve ta formation..." name="query" (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query"  />
+      <input required="required" (focus)="handleClick()" (blur)="handleClick()"  placeholder="trouve ton métier..." name="query" (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query"  />
       <button type="reset" class="del">
       </button>
     </form>
@@ -39,7 +41,7 @@
   <div class="navFlexContainerTabletDesktop">
   
       <div class="logo_icon" routerLink="/">
-        <img src="../../assets/logo laboussole 1.png" alt=""  style="width: 60px; height: 60px;">
+        <img src="../../assets/logolaboussole1.svg" alt=""  style="width: 60px; height: 60px;">
       </div>
       
       <div class="home nav-item" routerLink="/">Acceuil </div>
