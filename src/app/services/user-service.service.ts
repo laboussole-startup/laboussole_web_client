@@ -16,6 +16,7 @@ export class UserServiceService {
   public user_email:string = "";
   public username:any="";
   public user_photo:string | null="";
+  public centres_interets:string = "";
   public chosenImage!:File;
 
 
@@ -65,7 +66,7 @@ export class UserServiceService {
         fetch(imagePath)
           .then(response => response.blob())
           .then(blob => {
-            const imageFile = new File([blob], 'photo.jpg', { type: 'image/jpeg' });
+            const imageFile = new File([blob], 'photo.jpg', { type: 'image/*' });
             formData.append('photo_de_profil', imageFile);
   
             // Once file is appended to formData, you can make the POST request
@@ -150,7 +151,7 @@ export class UserServiceService {
           fetch(imagePath)
             .then(response => response.blob())
             .then(blob => {
-              const imageFile = new File([blob], 'photo.jpg', { type: 'image/jpeg' });
+              const imageFile = new File([blob], 'photo.jpg', { type: 'image/*' });
               formData.append('photo_de_profil', imageFile);
     
               // Once file is appended to formData, you can make the POST request
@@ -178,7 +179,7 @@ export class UserServiceService {
           fetch(imagePath)
             .then(response => response.blob())
             .then(blob => {
-              const imageFile = new File([blob], 'photo.jpg', { type: 'image/jpeg' });
+              const imageFile = new File([blob], 'photo.jpg', { type: 'image/*' });
               formData.append('photo_de_profil', imageFile);
     
               // Once file is appended to formData, you can make the POST request

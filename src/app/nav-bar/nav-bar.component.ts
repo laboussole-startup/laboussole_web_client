@@ -37,6 +37,7 @@ export class NavBarComponent {
         this.isLoggedIn=true;
         this.userService.username= v.username;
         this.userService.user_photo=v.photo_de_profil;
+        this.userService.centres_interets = v.centres_interet;
         
       },
       (error) => {

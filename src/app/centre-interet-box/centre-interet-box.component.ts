@@ -1,4 +1,5 @@
 import { Component,Input,EventEmitter, Output} from '@angular/core';
+import { UserServiceService } from '../services/user-service.service';
 
 @Component({
   selector: 'app-centre-interet-box',
@@ -12,6 +13,17 @@ export class CentreInteretBoxComponent {
   @Output() eventEmitter = new EventEmitter<string>();
   clicked:boolean = false;
 
+  constructor(private userService:UserServiceService){
+    
+  }
+
+  ngOnInit(){
+    if(this.userService.user_email){
+      if(this.userService.centres_interets.indexOf(this.text_val) !== -1){
+        this.changeState();
+      }
+    }
+  }
 
   changeState(){
     this.clicked = ! this.clicked;
