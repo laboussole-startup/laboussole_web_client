@@ -1,5 +1,10 @@
 <app-nav-bar></app-nav-bar>
 <div class="container">
+    <div class="btnRetour" style="width: 90%;padding: 20px;">
+        <button mat-mini-fab style="background-color:#0F70B7;" routerLink="/profil/2" aria-label="Example icon button with a menu icon">
+            <mat-icon>arrow_back</mat-icon>
+          </button>  
+    </div>
     <div class="banner"> <img [src]="bannerImage" alt=""> </div>
     <div class="titre">{{currentNotification.titre}}</div>
     <div class="content" id="blurMark1" [innerHTML]="contentHtml"></div>

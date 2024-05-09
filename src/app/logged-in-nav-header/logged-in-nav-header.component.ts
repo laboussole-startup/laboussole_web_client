@@ -56,7 +56,7 @@ export class LoggedInNavHeaderComponent {
 
   goToNotifications(){
     this.notificationService.displayNotificationList=true;
-     this.router.navigateByUrl("/profil")
+     this.router.navigateByUrl("/profil/2")
    }
 
   ngOnInit(): void{

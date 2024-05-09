@@ -48,7 +48,7 @@ const routes: Routes = [
   {path: 'voir-tout-formations', component: VoirToutFormationsComponent},
   {path:'contact',component:ContactezNousComponent},
   {path: 'aboutus',component:AboutUsComponent},
-  {path: 'profil',component:UserProfileComponent},
+  {path: 'profil/:page',component:UserProfileComponent},
   {path:'search-results',component:SearchResultsComponent},
   {path:'details-actualites',component:DetailsActualitesComponent},
   {path:'details-notifications',component:DetailsNotificationsComponent},

@@ -35,7 +35,7 @@ export class DetailsNotificationsComponent {
         this.contentHtml = `${this.currentNotification.contenu}`;
         if(!this.userService.user_email){
           const fortyPercentElement:HTMLDivElement = this.elementRef.nativeElement.querySelector('#blurMark1');
-          fortyPercentElement.style.filter = 'blur(2.5px)';
+          fortyPercentElement.style.filter = 'blur(7.5px)';
           this.hideAll=true;
         }else{
           this.hideAll=false;

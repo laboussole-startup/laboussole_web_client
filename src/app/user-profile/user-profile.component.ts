@@ -1,5 +1,6 @@
 import { Component ,OnInit} from '@angular/core';
 import { UserInfo } from '../Models/userInfo';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NotificationsService } from '../services/notifications.service';
 import { UserServiceService } from '../services/user-service.service';
 
@@ -9,43 +10,52 @@ import { UserServiceService } from '../services/user-service.service';
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent {
-  current_location:string = "";
-  location_number:number = 0;
+  current_location:string = "modifier profil";
+  location_number:number = 1;
   username:string="";
   profile_image:string="";
   selectedFile!: File;
   unread_notif_count:string='';
   val:string | null='';
+  page: string | null ="";
+  
+
 
   constructor(private userService:UserServiceService,
-    private notificationsService:NotificationsService){
+    private notificationsService:NotificationsService,
+    private router:Router,
+    private route: ActivatedRoute){
 
   }
 
-  changeLocation(n:number){
-    this.location_number=n;
-    if(n==1){
-      this.current_location="modifier profil";
-    }else if(n==3){
-      this.current_location="changer mot de pass"
-    }else if(n==2){
-      this.current_location="notifications"
-    }else if(n==4){
-      this.current_location="FAQ"
-    }
-  }
   ngDoCheck(){
+    this.page = this.route.snapshot.paramMap.get('page');
+    let m:string = this.page?this.page:"0";
+    this.location_number=Number(m);
+    this.changeLabel(Number(m))
     this.val = localStorage.getItem('notifications');
     this.val=this.val=='0'?'':this.val;
     this.unread_notif_count = this.val?this.val:'';
     
     console.log(this.unread_notif_count)
   }
+  changeLabel(n:number){
+    if(n==0|| n==1){
+      this.current_location = "modifier profil"
+    }else if(n==2){
+      this.current_location = "notifications"
+    }else if(n==3){
+      this.current_location = "changer mot de pass"
+    }else if(n==4){
+      this.current_location="faq"
+    }
+  }
   ngOnInit(){
+    
     window.scrollTo(0,0);
     this.verifyLogin();
    if(this.notificationsService.displayNotificationList){
-    this.changeLocation(2);
+    this.router.navigateByUrl("/profil/2")
     this.notificationsService.displayNotificationList = false;
    }
   }
