@@ -22,7 +22,7 @@
         <div class="passwordInput">
             <mat-form-field appearance="outline">
                 <mat-label>Mot de passe</mat-label>
-                <input matInput [formControl]="passwordControl"
+                <input matInput [formControl]="passwordControl" (keyup.enter)="checkLogin()"
                  [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
