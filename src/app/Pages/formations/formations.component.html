@@ -98,6 +98,14 @@
       
   
       <!-- content -->
+
+      <mat-form-field>
+        <mat-label> <mat-icon>tune</mat-icon> Choisis un pays</mat-label>
+        <mat-select [(ngModel)]="pays" (selectionChange)="onPaysSelectionChange()">
+          <mat-option value="Cameroun"><img src="../../assets/cameroon-flag-icon-64.png" alt="" width="20" height="20" style="position: relative;top:4px;"> Cameroun </mat-option>
+          <mat-option value="Congo"> <img src="../../assets/republic-of-the-congo.png" alt="" width="20" height="20" style="position: relative;top:4px;"> Congo </mat-option>
+        </mat-select>
+      </mat-form-field>
   
       <div class="formation-content">
         <div class="recommendations-text">
@@ -105,13 +113,7 @@
           <a class="all" routerLink="/voir-tout-formations" (click)="handleClick()">Voir tout</a>
           
         </div>
-        <mat-form-field>
-          <mat-label> <mat-icon>tune</mat-icon> Choisis un pays</mat-label>
-          <mat-select [(ngModel)]="pays" (selectionChange)="onPaysSelectionChange()">
-            <mat-option value="Cameroun"><img src="../../assets/cameroon-flag-icon-64.png" alt="" width="20" height="20" style="position: relative;top:4px;"> Cameroun </mat-option>
-            <mat-option value="Congo"> <img src="../../assets/republic-of-the-congo.png" alt="" width="20" height="20" style="position: relative;top:4px;"> Congo </mat-option>
-          </mat-select>
-      </mat-form-field>
+        
         <div class="recommendations">
           <div *ngFor="let formation of initialReccomendationsList; index as i">
             <app-filiere-formation-box (click)="navigateToFaculteDetails(formation.faculte_id)"
@@ -125,8 +127,8 @@
         <div class="recommendations-text">
           <h2>Par Pays</h2>
         </div>
-        <div><img src="../../../assets/cameroon-icon.svg" alt="">  <strong style="position: relative;bottom:10px;left:10px;">Cameroun</strong> </div>
-        <div class="recommendations">
+        <div *ngIf="pays!='Congo'"><img src="../../../assets/cameroon-icon.svg" alt="">  <strong style="position: relative;bottom:10px;left:10px;">Cameroun</strong> </div>
+        <div class="recommendations" *ngIf="pays!='Congo'">
           <div *ngFor="let formation of CamerUniv; index as i">
             <app-filiere-formation-box
               [formationBox]="formation" (click)="navigateToDetails(formation.universite_id)"
@@ -134,15 +136,15 @@
           </div>
         </div>
 
-        <div><img src="../../../assets/congo.svg" alt="">  <strong style="position: relative;bottom:10px;left:10px;">Congo</strong> </div>
-        <div class="recommendations">
+        <div *ngIf="pays!='Cameroun'"><img src="../../../assets/congo.svg" alt="">  <strong style="position: relative;bottom:10px;left:10px;">Congo</strong> </div>
+        <div class="recommendations" *ngIf="pays!='Cameroun'">
           <div *ngFor="let formation of CongoUniv; index as i">
             <app-filiere-formation-box
               [formationBox]="formation" (click)="navigateToDetails(formation.universite_id)"
             ></app-filiere-formation-box>
           </div>
         </div>
-        <div class="seeAll">
+        <div class="seeAll"  *ngIf="pays!='Cameroun'">
           <button class="btnPlus" mat-raised-button style="background-color: #0f70b7;color:white;" (click)="handleClick()">voir plus</button>
         </div>
       </div>
