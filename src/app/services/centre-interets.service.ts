@@ -15,14 +15,14 @@ export class CentreInteretsService {
   constructor(private httpClient: HttpClient) {
 
     this.champ_lexical.set("Technologie","informat polytech genie numerique technolo");
-    this.champ_lexical.set("Agriculture","agricul elevage peches bois agri agro ");
+    this.champ_lexical.set("Agriculture","agricul elevage peche bois agri agro ");
     this.champ_lexical.set("Santé","medic medec infirmi sante chirurg pharma");
     this.champ_lexical.set("Droit","droit loi juri avocat magistra grefi");
     this.champ_lexical.set("Management","management econo business affaires finance");
-    this.champ_lexical.set("Construction et Btp","civil genie construction btp batiments travaux technicien")
-    this.champ_lexical.set("Mines","mines petrole hydrocarbures");
+    this.champ_lexical.set("Construction et Btp","civil genie construction btp batiment travaux technicien")
+    this.champ_lexical.set("Mines","mines petrole hydrocarbure");
     this.champ_lexical.set("Énergie renouvelable","energie renouvelable");
-    this.champ_lexical.set("Hydrocarbures","Hydrocarbures mines petrole");
+    this.champ_lexical.set("Hydrocarbures","Hydrocarbure mines petrole");
     this.champ_lexical.set("Éducation","enseignement enseignant education instituteur institutrice");
     this.champ_lexical.set("Entrepreneuriat","Entrepreneuriat business management econo affaires finance");
     this.champ_lexical.set("Création et Design","Creation et Design arts");
