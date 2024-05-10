@@ -39,6 +39,11 @@ export class FormationsComponent {
   reccomendationsList: Array<Faculte> = new Array();
   initialReccomendationsList: Array<Faculte> = new Array()
 
+  CamerUniv: Array<Universite> = new Array();
+  CongoUniv: Array<Universite> = new Array();
+
+  pays:string  = "";
+
   public getScreenWidth: any;
 
   @HostListener('window:resize', ['$event'])
@@ -59,6 +64,14 @@ export class FormationsComponent {
 
     this.service.getUniversites().subscribe((data: any) => {
       console.log(data);
+      let d:Array<Universite> = data as Array<Universite>;
+      for(let univ of d){
+        if(univ.pays=='Cameroun'){
+          this.CamerUniv.push(univ);
+        }else{
+          this.CongoUniv.push(univ);
+        }
+      }
       this.formations = data;
       // console.log(this.formations);
     });
@@ -189,5 +202,44 @@ export class FormationsComponent {
         [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]]; // Swap elements
     }
     return shuffledArray;
+  }
+
+  onPaysSelectionChange(){
+    let m:string | null = localStorage.getItem('user_email');
+    console.log(m);
+
+    if(m){
+      this.userService.getUserInfo().subscribe(
+        (data:any) => {
+          console.log(data);
+          let user = data as UserInfo;
+          console.log(user.centres_interet);
+          let final_centres:string = "";
+
+          let ci:Array<string> = user.centres_interet.split(" ");
+          console.log("-----ci------")
+          console.log(ci);
+
+          for(let c of ci){
+            final_centres = final_centres + this.centreInteretService.champ_lexical.get(c);
+          }
+
+          console.log("----------final ci---------")
+          console.log(final_centres)
+
+          console.log(this.pays);
+
+          this.service.getFacultesReccomendations(final_centres,this.pays).subscribe(
+            (data:any) => {
+              console.log(data);
+              let res:Array<Faculte> = data.results as Array<Faculte>
+              this.reccomendationsList = this.shuffleArray(res);
+              this.initialReccomendationsList = this.reccomendationsList.slice(0,5);
+              this.searchService.formationsReccomandations =   this.shuffleArray(res);
+            }
+          )
+        }
+      )
+    }
   }
 }

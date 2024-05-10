@@ -49,7 +49,10 @@ export class OffreFormationService {
   searchEcoles(s:string){
     return this.http.get(this.url + '/facultes/?search='+s);
   }
-  getFacultesReccomendations(s:string){
+  getFacultesReccomendations(s:string,p?:string){
+    if(p){
+      return this.http.get(this.url + '/facultes/reccomendations/?search='+s+'&pays='+p);
+    }
     return this.http.get(this.url + '/facultes/reccomendations/?search='+s);
   }
   getPageEcole(url:string){

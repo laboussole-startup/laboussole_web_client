@@ -40,6 +40,7 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSelectModule} from '@angular/material/select';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSliderModule} from '@angular/material/slider';
 
 import { MotDePasseOublieComponent } from './mot-de-passe-oublie/mot-de-passe-oublie.component';
@@ -97,6 +98,7 @@ import { FaqTemplateComponent } from './faq-template/faq-template.component';
 import { FaqPageComponent } from './faq-page/faq-page.component';
 import { SingleFaqPageComponent } from './single-faq-page/single-faq-page.component';
 import { CompleteProfileDialogComponent } from './complete-profile-dialog/complete-profile-dialog.component';
+import { MatRippleModule } from '@angular/material/core';
 
 
 
@@ -197,6 +199,9 @@ import { CompleteProfileDialogComponent } from './complete-profile-dialog/comple
     MatProgressSpinnerModule,
     MatExpansionModule,
     MatSelectModule,
+    MatRippleModule,
+    MatSidenavModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent],
