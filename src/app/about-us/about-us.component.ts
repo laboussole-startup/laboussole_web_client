@@ -13,6 +13,8 @@ export class AboutUsComponent {
 
   isLoggedIn:boolean=false;
 
+  currentProfileNumber:number=0;
+
   constructor(private renderer: Renderer2){
     
   }
@@ -22,10 +24,13 @@ export class AboutUsComponent {
     this.enableScroll();
   }
   nextImage(){
-
+    this.currentProfileNumber = (this.currentProfileNumber+1)%9;
   }
   prevImage(){
-    
+    if(this.currentProfileNumber==0){
+      this.currentProfileNumber=9;
+    }
+    this.currentProfileNumber--;
   }
   toggleMenu() {
     this.isMenuIconClicked = !this.isMenuIconClicked;

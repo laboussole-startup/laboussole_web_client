@@ -88,13 +88,9 @@
   
     <div class="temoignagesSlider">
       <span class="leftArrowIcon">
-        <img
-          src="../../assets/icons8-back-arrow-50.png"
-          alt=""
-          style="width: 20px; height: 20px; position: relative; top: 5px"
-  
-          (click)="prevTemoignage()"
-        />
+        <button  (click)="prevTemoignage()" mat-mini-fab style="background-color: #00a4e4;" aria-label="Example icon button with a filter list icon">
+          <mat-icon>chevron_left</mat-icon>
+        </button>
       </span>
       <span class="temoignageBox">
         
@@ -108,14 +104,9 @@
         
       </span>
       <span class="rightArrowIcon">
-        <img
-          src="../../assets/icons8-arrow-circle-right-50.png"
-          alt=""
-          style="width: 20px; height: 20px; position: relative; top: 5px"
-  
-          (click)="nextTemoignage()"
-  
-        />
+        <button  (click)="nextTemoignage()" mat-mini-fab style="background-color: #00a4e4;" aria-label="Example icon button with a filter list icon">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
       </span>
     </div>
   </div>
