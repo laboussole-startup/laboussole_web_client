@@ -33,7 +33,7 @@
 }
 
 .header-text{
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 400;
   margin-bottom: 1vh;
 }
@@ -42,7 +42,7 @@
   font-size: 1.1rem;
 }
 .small-header-text{
-  font-size: 0.7rem;
+  font-size: 1rem;
 }
 
 .title-1,.content-text{
@@ -57,7 +57,7 @@
 }
 
 .content-text{
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   margin-bottom: 130px;
 }
 
@@ -247,7 +247,7 @@
     font-size: 1.6rem;
   }
   .small-header-text{
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
   
 }
@@ -301,7 +301,7 @@
     font-size: 1.9rem;
   }
   .small-header-text{
-    font-size: 1rem;
+    font-size: 1.4rem;
   }
 
   .optionsList{
@@ -315,9 +315,9 @@
     
     
   }
-
+ 
   .aboutLaboussoleImage img{
-    width: 60%;
+    width: 60%;   
     height: 60%;
     object-fit: cover; 
     object-position: center;
@@ -339,6 +339,7 @@
 @media screen and (max-width:600px) {
   .subtle-text{
     color: #0F70B7;
+    text-decoration: underline;
   }
   .actions{
     display: none;
@@ -375,6 +376,7 @@
 @media screen and (min-width:600px) and  (max-width:1000px) {
   .subtle-text{
     color: #0F70B7;
+    text-decoration: underline;
   }
   .actions{
     display: none;
