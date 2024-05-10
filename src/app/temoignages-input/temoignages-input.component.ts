@@ -54,7 +54,9 @@ export class TemoignagesInputComponent {
         let d = data as Array<Temoignage>
 
         for(let tem of d){
-          this.userService.getUserByMail(tem.nom).subscribe(
+          let temp:string = tem.nom;
+          tem.nom="";
+          this.userService.getUserByMail(temp).subscribe(
             (data:any)=>{
               console.log(data);
               let us = data as UserInfo
