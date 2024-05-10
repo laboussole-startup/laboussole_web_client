@@ -38,6 +38,8 @@ export class NavBarComponent {
         this.userService.username= v.username;
         this.userService.user_photo=v.photo_de_profil;
         this.userService.centres_interets = v.centres_interet;
+
+        this.userService.profile_incomplete=false;
         
         if(v.dernier_diplome=='AUCUN' || v.serie=="AUCUN" || v.genre=='NON DEFINI' || v.niveau=='AUCUN'){
           this.userService.profile_incomplete=true;
@@ -45,8 +47,10 @@ export class NavBarComponent {
           this.userService.profile_incomplete=true;
         }else{
           let t:string= v.telephone?v.telephone:"";
-          if(t.length<6)
-          this.userService.profile_incomplete=true; 
+          if(t.length<6){
+            this.userService.profile_incomplete=true; 
+          }
+          
         }
       },
       (error) => {

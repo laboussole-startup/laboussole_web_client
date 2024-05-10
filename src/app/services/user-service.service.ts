@@ -18,7 +18,7 @@ export class UserServiceService {
   public user_photo:string | null="";
   public centres_interets:string = "";
   public chosenImage!:File;
-  public profile_incomplete:boolean=true;
+  public profile_incomplete:boolean=false;
 
 
 
