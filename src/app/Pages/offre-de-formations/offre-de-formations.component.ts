@@ -87,8 +87,7 @@ export class OffreDeFormationsComponent {
           for(let c of ci){
             final_centres = final_centres + this.centreInteretService.champ_lexical.get(c);
           }
-
-
+          console.log(final_centres);
           this.service.getMetiersRecommendations(final_centres).subscribe(
             (data:any) => {
               console.log(data);
