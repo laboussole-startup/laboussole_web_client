@@ -46,7 +46,7 @@
     class="infoscles"
   >
     <h2 style="text-align: center">Infos Clés</h2>
-    <br /><br /><br />
+    <br />
 <!--
    <img
       src="../../assets/Symbol.png"
@@ -150,10 +150,7 @@
         </div>
         <br /><br />
         <div class="salaire" >
-          Salaire indicatif: Le salaire d'un {{ metierItem.nom }} varie en
-          fonction de son expérience, de son niveau de qualification et de
-          l'entreprise dans laquelle il travaille. En moyenne, un débutant peut
-          espérer un salaire mensuel d'environ {{ metierItem.salairemoyen }}.
+          <strong>Salaire indicatif: </strong> {{ metierItem.salairemoyen }}.
         </div>
       </div>
       <br /><br /><br />
@@ -172,7 +169,7 @@
           {{entry.key.nom}} de {{entry.value.nom}}
         </li>
       </ul>
-      <br /><br /><br />
+      <br />
     </div>
 
     <div id="Entreprise" *ngIf="!hideAll">

@@ -126,6 +126,9 @@ div:empty{
 }
 
 @media screen and (min-width: 600px) {
+  .header-text{
+    color: white;font-size:1.2rem;font-weight:900;margin-bottom:20px;width:100%;text-align:center;
+  }
   .container {
     .search-formation {
       // padding-top: 100px;
@@ -199,4 +202,12 @@ app-nav-bar{
 }
 app-footer{
   margin-top: 18vh;
+}
+.header-text{
+  color: white;font-size:1.4rem;font-weight:900;margin-bottom:20px;width:100%;text-align:center;
+}
+@media screen and (max-width:380px) {
+  .header-text{
+    color: white;font-size:1rem;font-weight:900;margin-bottom:20px;width:100%;text-align:center;
+  }
 }

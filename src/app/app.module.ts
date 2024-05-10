@@ -96,6 +96,7 @@ import { ConditionsUtilisationsComponent } from './conditions-utilisations/condi
 import { FaqTemplateComponent } from './faq-template/faq-template.component';
 import { FaqPageComponent } from './faq-page/faq-page.component';
 import { SingleFaqPageComponent } from './single-faq-page/single-faq-page.component';
+import { CompleteProfileDialogComponent } from './complete-profile-dialog/complete-profile-dialog.component';
 
 
 
@@ -166,7 +167,8 @@ import { SingleFaqPageComponent } from './single-faq-page/single-faq-page.compon
     ConditionsUtilisationsComponent,
     FaqTemplateComponent,
     FaqPageComponent,
-    SingleFaqPageComponent
+    SingleFaqPageComponent,
+    CompleteProfileDialogComponent
   ],
   imports: [
     CommonModule,

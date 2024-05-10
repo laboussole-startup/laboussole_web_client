@@ -9,6 +9,7 @@ import { Universite } from '../Models/universite';
 import { MatDialog} from '@angular/material/dialog';
 import { AskLoginDialogComponent } from 'src/app/ask-login-dialog/ask-login-dialog.component';
 import { UserServiceService } from '../services/user-service.service';
+import { CompleteProfileDialogComponent } from '../complete-profile-dialog/complete-profile-dialog.component';
 
 @Component({
   selector: 'app-detail-offre-formation',
@@ -49,14 +50,6 @@ export class DetailOffreFormationComponent {
     this.metierId = this.metierRoute.snapshot.paramMap.get('id_metiers'); // Get cart item ID from route
     console.log(this.metierId);
 
-    if(!this.userService.user_email){
-      const fortyPercentElement:HTMLDivElement = this.elementRef.nativeElement.querySelector('#blurMark1');
-      fortyPercentElement.style.filter = 'blur(7.5px)';
-      this.hideAll=true;
-    }else{
-      this.hideAll=false;
-    }
-    
 
     if (this.metierId) {
       this.service
@@ -71,7 +64,8 @@ export class DetailOffreFormationComponent {
           console.log(this.metierItem);
           console.log(this.competences);
 
-          let facs:Array<string> =this.removeBraces(this.metierItem.faculte).split(',');
+          if(this.metierItem.faculte){
+            let facs:Array<string> =this.removeBraces(this.metierItem.faculte).split(',');
           console.log(facs)
           for(let i of facs){
             let id:number = Number(i)
@@ -91,7 +85,9 @@ export class DetailOffreFormationComponent {
               }
             )
           }
-          let ecoles:Array<string> =this.removeBraces(this.metierItem.ecole).split(',');
+          }
+          if(this.metierItem.ecole){
+            let ecoles:Array<string> =this.removeBraces(this.metierItem.ecole).split(',');
           console.log(ecoles)
           for(let i of ecoles){
             let id:number = Number(i)
@@ -111,28 +107,46 @@ export class DetailOffreFormationComponent {
               }
             )
           }
-          if(this.userService.user_email){
-            const fortyPercentElement:HTMLDivElement = this.elementRef.nativeElement.querySelector('#blurMark1');
-            fortyPercentElement.style.filter = 'blur(0px)';
-            this.hideAll=false;
           }
-          
-         
-
-        
         });
     }
 
     // this.metierItem = this.service.getCartItemById(this.metierId); // Retrieve specific cart item details
   }
+ ngAfterViewInit(){
+  window.scrollTo(0,0)
+  const currentDate = new Date();
 
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(AskLoginDialogComponent, {
-      width: '250px',
-      enterAnimationDuration,
-      exitAnimationDuration,
-    });
-  }
+    const currentDay = currentDate.getDate(); // Get the day (1-31)
+    const currentMonth = currentDate.getMonth() + 1; // Get the month (0-11), adding 1 to make it 1-12
+    const currentYear = currentDate.getFullYear(); // Get the year (e.g., 2024)
+
+    let dt = localStorage.getItem("profile_reminder");
+    let launch:boolean = false;
+    if(dt){
+      if(dt==currentDay+'/'+currentMonth+'/'+currentYear){
+        launch=false;
+      }else{
+        launch=true;
+        localStorage.setItem("profile_reminder",currentDay+'/'+currentMonth+'/'+currentYear)
+      }
+    }else{
+      launch = true;
+      localStorage.setItem("profile_reminder",currentDay+'/'+currentMonth+'/'+currentYear)
+    }
+
+    if(!localStorage.getItem('user_email')){
+      const fortyPercentElement:HTMLDivElement = this.elementRef.nativeElement.querySelector('#blurMark1');
+      fortyPercentElement.style.filter = 'blur(7.5px)';
+      this.hideAll=true;
+    }else{
+      if(this.userService.profile_incomplete && launch){
+        this.openDialog("5ms","5ms");
+      }
+      this.hideAll=false;
+    }
+
+ }
   //aside
   toggleMenu() {
     this.isMenuIconClicked = !this.isMenuIconClicked;
@@ -165,6 +179,13 @@ export class DetailOffreFormationComponent {
     }
     return str;
     
+  }
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(CompleteProfileDialogComponent, {
+      width: '300px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
   }
 }
 

@@ -6,6 +6,7 @@ import { OffreFormationService } from 'src/app/services/offre-formation.service'
 import { MatDialog} from '@angular/material/dialog';
 import { AskLoginDialogComponent } from 'src/app/ask-login-dialog/ask-login-dialog.component';
 import { UserServiceService } from 'src/app/services/user-service.service';
+import { CompleteProfileDialogComponent } from 'src/app/complete-profile-dialog/complete-profile-dialog.component';
 
 @Component({
   selector: 'app-details-filieres',
@@ -38,6 +39,8 @@ export class DetailsFilieresComponent {
     window.scrollTo(0,0);
     this.filiereId = this.filiereRoute.snapshot.paramMap.get('universite_id'); // Get cart item ID from route
     console.log(this.filiereId);
+
+   
 
     if (this.filiereId) {
       this.service
@@ -84,8 +87,8 @@ export class DetailsFilieresComponent {
   }
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(AskLoginDialogComponent, {
-      width: '250px',
+    this.dialog.open(CompleteProfileDialogComponent, {
+      width: '300px',
       enterAnimationDuration,
       exitAnimationDuration,
     });
