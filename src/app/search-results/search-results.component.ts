@@ -56,10 +56,16 @@ export class SearchResultsComponent {
         (data:any)=>{
           let us:UserInfo = data as UserInfo;
           const currentDate: Date = new Date();
+          console.log("----------------USER INFO ARRIVED-----------------")
 
           // Convert the Date object to a string
           const currentDateTimeString: string = currentDate.toISOString();
-          this.formationService.saveHistorique(us.id,currentDateTimeString,this.searchService.searchQuery);
+          this.formationService.saveHistorique(us.id,currentDateTimeString,this.searchService.searchQuery).subscribe(
+            (data:any)=>{
+              console.log("----------------RESULT ARRIVED-----------------")
+              console.log(data);
+            }
+          )
         }
       )
       
@@ -137,7 +143,11 @@ export class SearchResultsComponent {
 
         // Convert the Date object to a string
         const currentDateTimeString: string = currentDate.toISOString();
-        this.formationService.saveHistorique(us.id,currentDateTimeString,this.searchService.formationQuery);
+        this.formationService.saveHistorique(us.id,currentDateTimeString,this.searchService.formationQuery).subscribe(
+          (data:any)=>{
+            console.log(data);
+          }
+        )
       }
       this.showSpinner=true;
       this.query = this.searchService.formationQuery
@@ -162,7 +172,11 @@ export class SearchResultsComponent {
 
         // Convert the Date object to a string
         const currentDateTimeString: string = currentDate.toISOString();
-        this.formationService.saveHistorique(us.id,currentDateTimeString,this.searchService.metierQuery);
+        this.formationService.saveHistorique(us.id,currentDateTimeString,this.searchService.metierQuery).subscribe(
+          (data:any)=>{
+            console.log(data);
+          }
+        )
       }
       this.showSpinner=true;
       this.query = this.searchService.metierQuery
