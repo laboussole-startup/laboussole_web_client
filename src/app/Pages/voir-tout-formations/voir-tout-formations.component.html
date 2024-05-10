@@ -112,8 +112,15 @@
           <!-- <a href="" class="all">Voir tout</a> -->
         </div>
         <div *ngIf="!showingRecs" class="recommendations">
-          <div><img src="../../../assets/cameroon-icon.svg" alt="">  <strong style="position: relative;bottom:10px;left:10px;">Cameroun</strong> </div>
-          <div class="recommendations">
+          <mat-form-field>
+            <mat-label> <mat-icon>tune</mat-icon> Choisis un pays</mat-label>
+            <mat-select [(ngModel)]="pays" (selectionChange)="onPaysSelectionChange()">
+              <mat-option value="Cameroun"><img src="../../assets/cameroon-flag-icon-64.png" alt="" width="20" height="20" style="position: relative;top:4px;"> Cameroun </mat-option>
+              <mat-option value="Congo"> <img src="../../assets/republic-of-the-congo.png" alt="" width="20" height="20" style="position: relative;top:4px;"> Congo </mat-option>
+            </mat-select>
+        </mat-form-field> <br><br>
+          <div id="CamerUniv"><img src="../../../assets/cameroon-icon.svg" alt="">  <strong style="position: relative;bottom:10px;left:10px;">Cameroun</strong> </div>
+          <div class="recommendations" id="CamerUniv">
             <div *ngFor="let formation of CamerUniv; index as i">
               <app-filiere-formation-box
                 [formationBox]="formation" (click)="navigateToDetails(formation.universite_id)"
@@ -121,8 +128,8 @@
             </div>
           </div>
   
-          <div><img src="../../../assets/congo.svg" alt="">  <strong style="position: relative;bottom:10px;left:10px;">Congo</strong> </div>
-          <div class="recommendations">
+          <div id="CongoUniv"><img src="../../../assets/congo.svg" alt="">  <strong style="position: relative;bottom:10px;left:10px;">Congo</strong> </div>
+          <div class="recommendations" >
             <div *ngFor="let formation of CongoUniv; index as i">
               <app-filiere-formation-box
                 [formationBox]="formation" (click)="navigateToDetails(formation.universite_id)"

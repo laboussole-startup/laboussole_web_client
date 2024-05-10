@@ -27,6 +27,7 @@ export class VoirToutFormationsComponent {
   formations!: Universite[];
   reccomandations!:Array<Faculte>;
   showingRecs:boolean = false;
+  pays:string  = "";
 
 
   CamerUniv: Array<Universite> = new Array();
@@ -96,5 +97,23 @@ export class VoirToutFormationsComponent {
     this.searchService.setFormationsQuery("");
     this.searchService.setMetiersQuery(this.query);
     this.router.navigateByUrl("/search-results")
+  }
+
+  onPaysSelectionChange(){
+    if(this.pays=='Cameroun'){
+      this.handleClick('CamerUiv');
+    }else{
+      this.handleClick('CongoUniv');
+    }
+  }
+  handleClick(sectionId: string){
+    console.log(sectionId);
+    const sectionElement = document.getElementById(sectionId);
+    if (sectionElement) {
+      const yOffset = sectionElement.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({ top: yOffset, behavior: 'smooth' });
+     }else{
+      console.log("section not found")
+     }
   }
 }
