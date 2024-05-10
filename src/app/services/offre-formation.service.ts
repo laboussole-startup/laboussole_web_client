@@ -73,6 +73,14 @@ export class OffreFormationService {
   getFiliereDetails(id: any) {
     return this.http.get(this.url + '/filieres/' + id + '/');
   }
+  saveHistorique(id_user:number,date:string,mots_cles:string){
+    let url = this.url+'/historique_recherches/';
+    return this.http.post(url,{
+      "id_utilisateur":id_user,
+      "date_heure":date,
+      "mots_cles":mots_cles
+    })
+  }
 
 
 

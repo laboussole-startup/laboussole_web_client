@@ -12,4 +12,5 @@ export interface UserInfo {
     serie: string | null;
     telephone: string | null;
     username: string;
+    id:number;
   }
