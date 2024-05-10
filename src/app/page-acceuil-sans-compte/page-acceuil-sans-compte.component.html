@@ -9,8 +9,8 @@
           <strong>LABOUSSOLE </strong>  <span class="subtle-text" routerLink="/universites">t’oriente</span> vers la <span class="subtle-text" routerLink="/metiers"> carrière</span>  qui te correspond
         </div>
         <div class="actions" style="cursor:pointer;font-weight:900;font-size:0.8rem;margin-top:40px;flex-flow:row nowrap;justify-content:center;gap:10px;">
-          <div class="metier" routerLink="/metiers"  style="width:fit-content;color:white;background-color: #0F70B7;padding: 15px;border-radius: 25px;">Trouve ton métier</div>
-          <div class="formation" routerLink="/universites"  style="width:fit-content;color:white;background-color: #2DAAE1;padding:15px;border-radius: 25px;">Trouve ta formation</div>
+          <div matRipple class="metier" routerLink="/metiers"  style="width:fit-content;color:white;background-color: #0F70B7;padding: 15px;border-radius: 25px;">Trouve ton métier</div>
+          <div matRipple class="formation" routerLink="/universites"  style="width:fit-content;color:white;background-color: #2DAAE1;padding:15px;border-radius: 25px;">Trouve ta formation</div>
         </div>
       </div>
       <div class="imageAcceuil">
@@ -61,7 +61,7 @@
     </div>
 
 <!-- >>>>>>> main -->
-    <div class="aboutLaboussoleImage" routerLink="/aboutus">
+    <div matRipple class="aboutLaboussoleImage" routerLink="/aboutus">
       <img src="../../assets/profiles/IMAGE PAGE D'ACCUEIL.png" alt="" />
     </div>
   </div>
@@ -75,8 +75,8 @@
     <div class="tem-text">
       plusieurs personnes nous ont fait confiance et ont decidé de le faire savoir.
     </div>
-    <div class="sendTemoignage" (click)="laisserTemoignage()">
-      <span>Laisser un temoignage </span>
+    <div matRipple class="sendTemoignage" (click)="laisserTemoignage()">
+      <span matRipple>Laisser un temoignage </span>
       <span class="rightArrowIcon">
         <img
           src="../../assets/icons8-arrow-right-60.png"

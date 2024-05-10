@@ -5,11 +5,11 @@
       (click)="openMenu()"
       [ngStyle]="{ display: hideMenuIcon ? 'none' : 'block' }"
     >
-      <img class="menuIcon" src="../../assets/menu-vector.svg" alt="" />
+      <img matRipple class="menuIcon" src="../../assets/menu-vector.svg" alt="" />
   
     </div>
       <img
-        
+        matRipple
         class="logo_icon"
         src="../../assets/logolaboussole1.svg"
         alt=""
@@ -24,27 +24,27 @@
       <button type="reset" class="del" ></button>
     </form>
    
-    <div class="profile" *ngIf="!hideOthers" [matMenuTriggerFor]="profileMenu"> <img src="../../assets/avatar.svg" alt="" width="30px" height="30px"></div>
+    <div matRipple class="profile" *ngIf="!hideOthers" [matMenuTriggerFor]="profileMenu"> <img src="../../assets/avatar.svg" alt="" width="30px" height="30px"></div>
    
   </div>
 </div>
 <div class="navFlexContainerTabletDesktop">
 
-    <div class="logo_icon" routerLink="/"><img src="../../assets/logolaboussole1.svg" alt=""  style="width: 60px; height: 60px;"></div>
+    <div matRipple class="logo_icon" routerLink="/"><img src="../../assets/logolaboussole1.svg" alt=""  style="width: 60px; height: 60px;"></div>
     
-    <div class="home nav-item" routerLink="/">Acceuil </div>
+    <div matRipple class="home nav-item" routerLink="/">Acceuil </div>
    
-    <div class="services nav-item" [matMenuTriggerFor]="servicesMenu" >Nos Services </div>
+    <div matRipple class="services nav-item" [matMenuTriggerFor]="servicesMenu" >Nos Services </div>
             
-    <div class="apropos nav-item" routerLink="/aboutus">A propos de nous </div>
+    <div matRipple class="apropos nav-item" routerLink="/aboutus">A propos de nous </div>
 
 
-  <div class="contact nav-item" routerLink="/contact">Contactez Nous</div>
+  <div matRipple class="contact nav-item" routerLink="/contact">Contactez Nous</div>
   <div class="searchBox nav-item">
     <input type="text" class="searchInput" name="" id="" placeholder="trouve ton métier..." (keyup.enter)="onEnterKeyPressed()" [(ngModel)]="query" />
   </div>
-  <div class="signupBtn nav-item" routerLink="/signup">inscription</div>
-  <div class="loginBtn nav-item" routerLink="/login">Connexion</div>
+  <div matRipple class="signupBtn nav-item" routerLink="/signup">inscription</div>
+  <div matRipple class="loginBtn nav-item" routerLink="/login">Connexion</div>
 </div>
 <mat-menu #servicesMenu="matMenu">
   <button mat-menu-item routerLink="/metiers">Métiers</button>
