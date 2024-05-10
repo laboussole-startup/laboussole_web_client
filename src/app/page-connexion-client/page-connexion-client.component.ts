@@ -34,7 +34,9 @@ export class PageConnexionClientComponent {
  passwordControl = new FormControl('', [Validators.required]);
  passerrormsg = 'obligatoire';
 
- constructor(private userService:UserServiceService,private router:Router,private bottomSheet: MatBottomSheet){
+ constructor(private userService:UserServiceService,
+  private router:Router,
+  private bottomSheet: MatBottomSheet){
 
  }
  checkLogin(){

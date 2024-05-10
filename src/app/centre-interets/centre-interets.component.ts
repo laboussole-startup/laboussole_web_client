@@ -1,8 +1,9 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CentreInteret } from '../Models/centreInteret';
 import { CentreInteretsService } from '../services/centre-interets.service';
 import { UserServiceService } from '../services/user-service.service';
+import { MatBottomSheet, MatBottomSheetConfig } from '@angular/material/bottom-sheet';
 
 
 @Component({
@@ -12,12 +13,18 @@ import { UserServiceService } from '../services/user-service.service';
 })
 export class CentreInteretsComponent {
 
+  @ViewChild('errorSheet') errorSheetTemplate = {} as TemplateRef<any>;
+  sheetErrorMessage:string="";
+
   All_Centres:Array<CentreInteret> = new Array();
   choices:Set<string> = new Set<string>();
   start:number=0;
   disablebtn:boolean = false;
 
-  constructor(private centreInteretService:CentreInteretsService,private userService:UserServiceService,private router:Router){
+  constructor(private centreInteretService:CentreInteretsService,
+    private userService:UserServiceService,
+    private router:Router,
+    private bottomSheet: MatBottomSheet){
 
   }
 
@@ -58,13 +65,27 @@ saveChoice(data:string){
    
 }
 terminateProcess(){
-  console.log(Array.from(this.choices))
-  this.userService.updateCentreInterets(Array.from(this.choices)).subscribe(data =>{
-    console.log(data);
-    
-  });
-  this.router.navigate(['/']);
+  if(this.choices.size<1){
+    this.sheetErrorMessage="N'oubliez pas de choisir au moins un centre d'intérêt";
+    this.openBottomSheet();
+  }else{
+    console.log(Array.from(this.choices))
+    this.userService.updateCentreInterets(Array.from(this.choices)).subscribe(data =>{
+      console.log(data);
+      
+    });
+    this.router.navigate(['/']);
+  }
+ 
   
 }
+
+openBottomSheet(config?: MatBottomSheetConfig){
+  this.bottomSheet.open(this.errorSheetTemplate, config);
+}
+closeBottomSheet(){
+  this.bottomSheet.dismiss(this.errorSheetTemplate);
+}
+
   
 }

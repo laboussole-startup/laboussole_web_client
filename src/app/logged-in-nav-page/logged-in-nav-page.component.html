@@ -1,7 +1,7 @@
 
 <div class="container">
     <div class="iconsList">
-      <div>
+      <div [matMenuTriggerFor]="profileMenu">
         <img *ngIf="picture==''" src="../../assets/profile-svgrepo-com.svg" alt="" width="30px" height="30px">
 
       <img *ngIf="picture" [src]="picture" alt="" width="30px" height="30px" style="border-radius: 50%;">
@@ -29,7 +29,7 @@
     </div>
 </div>
 <mat-menu #profileMenu="matMenu">
-  <button mat-menu-item routerLink="/profil/1">
+  <button mat-menu-item routerLink="/profil/0">
     <mat-icon>person</mat-icon>
     <span>Profil</span>
   </button>
