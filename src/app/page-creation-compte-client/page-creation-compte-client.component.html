@@ -33,7 +33,7 @@
       </div>
       <div class="passwordInput">
           <mat-form-field appearance="outline">
-              <mat-label>Mot de pass</mat-label>
+              <mat-label>Mot de passe</mat-label>
               <input matInput [formControl]="passwordControl"
                [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
@@ -43,7 +43,7 @@
       </div>
         <div class="passwordInput">
           <mat-form-field appearance="outline">
-            <mat-label>Confirmer Mot de pass</mat-label>
+            <mat-label>Confirmer Mot de passe</mat-label>
             <input matInput [formControl]="confirmPasswordControl" [(ngModel)]="confirmPassword" [type]="hide ? 'password' : 'text'">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
