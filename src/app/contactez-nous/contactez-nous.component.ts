@@ -22,11 +22,12 @@ export class ContactezNousComponent {
   isLoggedIn:boolean=false;
 
   emailControl = new FormControl('', [Validators.required, Validators.email]);
- errorMessage = 'Email invalide ou déjà pris';
+  messageControl = new FormControl('', [Validators.required]);
+  errorMessage = 'Email invalide ou déjà pris';
 
- nom:string = "";
- telephone:string="";
- message:string="";
+  nom:string = "";
+  telephone:string="";
+
 
   constructor(private renderer: Renderer2,
     private bottomSheet: MatBottomSheet,
@@ -65,15 +66,17 @@ export class ContactezNousComponent {
   }
 
   envoyerMessage(){
-    if(this.emailControl.valid){
+    if(this.emailControl.valid && this.messageControl.valid){
+
       let m:string=this.emailControl.value?this.emailControl.value:""
-      this.userService.contactus(m,this.message).subscribe(
+      let s:string=this.messageControl.value?this.messageControl.value:"";
+      
+      this.userService.contactus(m,s).subscribe(
         (data:any)=>{
           console.log(data);
           this.sheetErrorMessage="Message envoyé avec succès";
-          this.emailControl.setValue("");
           this.telephone="";
-          this.message="";
+          this.messageControl.setValue("");
           this.nom="";
           this.message_sent=true;
           this.openBottomSheet();
@@ -84,9 +87,12 @@ export class ContactezNousComponent {
           this.message_sent=false;
           this.sheetErrorMessage="Une erreur est survenue pendant l'envoi du message. Assurez-vous d'être connecté(e) avec cet e-mail";
           this.openBottomSheet();
-          
         }
       )
+    }else{
+      this.message_sent=false;
+      this.sheetErrorMessage="Remplissez les champs obligatoire";
+      this.openBottomSheet();
     }
   }
 }

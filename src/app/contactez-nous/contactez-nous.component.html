@@ -50,7 +50,7 @@
         
                 <mat-form-field>
                     <mat-label>Message</mat-label>
-                    <textarea matInput [(ngModel)]="message"></textarea>
+                    <textarea matInput requiered [formControl]="messageControl"></textarea>
                 </mat-form-field>
                 <button style="color:white;background-color:#0F70B7;" mat-raised-button (click)="envoyerMessage()">Envoyer  Message</button>
             </div>
