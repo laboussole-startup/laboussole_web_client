@@ -27,6 +27,10 @@ export class VoirToutFormationsComponent {
   formations!: Universite[];
   reccomandations!:Array<Faculte>;
   showingRecs:boolean = false;
+
+
+  CamerUniv: Array<Universite> = new Array();
+  CongoUniv: Array<Universite> = new Array();
   // formations: any;
   showSideBar = false;
 
@@ -56,6 +60,15 @@ export class VoirToutFormationsComponent {
   }else{
     this.service.getUniversites().subscribe((data: any) => {
       console.log(data);
+      console.log(data);
+      let d:Array<Universite> = data as Array<Universite>;
+      for(let univ of d){
+        if(univ.pays=='Cameroun'){
+          this.CamerUniv.push(univ);
+        }else{
+          this.CongoUniv.push(univ);
+        }
+      }
       this.formations = data;
       // console.log(this.formations);
     });

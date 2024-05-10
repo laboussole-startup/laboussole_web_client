@@ -108,13 +108,26 @@
   
       <div class="formation-content">
         <div class="recommendations-text">
-          <h2>Les formations</h2>
+          <h2>Universités</h2>
           <!-- <a href="" class="all">Voir tout</a> -->
         </div>
         <div *ngIf="!showingRecs" class="recommendations">
-          <div *ngFor="let formation of formations">
-            <app-filiere-formation-box (click)="navigateToDetails(formation.universite_id)" [formationBox]="formation"
-            ></app-filiere-formation-box>
+          <div><img src="../../../assets/cameroon-icon.svg" alt="">  <strong style="position: relative;bottom:10px;left:10px;">Cameroun</strong> </div>
+          <div class="recommendations">
+            <div *ngFor="let formation of CamerUniv; index as i">
+              <app-filiere-formation-box
+                [formationBox]="formation" (click)="navigateToDetails(formation.universite_id)"
+              ></app-filiere-formation-box>
+            </div>
+          </div>
+  
+          <div><img src="../../../assets/congo.svg" alt="">  <strong style="position: relative;bottom:10px;left:10px;">Congo</strong> </div>
+          <div class="recommendations">
+            <div *ngFor="let formation of CongoUniv; index as i">
+              <app-filiere-formation-box
+                [formationBox]="formation" (click)="navigateToDetails(formation.universite_id)"
+              ></app-filiere-formation-box>
+            </div>
           </div>
         </div>
         <div *ngIf="showingRecs" class="recommendations">
