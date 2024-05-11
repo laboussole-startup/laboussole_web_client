@@ -205,4 +205,11 @@
   app-footer{
     margin-top: 18vh;
   }
-  
+  .header-text{
+    color: white;font-size:1.4rem;font-weight:900;position: relative;bottom: 20px;width:100%;text-align:center;
+  }
+  @media screen and (max-width:380px) {
+    .header-text{
+      color: white;font-size:1rem;font-weight:900;position: relative;bottom: 20px;width:100%;text-align:center;
+    }
+  }
