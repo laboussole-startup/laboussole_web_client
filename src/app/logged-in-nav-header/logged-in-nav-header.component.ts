@@ -47,6 +47,7 @@ export class LoggedInNavHeaderComponent {
 
   signOut(){
     console.log("signing out");
+    localStorage.setItem("access_token","")
    
     this.userService.user_email='';
     localStorage.setItem('user_email', "");

@@ -7,6 +7,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class UserServiceService {
 
+
+
+
+// Set up the headers with the bearer token
+headers = new HttpHeaders({
+  'Authorization': 'Bearer ' + localStorage.getItem("access_token")
+});
+
   //private root_url: string = 'https://aristideabeng.pythonanywhere.com/auth/signup/';
   private root_url: string = 'https://laboussole-back-end.onrender.com/auth/signup/';
 
@@ -60,7 +68,7 @@ export class UserServiceService {
       // Check if photo is provided
       if (photo) {
         formData.append('photo_de_profil', photo);
-        resolve(this.httpClient.post(this.root_url, formData).toPromise());
+        resolve(this.httpClient.post(this.root_url, formData,{ headers: this.headers }).toPromise());
       } else {
         // Load image from assets folder
         const imagePath = '/assets/photo.jpg'; // Change this to the actual path of your image
@@ -71,7 +79,7 @@ export class UserServiceService {
             formData.append('photo_de_profil', imageFile);
   
             // Once file is appended to formData, you can make the POST request
-            resolve(this.httpClient.post(this.root_url, formData).toPromise());
+            resolve(this.httpClient.post(this.root_url, formData,{ headers: this.headers }).toPromise());
           })
           .catch(error => {
             reject('Error loading image: ' + error);
@@ -96,13 +104,13 @@ export class UserServiceService {
     let centres = ci.join(" ");
     return this.httpClient.put(update_url,{
       "centres_interet":centres
-    });
+    },{ headers: this.headers });
   }
   updatePassword(pass:string){
     let update_url:string = 'https://laboussole-back-end.onrender.com/auth/'+this.user_email+'/';
     return this.httpClient.put(update_url,{
       "password":pass
-    });
+    },{ headers: this.headers });
   }
   updateProfile(
     prenom: string,
@@ -156,7 +164,7 @@ export class UserServiceService {
               formData.append('photo_de_profil', imageFile);
     
               // Once file is appended to formData, you can make the POST request
-              resolve(this.httpClient.put(update_url, formData).toPromise());
+              resolve(this.httpClient.put(update_url, formData,{ headers: this.headers }).toPromise());
             })
             .catch(error => {
               reject('Error loading image: ' + error);
@@ -173,7 +181,7 @@ export class UserServiceService {
         // Check if photo is provided
         if (photo) {
           formData.append('photo_de_profil', photo);
-          resolve(this.httpClient.put(update_url, formData).toPromise());
+          resolve(this.httpClient.put(update_url, formData,{ headers: this.headers }).toPromise());
         } else {
           // Load image from assets folder
           const imagePath = '/assets/photo.jpg'; // Change this to the actual path of your image
@@ -184,7 +192,7 @@ export class UserServiceService {
               formData.append('photo_de_profil', imageFile);
     
               // Once file is appended to formData, you can make the POST request
-              resolve(this.httpClient.put(update_url, formData).toPromise());
+              resolve(this.httpClient.put(update_url, formData,{ headers: this.headers }).toPromise());
             })
             .catch(error => {
               reject('Error loading image: ' + error);
@@ -201,17 +209,17 @@ export class UserServiceService {
       }
     }
     let url:string = 'https://laboussole-back-end.onrender.com/auth/'+this.user_email+'/';
-    return this.httpClient.get(url);
+    return this.httpClient.get(url,{ headers: this.headers });
   }
 
   getUserByMail(mail:string){
     let url:string = 'https://laboussole-back-end.onrender.com/auth/'+mail+'/';
-    return this.httpClient.get(url);
+    return this.httpClient.get(url,{ headers: this.headers });
   }
 
   recoverAccount(mail:string){
     let url:string = 'https://laboussole-back-end.onrender.com/auth/recover/'+mail+'/';
-    return this.httpClient.get(url);
+    return this.httpClient.get(url,{ headers: this.headers });
   }
 
   recoverPassword(mail:string,code:number,new_password:string){
@@ -220,13 +228,13 @@ export class UserServiceService {
       "user_email":mail,
       "code":code,
       "new_password":new_password
-    });
+    },{ headers: this.headers });
   }
   contactus(mail:string,message:string){
     let url:string = 'https://laboussole-back-end.onrender.com/auth/contact/'+this.user_email+'/';
     return this.httpClient.post(url,{
       "user_email":this.user_email,
       "message":message
-    });
+    },{ headers: this.headers });
   }
 }

@@ -44,9 +44,11 @@ export class PageConnexionClientComponent {
   console.log(this.emailControl.value)
   this.showSpinner=true;
   this.userService.login(this.emailControl.value, this.passwordControl.value).subscribe(
-    (data) => {
+    (data:any) => {
       console.log(data);
       if (data.hasOwnProperty("access") && data.hasOwnProperty("refresh")) {
+        
+        localStorage.setItem("access_token",data.access)
          console.log("valid login");
          this.userService.user_email = this.email.trim();
          console.log(this.email)
