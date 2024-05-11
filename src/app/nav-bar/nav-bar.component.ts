@@ -30,28 +30,32 @@ export class NavBarComponent {
   }
 
   verifyLogin(){
+
     this.userService.getUserInfo().subscribe(
       (data) => {
         console.log(data);
         let v:UserInfo = data as UserInfo;
-        this.isLoggedIn=true;
-        this.userService.username= v.username;
-        this.userService.user_photo=v.photo_de_profil;
-        this.userService.centres_interets = v.centres_interet;
-
-        this.userService.profile_incomplete=false;
-        
-        if(v.dernier_diplome=='AUCUN' || v.serie=="AUCUN" || v.genre=='NON DEFINI' || v.niveau=='AUCUN'){
-          this.userService.profile_incomplete=true;
-        }else if(v.date_de_naissance?.toString()=='2000-01-01'){
-          this.userService.profile_incomplete=true;
-        }else{
-          let t:string= v.telephone?v.telephone:"";
-          if(t.length<6){
-            this.userService.profile_incomplete=true; 
-          }
+        if(localStorage.getItem("access_token")){
+          this.isLoggedIn=true;
+          this.userService.username= v.username;
+          this.userService.user_photo=v.photo_de_profil;
+          this.userService.centres_interets = v.centres_interet;
+  
+          this.userService.profile_incomplete=false;
           
+          if(v.dernier_diplome=='AUCUN' || v.serie=="AUCUN" || v.genre=='NON DEFINI' || v.niveau=='AUCUN'){
+            this.userService.profile_incomplete=true;
+          }else if(v.date_de_naissance?.toString()=='2000-01-01'){
+            this.userService.profile_incomplete=true;
+          }else{
+            let t:string= v.telephone?v.telephone:"";
+            if(t.length<6){
+              this.userService.profile_incomplete=true; 
+            }
+            
+          }
         }
+       
       },
       (error) => {
         this.isLoggedIn=false;
