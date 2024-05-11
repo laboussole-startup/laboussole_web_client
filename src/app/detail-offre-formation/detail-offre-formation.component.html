@@ -115,7 +115,9 @@
       style="width: 15px; height: 15; margin-right: 5px"
     />
     <strong>Salaire</strong> <br /><br />
-    <span> {{metierItem.salairemoyen}} </span><br /><br />
+    <span> <ol>
+      <li *ngFor="let sal of salaire">{{sal}}</li>
+    </ol> </span><br /><br />
   </div>
 
   <!-- main-info -->
@@ -150,7 +152,10 @@
         </div>
         <br /><br />
         <div class="salaire" >
-          <strong>Salaire indicatif: </strong> {{ metierItem.salairemoyen }}.
+          <strong>Salaire indicatif: </strong>
+          <ol>
+            <li *ngFor="let sal of salaire">{{sal}}</li>
+          </ol>
         </div>
       </div>
       <br /><br /><br />

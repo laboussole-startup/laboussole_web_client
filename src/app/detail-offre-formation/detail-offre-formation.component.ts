@@ -32,6 +32,7 @@ export class DetailOffreFormationComponent {
   linked_faculte!:Faculte;
   lieu:Map<Faculte,Universite> = new Map();
   hideAll:boolean=false;
+  salaire:Array<string> = new Array();
 
   scrollTimeout: any; 
   constructor(
@@ -61,6 +62,7 @@ export class DetailOffreFormationComponent {
           this.competences = this.removeBraces(this.metierItem.competencescles).split(',');
           this.missions = this.removeBraces(this.metierItem.principales_missions).split(',');
           this.entreprises = this.removeBraces(this.metierItem.entreprisesrecrutent).split(',');
+          this.salaire = this.metierItem.salairemoyen.split(',');
           console.log(this.metierItem);
           console.log(this.competences);
 
