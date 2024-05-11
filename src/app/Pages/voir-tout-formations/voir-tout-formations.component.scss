@@ -152,4 +152,16 @@
       }
     }
   }
-  
+  app-nav-bar{
+    position:fixed;
+    width: 100%;
+    z-index: 100; /* Specify a z-index to control stacking order */
+    /* Other styles as needed */
+  }
+  app-footer{
+   margin-top: 18vh;
+  }
+
+  .container{
+    margin-top: 13vh;
+  }
