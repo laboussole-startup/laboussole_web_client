@@ -36,7 +36,7 @@ export class ProfileInfoComponent {
   updateProfile(){
     let d=this.dateToString(this.naissance);
     console.log(d);
-    this.userService.updateProfile(this.prenom,this.genre,this.diplome,this.pays,this.telephone,this.ville,undefined,d)  .then((response) => {
+    this.userService.updateProfile(this.prenom,this.genre,this.diplome,this.pays,this.telephone,this.ville,d)  .then((response) => {
       console.log(response);
 
       this.sheetErrorMessage="Enregistrement réussi."

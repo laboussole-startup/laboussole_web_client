@@ -35,7 +35,9 @@ export class NavBarComponent {
       (data) => {
         console.log(data);
         let v:UserInfo = data as UserInfo;
-        
+        if(!localStorage.getItem("access_token")){
+          localStorage.setItem("user_email","");
+        }else{
           this.isLoggedIn=true;
           this.userService.username= v.username;
           this.userService.user_photo=v.photo_de_profil;
@@ -54,6 +56,8 @@ export class NavBarComponent {
             }
             
           }
+        }
+         
         
        
       },
@@ -61,7 +65,7 @@ export class NavBarComponent {
         this.isLoggedIn=false;
         console.error("An error occurred:", error);      
       }
-    );
+    ); 
   }
 
   toggleMenu() {
