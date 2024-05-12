@@ -65,22 +65,14 @@ export class PageAcceuilSansCompteComponent {
     });
     this.TemoignageService.getTemoignages().subscribe(
       (data:any)=>{
-        //console.log(data);
+        console.log(data);
         let d = data as Array<Temoignage>
         
 
         for(let tem of d){
-          this.userService.getUserByMail(tem.nom).subscribe(
-            (data:any)=>{
-              console.log(data);
-              let us = data as UserInfo
-              tem.nom = us.username
-              if(us.photo_de_profil){
-                this.picturesMap.set(tem.nom,us.photo_de_profil)
-              }
-              
-            }
-          )
+          tem.nom = tem.tem_name
+          this.picturesMap.set(tem.nom,tem.tem_photo)
+          
         }
         this.temoignagesList = d.reverse();
       }

@@ -56,17 +56,8 @@ export class TemoignagesInputComponent {
         for(let tem of d){
           let temp:string = tem.nom;
           tem.nom="";
-          this.userService.getUserByMail(temp).subscribe(
-            (data:any)=>{
-              console.log(data);
-              let us = data as UserInfo
-              tem.nom = us.username
-              if(us.photo_de_profil){
-                this.picturesMap.set(tem.nom,us.photo_de_profil)
-              }
-              
-            }
-          )
+          tem.nom = tem.tem_name
+          this.picturesMap.set(tem.nom,tem.tem_photo)
         }
         this.temoignageList = d.reverse();
       }

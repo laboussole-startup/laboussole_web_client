@@ -36,7 +36,8 @@ export class InputTemoignageDialogComponent {
     const currentYear = currentDate.getFullYear(); // Get the year (e.g., 2024)
 
     if(this.userService.user_email){
-      let temoignage = new Temoignage(this.userService.user_email,this.selectedRating+"",this.text,currentDay+'/'+currentMonth+'/'+currentYear)
+      let pho:string=this.userService.user_photo?this.userService.user_photo:"";
+      let temoignage = new Temoignage(this.userService.user_email,this.selectedRating+"",this.text,currentDay+'/'+currentMonth+'/'+currentYear,this.userService.username,pho)
       this.temoignageService.postTemoignage(temoignage).subscribe(
         (data:any)=>{
           console.log(data);
