@@ -50,6 +50,8 @@ img{
     border-radius: 50%;
     background-color: #2DAAE1;
     border: solid 10px #2DAAE1;
+    object-fit: cover; 
+    object-position: center;
 }
 .floatingBtn{
     position:relative;
