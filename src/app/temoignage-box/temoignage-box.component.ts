@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-temoignage-box',
@@ -11,10 +12,17 @@ export class TemoignageBoxComponent {
   @Input() image_url: string | undefined = ""
   @Input() name: string = "Name"
   @Input() description: string = "description";
+  @Input() mail:string="";
 
   counterArray: number[] = new Array(5);
 
-  constructor(){
+  
+
+  constructor(private router:Router){
    
+  }
+
+  viewTemoignage(){
+    this.router.navigateByUrl("/temoignages/"+this.mail)
   }
 }

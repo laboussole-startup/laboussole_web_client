@@ -70,7 +70,6 @@ export class PageAcceuilSansCompteComponent {
         
 
         for(let tem of d){
-          tem.nom = tem.tem_name
           this.picturesMap.set(tem.nom,tem.tem_photo)
           
         }
@@ -232,7 +231,7 @@ export class PageAcceuilSansCompteComponent {
 
   laisserTemoignage(){
     if(this.userService.user_email){
-      this.router.navigateByUrl("/temoignages")
+      this.router.navigateByUrl("/temoignages/0")
     }else{
       this.openDialog("1ms","0ms")
     }

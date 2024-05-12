@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { InputTemoignageDialogComponent } from '../input-temoignage-dialog/input-temoignage-dialog.component';
 import { Temoignage } from '../Models/temoignage';
 import { User } from '../Models/user';
@@ -16,15 +17,39 @@ export class TemoignagesInputComponent {
 
   temoignageList:Array<Temoignage> = new Array()
   picturesMap:Map<string,string> = new Map();
+  temBox_id:string | null="";
+  timeoutId: any;
 
   constructor(public dialog: MatDialog,
     private temoignageService:TemoignageService,
-    private userService:UserServiceService
+    private userService:UserServiceService,
+    private router:Router,
+    private route: ActivatedRoute
     ){
 
   }
 
+  ngAfterViewInit(){
+    this.timeoutId = setTimeout(
+      ()=>{
+        this.temBox_id = this.route.snapshot.paramMap.get('id');
+    let s:string=this.temBox_id?this.temBox_id:""
+    console.log(s);
+    const sectionElement = document.querySelector('[id="'+s+'"]');
+    
+    if (sectionElement) {
+      const yOffset = sectionElement.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({ top: yOffset-100, behavior: 'smooth' });
+     }else{
+      console.log("section not found")
+     }
+      },2000
+    )
+    
+  }
+
   ngOnInit(){
+    
     this.reloadTemoignages();
   }
 
@@ -54,9 +79,7 @@ export class TemoignagesInputComponent {
         let d = data as Array<Temoignage>
 
         for(let tem of d){
-          let temp:string = tem.nom;
-          tem.nom="";
-          tem.nom = tem.tem_name
+          
           this.picturesMap.set(tem.nom,tem.tem_photo)
         }
         this.temoignageList = d.reverse();

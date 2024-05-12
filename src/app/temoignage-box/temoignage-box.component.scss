@@ -37,3 +37,9 @@
     color: #133240;
   }
 
+@media screen and (max-width:400px) {
+  .box {
+    width: 200px;
+    height: 200px;
+  }
+}

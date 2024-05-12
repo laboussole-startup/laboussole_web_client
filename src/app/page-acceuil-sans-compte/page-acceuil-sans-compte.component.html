@@ -97,8 +97,9 @@
         <app-temoignage-box
         [image_url]="picturesMap.get(this.temoignagesList[currentTemoignageNumber].nom)"
         [score]="+this.temoignagesList[currentTemoignageNumber].telephone"
-        [name]="this.temoignagesList[currentTemoignageNumber].nom"
+        [name]="this.temoignagesList[currentTemoignageNumber].tem_name"
         [description]="this.temoignagesList[currentTemoignageNumber].contenu"
+        [mail]="this.temoignagesList[currentTemoignageNumber].nom"
         ></app-temoignage-box>
         
          

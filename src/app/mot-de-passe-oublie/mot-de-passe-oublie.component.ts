@@ -114,6 +114,9 @@ export class MotDePasseOublieComponent {
   closeBottomSheet(){
     this.bottomSheet.dismiss(this.errorSheetTemplate);
   }
+  resendCode(){
+    
+  }
 
 }
 
