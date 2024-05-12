@@ -215,11 +215,8 @@ headers = new HttpHeaders({
   }
 
   recoverAccount(mail:string){
-    let headers = new HttpHeaders({
-      'Authorization': 'Bearer ' + localStorage.getItem("access_token")
-    });
     let url:string = 'https://laboussole-back-end.onrender.com/auth/recover/'+mail+'/';
-    return this.httpClient.get(url,{ headers: headers });
+    return this.httpClient.get(url);
   }
 
   recoverPassword(mail:string,code:number,new_password:string){
