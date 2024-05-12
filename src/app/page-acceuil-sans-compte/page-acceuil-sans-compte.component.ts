@@ -65,7 +65,7 @@ export class PageAcceuilSansCompteComponent {
     });
     this.TemoignageService.getTemoignages().subscribe(
       (data:any)=>{
-        console.log(data);
+        //console.log(data);
         let d = data as Array<Temoignage>
         
 

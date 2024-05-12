@@ -30,12 +30,14 @@ export class NavBarComponent {
   }
 
   verifyLogin(){
-
+    console.log("********************Before Logging*****************")
+    console.log(localStorage.getItem("access_token"))
     this.userService.getUserInfo().subscribe(
       (data) => {
         console.log(data);
         let v:UserInfo = data as UserInfo;
         if(!localStorage.getItem("access_token")){
+          console.log("did not get access token")
           localStorage.setItem("user_email","");
         }else{
           this.isLoggedIn=true;

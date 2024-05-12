@@ -44,6 +44,7 @@ headers = new HttpHeaders({
     dateOfBirth: string = '2000-01-01' // Default value for date of birth
   ): Promise<any> {
     return new Promise((resolve, reject) => {
+
       let l:string = prenom?prenom:nom;
 
       let formData = new FormData();
@@ -98,17 +99,23 @@ headers = new HttpHeaders({
   }
 
   updateCentreInterets(ci:Array<string>){
+    let headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem("access_token")
+    });
     let update_url:string = 'https://laboussole-back-end.onrender.com/auth/'+this.user_email+'/';
     let centres = ci.join(" ");
     return this.httpClient.put(update_url,{
       "centres_interet":centres
-    },{ headers: this.headers });
+    },{ headers: headers });
   }
   updatePassword(pass:string){
+    let headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem("access_token")
+    });
     let update_url:string = 'https://laboussole-back-end.onrender.com/auth/'+this.user_email+'/';
     return this.httpClient.put(update_url,{
       "password":pass
-    },{ headers: this.headers });
+    },{ headers: headers });
   }
   updateProfile(
     prenom: string,
@@ -119,6 +126,9 @@ headers = new HttpHeaders({
     niveau: string='AUCUN',
     dateOfBirth: string = '2000-01-01' // 
     ){
+      let headers = new HttpHeaders({
+        'Authorization': 'Bearer ' + localStorage.getItem("access_token")
+      });
       let update_url:string = 'https://laboussole-back-end.onrender.com/auth/'+this.user_email+'/';
       return new Promise((resolve, reject) => {
        
@@ -146,20 +156,23 @@ headers = new HttpHeaders({
         }
         
        
-      resolve(this.httpClient.put(update_url, formData,{ headers: this.headers }).toPromise());
+      resolve(this.httpClient.put(update_url, formData,{ headers: headers }).toPromise());
        
       });
     }
   updateProfilePhoto(photo?: File){
       let update_url:string = 'https://laboussole-back-end.onrender.com/auth/'+this.user_email+'/';
       return new Promise((resolve, reject) => {
+        let headers = new HttpHeaders({
+          'Authorization': 'Bearer ' + localStorage.getItem("access_token")
+        });
        
       let formData = new FormData();
     
         // Check if photo is provided
         if (photo) {
           formData.append('photo_de_profil', photo);
-          resolve(this.httpClient.put(update_url, formData,{ headers: this.headers }).toPromise());
+          resolve(this.httpClient.put(update_url, formData,{ headers: headers }).toPromise());
         } else {
           // Load image from assets folder
           const imagePath = '/assets/photo.jpg'; // Change this to the actual path of your image
@@ -170,7 +183,7 @@ headers = new HttpHeaders({
               formData.append('photo_de_profil', imageFile);
     
               // Once file is appended to formData, you can make the POST request
-              resolve(this.httpClient.put(update_url, formData,{ headers: this.headers }).toPromise());
+              resolve(this.httpClient.put(update_url, formData,{ headers: headers }).toPromise());
             })
             .catch(error => {
               reject('Error loading image: ' + error);
@@ -179,6 +192,9 @@ headers = new HttpHeaders({
       });
   }  
   getUserInfo(){
+    let headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem("access_token")
+    });
     if (!this.user_email){
       let m:string | null = localStorage.getItem('user_email');
       
@@ -187,20 +203,27 @@ headers = new HttpHeaders({
       }
     }
     let url:string = 'https://laboussole-back-end.onrender.com/auth/'+this.user_email+'/';
-    return this.httpClient.get(url,{ headers: this.headers });
+    return this.httpClient.get(url,{ headers: headers });
   }
 
   getUserByMail(mail:string){
+    let headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem("access_token")
+    });
     let url:string = 'https://laboussole-back-end.onrender.com/auth/'+mail+'/';
-    return this.httpClient.get(url,{ headers: this.headers });
+    return this.httpClient.get(url,{ headers: headers });
   }
 
   recoverAccount(mail:string){
+    let headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem("access_token")
+    });
     let url:string = 'https://laboussole-back-end.onrender.com/auth/recover/'+mail+'/';
-    return this.httpClient.get(url,{ headers: this.headers });
+    return this.httpClient.get(url,{ headers: headers });
   }
 
   recoverPassword(mail:string,code:number,new_password:string){
+   
     let url:string = 'https://laboussole-back-end.onrender.com/auth/recover/'+mail+'/';
     return this.httpClient.post(url,{
       "user_email":mail,
@@ -209,10 +232,13 @@ headers = new HttpHeaders({
     });
   }
   contactus(mail:string,message:string){
+    let headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem("access_token")
+    });
     let url:string = 'https://laboussole-back-end.onrender.com/auth/contact/'+this.user_email+'/';
     return this.httpClient.post(url,{
       "user_email":this.user_email,
       "message":message
-    },{ headers: this.headers });
+    },{ headers:headers });
   }
 }
