@@ -354,3 +354,15 @@ $speed: 0.4s;
   .logo_icon{
     width: fit-content;
   }
+  .mobileSearch{
+    flex-grow: 1;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+  }
+  .rightPlacedIcons{
+    flex-grow: 1;
+    
+  }

@@ -5,6 +5,9 @@ $speed: 0.4s;
 
 
 
+
+
+
 .navflexcontainer{
     display: flex;
     flex-direction: row;
@@ -351,4 +354,16 @@ $speed: 0.4s;
   .menuIcon{
     position: relative;
     top:40px;
+  }
+  .mobileSearch{
+    flex-grow: 1;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+  }
+  .rightPlacedIcons{
+    flex-grow: 1;
+    
   }
