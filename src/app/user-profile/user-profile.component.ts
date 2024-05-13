@@ -40,6 +40,9 @@ export class UserProfileComponent {
     console.log(this.unread_notif_count)
   }
   changeLabel(n:number){
+    if(n==0){
+      this.current_location="";
+    }
     if(n==1){
       this.current_location = "modifier profil"
     }else if(n==2){
