@@ -1,5 +1,6 @@
 import { Component, OnInit,Renderer2} from '@angular/core';
 
+
 @Component({
   selector: 'app-about-us',
   templateUrl: './about-us.component.html',
@@ -18,7 +19,7 @@ export class AboutUsComponent {
   constructor(private renderer: Renderer2){
     
   }
-
+  
   ngOnInit(){
     window.scrollTo(0,0);
     this.enableScroll();
