@@ -1,5 +1,5 @@
 import { Component,OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CentreInteret } from '../Models/centreInteret';
 import { CentreInteretsService } from '../services/centre-interets.service';
 import { UserServiceService } from '../services/user-service.service';
@@ -20,10 +20,13 @@ export class CentreInteretsComponent {
   choices:Set<string> = new Set<string>();
   start:number=0;
   disablebtn:boolean = false;
+  page:string|null= "";
+  origin:number=0;
 
   constructor(private centreInteretService:CentreInteretsService,
     private userService:UserServiceService,
     private router:Router,
+    private route: ActivatedRoute,
     private bottomSheet: MatBottomSheet){
 
   }
@@ -31,17 +34,21 @@ export class CentreInteretsComponent {
 
   ngOnInit(): void {
     this.centreInteretService.getCentresInterets().subscribe(data => {
-      console.log(data);
+      //console.log(data);
       data = data as Array<CentreInteret>;
       
       for (let d of data) {
        this.All_Centres.push(d);
       }
     });
+
+    this.page = this.route.snapshot.paramMap.get('origin');
+    let m:string = this.page?this.page:"0";
+    this.origin= Number(m);
   }
   getSubArray<T>(array: T[], start: number, end: number): T[] {
-    console.log("start is "+start);
-    console.log("end is "+end);
+    //console.log("start is "+start);
+    //console.log("end is "+end);
     // Ensure start index is within bounds
     if(start>array.length-11 && start>0){
       this.disablebtn = true;
@@ -61,7 +68,7 @@ saveChoice(data:string){
   }else{
     this.choices.add(data);
   }
-  console.log(this.choices);
+  //console.log(this.choices);
    
 }
 terminateProcess(){
@@ -69,12 +76,17 @@ terminateProcess(){
     this.sheetErrorMessage="N'oubliez pas de choisir au moins un centre d'intérêt";
     this.openBottomSheet();
   }else{
-    console.log(Array.from(this.choices))
+    //console.log(Array.from(this.choices))
     this.userService.updateCentreInterets(Array.from(this.choices)).subscribe(data =>{
-      console.log(data);
+      //console.log(data);
       
     });
-    this.router.navigate(['/']);
+    if(!this.origin){
+      this.router.navigate(['/']);
+    }else{
+      this.router.navigate(['/profil/0']);
+    }
+    
   }
  
   

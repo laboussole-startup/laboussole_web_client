@@ -42,7 +42,7 @@ const routes: Routes = [
   { path: 'universites/:universite_id', component: DetailsFilieresComponent },
   { path: 'signup-success', component: SignupResponseComponent },
   { path: 'signup-error', component: SignupErrorComponent },
-  { path: 'centres-interets', component: CentreInteretsComponent },
+  { path: 'centres-interets/:origin', component: CentreInteretsComponent },
   {path:'facultes/:faculte_id', component: DetailsFacultesComponent},
   {path: 'voir-tout-metiers', component: VoirTousMetiersComponent},
   {path: 'voir-tout-formations', component: VoirToutFormationsComponent},

@@ -49,7 +49,7 @@ export class NavMobileHeaderComponent {
  ngOnInit(){
   this.notificationService.getAllNotifications().subscribe(
     (data:any)=>{
-      console.log(data);
+      //console.log(data);
       let allNotifs = data as Array<Notification>
       for(let notif of allNotifs){
         let value = localStorage.getItem('notification'+notif.id_notification);
@@ -61,7 +61,7 @@ export class NavMobileHeaderComponent {
       this.val=this.val=='0'?'':this.val;
       this.unread_notif_count = this.val?this.val:'';
   
-      console.log(this.unread_notif_count)
+     // console.log(this.unread_notif_count)
 
     }
   );
@@ -78,10 +78,10 @@ export class NavMobileHeaderComponent {
     this.val=this.val=='0'?'':this.val;
     this.unread_notif_count = this.val?this.val:'';
     
-    console.log(this.unread_notif_count)
+    //console.log(this.unread_notif_count)
   }
   signOut(){
-    console.log("signing out");
+    //console.log("signing out");
     this.userService.user_email='';
     localStorage.setItem('user_email'," ");
     this.router.navigate(['/']);
@@ -99,6 +99,6 @@ export class NavMobileHeaderComponent {
   }
   handleClick(){
     this.hideOthers=!this.hideOthers;
-    console.log(this.hideOthers)
+    //console.log(this.hideOthers)
   }
 }
