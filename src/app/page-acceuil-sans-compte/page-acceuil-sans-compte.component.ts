@@ -1,4 +1,4 @@
-import { Component,ElementRef,OnInit,Renderer2, ViewChild } from '@angular/core';
+import { Component,ElementRef,OnInit,Renderer2, ViewChild,HostListener } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AskLoginDialogComponent } from '../ask-login-dialog/ask-login-dialog.component';
@@ -26,11 +26,44 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
         style({ transform: 'scale(0.5)' }),
         animate(700)
       ])
-    ])
+    ]),
+    trigger('fadeIn', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('10s ease-in-out', style({ opacity: 1 })),
+      ]),
+    ]),
   ]
 })
 
 export class PageAcceuilSansCompteComponent {
+
+  description_Metier:string = "Découvre l'univers des métiers avec  LABOUSSOLE, explore une multitude de professions passionnantes et trouve ton métier de rêve."
+  description_Bourses:string = "LABOUSSOLE te donne accès à un large éventail de bourses d'études pour t’aider à financer tes études et réaliser tes rêves"
+  description_Voyages_Etudes:string = "Tu as envie de poursuivre tes études à l’extérieur ?  Nous mettons à ta disposition les informations dont tu auras besoins pour réussir à l’étranger."
+  description_Formation:string = "LABOUSSOLE te donne les informations sur toutes les offres de formations au Cameroun et au Congo afin que tu puisses choisir aisément ta Filière d’étude."
+  
+
+  options: any[] = [
+    {
+      class: 'metier',
+      title: 'Métier',
+      description: this.description_Metier,
+      icon_name: 'direction board.png',
+      color: '#5B72EE',
+      routerLink: '/metiers',
+      isVisible:false
+    },
+    {
+      class: 'formation',
+      title: 'Formation',
+      description: this.description_Formation,
+      icon_name: 'open book.png',
+      color: '#41BE90',
+      routerLink: '/universites',
+      isVisible:false
+    }
+  ];
 
   temoignages!: Array<Temoignage>;
   temoignagesList!:Array<any>;
@@ -171,10 +204,6 @@ export class PageAcceuilSansCompteComponent {
   this.closePopup();
  }
 
-  description_Metier:string = "Découvre l'univers des métiers avec  LABOUSSOLE, explore une multitude de professions passionnantes et trouve ton métier de rêve."
-  description_Bourses:string = "LABOUSSOLE te donne accès à un large éventail de bourses d'études pour t’aider à financer tes études et réaliser tes rêves"
-  description_Voyages_Etudes:string = "Tu as envie de poursuivre tes études à l’extérieur ?  Nous mettons à ta disposition les informations dont tu auras besoins pour réussir à l’étranger."
-  description_Formation:string = "LABOUSSOLE te donne les informations sur toutes les offres de formations au Cameroun et au Congo afin que tu puisses choisir aisément ta Filière d’étude."
   
 
   fetchAllArticles(){
@@ -300,5 +329,31 @@ export class PageAcceuilSansCompteComponent {
     }else{
       return null;
     }
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  checkScroll() {
+    const windowHeight = window.innerHeight;
+    const scrollY = window.scrollY;
+  
+    this.options.forEach((option, index) => {
+      const element = document.querySelector(`.${option.class}`) as HTMLElement;
+     // console.log(element)
+  
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        
+        // Calculate if the element is in the viewport
+        const isInViewport = (rect.top >= 0 && rect.bottom <= windowHeight + scrollY);
+      //  console.log(isInViewport);
+  
+        // If the element is in the viewport, trigger the animation
+        if (isInViewport) {
+          this.options[index].isVisible = true;
+        }else{
+          this.options[index].isVisible = false;
+        }
+      }
+    });
   }
 }

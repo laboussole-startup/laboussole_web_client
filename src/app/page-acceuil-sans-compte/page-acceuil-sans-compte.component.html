@@ -9,8 +9,8 @@
           <strong>LABOUSSOLE </strong>  <span class="subtle-text" routerLink="/universites">t’oriente</span> vers la <span class="subtle-text" routerLink="/metiers"> carrière</span>  qui te correspond
         </div>
         <div class="actions" style="cursor:pointer;font-weight:900;font-size:0.8rem;margin-top:40px;flex-flow:row nowrap;justify-content:center;gap:10px;">
-          <div matRipple class="metier" routerLink="/metiers"  style="width:fit-content;color:white;background-color: #0F70B7;padding: 15px;border-radius: 25px;">Trouve ton métier</div>
-          <div matRipple class="formation" routerLink="/universites"  style="width:fit-content;color:white;background-color: #2DAAE1;padding:15px;border-radius: 25px;">Trouve ta formation</div>
+          <div matRipple class="" routerLink="/metiers"  style="width:fit-content;color:white;background-color: #0F70B7;padding: 15px;border-radius: 25px;">Trouve ton métier</div>
+          <div matRipple class="" routerLink="/universites"  style="width:fit-content;color:white;background-color: #2DAAE1;padding:15px;border-radius: 25px;">Trouve ta formation</div>
         </div>
       </div>
       <div class="imageAcceuil">
@@ -26,27 +26,17 @@
     </div>
     
   <div class="optionsList">
-    <app-acceuil-option-box
-      class="metier"
-      [title]="'Métier'"
-      [description]="description_Metier"
-      [icon_name]="'direction board.png'"
-      [color]="'#5B72EE'"
-      routerLink="/metiers"
-    >
-    </app-acceuil-option-box>
-    
-
-    <app-acceuil-option-box
-      class="formation"
-      [title]="'Formation'"
-      [description]="description_Formation"
-      [icon_name]="'open book.png'"
-      [color]="'#41BE90'"
-      routerLink="/universites"
-    >
-    </app-acceuil-option-box>
-  </div>
+  <app-acceuil-option-box
+    *ngFor="let option of options"
+    [@fadeIn]="option.isVisible ? 'in' : 'out'"
+    [class]="option.class"
+    [title]="option.title"
+    [description]="option.description"
+    [icon_name]="option.icon_name"
+    [color]="option.color"
+    [routerLink]="option.routerLink"
+  ></app-acceuil-option-box>
+</div>
   <div class="boxAboutLaboussole">
     <div class="question">
       <span style="color: #0761b9"> C'est quoi</span>
