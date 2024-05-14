@@ -201,8 +201,8 @@ export class PageAcceuilSansCompteComponent {
   }
 
   prevTemoignage(){
-    this.currentTemoignageNumber = this.currentTemoignageNumber==0? this.temoignages.length:this.currentTemoignageNumber-1
-    this.currentTemoignageNumber = this.currentTemoignageNumber%4
+    this.currentTemoignageNumber = this.currentTemoignageNumber==0? this.temoignages.length-1:this.currentTemoignageNumber-1
+    this.currentTemoignageNumber = this.currentTemoignageNumber%this.temoignages.length
   }
   closePopup(){
     this.enableScroll();
