@@ -144,4 +144,8 @@ conditionsControl:boolean=false;
   closeBottomSheet(){
     this.bottomSheet.dismiss(this.errorSheetTemplate);
   }
+  trimEmail(){
+    let v:string = this.emailControl.value?.trim()?this.emailControl.value?.trim():"";
+    this.emailControl.setValue(v);
+  }
 }
