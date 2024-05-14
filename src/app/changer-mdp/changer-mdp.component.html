@@ -30,7 +30,8 @@
   <div class="sheetContent">
     {{sheetErrorMessage}}
      <br/><br/>
-     <button mat-raised-button (click)="closeBottomSheet()" style="background-color: red;color:white;">ok</button>
+     <button *ngIf="!success" mat-raised-button (click)="closeBottomSheet()" style="background-color: red;color:white;">ok</button>
+     <button *ngIf="success" mat-raised-button (click)="closeBottomSheet()" style="background-color: green;color:white;">ok</button>
   </div>
   
 </ng-template>

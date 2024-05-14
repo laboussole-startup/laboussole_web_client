@@ -18,6 +18,7 @@ export class ChangerMdpComponent {
 
   sheetErrorMessage:string="";
   hide:boolean = true;
+  success:boolean=false;
 
   passwordActuel:string="";
   passwordControlActuel = new FormControl('', [Validators.required]);
@@ -32,7 +33,7 @@ export class ChangerMdpComponent {
   updatePassword(){
   console.log(this.passwordNouveau != this.passwordConfirm)
   if(this.passwordNouveau != this.passwordConfirm){
-    this.sheetErrorMessage = "Erreur d'authentification. mots de pass dissemblable.";
+    this.sheetErrorMessage = "Erreur d'authentification. mots de passe dissemblable.";
     this.openBottomSheet();
   }else{
     let email = this.userService.user_email;
@@ -45,6 +46,9 @@ export class ChangerMdpComponent {
           this.userService.updatePassword(this.passwordNouveau).subscribe(
             (data)=>{
               console.log(data);
+              this.sheetErrorMessage = "Mot de passe changé avec succès";
+              this.success = true;
+              this.openBottomSheet();
             }
           )
         
