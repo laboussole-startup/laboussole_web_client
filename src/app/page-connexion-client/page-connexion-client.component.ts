@@ -29,7 +29,7 @@ export class PageConnexionClientComponent {
   value = 50;
 
  emailControl = new FormControl('', [Validators.required, Validators.email]);
- errorMessage = 'Email invalide ou déjà pris';
+ errorMessage = 'Email invalide';
 
  passwordControl = new FormControl('', [Validators.required]);
  passerrormsg = 'obligatoire';
@@ -80,6 +80,10 @@ export class PageConnexionClientComponent {
 }
 closeBottomSheet(){
   this.bottomSheet.dismiss(this.errorSheetTemplate);
+}
+trimEmail(){
+  let v:string = this.emailControl.value?.trim()?this.emailControl.value?.trim():"";
+  this.emailControl.setValue(v);
 }
 
   hide:boolean = true;
