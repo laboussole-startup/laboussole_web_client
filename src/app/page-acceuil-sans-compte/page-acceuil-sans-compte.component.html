@@ -92,7 +92,7 @@
           <mat-icon>chevron_left</mat-icon>
         </button>
       </span>
-      <span class="temoignageBox">
+      <span [@zoomInOut]="currentTemoignageNumber" class="temoignageBox">
         
         <app-temoignage-box
         [image_url]="picturesMap.get(this.temoignagesList[currentTemoignageNumber].nom)"

@@ -10,13 +10,24 @@ import { ActualitesService } from '../services/actualites.service';
 import { NotificationsService } from '../services/notifications.service';
 import { TemoignageService } from '../services/temoignage.service';
 import { UserServiceService } from '../services/user-service.service';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+
 
 
 
 @Component({
   selector: 'app-page-acceuil-sans-compte',
   templateUrl: './page-acceuil-sans-compte.component.html',
-  styleUrls: ['./page-acceuil-sans-compte.component.scss']
+  styleUrls: ['./page-acceuil-sans-compte.component.scss'],
+  animations: [
+    trigger('zoomInOut', [
+      state('in', style({ transform: 'scale(1)' })),
+      transition('* => *', [
+        style({ transform: 'scale(0.5)' }),
+        animate(700)
+      ])
+    ])
+  ]
 })
 
 export class PageAcceuilSansCompteComponent {
