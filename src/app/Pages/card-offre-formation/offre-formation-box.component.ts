@@ -14,13 +14,13 @@ export class OffreFormationBoxComponent {
   @Input() metierBox!: Metier;
 
   ngOnInit(){
-    console.log(this.metierBox.nom)
-    console.log(this.metierBox.images_pc)
-    console.log(this.metierBox.logo)
+    //console.log(this.metierBox.nom)
+    //console.log(this.metierBox.images_pc)
+   // console.log(this.metierBox.logo)
     let im:string | null = this.convertDriveLinkToDirectDownloadLink(this.metierBox.logo);
-    console.log(im)
+    //console.log(im)
     this.metierBox.logo=im?im:this.metierBox.logo;
-    console.log(this.metierBox.logo)
+    //console.log(this.metierBox.logo)
   }
 
   convertDriveLinkToDirectDownloadLink(driveLink: string): string | null {
@@ -42,7 +42,7 @@ export class OffreFormationBoxComponent {
           const directDownloadLink = `https://drive.google.com/thumbnail?&id=${fileId}`;
           return directDownloadLink;
       } else {
-          console.error("Invalid Google Drive shareable link format.");
+          //console.error("Invalid Google Drive shareable link format.");
           return null;
       }
     }else{

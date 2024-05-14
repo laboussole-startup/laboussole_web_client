@@ -22,7 +22,7 @@ export class NotificationsListComponent {
   fetchAllNotifications(){
     this.notificationService.getAllNotifications().subscribe(
       (data:any)=>{
-        console.log(data);
+       // console.log(data);
         this.allNotifications = data as Array<Notification>
 
       }

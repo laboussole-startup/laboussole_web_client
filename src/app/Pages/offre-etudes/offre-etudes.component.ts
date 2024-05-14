@@ -26,7 +26,7 @@ export class OffreEtudesComponent {
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.getScreenWidth = window.innerWidth;
-    console.log(this.getScreenWidth);
+    //console.log(this.getScreenWidth);
     // this.getScreenWidth <= 480? this.mobile = true : this.mobile = false;
     // 768px portrait
 

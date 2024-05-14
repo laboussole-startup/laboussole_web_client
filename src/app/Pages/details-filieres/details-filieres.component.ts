@@ -38,7 +38,7 @@ export class DetailsFilieresComponent {
   
     window.scrollTo(0,0);
     this.filiereId = this.filiereRoute.snapshot.paramMap.get('universite_id'); // Get cart item ID from route
-    console.log(this.filiereId);
+    //console.log(this.filiereId);
 
    
 
@@ -46,23 +46,23 @@ export class DetailsFilieresComponent {
       this.service
         .getUniversiteDetails(this.filiereId)
         .subscribe((response: any) => {
-          console.log(response);
+         // console.log(response);
           this.filiereItem = response;
           // this.competences = this.filiereItem.competencescles.split(',');
           // this.missions = this.filiereItem.principales_missions.split(',');
-          console.log(this.filiereItem);
+          //console.log(this.filiereItem);
           // console.log(this.competences);
         });
     }
     this.service.getFaculteUniv(this.filiereId).subscribe((data: any) => {
-      console.log(data);
+      //console.log(data);
       let filter:Array<Faculte> = data as Array<Faculte>;
       const sub="facult";
       const sub2="facult"
 
       for(let f of filter){
-        console.log(f)
-        console.log(f.nom.toLowerCase().includes(sub))
+        //console.log(f)
+        //console.log(f.nom.toLowerCase().includes(sub))
         if(f.nom.toLowerCase().includes(sub) || f.nom.toLocaleLowerCase().includes(sub2)){
           this.facultes.push(f);
         }else{
@@ -82,7 +82,7 @@ export class DetailsFilieresComponent {
   }
 
   onIdFromChild(id: number){
-    console.log(id);
+    //console.log(id);
     this.faculte_id=id;
   }
 

@@ -49,7 +49,7 @@ export class FormationsComponent {
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.getScreenWidth = window.innerWidth;
-    console.log(this.getScreenWidth);
+    //console.log(this.getScreenWidth);
     // this.getScreenWidth <= 480? this.mobile = true : this.mobile = false;
     // 768px portrait
 
@@ -63,7 +63,7 @@ export class FormationsComponent {
     // this.getScreenWidth <= 480? this.mobile = true : this.mobile = false;
 
     this.service.getUniversites().subscribe((data: any) => {
-      console.log(data);
+      //console.log(data);
       let d:Array<Universite> = data as Array<Universite>;
       for(let univ of d){
         if(univ.pays=='Cameroun'){
@@ -75,21 +75,21 @@ export class FormationsComponent {
       this.formations = data;
       // console.log(this.formations);
     });
-    console.log(this.userService.user_email);
+    //console.log(this.userService.user_email);
     let m:string | null = localStorage.getItem('user_email');
-    console.log(m);
+    //console.log(m);
 
     if(m){
       this.userService.getUserInfo().subscribe(
         (data:any) => {
-          console.log(data);
+          //console.log(data);
           let user = data as UserInfo;
-          console.log(user.centres_interet);
+          //console.log(user.centres_interet);
           let final_centres:string = "";
 
           let ci:Array<string> = user.centres_interet.split(" ");
-          console.log("-----ci------")
-          console.log(ci);
+          //console.log("-----ci------")
+          ////console.log(ci);
 
           for(let c of ci){
             final_centres = final_centres + this.centreInteretService.champ_lexical.get(c);
@@ -97,7 +97,7 @@ export class FormationsComponent {
 
           this.service.getFacultesReccomendations(final_centres).subscribe(
             (data:any) => {
-              console.log(data);
+              //console.log(data);
               let res:Array<Faculte> = data.results as Array<Faculte>
               this.reccomendationsList = this.shuffleArray(res);
               this.initialReccomendationsList = this.reccomendationsList.slice(0,5);
@@ -148,7 +148,7 @@ export class FormationsComponent {
 
   showMobileMenu(){
     const menu:HTMLDivElement =  this.elementRef.nativeElement.querySelector('.mobileMenu');
-    console.log(menu)
+   // console.log(menu)
     if (menu) {
       this.overlay = document.createElement('div');
         this.overlay.style.position = 'fixed';
@@ -159,7 +159,7 @@ export class FormationsComponent {
         this.overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // Adjust transparency here
         this.overlay.style.zIndex = '2'; // Ensure it's on top of everything else
         document.body.appendChild(this.overlay);
-      console.log("menu is ok")
+      //console.log("menu is ok")
       menu.style.display = 'block';
       menu.style.position = 'fixed'; // Position the element relative to the viewport
       menu.style.top = '0'; // Position it at the top of the viewport
@@ -206,32 +206,32 @@ export class FormationsComponent {
 
   onPaysSelectionChange(){
     let m:string | null = localStorage.getItem('user_email');
-    console.log(m);
+    //console.log(m);
 
     if(m){
       this.userService.getUserInfo().subscribe(
         (data:any) => {
-          console.log(data);
+         // console.log(data);
           let user = data as UserInfo;
-          console.log(user.centres_interet);
+         // console.log(user.centres_interet);
           let final_centres:string = "";
 
           let ci:Array<string> = user.centres_interet.split(" ");
-          console.log("-----ci------")
-          console.log(ci);
+          //console.log("-----ci------")
+          //console.log(ci);
 
           for(let c of ci){
             final_centres = final_centres + this.centreInteretService.champ_lexical.get(c);
           }
 
-          console.log("----------final ci---------")
-          console.log(final_centres)
+          //console.log("----------final ci---------")
+          //console.log(final_centres)
 
-          console.log(this.pays);
+          //console.log(this.pays);
 
           this.service.getFacultesReccomendations(final_centres,this.pays).subscribe(
             (data:any) => {
-              console.log(data);
+              //console.log(data);
               let res:Array<Faculte> = data.results as Array<Faculte>
               this.reccomendationsList = this.shuffleArray(res);
               this.initialReccomendationsList = this.reccomendationsList.slice(0,5);

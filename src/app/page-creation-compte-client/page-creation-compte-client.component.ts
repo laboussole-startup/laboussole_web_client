@@ -50,12 +50,12 @@ conditionsControl:boolean=false;
 
   verifierCreerCompte(){
     if(this.nameControl.value=="" || this.emailControl.value=="" || this.passwordControl.value=="" || this.confirmPasswordControl.value=="" || !this.conditionsControl){
-      console.log("invalid form");
+      //console.log("invalid form");
       this.sheetErrorMessage = "Pensez à remplir les champs obligatoires et à accepter les conditions.";
       this.openBottomSheet();
     }else{
       if(this.passwordControl.value != this.confirmPasswordControl.value){
-        console.log("invalid form");
+       // console.log("invalid form");
         this.sheetErrorMessage = "mot de passes non identiques";
         this.openBottomSheet();
       }else{
@@ -90,10 +90,10 @@ conditionsControl:boolean=false;
               if (data.hasOwnProperty("access") && data.hasOwnProperty("refresh")) {
                 
                 localStorage.setItem("access_token",data.access)
-                 console.log("valid login");
+                 //console.log("valid login");
                  this.userService.user_email = this.email.trim();
-                 console.log(this.email)
-                 console.log(this.emailControl.value)
+                // console.log(this.email)
+                // console.log(this.emailControl.value)
                  localStorage.setItem('user_email', this.email.trim()); // Saving user email in local storage
                  this.router.navigate(['/']);
               } else {
@@ -103,7 +103,7 @@ conditionsControl:boolean=false;
               }
             },
             (error) => {
-              console.error("An error occurred:", error);
+              //console.error("An error occurred:", error);
               this.showSpinner = false;
               // Handle error here, for example:
               
@@ -118,10 +118,10 @@ conditionsControl:boolean=false;
       })
       .catch((error) => {
         this.showSpinner=false;
-        console.log(error.error.errors[0]);
-        console.log(error.status);
+       // console.log(error.error.errors[0]);
+       // console.log(error.status);
         if(error.error.errors[0]=='User with email already exits '){
-          console.log("Un compte a déjà été créé avec cet email.");
+         // console.log("Un compte a déjà été créé avec cet email.");
           this.sheetErrorMessage = "Un compte a déjà été créé avec cet email.";
           this.openBottomSheet();
          

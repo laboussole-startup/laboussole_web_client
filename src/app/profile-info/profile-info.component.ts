@@ -35,23 +35,23 @@ export class ProfileInfoComponent {
 
   updateProfile(){
     let d=this.dateToString(this.naissance);
-    console.log(d);
+    //console.log(d);
     this.userService.updateProfile(this.prenom,this.genre,this.diplome,this.pays,this.telephone,this.ville,d)  .then((response) => {
-      console.log(response);
+      //console.log(response);
 
       this.sheetErrorMessage="Enregistrement réussi."
       this.openBottomSheet();
       
     })
     .catch((error) => {
-      console.log(error);
+     // console.log(error);
          
     });
   }
   verifyLogin(){
     this.userService.getUserInfo().subscribe(
       (data) => {
-        console.log(data);
+        //console.log(data);
         let v:UserInfo = data as UserInfo;
         this.nom = v.first_name? v.first_name:this.nom;
         this.prenom=v.last_name?v.last_name:this.prenom;
@@ -66,7 +66,7 @@ export class ProfileInfoComponent {
         
       },
       (error) => {
-        console.error("An error occurred:", error);      
+        //console.error("An error occurred:", error);      
       }
     );
   }
@@ -78,22 +78,22 @@ export class ProfileInfoComponent {
     }
    
 
-    console.log(this.naissance);
-    console.log(date);
+    //console.log(this.naissance);
+   // console.log(date);
     if(!date){
-      console.log("date is null");
+     // console.log("date is null");
     }
     if(!(date instanceof Date)){
-      console.log("not an instance of date");
+     // console.log("not an instance of date");
     }
     if(date){
       if(isNaN(date.getTime())){
-        console.log("getTime is NAN");
+      //  console.log("getTime is NAN");
       }
     }
     
     if (!date || !(date instanceof Date) || isNaN(date.getTime())) {
-      console.log("returning null")
+      //console.log("returning null")
       return ''; // Return empty string or handle invalid date case accordingly
     }
 

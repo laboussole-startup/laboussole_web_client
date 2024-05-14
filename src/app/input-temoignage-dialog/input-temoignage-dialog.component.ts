@@ -27,8 +27,8 @@ export class InputTemoignageDialogComponent {
 
   }
   enregistrerTemoignage(){
-    console.log(this.text)
-    console.log(this.selectedRating)
+    //console.log(this.text)
+    //console.log(this.selectedRating)
     const currentDate = new Date();
 
     const currentDay = currentDate.getDate(); // Get the day (1-31)
@@ -40,7 +40,7 @@ export class InputTemoignageDialogComponent {
       let temoignage = new Temoignage(this.userService.user_email,this.selectedRating+"",this.text,currentDay+'/'+currentMonth+'/'+currentYear,this.userService.username,pho)
       this.temoignageService.postTemoignage(temoignage).subscribe(
         (data:any)=>{
-          console.log(data);
+          //console.log(data);
         }
       )
     }

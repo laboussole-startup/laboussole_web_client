@@ -37,7 +37,7 @@ export class UserProfileComponent {
     this.val=this.val=='0'?'':this.val;
     this.unread_notif_count = this.val?this.val:'';
     
-    console.log(this.unread_notif_count)
+    //console.log(this.unread_notif_count)
   }
   changeLabel(n:number){
     if(n==0){
@@ -77,8 +77,8 @@ export class UserProfileComponent {
       
     })
     .catch((error) => {
-      console.log("error")
-      console.log(error);
+      //console.log("error")
+      //console.log(error);
          
     });
   }
@@ -86,7 +86,7 @@ export class UserProfileComponent {
   verifyLogin(){
     this.userService.getUserInfo().subscribe(
       (data) => {
-        console.log(data);
+        //console.log(data);
         let v:UserInfo = data as UserInfo;
         this.username = v.username?v.username:this.username;
         this.profile_image=v.photo_de_profil?v.photo_de_profil:this.profile_image;
@@ -94,7 +94,7 @@ export class UserProfileComponent {
         
       },
       (error) => {
-        console.error("An error occurred:", error);      
+        //console.error("An error occurred:", error);      
       }
     );
   }

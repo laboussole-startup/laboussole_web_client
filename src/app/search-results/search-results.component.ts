@@ -56,14 +56,14 @@ export class SearchResultsComponent {
         (data:any)=>{
           let us:UserInfo = data as UserInfo;
           const currentDate: Date = new Date();
-          console.log("----------------USER INFO ARRIVED-----------------")
+         // console.log("----------------USER INFO ARRIVED-----------------")
 
           // Convert the Date object to a string
           const currentDateTimeString: string = currentDate.toISOString();
           this.formationService.saveHistorique(us.id,currentDateTimeString,this.searchService.searchQuery).subscribe(
             (data:any)=>{
-              console.log("----------------RESULT ARRIVED-----------------")
-              console.log(data);
+              //console.log("----------------RESULT ARRIVED-----------------")
+              //console.log(data);
             }
           )
         }
@@ -74,8 +74,8 @@ export class SearchResultsComponent {
       this.formationService.searchEcoles(this.searchService.searchQuery).subscribe(
         (data:any)=>{
           this.showSpinner=false;
-          console.log("*******LOGGING ECOLES***************");
-          console.log(data);
+          //console.log("*******LOGGING ECOLES***************");
+          //console.log(data);
           this.resultatsEcoles=data as Array<Faculte>;
 
         }
@@ -83,8 +83,8 @@ export class SearchResultsComponent {
       this.formationService.searchMetiers(this.searchService.searchQuery).subscribe(
         (data:any)=>{
           this.showSpinner=false;
-          console.log("*******LOGGING METIERS***************");
-          console.log(data);
+          //console.log("*******LOGGING METIERS***************");
+          //console.log(data);
           this.resultatsMetiers = data.results as Array<Metier>;
           if(data.results){
             this.next_link_metiers=data.next;
@@ -95,8 +95,8 @@ export class SearchResultsComponent {
       this.formationService.searchUniversites(this.searchService.searchQuery).subscribe(
         (data:any)=>{
           this.showSpinner=false;
-          console.log("*******LOGGING UNIVERSITES***************");
-          console.log(data);
+         // console.log("*******LOGGING UNIVERSITES***************");
+          //console.log(data);
           this.resultatsUniversites = data as Array<Universite>;
         }
       );
@@ -109,8 +109,8 @@ export class SearchResultsComponent {
       this.formationService.searchEcoles(this.searchService.searchQuery).subscribe(
         (data:any)=>{
           this.showSpinner=false;
-          console.log("*******LOGGING ECOLES***************");
-          console.log(data);
+          //console.log("*******LOGGING ECOLES***************");
+          //console.log(data);
           this.resultatsEcoles=data as Array<Faculte>;
 
         }
@@ -118,8 +118,8 @@ export class SearchResultsComponent {
       this.formationService.searchMetiers(this.searchService.searchQuery).subscribe(
         (data:any)=>{
           this.showSpinner=false;
-          console.log("*******LOGGING METIERS***************");
-          console.log(data);
+          //console.log("*******LOGGING METIERS***************");
+          //console.log(data);
           this.resultatsMetiers = data.results as Array<Metier>;
           if(data.results){
             this.next_link_metiers=data.next;
@@ -130,8 +130,8 @@ export class SearchResultsComponent {
       this.formationService.searchUniversites(this.searchService.searchQuery).subscribe(
         (data:any)=>{
           this.showSpinner=false;
-          console.log("*******LOGGING UNIVERSITES***************");
-          console.log(data);
+          //console.log("*******LOGGING UNIVERSITES***************");
+          //console.log(data);
           this.resultatsUniversites = data as Array<Universite>;
         }
       );
@@ -145,7 +145,7 @@ export class SearchResultsComponent {
         const currentDateTimeString: string = currentDate.toISOString();
         this.formationService.saveHistorique(us.id,currentDateTimeString,this.searchService.formationQuery).subscribe(
           (data:any)=>{
-            console.log(data);
+            //console.log(data);
           }
         )
       }
@@ -154,14 +154,14 @@ export class SearchResultsComponent {
       this.formationService.searchEcoles(this.searchService.formationQuery).subscribe(
         (data:any)=>{
           this.showSpinner=false;
-          console.log(data);
+          //console.log(data);
           this.resultatsEcoles = data;
         }
       )
       this.formationService.searchUniversites(this.searchService.searchQuery).subscribe(
         (data:any)=>{
           this.showSpinner=false;
-          console.log(data);
+          //console.log(data);
           this.resultatsUniversites = data;
         }
       )
@@ -174,7 +174,7 @@ export class SearchResultsComponent {
         const currentDateTimeString: string = currentDate.toISOString();
         this.formationService.saveHistorique(us.id,currentDateTimeString,this.searchService.metierQuery).subscribe(
           (data:any)=>{
-            console.log(data);
+            //console.log(data);
           }
         )
       }
@@ -183,7 +183,7 @@ export class SearchResultsComponent {
       this.formationService.searchMetiers(this.searchService.metierQuery).subscribe(
         (data:any)=>{
           this.showSpinner=false;
-          console.log(data);
+          //console.log(data);
           this.resultatsMetiers = data.results as Array<Metier>;
           if(data.results){
             this.next_link_metiers=data.next;

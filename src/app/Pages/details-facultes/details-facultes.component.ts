@@ -43,17 +43,17 @@ export class DetailsFacultesComponent {
   ngOnInit() {
     window.scrollTo(0,0)
     this.filiereId = this.filiereRoute.snapshot.paramMap.get('faculte_id'); // Get cart item ID from route
-    console.log(this.filiereId);
+    //console.log(this.filiereId);
 
     if (this.filiereId) {
       this.service
         .getFacultes(this.filiereId)
         .subscribe((response: any) => {
-          console.log(response);
+          //console.log(response);
           this.filiereItem = response as Faculte;
           // this.competences = this.filiereItem.competencescles.split(',');
           // this.missions = this.filiereItem.principales_missions.split(',');
-          console.log(this.filiereItem);
+         // console.log(this.filiereItem);
           // console.log(this.competences);
 
           
@@ -61,18 +61,18 @@ export class DetailsFacultesComponent {
         });
     }
     this.service.getFiliereFac(this.filiereId).subscribe((data: any) => {
-      console.log(data);  
+     // console.log(data);  
       this.filieresLicence = data as Array<FiliereFormation>
 
       for(let fil of this.filieresLicence){
         this.service.getMetiersLinkedToFiliere(fil.filieres_id).subscribe(
           (data:any)=>{
-            console.log("------------------------------------------")
-            console.log(fil.nom);
-            console.log(data);
+           // console.log("------------------------------------------")
+           // console.log(fil.nom);
+            //console.log(data);
             let res:Array<Metier> = data.results as Array<Metier>;
             let met:Metier  = res.slice(0,1)[0];
-            console.log(met);
+            //console.log(met);
             if(met)
             this.metiers.push(res.slice(0,1)[0]);
           }
@@ -96,7 +96,7 @@ export class DetailsFacultesComponent {
       observer.observe(fortyPercentElement);
     })
     this.service.getFiliereFacMaster(this.filiereId).subscribe((data: any) => {
-      console.log(data);  
+      //console.log(data);  
       this.filieresMaster = data;
       
     });

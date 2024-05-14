@@ -11,24 +11,24 @@ export class FiliereFormationBoxComponent {
   @Input() formationBox!: Universite | Faculte;
 
   ngOnInit(){
-    console.log(this.formationBox.nom)
-    console.log(this.formationBox.images_pc)
+    //console.log(this.formationBox.nom)
+    //console.log(this.formationBox.images_pc)
 
-    console.log("IS FORMATION BOX INSTANCE OF FACULTE");
-    console.log((this.formationBox as Faculte).universite);
+    //console.log("IS FORMATION BOX INSTANCE OF FACULTE");
+    //console.log((this.formationBox as Faculte).universite);
     
 
     if((this.formationBox as Faculte).universite){
       let im:string | null = this.convertDriveLinkToDirectDownloadLink(this.formationBox.images_pc);
-      console.log("-----------------------LOGGING FROM FACULTE----------------------------------")
-      console.log(im)
+     // console.log("-----------------------LOGGING FROM FACULTE----------------------------------")
+     // console.log(im)
       this.formationBox.logo=im?im:this.formationBox.images_pc;
-      console.log(this.formationBox.logo)
+     // console.log(this.formationBox.logo)
     }else{
       let im:string | null = this.convertDriveLinkToDirectDownloadLink(this.formationBox.logo);
-      console.log(im)
+      //console.log(im)
       this.formationBox.logo=im?im:this.formationBox.logo;
-      console.log(this.formationBox.logo)
+      //console.log(this.formationBox.logo)
     }
 
    
@@ -53,7 +53,7 @@ export class FiliereFormationBoxComponent {
           const directDownloadLink = `https://drive.google.com/thumbnail?&id=${fileId}`;
           return directDownloadLink;
       } else {
-          console.error("Invalid Google Drive shareable link format.");
+          //console.error("Invalid Google Drive shareable link format.");
           return null;
       }
     }else{

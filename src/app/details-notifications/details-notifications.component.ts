@@ -29,7 +29,7 @@ export class DetailsNotificationsComponent {
   fetchNotification(){
     this.notificationsService.getNotificationById(this.notificationsService.currentNotificationId).subscribe(
       (data:any)=>{
-        console.log(data);
+        //console.log(data);
         this.currentNotification = data as Notification
         this.bannerImage =this.currentNotification.image_pc;
         this.contentHtml = `${this.currentNotification.contenu}`;
@@ -63,7 +63,7 @@ export class DetailsNotificationsComponent {
           const directDownloadLink = `https://drive.google.com/thumbnail?&id=${fileId}`;
           return directDownloadLink;
       } else {
-          console.error("Invalid Google Drive shareable link format.");
+          //console.error("Invalid Google Drive shareable link format.");
           return null;
       }
     }else{

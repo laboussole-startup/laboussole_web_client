@@ -15,9 +15,9 @@ export class PageAcceuilAdminComponent {
 
   }
   receiveLoginResult(r:number){
-    console.log(r);
+    //console.log(r);
     if(r==1){
-      console.log("changing to page 2");
+     // console.log("changing to page 2");
       this.changePage(2);
     }else{
 
@@ -29,7 +29,7 @@ export class PageAcceuilAdminComponent {
       this.showLoginPage = true;
       this.showAdminHomePage = false;
     } else if(pageNum == 2){
-      console.log("showing Admin Home page");
+     // console.log("showing Admin Home page");
       this.showLoginPage = false;
       this.showAdminHomePage = true;
     }

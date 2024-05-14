@@ -45,7 +45,7 @@ convertDriveLinkToDirectDownloadLink(driveLink: string): string | null {
         const directDownloadLink = `https://drive.google.com/thumbnail?&id=${fileId}`;
         return directDownloadLink;
     } else {
-        console.error("Invalid Google Drive shareable link format.");
+        //console.error("Invalid Google Drive shareable link format.");
         return null;
     }
   }else{

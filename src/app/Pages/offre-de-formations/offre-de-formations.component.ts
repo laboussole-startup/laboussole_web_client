@@ -48,7 +48,7 @@ export class OffreDeFormationsComponent {
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.getScreenWidth = window.innerWidth;
-    console.log(this.getScreenWidth);
+    //console.log(this.getScreenWidth);
     // this.getScreenWidth <= 480? this.mobile = true : this.mobile = false;
     // 768px portrait
 
@@ -63,7 +63,7 @@ export class OffreDeFormationsComponent {
     // this.getScreenWidth <= 480? this.mobile = true : this.mobile = false;
 
     this.service.getFormations().subscribe((data: any) => {
-      console.log(data);
+     // console.log(data);
       this.metiers = data.results;
       let res:Array<Metier> = data.results as Array<Metier>
 
@@ -71,15 +71,15 @@ export class OffreDeFormationsComponent {
       this.popularMetierList = res.slice(20,25);
       // console.log(this.formations);
     });
-    console.log(this.userService.user_email);
+   // console.log(this.userService.user_email);
     let m:string | null = localStorage.getItem('user_email');
-    console.log(m);
+   // console.log(m);
     if(m){
       this.userService.getUserInfo().subscribe(
         (data:any) => {
-          console.log(data);
+          ///console.log(data);
           let user = data as UserInfo;
-          console.log(user.centres_interet);
+          //console.log(user.centres_interet);
           let final_centres:string = "";
 
           let ci:Array<string> = user.centres_interet.split(" ");
@@ -87,10 +87,10 @@ export class OffreDeFormationsComponent {
           for(let c of ci){
             final_centres = final_centres + this.centreInteretService.champ_lexical.get(c);
           }
-          console.log(final_centres);
+         // console.log(final_centres);
           this.service.getMetiersRecommendations(final_centres).subscribe(
             (data:any) => {
-              console.log(data);
+           //   console.log(data);
               let res:Array<Metier> = data.results as Array<Metier>
               this.recommendationsList = this.shuffleArray(res);
               this.initialReccomendationsList = this.recommendationsList.slice(0,5);
@@ -106,7 +106,7 @@ export class OffreDeFormationsComponent {
 
   showMobileMenu(){
     const menu:HTMLDivElement =  this.elementRef.nativeElement.querySelector('.mobileMenu');
-    console.log(menu)
+    //console.log(menu)
     if (menu) {
       this.overlay = document.createElement('div');
         this.overlay.style.position = 'fixed';
@@ -117,7 +117,7 @@ export class OffreDeFormationsComponent {
         this.overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // Adjust transparency here
         this.overlay.style.zIndex = '2'; // Ensure it's on top of everything else
         document.body.appendChild(this.overlay);
-      console.log("menu is ok")
+     // console.log("menu is ok")
       menu.style.display = 'block';
       menu.style.position = 'fixed'; // Position the element relative to the viewport
       menu.style.top = '0'; // Position it at the top of the viewport

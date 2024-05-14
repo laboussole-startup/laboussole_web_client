@@ -73,7 +73,7 @@ export class ContactezNousComponent {
       
       this.userService.contactus(m,s).subscribe(
         (data:any)=>{
-          console.log(data);
+         // console.log(data);
           this.sheetErrorMessage="Message envoyé avec succès";
           this.telephone="";
           this.messageControl.setValue("");
@@ -83,7 +83,7 @@ export class ContactezNousComponent {
          
         },
         (error:any)=>{
-          console.log(error);
+          //console.log(error);
           this.message_sent=false;
           this.sheetErrorMessage="Une erreur est survenue pendant l'envoi du message. Assurez-vous d'être connecté(e) avec cet e-mail";
           this.openBottomSheet();

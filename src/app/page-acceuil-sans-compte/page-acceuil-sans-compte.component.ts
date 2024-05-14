@@ -49,7 +49,7 @@ export class PageAcceuilSansCompteComponent {
               public dialog: MatDialog,
               private renderer: Renderer2){
     this.temoignages = this.TemoignageService.list_temoignages;
-    console.log(this.temoignages)
+    //console.log(this.temoignages)
   }
 
   ngOnInit(): void {
@@ -59,13 +59,13 @@ export class PageAcceuilSansCompteComponent {
 
     this.fetchAllArticles();
     this.TemoignageService.getTemoignages().subscribe(data => {
-      console.log(data);
+     // console.log(data);
       this.temoignages = data as Array<Temoignage>
 
     });
     this.TemoignageService.getTemoignages().subscribe(
       (data:any)=>{
-        console.log(data);
+        //console.log(data);
         let d = data as Array<Temoignage>
         
 
@@ -79,7 +79,7 @@ export class PageAcceuilSansCompteComponent {
 
     this.notificationService.getAllNotifications().subscribe(
       (data:any)=>{
-        console.log(data);
+        //console.log(data);
         let notifs:Array<Notification> = data as Array<Notification>;
         for(let notif of notifs){
           if(notif.image_tablette.includes('popup')){
@@ -169,7 +169,7 @@ export class PageAcceuilSansCompteComponent {
   fetchAllArticles(){
     this.articleService.getAllArticles().subscribe(
       (data:any)=>{
-        console.log(data);
+       // console.log(data);
         this.allArticles = data as Array<Article>;
         
       }
@@ -177,7 +177,7 @@ export class PageAcceuilSansCompteComponent {
   }
 
   viewArticle(id:number){
-    console.log(id);
+    //console.log(id);
     this.articleService.setCurrentArticle(id);
     this.router.navigateByUrl("/details-actualites")
   }
@@ -283,7 +283,7 @@ export class PageAcceuilSansCompteComponent {
           const directDownloadLink = `https://drive.google.com/thumbnail?&id=${fileId}`;
           return directDownloadLink;
       } else {
-          console.error("Invalid Google Drive shareable link format.");
+         // console.error("Invalid Google Drive shareable link format.");
           return null;
       }
     }else{

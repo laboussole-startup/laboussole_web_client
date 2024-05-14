@@ -31,21 +31,21 @@ export class ChangerMdpComponent {
   passerrormsg = 'obligatoire';
 
   updatePassword(){
-  console.log(this.passwordNouveau != this.passwordConfirm)
+  //console.log(this.passwordNouveau != this.passwordConfirm)
   if(this.passwordNouveau != this.passwordConfirm){
     this.sheetErrorMessage = "Erreur d'authentification. mots de passe dissemblable.";
     this.openBottomSheet();
   }else{
     let email = this.userService.user_email;
-    console.log(email);
+    //console.log(email);
   this.userService.login(email, this.passwordControlActuel.value).subscribe(
     (data) => {
       //console.log(data);
       if (data.hasOwnProperty("access") && data.hasOwnProperty("refresh")) {
-          console.log("updating password");
+          //console.log("updating password");
           this.userService.updatePassword(this.passwordNouveau).subscribe(
             (data)=>{
-              console.log(data);
+             // console.log(data);
               this.sheetErrorMessage = "Mot de passe changé avec succès";
               this.success = true;
               this.openBottomSheet();
@@ -58,7 +58,7 @@ export class ChangerMdpComponent {
       }
     },
     (error) => {
-      console.error("An error occurred:", error);
+      //console.error("An error occurred:", error);
       // Handle error here, for example:
       
         this.sheetErrorMessage = "Erreur d'authentification. Veuillez vérifier vos informations de connexion.";

@@ -34,14 +34,14 @@ export class TemoignagesInputComponent {
       ()=>{
         this.temBox_id = this.route.snapshot.paramMap.get('id');
     let s:string=this.temBox_id?this.temBox_id:""
-    console.log(s);
+   // console.log(s);
     const sectionElement = document.querySelector('[id="'+s+'"]');
     
     if (sectionElement) {
       const yOffset = sectionElement.getBoundingClientRect().top + window.pageYOffset;
       window.scrollTo({ top: yOffset-100, behavior: 'smooth' });
      }else{
-      console.log("section not found")
+     // console.log("section not found")
      }
       },2000
     )
@@ -63,7 +63,7 @@ export class TemoignagesInputComponent {
     // Subscribe to the afterClosed() method to get a callback when the dialog is closed
     dialogRef.afterClosed().subscribe((result) => {
       // 'result' contains the data passed from the dialog when it is closed
-      console.log('Dialog was closed with result:', result);
+     // console.log('Dialog was closed with result:', result);
       // Add any additional logic here
       this.reloadTemoignages();
     });
@@ -75,7 +75,7 @@ export class TemoignagesInputComponent {
   reloadTemoignages(){
     this.temoignageService.getTemoignages().subscribe(
       (data:any)=>{
-        console.log(data);
+        //console.log(data);
         let d = data as Array<Temoignage>
 
         for(let tem of d){

@@ -40,19 +40,19 @@ export class PageConnexionClientComponent {
 
  }
  checkLogin(){
-  console.log(this.email)
-  console.log(this.emailControl.value)
+ // console.log(this.email)
+ // console.log(this.emailControl.value)
   this.showSpinner=true;
   this.userService.login(this.emailControl.value, this.passwordControl.value).subscribe(
     (data:any) => {
-      console.log(data);
+     // console.log(data);
       if (data.hasOwnProperty("access") && data.hasOwnProperty("refresh")) {
         
         localStorage.setItem("access_token",data.access)
-         console.log("valid login");
+        // console.log("valid login");
          this.userService.user_email = this.email.trim();
-         console.log(this.email)
-         console.log(this.emailControl.value)
+        // console.log(this.email)
+        // console.log(this.emailControl.value)
          localStorage.setItem('user_email', this.email.trim()); // Saving user email in local storage
          this.router.navigate(['/']);
       } else {
@@ -62,7 +62,7 @@ export class PageConnexionClientComponent {
       }
     },
     (error) => {
-      console.error("An error occurred:", error);
+      //console.error("An error occurred:", error);
       this.showSpinner = false;
       // Handle error here, for example:
       

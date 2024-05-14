@@ -36,7 +36,7 @@ export class DetailsActualitesComponent {
   fetchCurrentArticle(){
     this.articleService.getArticleById(this.articleService.currentArticleId).subscribe(
       (data:any)=>{
-        console.log(data);
+       // console.log(data);
         this.currentArticle = data as Article;
         this.contentHtml = `${this.currentArticle.contenu}`;
       }

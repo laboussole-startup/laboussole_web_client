@@ -57,7 +57,7 @@ export class VoirTousMetiersComponent {
 
     }else{
       this.service.getFormations().subscribe((data: any) => {
-        console.log(data);
+        //console.log(data);
         this.metiers = data.results;
         this.previousPage = data.previous;
         this.nextPage = data.next;

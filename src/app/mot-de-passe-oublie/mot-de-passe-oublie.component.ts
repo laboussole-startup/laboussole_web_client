@@ -40,11 +40,11 @@ export class MotDePasseOublieComponent {
     if(this.nouveau_pass==this.conf_nouveau_pass){
       this.userService.recoverPassword(this.email,this.code,this.conf_nouveau_pass).subscribe(
         (data:any)=>{
-          console.log(data);
+          //console.log(data);
           this.changeStep(4);
         },
         (error:any)=>{
-          console.log(error);
+          //console.log(error);
           this.changeStep(5);
         }
       )
@@ -74,10 +74,10 @@ export class MotDePasseOublieComponent {
           },
           (error: any) => {
             // Handle error here
-            console.error("An error occurred:", error);
+           // console.error("An error occurred:", error);
               this.sheetErrorMessage = "Aucun compte n'existe avec cet email";
               this.openBottomSheet();
-              console.log("Aucun compte n'existe avec cet email");
+             // console.log("Aucun compte n'existe avec cet email");
             // Display an error message or perform any other action as needed
           }
         );

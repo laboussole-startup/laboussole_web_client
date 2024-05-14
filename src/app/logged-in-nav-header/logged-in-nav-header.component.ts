@@ -46,7 +46,7 @@ export class LoggedInNavHeaderComponent {
   }
 
   signOut(){
-    console.log("signing out");
+    //console.log("signing out");
     localStorage.setItem("access_token","")
    
     this.userService.user_email='';
@@ -64,7 +64,7 @@ export class LoggedInNavHeaderComponent {
     this.username = this.userService.username;
     this.notificationService.getAllNotifications().subscribe(
       (data:any)=>{
-        console.log(data);
+        //console.log(data);
         let allNotifs = data as Array<Notification>
         for(let notif of allNotifs){
           let value = localStorage.getItem('notification'+notif.id_notification);
@@ -76,7 +76,7 @@ export class LoggedInNavHeaderComponent {
         this.val=this.val=='0'?'':this.val;
         this.unread_notif_count = this.val?this.val:'';
     
-        console.log(this.unread_notif_count)
+       // console.log(this.unread_notif_count)
   
       }
     );
@@ -103,6 +103,6 @@ export class LoggedInNavHeaderComponent {
   }
   handleClick(){
     this.hideOthers=!this.hideOthers;
-    console.log(this.hideOthers)
+    //console.log(this.hideOthers)
   }
 }
