@@ -27,8 +27,8 @@
     
   <div class="optionsList">
   <app-acceuil-option-box
+    [@zoomInOut]="metierIsVisible"
     *ngFor="let option of options"
-    [@fadeIn]="option.isVisible ? 'in' : 'out'"
     [class]="option.class"
     [title]="option.title"
     [description]="option.description"

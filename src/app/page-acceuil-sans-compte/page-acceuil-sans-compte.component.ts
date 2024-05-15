@@ -27,12 +27,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
         animate(700)
       ])
     ]),
-    trigger('fadeIn', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('10s ease-in-out', style({ opacity: 1 })),
-      ]),
-    ]),
+   
   ]
 })
 
@@ -75,6 +70,8 @@ export class PageAcceuilSansCompteComponent {
 
   picturesMap:Map<string,string> = new Map();
 
+  metierIsVisible:number=0;
+
   showPopupNotification:boolean = false;
   private timeoutId: any;
  
@@ -91,7 +88,8 @@ export class PageAcceuilSansCompteComponent {
               private notificationService:NotificationsService,
               private router:Router,
               public dialog: MatDialog,
-              private renderer: Renderer2){
+              private renderer: Renderer2,
+              private elementRef: ElementRef){
     this.temoignages = this.TemoignageService.list_temoignages;
     //console.log(this.temoignages)
   }
@@ -102,6 +100,23 @@ export class PageAcceuilSansCompteComponent {
     window.scrollTo(0,0);
 
     this.fetchAllArticles();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Call your function here
+          this.onScroll40Percent();
+          observer.disconnect(); // Disconnect the observer to avoid further observations
+        }
+      });
+    }, { threshold: 0.8 }); // Use a threshold of 0.4 to trigger when 40% of the observed element is visible
+
+    // Identify the element that represents the 40% mark of the page
+    const fortyPercentElement = this.elementRef.nativeElement.querySelector('.optionsList');
+    
+    // Start observing the element
+    observer.observe(fortyPercentElement);
+    
     this.TemoignageService.getTemoignages().subscribe(data => {
      // console.log(data);
       this.temoignages = data as Array<Temoignage>
@@ -331,29 +346,11 @@ export class PageAcceuilSansCompteComponent {
     }
   }
 
-  @HostListener('window:scroll', ['$event'])
-  checkScroll() {
-    const windowHeight = window.innerHeight;
-    const scrollY = window.scrollY;
-  
-    this.options.forEach((option, index) => {
-      const element = document.querySelector(`.${option.class}`) as HTMLElement;
-     // console.log(element)
-  
-      if (element) {
-        const rect = element.getBoundingClientRect();
-        
-        // Calculate if the element is in the viewport
-        const isInViewport = (rect.top >= 0 && rect.bottom <= windowHeight + scrollY);
-      //  console.log(isInViewport);
-  
-        // If the element is in the viewport, trigger the animation
-        if (isInViewport) {
-          this.options[index].isVisible = true;
-        }else{
-          this.options[index].isVisible = false;
-        }
-      }
-    });
+  onScroll40Percent() {
+    // Your function logic when the user has scrolled 40% of the page
+    console.log('User has scrolled 40% of the page');
+    this.metierIsVisible=1;
+   
   }
+
 }
