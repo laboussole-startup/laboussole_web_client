@@ -24,6 +24,7 @@ export class NotificationsListComponent {
       (data:any)=>{
        // console.log(data);
         this.allNotifications = data as Array<Notification>
+        this.allNotifications.reverse();
 
       }
     );

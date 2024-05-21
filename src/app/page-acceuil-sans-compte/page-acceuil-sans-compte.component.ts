@@ -101,21 +101,41 @@ export class PageAcceuilSansCompteComponent {
 
     this.fetchAllArticles();
 
-    const observer = new IntersectionObserver((entries) => {
+    const observer1 = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           // Call your function here
-          this.onScroll40Percent();
-          observer.disconnect(); // Disconnect the observer to avoid further observations
+          this.onScroll30Percent();
+          //observer1.disconnect(); // Disconnect the observer to avoid further observations
         }
       });
-    }, { threshold: 0.8 }); // Use a threshold of 0.4 to trigger when 40% of the observed element is visible
+    }, { threshold: 0.5 }); // Use a threshold of 0.4 to trigger when 40% of the observed element is visible
 
+    const observer2 = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Call your function here
+          this.onScroll60Percent();
+          //observer2.disconnect(); // Disconnect the observer to avoid further observations
+        }
+      });
+    }, { threshold: 0.6 }); 
+    const observer3 = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Call your function here
+          this.onScroll100Percent();
+          //observer3.disconnect(); // Disconnect the observer to avoid further observations
+        }
+      });
+    }, { threshold: 1.0 }); 
     // Identify the element that represents the 40% mark of the page
-    const fortyPercentElement = this.elementRef.nativeElement.querySelector('.optionsList');
+    const thirtyPercentElement = this.elementRef.nativeElement.querySelector('.optionsList');
     
     // Start observing the element
-    observer.observe(fortyPercentElement);
+    observer1.observe(thirtyPercentElement);
+    observer2.observe(thirtyPercentElement);
+    observer3.observe(thirtyPercentElement);
     
     this.TemoignageService.getTemoignages().subscribe(data => {
      // console.log(data);
@@ -346,11 +366,18 @@ export class PageAcceuilSansCompteComponent {
     }
   }
 
-  onScroll40Percent() {
-    // Your function logic when the user has scrolled 40% of the page
-    console.log('User has scrolled 40% of the page');
-    this.metierIsVisible=1;
-   
+  onScroll30Percent() {
+    console.log('User has scrolled 30% of the optionsList');
+    this.options[0].isVisible=true;
+  }
+  onScroll60Percent() {
+    console.log('User has scrolled 60% of the optionsList');
+    this.options[1].isVisible=true;
+  }
+  onScroll100Percent(){
+    this.options[0].isVisible=false;
+    this.options[1].isVisible=false;
+  
   }
 
 }
