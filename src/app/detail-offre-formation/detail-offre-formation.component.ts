@@ -31,7 +31,7 @@ export class DetailOffreFormationComponent {
   linked_filiere!:FiliereFormation;
   linked_faculte!:Faculte;
   lieu:Map<Faculte,Universite> = new Map();
-  hideAll:boolean=false;
+  hideAll:boolean=true;
   salaire:Array<string> = new Array();
 
   scrollTimeout: any; 

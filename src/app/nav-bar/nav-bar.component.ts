@@ -30,14 +30,14 @@ export class NavBarComponent {
   }
 
   verifyLogin(){
-   // console.log("********************Before Logging*****************")
-   // console.log(localStorage.getItem("access_token"))
+    //console.log("********************Before Logging*****************")
+    //console.log(localStorage.getItem("access_token"))
     this.userService.getUserInfo().subscribe(
       (data) => {
-      //  console.log(data);
+       //console.log(data);
         let v:UserInfo = data as UserInfo;
         if(!localStorage.getItem("access_token")){
-       //   console.log("did not get access token")
+         //console.log("did not get access token")
           localStorage.setItem("user_email","");
         }else{
           this.isLoggedIn=true;
@@ -65,7 +65,9 @@ export class NavBarComponent {
       },
       (error) => {
         this.isLoggedIn=false;
-       // console.error("An error occurred:", error);      
+        //console.error("An error occurred:", error);
+        localStorage.setItem("user_email","");
+        localStorage.setItem("access_token","");
       }
     ); 
   }

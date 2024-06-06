@@ -15,6 +15,7 @@ export class DetailsNotificationsComponent {
 
   contentHtml:string = "";
   hideAll:boolean = false;
+  pdfSrc = 'https://docs.google.com/document/d/1-bhsANjBQKg_DsPdbn8j9e0KTosF5cC-bieYkVUabDY/edit?usp=drive_link';
 
   constructor(private notificationsService:NotificationsService,
     private elementRef: ElementRef,
