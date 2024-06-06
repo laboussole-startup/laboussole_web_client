@@ -34,7 +34,7 @@ export class CentreInteretsComponent {
 
   ngOnInit(): void {
     this.centreInteretService.getCentresInterets().subscribe(data => {
-      //console.log(data);
+      console.log(data);
       data = data as Array<CentreInteret>;
       
       for (let d of data) {

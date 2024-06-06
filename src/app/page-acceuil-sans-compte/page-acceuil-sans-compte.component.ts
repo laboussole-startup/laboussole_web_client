@@ -258,7 +258,7 @@ export class PageAcceuilSansCompteComponent {
   }
   
   formVar(temp: HTMLAnchorElement){
-    console.log(temp);
+    //console.log(temp);
   }
   nextTemoignage(){
     this.currentTemoignageNumber = (this.currentTemoignageNumber+1)%this.temoignages.length
@@ -367,11 +367,11 @@ export class PageAcceuilSansCompteComponent {
   }
 
   onScroll30Percent() {
-    console.log('User has scrolled 30% of the optionsList');
+   // console.log('User has scrolled 30% of the optionsList');
     this.options[0].isVisible=true;
   }
   onScroll60Percent() {
-    console.log('User has scrolled 60% of the optionsList');
+   // console.log('User has scrolled 60% of the optionsList');
     this.options[1].isVisible=true;
   }
   onScroll100Percent(){

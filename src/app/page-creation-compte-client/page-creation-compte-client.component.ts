@@ -67,7 +67,7 @@ conditionsControl:boolean=false;
           this.openBottomSheet();
         }
         else{
-          console.log("isValid");
+          //console.log("isValid");
           this.creerCompte();
         }
         
@@ -77,16 +77,16 @@ conditionsControl:boolean=false;
   }
 
   creerCompte() {
-    console.log([this.nom, this.prenom, this.email, this.password]);
+    //console.log([this.nom, this.prenom, this.email, this.password]);
     this.showSpinner=true;
     this.userService.createCompte(this.nom, this.prenom, this.email, this.password)
       .then((response) => {
-        console.log(response);
+        //console.log(response);
         if(response.status==201){
           this.userService.updateUserEmail(this.email);
           this.userService.login(this.emailControl.value, this.passwordControl.value).subscribe(
             (data:any) => {
-              console.log(data);
+              //console.log(data);
               if (data.hasOwnProperty("access") && data.hasOwnProperty("refresh")) {
                 
                 localStorage.setItem("access_token",data.access)
@@ -95,11 +95,11 @@ conditionsControl:boolean=false;
                 // console.log(this.email)
                 // console.log(this.emailControl.value)
                  localStorage.setItem('user_email', this.email.trim()); // Saving user email in local storage
-                 this.router.navigate(['/']);
+                 //this.router.navigate(['/']);
               } else {
                 this.showSpinner = false;
-                this.sheetErrorMessage = "Erreur d'authentification. Veuillez vérifier vos informations de connexion.";
-                this.openBottomSheet();
+                //this.sheetErrorMessage = "Erreur d'authentification. Veuillez vérifier vos informations de connexion.";
+                //this.openBottomSheet();
               }
             },
             (error) => {
@@ -107,8 +107,8 @@ conditionsControl:boolean=false;
               this.showSpinner = false;
               // Handle error here, for example:
               
-                this.sheetErrorMessage = "Erreur d'authentification. Veuillez vérifier vos informations de connexion.";
-                this.openBottomSheet();
+                //this.sheetErrorMessage = "Erreur d'authentification. Veuillez vérifier vos informations de connexion.";
+                //this.openBottomSheet();
         
             
             }
