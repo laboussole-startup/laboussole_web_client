@@ -8,13 +8,7 @@
     <div class="banner"> <img [src]="bannerImage" alt=""> </div>
     <div class="titre">{{currentNotification.titre}}</div>
     <div class="content" id="blurMark1" [innerHTML]="contentHtml"></div>
-    <pdf-viewer [src]="pdfSrc" 
-              [render-text]="true"
-              [show-all]="false"
-              [page]="1"
-              [zoom]="1.5"
-              style="display: block;">
-  </pdf-viewer>
+    
     <div class="createAccount" *ngIf="hideAll" style="display: flex;width:100%;justify-content:center;align-items:center;flex-flow: column nowrap;gap: 10px;position: relative;bottom: 50px;">
         <div><button mat-raised-button style="background-color: #0F70B7;color:white;" routerLink="/signup">Créer mon compte</button></div>
         <div><button mat-raised-button style="background-color: #0F70B7;color:white;" routerLink="/login">Je me connecte </button></div>

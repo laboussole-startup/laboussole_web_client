@@ -43,7 +43,6 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSliderModule} from '@angular/material/slider';
 
-import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 import { MotDePasseOublieComponent } from './mot-de-passe-oublie/mot-de-passe-oublie.component';
 import { PageAdminComponent } from './page-admin/page-admin.component';
@@ -203,7 +202,6 @@ import { MatRippleModule } from '@angular/material/core';
     MatSelectModule,
     MatRippleModule,
     MatSidenavModule,
-    PdfViewerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
