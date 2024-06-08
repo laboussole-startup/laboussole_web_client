@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "postinstall": "patch-package"
   },
   "private": true,
   "dependencies": {
@@ -24,6 +25,7 @@
     "angular-pdfjs-viewer": "^2.0.1",
     "ng2-pdf-viewer": "^10.2.2",
     "ngx-extended-pdf-viewer": "^20.5.0-alpha.2",
+    "patch-package": "^8.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
