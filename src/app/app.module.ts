@@ -100,6 +100,8 @@ import { FaqPageComponent } from './faq-page/faq-page.component';
 import { SingleFaqPageComponent } from './single-faq-page/single-faq-page.component';
 import { CompleteProfileDialogComponent } from './complete-profile-dialog/complete-profile-dialog.component';
 import { MatRippleModule } from '@angular/material/core';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 
 
@@ -202,6 +204,7 @@ import { MatRippleModule } from '@angular/material/core';
     MatSelectModule,
     MatRippleModule,
     MatSidenavModule,
+    PdfViewerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit} from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Notification } from '../Models/notification';
 import { NotificationsService } from '../services/notifications.service';
 import { UserServiceService } from '../services/user-service.service';
@@ -12,12 +13,14 @@ export class DetailsNotificationsComponent {
 
   currentNotification!:Notification;
   bannerImage:string = "";
+  statut:string = "";
 
   contentHtml:string = "";
   hideAll:boolean = false;
-  pdfSrc = 'https://docs.google.com/document/d/1-bhsANjBQKg_DsPdbn8j9e0KTosF5cC-bieYkVUabDY/edit?usp=drive_link';
+  pdfSrc:any = '';
+  isPdf:boolean = false;
 
-  constructor(private notificationsService:NotificationsService,
+  constructor(private notificationsService:NotificationsService,private domSanitizer:DomSanitizer,
     private elementRef: ElementRef,
     private userService:UserServiceService){
 
@@ -30,10 +33,16 @@ export class DetailsNotificationsComponent {
   fetchNotification(){
     this.notificationsService.getNotificationById(this.notificationsService.currentNotificationId).subscribe(
       (data:any)=>{
-        //console.log(data);
+        console.log(data);
         this.currentNotification = data as Notification
         this.bannerImage =this.currentNotification.image_pc;
         this.contentHtml = `${this.currentNotification.contenu}`;
+        this.statut = data.statut;
+        console.log(this.statut);
+        if(this.statut=='pdf'){
+          this.isPdf=true;
+          this.pdfSrc=data.image_telephone
+        }
         if(!this.userService.user_email){
           const fortyPercentElement:HTMLDivElement = this.elementRef.nativeElement.querySelector('#blurMark1');
           fortyPercentElement.style.filter = 'blur(7.5px)';
