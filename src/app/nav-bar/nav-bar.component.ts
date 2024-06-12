@@ -20,6 +20,7 @@ export class NavBarComponent {
 
   ngOnInit(): void {
     this.verifyLogin();
+    this.userService.profile_incomplete=false;
   }
 
   reloadComponent() {
@@ -49,11 +50,14 @@ export class NavBarComponent {
           
           if(v.dernier_diplome=='AUCUN' || v.serie=="AUCUN" || v.genre=='NON DEFINI' || v.niveau=='AUCUN'){
             this.userService.profile_incomplete=true;
-          }else if(v.date_de_naissance?.toString()=='2000-01-01'){
+            console.log("failed level 1 profile check")
+          }else if(v.date_de_naissance?.toString()=='1920-01-01'){
+            console.log("failed level 2 profile check")
             this.userService.profile_incomplete=true;
           }else{
             let t:string= v.telephone?v.telephone:"";
             if(t.length<6){
+              console.log("failed level 2 profile check")
               this.userService.profile_incomplete=true; 
             }
             

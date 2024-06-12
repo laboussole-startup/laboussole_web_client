@@ -41,7 +41,7 @@ headers = new HttpHeaders({
     telephone: string='+',
     niveau: string='AUCUN',
     photo?: File,
-    dateOfBirth: string = '2000-01-01' // Default value for date of birth
+    dateOfBirth: string = '1920-01-01' // Default value for date of birth
   ): Promise<any> {
     return new Promise((resolve, reject) => {
 
