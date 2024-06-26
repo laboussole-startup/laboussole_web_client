@@ -151,7 +151,7 @@ export class FormationsComponent {
       source.email.toString(), // Convert number to string if necessary
       source.telephone,
       0, // Placeholder for universite, update as needed
-      '', // Placeholder for logo, update as needed
+      source.logo, // Placeholder for logo, update as needed
       '', // Placeholder for imageurl, update as needed
       source['images_pc.1'],
       source['images_tablettes.1'].toString(), // Convert number to string if necessary
