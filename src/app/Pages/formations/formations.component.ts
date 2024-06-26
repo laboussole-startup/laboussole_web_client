@@ -1,10 +1,11 @@
-import { Component, HostListener, OnInit,DoCheck,Renderer2, ElementRef, } from '@angular/core';
+import { Component, HostListener, OnInit,DoCheck,Renderer2, ElementRef, FactoryProvider, } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Faculte } from 'src/app/Models/faculte';
 import { Universite } from 'src/app/Models/universite';
 import { UserInfo } from 'src/app/Models/userInfo';
 import { CentreInteretsService } from 'src/app/services/centre-interets.service';
 import { OffreFormationService } from 'src/app/services/offre-formation.service';
+import { ReccommendationsService } from 'src/app/services/reccommendations.service';
 import { SearchService } from 'src/app/services/search.service';
 import { UserServiceService } from 'src/app/services/user-service.service';
 
@@ -22,7 +23,8 @@ export class FormationsComponent {
     private renderer: Renderer2,
     private elementRef: ElementRef,
     private userService: UserServiceService,
-    private centreInteretService:CentreInteretsService
+    private centreInteretService:CentreInteretsService,
+    private reccomendationsService:ReccommendationsService
   ) {}
 
   query:string="";
@@ -62,6 +64,12 @@ export class FormationsComponent {
     this.getScreenWidth = window.innerWidth;
     // this.getScreenWidth <= 480? this.mobile = true : this.mobile = false;
 
+    this.reccomendationsService.getFacultesReccomendations("santé","cameroun","",1).subscribe(
+      (data)=>{
+        console.log(data);
+      }
+    )
+
     this.service.getUniversites().subscribe((data: any) => {
       //console.log(data);
       let d:Array<Universite> = data as Array<Universite>;
@@ -95,10 +103,10 @@ export class FormationsComponent {
             final_centres = final_centres + this.centreInteretService.champ_lexical.get(c);
           }
 
-          this.service.getFacultesReccomendations(final_centres).subscribe(
+          this.reccomendationsService.getFacultesReccomendations(final_centres,"","",1).subscribe(
             (data:any) => {
-              //console.log(data);
-              let res:Array<Faculte> = data.results as Array<Faculte>
+              console.log(data);
+              let res:Array<Faculte> = (data.recommendations).map((item: any) => this.convertToTargetType(item));
               this.reccomendationsList = this.shuffleArray(res);
               this.initialReccomendationsList = this.reccomendationsList.slice(0,5);
               this.searchService.formationsReccomandations =   this.shuffleArray(res);
@@ -133,6 +141,24 @@ export class FormationsComponent {
     this.searchService.alreadyOnSearchPage=true;
     this.router.navigateByUrl("/search-results")
   }
+
+  convertToTargetType(source: any): Faculte {
+    return new Faculte(
+      source.faculte_id,
+      source['nom.1'],
+      source['descriptif.1'],
+      source.condition_admission,
+      source.email.toString(), // Convert number to string if necessary
+      source.telephone,
+      0, // Placeholder for universite, update as needed
+      '', // Placeholder for logo, update as needed
+      '', // Placeholder for imageurl, update as needed
+      source['images_pc.1'],
+      source['images_tablettes.1'].toString(), // Convert number to string if necessary
+      source['images_telephone.1'].toString() // Convert number to string if necessary
+    );
+  }
+
   enableScroll(): void {
     // Retrieve the scroll position from the body's top style property
     const scrollY = parseInt(document.body.style.top || '0', 10);

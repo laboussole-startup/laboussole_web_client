@@ -16,21 +16,21 @@ export class CentreInteretsService {
 
     this.champ_lexical.set("Technologie","informat polytech genie numerique technolo");
     this.champ_lexical.set("Agriculture","agricul elevage peche bois agri agro ");
-    this.champ_lexical.set("Santé","medic medec infirmi sante chirurg pharma");
+    this.champ_lexical.set("Santé","medic medec infirmi santé chirurg pharma");
     this.champ_lexical.set("Droit","droit loi juri avocat magistra grefi");
     this.champ_lexical.set("Management","management econo business affaires finance");
     this.champ_lexical.set("Construction","construction btp batiment")
     this.champ_lexical.set("Btp","architec construction btp batiment")
     this.champ_lexical.set("Mines","mines petrole hydrocarbure");
-    this.champ_lexical.set("Énergie renouvelable","energie renouvelable solaire ");
-    this.champ_lexical.set("renouvelable","energie renouvelable");
+    this.champ_lexical.set("Énergie renouvelable","énergie renouvelable solaire ");
+    this.champ_lexical.set("renouvelable","énergie renouvelable");
     this.champ_lexical.set("Hydrocarbures","Hydrocarbure mines petrole");
     this.champ_lexical.set("Éducation","enseignement enseignant education instituteur institutrice");
     this.champ_lexical.set("Entrepreneuriat","Entrepreneuriat business management econo affaires finance");
     this.champ_lexical.set("Création","Creation Design arts");
     this.champ_lexical.set("Design","Creation Design arts");
     this.champ_lexical.set("Environnement","Environnement ecologie sante ");
-    this.champ_lexical.set("Ingénierie", "ingenierie ingenieur genie polytech technolo");
+    this.champ_lexical.set("Ingénierie", "ingénierie ingénieur génie polytech technolo");
     this.champ_lexical.set("Sciences","Humaines et sociales socio anthropo culture economi");
     this.champ_lexical.set("Humaines","Humaines et sociales socio anthropo culture economi");
     this.champ_lexical.set("sociales","Humaines et sociales socio anthropo culture");

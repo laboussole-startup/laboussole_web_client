@@ -18,7 +18,7 @@ import { UserInfo } from '../Models/userInfo';
 export class SearchResultsComponent {
 
 
-  defaultMetier:Metier=new Metier("1","dfs","fads","dfdasf","afds","afds","dsaf","dfas","dsfa","dsaf","dfsa","adfs","saA","ASDSAD","asdsa");
+  defaultMetier:Metier=new Metier("1","fads","dfdasf","afds","afds","dsaf","dfas","dsfa","dsaf","dfsa","adfs","saA","ASDSAD","asdsa");
   
   resultatsEcoles:Array<Faculte>=new Array()
   resultatsMetiers:Array<Metier>=new Array()

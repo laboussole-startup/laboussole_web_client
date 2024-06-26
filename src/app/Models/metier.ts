@@ -1,7 +1,6 @@
 export class Metier {
     constructor(
         public id_metiers : string,
-        public image_url: string,
         public competencescles: string,
         public salairemoyen: string,
         public entreprisesrecrutent: string,

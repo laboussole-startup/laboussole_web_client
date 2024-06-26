@@ -5,6 +5,7 @@ import { User } from 'src/app/Models/user';
 import { UserInfo } from 'src/app/Models/userInfo';
 import { CentreInteretsService } from 'src/app/services/centre-interets.service';
 import { OffreFormationService } from 'src/app/services/offre-formation.service';
+import { ReccommendationsService } from 'src/app/services/reccommendations.service';
 import { SearchService } from 'src/app/services/search.service';
 import { UserServiceService } from 'src/app/services/user-service.service';
 
@@ -23,7 +24,8 @@ export class OffreDeFormationsComponent {
     private renderer: Renderer2,
     private elementRef: ElementRef,
     private userService:UserServiceService,
-    private centreInteretService:CentreInteretsService
+    private centreInteretService:CentreInteretsService,
+    private reccomendationsService:ReccommendationsService
    
   ) {}
 
@@ -57,6 +59,13 @@ export class OffreDeFormationsComponent {
   
   ngOnInit() {
     this.enableScroll()
+
+   
+    this.reccomendationsService.getMetiersRecommendations("santé","","",1).subscribe(
+      (data)=>{
+       // console.log(data);
+      }
+    )
   
     window.scrollTo(0,0);
     this.getScreenWidth = window.innerWidth;
@@ -88,10 +97,11 @@ export class OffreDeFormationsComponent {
             final_centres = final_centres + this.centreInteretService.champ_lexical.get(c);
           }
          // console.log(final_centres);
-          this.service.getMetiersRecommendations(final_centres).subscribe(
+          this.reccomendationsService.getMetiersRecommendations(final_centres,"","",1).subscribe(
             (data:any) => {
-           //   console.log(data);
-              let res:Array<Metier> = data.results as Array<Metier>
+             console.log(data.recommendations);
+              let res:Array<Metier> = data.recommendations as Array<Metier>
+              console.log(res);
               this.recommendationsList = this.shuffleArray(res);
               this.initialReccomendationsList = this.recommendationsList.slice(0,5);
               this.searchService.metierRecommandations = this.shuffleArray(this.recommendationsList);
@@ -198,6 +208,7 @@ export class OffreDeFormationsComponent {
   }
 
   shuffleArray<T>(array: T[]): T[] {
+    console.log(typeof array);
     const shuffledArray = array.slice(); // Make a copy of the original array
     for (let i = shuffledArray.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1)); // Generate random index
