@@ -103,6 +103,11 @@
         // flex-wrap: wrap;
         gap: 32px;
       }
+      .recommendations2{
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 32px;
+      }
     }
   }
   
