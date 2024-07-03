@@ -107,7 +107,7 @@ export class FormationsComponent {
             (data:any) => {
               console.log(data);
               let res:Array<Faculte> = (data.recommendations).map((item: any) => this.convertToTargetType(item));
-              //this.reccomendationsList = this.shuffleArray(res);
+              this.reccomendationsList = res;//this.shuffleArray(res);
               this.initialReccomendationsList = this.reccomendationsList.slice(0,5);
               this.searchService.formationsReccomandations =   this.shuffleArray(res);
             }

@@ -102,7 +102,7 @@ export class OffreDeFormationsComponent {
              console.log(data.recommendations);
               let res:Array<Metier> = data.recommendations as Array<Metier>
               console.log(res);
-              //this.recommendationsList = this.shuffleArray(res);
+              this.recommendationsList = res;//this.shuffleArray(res);
               this.initialReccomendationsList = this.recommendationsList.slice(0,5);
               this.searchService.metierRecommandations = this.shuffleArray(this.recommendationsList);
             }
