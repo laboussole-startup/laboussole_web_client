@@ -3,6 +3,18 @@
     background-color: white;
     
 }
+app-expert-nav-bar{
+  position:fixed;
+  width: 100%;
+  z-index: 100; /* Specify a z-index to control stacking order */
+  /* Other styles as needed */
+}
+.pageContent{
+  position: relative;
+  top:80px;
+  height: 100vh;
+  overflow: hidden;
+}
 h2{
     margin-left:10px;
     width: fit-content;
