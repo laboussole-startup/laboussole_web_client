@@ -1,5 +1,6 @@
 .toolbar-title {
-    margin-left: 16px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   mat-toolbar{
@@ -68,6 +69,13 @@
 @media (max-width: 767px) {
   .mobileContainer {
     display: block;
+
+  }
+  .private{
+    color: white;
+    background-color: pink;
+    padding: 2px;
+    font-size: 0.7rem;
   }
 }
 

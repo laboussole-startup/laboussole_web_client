@@ -13,7 +13,14 @@ app-expert-nav-bar{
   position: relative;
   top:80px;
   height: 100vh;
-  overflow: hidden;
+  .hidden-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .hidden-scrollbar::-webkit-scrollbar {
+    display: none;  /* Hides scrollbar in WebKit browsers */
+  }
 }
 h2{
     margin-left:10px;
