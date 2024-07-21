@@ -28,6 +28,7 @@ import { DetailsNotificationsComponent } from './details-notifications/details-n
 import { TemoignagesInputComponent } from './temoignages-input/temoignages-input.component';
 import { ConditionsUtilisationsComponent } from './conditions-utilisations/conditions-utilisations.component';
 import { SingleFaqPageComponent } from './single-faq-page/single-faq-page.component';
+import { ExpertDashboardComponent } from './expert-dashboard/expert-dashboard.component';
 const routes: Routes = [
   { path: '', component: PageAcceuilSansCompteComponent },
   { path: 'login', component: PageConnexionClientComponent },
@@ -54,7 +55,8 @@ const routes: Routes = [
   {path:'details-notifications',component:DetailsNotificationsComponent},
   {path:'temoignages/:id',component:TemoignagesInputComponent},
   {path:'conditions',component:ConditionsUtilisationsComponent},
-  {path:'faq',component:SingleFaqPageComponent}
+  {path:'faq',component:SingleFaqPageComponent},
+  {path:'expert-dashboard',component:ExpertDashboardComponent}
 ];
 
 @NgModule({

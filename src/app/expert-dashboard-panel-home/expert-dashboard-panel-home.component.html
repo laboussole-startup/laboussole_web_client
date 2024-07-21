@@ -1,0 +1,48 @@
+<div class="card">
+    <p class="date">Date du jour</p>
+    <h1>Welcome sur votre tableau de bord Monsieur Bella bella!</h1>
+  </div>
+
+<div class="total-gains-card">
+    <h2>Total gains</h2>
+    <p>40,000 FCFA</p>
+    <!-- Add any other content you need -->
+</div>
+
+<h2>Nouveaux Messages</h2>
+
+<mat-tab-group animationDuration="0ms">
+  <mat-tab label="Tous">
+    <div class="message-container">
+      <app-message
+        senderName="Harvey Manning"
+        messageTitle="Curling Irons Are As Individual As The Women Who Use Them"
+        timestamp="2:30 PM"
+        [isPrivate]="true">
+      </app-message>
+
+      <app-message
+        senderName="Harvey Manning"
+        messageTitle="Curling Irons Are As Individual As The Women Who Use Them"
+        timestamp="2:30 PM"
+        [isPrivate]="false">
+      </app-message>
+    </div>
+    
+  </mat-tab>
+  <mat-tab label="Prives">
+    <app-message
+    senderName="Harvey Manning"
+    messageTitle="Curling Irons Are As Individual As The Women Who Use Them"
+    timestamp="2:30 PM"
+    [isPrivate]="true">
+  </app-message></mat-tab>
+  <mat-tab label="Groupes">
+    <app-message
+        senderName="Harvey Manning"
+        messageTitle="Curling Irons Are As Individual As The Women Who Use Them"
+        timestamp="2:30 PM"
+        [isPrivate]="false">
+      </app-message>
+  </mat-tab>
+</mat-tab-group>

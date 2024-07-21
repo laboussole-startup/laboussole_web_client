@@ -1,0 +1,15 @@
+<mat-toolbar>
+    <span>Recent</span>
+    <span>Favorites</span>
+    <span>Tout</span>
+  </mat-toolbar>
+  
+  <div class="post-container" >
+    <div class="articles" *ngIf="!showArticleContent">
+      <app-article-card (articleClicked)="openArticle($event)"></app-article-card>
+    </div>
+    <div class="articleContent" *ngIf="showArticleContent">
+      <app-article-content></app-article-content>
+    </div>
+  </div>
+  

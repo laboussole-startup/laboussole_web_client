@@ -1,0 +1,131 @@
+.list-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  .list-item.selected,.notification.selected {
+    background-color: #e0f7fa;
+  }
+  
+  .avatar {
+    margin-right: 10px;
+  }
+  
+  .avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  .content {
+    flex-grow: 1;
+  }
+  
+  .name {
+    font-weight: bold;
+  }
+  
+  .message {
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 400px;
+  }
+  
+  .details {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+  
+  .timestamp {
+    margin-right: 10px;
+    color: #999;
+  }
+  
+  .star-icon {
+    color: gold;
+    cursor: pointer;
+  }
+  
+  .notification {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 95%;
+    margin: 10px auto;
+    font-size: 0.9rem;
+  }
+  
+  .icon img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  .content {
+    flex: 1;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+  
+  .header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  
+  .sender {
+    font-weight: bold;
+  }
+  
+  .status {
+    color: white;
+    font-size: 0.9em;
+    margin-left: 10px;
+    background-color:pink;
+    border-radius: 5px;
+    padding: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+  
+  .time {
+    color: #888;
+    font-size: 0.9em;
+  }
+    /* Hide all containers by default */
+.mobileContainer, .tabletContainer, .desktopContainer {
+  display: none;
+}
+
+/* Show mobile container on small screens */
+@media (max-width: 767px) {
+  .mobileContainer {
+    display: block;
+    background-color: white;
+  }
+}
+
+/* Show tablet container on medium screens */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .tabletContainer {
+    display: block;
+  }
+}
+
+/* Show desktop container on large screens */
+@media (min-width: 1025px) {
+  .desktopContainer {
+    display: block;
+  }
+}

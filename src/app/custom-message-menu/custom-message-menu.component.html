@@ -1,0 +1,30 @@
+<mat-nav-list>
+    <mat-list-item>
+      <mat-icon>inbox</mat-icon>
+      <span class="label">Tous les messages</span>
+      <span class="count">1253</span>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-icon>star</mat-icon>
+      <span class="label">Favoris</span>
+      <span class="count">245</span>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-icon>send</mat-icon>
+      <span class="label">Message envoyé</span>
+      <span class="count">24,532</span>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-icon>drafts</mat-icon>
+      <span class="label">Message non lu</span>
+      <span class="count">09</span>
+    </mat-list-item>
+  </mat-nav-list>
+  
+  <div class="filters">
+    <mat-checkbox id="private-message" (change)="onPrivateMessageChange($event)">Message privé</mat-checkbox>
+    <mat-checkbox id="group-message" (change)="onGroupMessageChange($event)">Message de groupe</mat-checkbox>
+  </div>
+
+  
+  

@@ -1,0 +1,61 @@
+.container{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 12vh;
+    background-color: white;
+}
+.logo{
+    position: relative;
+    left:10px;
+}
+.rightItems{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding-right: 10px;
+}
+
+.search-box{
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #f0f0f0;
+    border-radius: 25px;
+    padding: 5px 10px;
+    transition: width 0.3s;
+    width: 200px;
+  }
+  
+  .search-input{
+    border: none;
+    background: none;
+    outline: none;
+    flex: 1;
+    padding: 5px;
+    transition: width 0.3s;
+  }
+  
+  .search-btn{
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .search-box.expanded{
+    width: 300px;
+  }
+  .container {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    transition: box-shadow 0.3s ease; /* Add transition for smooth effect */
+}
+
+/* On hover, increase the shadow to create an elevation effect */
+.container:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}

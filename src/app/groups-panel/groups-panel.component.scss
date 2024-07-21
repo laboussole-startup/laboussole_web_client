@@ -1,0 +1,31 @@
+  /* Hide all containers by default */
+  .mobileContainer, .tabletContainer, .desktopContainer {
+    display: none;
+  }
+  
+  /* Show mobile container on small screens */
+  @media (max-width: 767px) {
+    .mobileContainer {
+      display: block;
+    }
+  }
+  
+  /* Show tablet container on medium screens */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .tabletContainer {
+      display: block;
+    }
+  }
+  
+  /* Show desktop container on large screens */
+  @media (min-width: 1025px) {
+    .desktopContainer {
+      display: block;
+    }
+  
+  }
+
+  .main{
+    display: flex;
+    flex-flow: row nowrap;
+  }

@@ -1,0 +1,43 @@
+
+
+.message{
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 5px;
+  }
+  
+  .sender-name{
+    font-weight: bold;
+  }
+  
+  .message-title{
+    color: #333;
+  }
+  
+  .timestamp{
+    color: #999;
+  }
+  
+  .tag-private,.tag-group{
+    display: inline-block;
+    padding: 0.2em 0.6em 0.3em;
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: center;
+    border-radius: 0.25em;
+  }
+  
+  .tag-private{
+    background-color: #f0ad4e;
+  }
+  
+  .tag-group{
+    background-color: #d9534f;
+  }
+  

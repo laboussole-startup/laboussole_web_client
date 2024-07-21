@@ -1,0 +1,67 @@
+<div class="mobileContainer">
+
+  <div class="list-item" 
+  [class.selected]="isSelected" 
+  (contextmenu)="onRightClick($event)" 
+  (mousedown)="onMouseDown($event)" 
+  (mouseup)="onMouseUp($event)">
+<div class="avatar">
+ <img src="path-to-avatar-image" alt="">
+</div>
+<div class="content">
+ <div class="name">Julu Jalal</div>
+ <div class="message">Our Bachelor of Co...</div>
+</div>
+<div class="details">
+ <span class="timestamp">8:38 AM</span>
+ <span class="star-icon" (click)="toggleFavorite($event)">
+   {{ isFavorite ? '★' : '☆' }}
+ </span>
+</div>
+</div>
+
+</div>
+<div class="tabletContainer">
+  <div class="notification"
+  [class.selected]="isSelected" 
+  (contextmenu)="onRightClick($event)" 
+  (mousedown)="onMouseDown($event)" 
+  (mouseup)="onMouseUp($event)"
+  >
+    <span class="star-icon" (click)="toggleFavorite($event)">
+      {{ isFavorite ? '★' : '☆' }}
+    </span>
+    <div class="content">
+        <span class="sender">Juliu Isak</span>
+        <span class="status">non lu</span>
+      
+      <div class="message">
+        Our Bachelor of Commerce program is AACSB-accredited.
+      </div>
+        <span class="time">9:38 AM</span>
+    </div>
+  </div>
+  
+</div>
+
+<div class="desktopContainer">
+  <div class="notification"
+  [class.selected]="isSelected" 
+  (contextmenu)="onRightClick($event)" 
+  (mousedown)="onMouseDown($event)" 
+  (mouseup)="onMouseUp($event)">
+  >
+    <span class="star-icon" (click)="toggleFavorite($event)">
+      {{ isFavorite ? '★' : '☆' }}
+    </span>
+    <div class="content">
+        <span class="sender">Juliu Isak</span>
+        <span class="status">non lu</span>
+      
+      <div class="message">
+        Our Bachelor of Commerce program is AACSB-accredited.
+      </div>
+        <span class="time">9:38 AM</span>
+    </div>
+  </div>
+</div>

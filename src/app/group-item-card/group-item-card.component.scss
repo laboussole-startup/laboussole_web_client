@@ -1,0 +1,59 @@
+.group-card {
+    width: 250px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .group-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .group-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .group-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .group-info h2 {
+    margin: 0;
+    margin-right: 10px;
+  }
+  
+  .group-details {
+    margin-top: 10px;
+  }
+  
+  .group-members {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .member-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  
+  .more-members {
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+  }
+  

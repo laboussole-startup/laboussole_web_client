@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="logo">
+        <img
+        matRipple
+        class="logo_icon"
+        src="../../assets/logolaboussole1.svg"
+        alt=""
+        routerLink="/"
+      />
+    </div>
+    <div class="rightItems">
+      <div class="search-box">
+        <input type="text" class="search-input" placeholder="Search..." (focus)="expandSearch()" (blur)="collapseSearch()">
+        <button class="search-btn">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      <div class="profile_icon">
+          <div matRipple class="profile" style="margin-left: 30px;"  [matMenuTriggerFor]="profileMenu"> <img src="../../assets/avatar.svg" alt="" width="30px" height="30px"></div>
+      </div>
+    </div>   
+</div>
+<mat-menu #profileMenu="matMenu">
+    <button mat-menu-item routerLink="/signup">
+      <mat-icon>person</mat-icon>
+      <span>Créer un compte</span>
+    </button>
+    <button mat-menu-item routerLink="/login">
+      <mat-icon>login</mat-icon>
+      <span>Connexion</span>
+    </button>
+  </mat-menu>

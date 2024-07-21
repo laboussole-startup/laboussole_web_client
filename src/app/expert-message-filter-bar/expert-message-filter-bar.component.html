@@ -1,0 +1,24 @@
+<div class="filter-bar">
+    <button mat-icon-button>
+      <mat-icon>search</mat-icon>
+    </button>
+    <mat-form-field appearance="fill">
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="picker" id="date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Pay type</mat-label>
+      <mat-select id="payType">
+        <mat-option value="">Pay type</mat-option>
+        <!-- Additional options here -->
+      </mat-select>
+    </mat-form-field>
+    <button mat-button (click)="resetFilters()">
+      Réinitialiser le filtre
+    </button>
+    <button mat-icon-button>
+      <mat-icon>settings</mat-icon>
+    </button>
+  </div>

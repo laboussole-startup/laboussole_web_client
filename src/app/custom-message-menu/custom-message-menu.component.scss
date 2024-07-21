@@ -1,0 +1,38 @@
+
+mat-nav-list {
+
+}
+
+mat-list-item {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+}
+
+mat-icon {
+    margin-right: 10px;
+    position: relative;
+    top: 5px;
+}
+
+.label {
+    flex-grow: 1;
+    margin-right: 5px;
+}
+
+.count {
+    font-weight: bold;
+}
+
+.filters {
+    margin: 10px;
+    font-size: 0.8rem;
+}
+
+mat-checkbox {
+    display: block;
+    margin-bottom: 10px;
+}

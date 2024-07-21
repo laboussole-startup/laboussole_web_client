@@ -1,0 +1,8 @@
+<div class="message">
+    <div class="sender-name">{{ senderName }}</div>
+    <div class="message-title">{{ messageTitle }}</div>
+    <div class="timestamp">{{ timestamp }}</div>
+    <div [ngClass]="{'tag-private': isPrivate, 'tag-group': !isPrivate}">
+      {{ isPrivate ? 'Message privé' : 'Message groupe' }}
+    </div>
+  </div>

@@ -42,6 +42,13 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatTabsModule} from '@angular/material/tabs';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+
 
 
 import { MotDePasseOublieComponent } from './mot-de-passe-oublie/mot-de-passe-oublie.component';
@@ -102,6 +109,26 @@ import { CompleteProfileDialogComponent } from './complete-profile-dialog/comple
 import { MatRippleModule } from '@angular/material/core';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { ExpertDashboardComponent } from './expert-dashboard/expert-dashboard.component';
+import { ExpertNavBarComponent } from './expert-nav-bar/expert-nav-bar.component';
+import { ExpertLoggedinNavbarComponent } from './expert-loggedin-navbar/expert-loggedin-navbar.component';
+import { ExpertLoggedoutNavbarComponent } from './expert-loggedout-navbar/expert-loggedout-navbar.component';
+import { MessageComponent } from './message/message.component';
+import { MessagePanelComponent } from './message-panel/message-panel.component';
+import { ExpertDashboardPanelHomeComponent } from './expert-dashboard-panel-home/expert-dashboard-panel-home.component';
+import { MessagesPanelMsgBoxComponent } from './messages-panel-msg-box/messages-panel-msg-box.component';
+import { CustomMessageMenuComponent } from './custom-message-menu/custom-message-menu.component';
+import { ExpertMessageFilterBarComponent } from './expert-message-filter-bar/expert-message-filter-bar.component';
+import { ExpertMessageContentChatComponent } from './expert-message-content-chat/expert-message-content-chat.component';
+import { ChatMessageComponent } from './chat-message/chat-message.component';
+import { GroupsPanelComponent } from './groups-panel/groups-panel.component';
+import { GroupItemCardComponent } from './group-item-card/group-item-card.component';
+import { GroupMessageContentChatComponent } from './group-message-content-chat/group-message-content-chat.component';
+import { GroupMemberItemComponent } from './group-member-item/group-member-item.component';
+import { GroupMembersListComponent } from './group-members-list/group-members-list.component';
+import { ArticlesPanelComponent } from './articles-panel/articles-panel.component';
+import { ArticleCardComponent } from './article-card/article-card.component';
+import { ArticleContentComponent } from './article-content/article-content.component';
 
 
 
@@ -173,7 +200,27 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     FaqTemplateComponent,
     FaqPageComponent,
     SingleFaqPageComponent,
-    CompleteProfileDialogComponent
+    CompleteProfileDialogComponent,
+    ExpertDashboardComponent,
+    ExpertNavBarComponent,
+    ExpertLoggedinNavbarComponent,
+    ExpertLoggedoutNavbarComponent,
+    MessageComponent,
+    MessagePanelComponent,
+    ExpertDashboardPanelHomeComponent,
+    MessagesPanelMsgBoxComponent,
+    CustomMessageMenuComponent,
+    ExpertMessageFilterBarComponent,
+    ExpertMessageContentChatComponent,
+    ChatMessageComponent,
+    GroupsPanelComponent,
+    GroupItemCardComponent,
+    GroupMessageContentChatComponent,
+    GroupMemberItemComponent,
+    GroupMembersListComponent,
+    ArticlesPanelComponent,
+    ArticleCardComponent,
+    ArticleContentComponent
   ],
   imports: [
     CommonModule,
@@ -205,6 +252,12 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     MatRippleModule,
     MatSidenavModule,
     PdfViewerModule,
+    MatTabsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    MatToolbarModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

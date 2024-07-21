@@ -1,0 +1,25 @@
+<mat-card class="group-card"
+[class.selected]="isSelected" 
+(contextmenu)="onRightClick($event)" 
+(mousedown)="onMouseDown($event)" 
+(mouseup)="onMouseUp($event)"
+>
+    <div class="group-header">
+      <img src="path/to/image.jpg" alt="Group Image" class="group-image">
+      <div class="group-info">
+        <h2>Nom du groupe</h2>
+        <mat-icon>star</mat-icon>
+      </div>
+    </div>
+    <div class="group-details">
+      <p>date de creation</p>
+      <p>heure de creation</p>
+    </div>
+    <div class="group-members">
+      <img src="path/to/member1.jpg" alt="Member 1" class="member-image">
+      <img src="path/to/member2.jpg" alt="Member 2" class="member-image">
+      <img src="path/to/member3.jpg" alt="Member 3" class="member-image">
+      <div class="more-members">+14</div>
+    </div>
+  </mat-card>
+  

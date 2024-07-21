@@ -1,0 +1,78 @@
+
+<div class="mobileContainer">
+    <div class="allGroups" *ngIf="!show_chat">
+        <app-group-item-card (groupClicked)="displayGroupChat($event)"
+        ></app-group-item-card>
+        <app-group-item-card></app-group-item-card>
+        <app-group-item-card></app-group-item-card>
+        <app-group-item-card></app-group-item-card>
+        <app-group-item-card></app-group-item-card>
+    </div> 
+
+    <div class="chat" *ngIf="show_chat">
+        <app-group-message-content-chat 
+        (backToMessageList)="backToMainPanel($event)"
+        (showGroupMembers)="showMoreMembers($event)"
+        ></app-group-message-content-chat>
+    </div>
+    
+         <div class="groupMembers" *ngIf="display_group_members">
+        <app-group-members-list></app-group-members-list>
+    </div>
+    
+   
+</div>
+
+
+<div class="tabletContainer">
+    <div class="allGroups" *ngIf="!show_chat && !display_group_members">
+        <app-group-item-card (groupClicked)="displayGroupChat($event)"
+        ></app-group-item-card>
+        <app-group-item-card></app-group-item-card>
+        <app-group-item-card></app-group-item-card>
+        <app-group-item-card></app-group-item-card>
+        <app-group-item-card></app-group-item-card>
+    </div> 
+
+    <div class="chat" *ngIf="show_chat">
+        <app-group-message-content-chat
+        (backToMessageList)="backToMainPanel($event)"
+        (showGroupMembers)="showMoreMembers($event)"
+        ></app-group-message-content-chat>
+    </div>
+    
+    <div class="groupMembers" *ngIf="display_group_members">
+        <app-group-members-list></app-group-members-list>
+    </div>
+    
+   
+</div>
+
+<div class="desktopContainer">
+    <div class="main">
+        <div class="allGroups">
+            <app-group-item-card (groupClicked)="displayGroupChat($event)"
+            >
+            </app-group-item-card>
+            <app-group-item-card></app-group-item-card>
+            <app-group-item-card></app-group-item-card>
+            <app-group-item-card></app-group-item-card>
+            <app-group-item-card></app-group-item-card>
+        </div>
+
+
+       
+        <app-group-message-content-chat *ngIf="!display_group_members"
+          (backToMessageList)="backToMainPanel($event)"
+          (showGroupMembers)="showMoreMembers($event)"
+        >
+        </app-group-message-content-chat>
+    
+        <div class="groupMembers" *ngIf="display_group_members">
+            <app-group-members-list></app-group-members-list>
+        </div>    
+       
+    </div>
+</div>
+
+

@@ -18,6 +18,9 @@ export class LoggedInNavHeaderComponent {
 
   @Output() loggedOut = new EventEmitter<void>();
 
+  userName!: string;
+  date?: Date;
+
   showSearchBar = false;
 
   hideMenuIcon = false;
