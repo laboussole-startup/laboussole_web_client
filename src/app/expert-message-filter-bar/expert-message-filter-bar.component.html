@@ -1,6 +1,6 @@
 <div class="filter-bar">
     <button mat-icon-button>
-      <mat-icon>search</mat-icon>
+      <mat-icon>filter_alt</mat-icon>
     </button>
     <mat-form-field appearance="fill">
       <mat-label>Date</mat-label>
@@ -9,9 +9,13 @@
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>Pay type</mat-label>
+      <mat-label>Par type</mat-label>
       <mat-select id="payType">
-        <mat-option value="">Pay type</mat-option>
+        <mat-option value="">Lu</mat-option>
+        <mat-option value="">Non Lu</mat-option>
+        <mat-option value="">prive</mat-option>
+        <mat-option value="">groupe</mat-option>
+        <mat-option value="">favoris</mat-option>
         <!-- Additional options here -->
       </mat-select>
     </mat-form-field>
@@ -19,6 +23,6 @@
       Réinitialiser le filtre
     </button>
     <button mat-icon-button>
-      <mat-icon>settings</mat-icon>
+      <mat-icon>delete</mat-icon>
     </button>
   </div>
