@@ -15,6 +15,12 @@
     .tabletContainer {
       display: block;
     }
+
+    .allGroups{
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+    }
   }
   
   /* Show desktop container on large screens */
