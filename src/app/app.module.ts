@@ -129,6 +129,7 @@ import { GroupMembersListComponent } from './group-members-list/group-members-li
 import { ArticlesPanelComponent } from './articles-panel/articles-panel.component';
 import { ArticleCardComponent } from './article-card/article-card.component';
 import { ArticleContentComponent } from './article-content/article-content.component';
+import { ExpertLoginComponent } from './expert-login/expert-login.component';
 
 
 
@@ -220,7 +221,8 @@ import { ArticleContentComponent } from './article-content/article-content.compo
     GroupMembersListComponent,
     ArticlesPanelComponent,
     ArticleCardComponent,
-    ArticleContentComponent
+    ArticleContentComponent,
+    ExpertLoginComponent
   ],
   imports: [
     CommonModule,
