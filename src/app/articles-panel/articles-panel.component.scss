@@ -14,4 +14,31 @@
     background-image: url('../../assets/avatar.svg');
     background-size: cover;
   }
-  
+  /* Main styles */
+.article-editor {
+  font-family: 'Arial', sans-serif;
+}
+
+.editor-header {
+  display: flex;
+  align-items: center;
+}
+
+.new-article-btn {
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+.tabs {
+  display: flex;
+}
+
+.tab {
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+/* Active tab style */
+.tab.active {
+  border-bottom: 2px solid black;
+}

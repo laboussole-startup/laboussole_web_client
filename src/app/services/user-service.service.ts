@@ -238,4 +238,9 @@ headers = new HttpHeaders({
       "message":message
     },{ headers:headers });
   }
+
+  isAuthenticated(): boolean {
+    // Here you would check the actual authentication status
+    return false;
+  }
 }

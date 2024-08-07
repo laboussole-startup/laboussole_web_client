@@ -6,6 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./articles-panel.component.scss']
 })
 export class ArticlesPanelComponent {
+  setActiveTab(activeTab: HTMLElement) {
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    activeTab.classList.add('active');
+    // Add additional logic here for displaying content related to the active tab
+  }
   showArticleContent:boolean=false;
   posts = [
     {
