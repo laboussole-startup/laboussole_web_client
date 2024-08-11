@@ -241,6 +241,10 @@ headers = new HttpHeaders({
 
   isAuthenticated(): boolean {
     // Here you would check the actual authentication status
+    let b:string = localStorage.getItem('is_expert')?"no":"yes";
+    if(b=='yes'){
+      return true;
+    }
     return false;
   }
 }

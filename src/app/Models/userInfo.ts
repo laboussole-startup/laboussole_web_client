@@ -13,4 +13,6 @@ export interface UserInfo {
     telephone: string | null;
     username: string;
     id:number;
+    is_expert:boolean;
+    expert_id:number;
   }
