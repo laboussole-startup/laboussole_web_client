@@ -78,13 +78,15 @@ export class ExpertLoginComponent {
                
             },
             (error) => {
-              //this.isLoggedIn=false;
-              //console.error("An error occurred:", error);
-              //localStorage.setItem("user_email","");
-              //localStorage.setItem("access_token","");
+             
+              console.error("An error occurred:", error);
+              localStorage.setItem("user_email","");
+              localStorage.setItem("access_token","");
             }
           ); 
          } else {
+          localStorage.setItem("user_email","");
+          localStorage.setItem("access_token","");
            this.showSpinner = false;
            this.sheetErrorMessage = "Erreur d'authentification. Veuillez vérifier vos informations de connexion.";
            this.openBottomSheet();
