@@ -74,7 +74,7 @@ export class ExpertLoginComponent {
               if(v.is_expert){
                 console.log("is an expert and id is "+v.expert_id)
                 localStorage.setItem('is_expert',"yes");
-                //this.router.navigateByUrl("/expert-dashboard")
+                this.router.navigateByUrl("/expert-dashboard")
               }
                
             },
