@@ -58,6 +58,7 @@ export class ExpertLoginComponent {
        (data:any) => {
          console.log(data);
          if(data.hasOwnProperty("access") && data.hasOwnProperty("refresh")) {
+          console.log("entered decisive if block")
             this.showSpinner = false;
             localStorage.setItem("access_token",data.access)
             console.log("valid login");
@@ -68,7 +69,7 @@ export class ExpertLoginComponent {
            
           this.userService.getUserInfo().subscribe(
             (data) => {
-             //console.log(data);
+             console.log(data);
               let v:UserInfo = data as UserInfo;
               console.log(v);
               if(v.is_expert){
@@ -106,8 +107,6 @@ export class ExpertLoginComponent {
          
            this.sheetErrorMessage = "Erreur d'authentification. Veuillez vérifier vos informations de connexion.";
            this.openBottomSheet();
-   
-       
        }
      );
      
@@ -121,7 +120,5 @@ export class ExpertLoginComponent {
     trimEmail(){
       let v:string = this.emailControl.value?.trim()?this.emailControl.value?.trim():"";
       this.emailControl.setValue(v);
-    }
-
-  
+    }  
 }

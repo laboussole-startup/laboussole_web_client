@@ -240,12 +240,17 @@ headers = new HttpHeaders({
   }
 
   isAuthenticated(): boolean {
+    console.log("checking from service")
     console.log(localStorage.getItem('is_expert'))
     // Here you would check the actual authentication status
-    let b:string = localStorage.getItem('is_expert')?"no":"yes";
+    let b:string|null = localStorage.getItem('is_expert');
+    console.log("b is ",b)
+    console.log(b=='yes')
     if(b=='yes'){
+      console.log('returning true')
       return true;
     }
+    console.log('returning false')
     return false;
   }
 }
