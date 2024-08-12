@@ -56,15 +56,15 @@ export class ExpertLoginComponent {
      this.showSpinner=true;
      this.userService.login(this.emailControl.value, this.passwordControl.value).subscribe(
        (data:any) => {
-        // console.log(data);
-         if (data.hasOwnProperty("access") && data.hasOwnProperty("refresh")) {
-          this.showSpinner = false;
-          localStorage.setItem("access_token",data.access)
-          // console.log("valid login");
-          this.userService.user_email = this.email.trim();
-          // console.log(this.email)
-          // console.log(this.emailControl.value)
-          localStorage.setItem('user_email', this.email.trim());
+         console.log(data);
+         if(data.hasOwnProperty("access") && data.hasOwnProperty("refresh")) {
+            this.showSpinner = false;
+            localStorage.setItem("access_token",data.access)
+            console.log("valid login");
+            this.userService.user_email = this.email.trim();
+            // console.log(this.email)
+            // console.log(this.emailControl.value)
+            localStorage.setItem('user_email', this.email.trim());
            
           this.userService.getUserInfo().subscribe(
             (data) => {
@@ -74,17 +74,19 @@ export class ExpertLoginComponent {
               if(v.is_expert){
                 console.log("is an expert and id is "+v.expert_id)
                 localStorage.setItem('is_expert',"yes");
+                //this.router.navigateByUrl("/expert-dashboard")
               }
                
             },
             (error) => {
-             
               console.error("An error occurred:", error);
               localStorage.setItem("user_email","");
               localStorage.setItem("access_token","");
             }
           ); 
          } else {
+          console.log("login failed")
+          localStorage.setItem('is_expert',"no");
           localStorage.setItem("user_email","");
           localStorage.setItem("access_token","");
            this.showSpinner = false;
@@ -93,6 +95,11 @@ export class ExpertLoginComponent {
          }
        },
        (error) => {
+        console.log("login failed")
+        console.log(localStorage.getItem('is_expert'));
+        localStorage.setItem('is_expert',"no");
+        localStorage.setItem("user_email","");
+        localStorage.setItem("access_token","");
          //console.error("An error occurred:", error);
          this.showSpinner = false;
          // Handle error here, for example:
