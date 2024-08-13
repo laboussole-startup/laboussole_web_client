@@ -43,6 +43,13 @@ export class ExpertLoginComponent {
     });
   }
 
+  ngOnInit(){
+    console.log("on init called")
+    localStorage.setItem('is_expert',"no");
+    localStorage.setItem("user_email","");
+    localStorage.setItem("access_token","");
+  }
+
   onSubmit(): void {
     if (this.loginForm.valid) {
       // Handle login logic
@@ -76,6 +83,9 @@ export class ExpertLoginComponent {
                 console.log("is an expert and id is "+v.expert_id)
                 localStorage.setItem('is_expert',"yes");
                 this.router.navigateByUrl("/expert-dashboard")
+              }else{
+                this.sheetErrorMessage = "Erreur d'authentification. Vous n'avez pas de droit d'access";
+                this.openBottomSheet();
               }
                
             },
