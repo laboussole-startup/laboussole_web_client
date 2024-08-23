@@ -58,7 +58,7 @@ const routes: Routes = [
   {path:'temoignages/:id',component:TemoignagesInputComponent},
   {path:'conditions',component:ConditionsUtilisationsComponent},
   {path:'faq',component:SingleFaqPageComponent},
-  {path:'expert-dashboard',component:ExpertDashboardComponent,canActivate: [expertAuthGuard]},
+  {path:'expert-dashboard/:expert_id',component:ExpertDashboardComponent,canActivate: [expertAuthGuard]},
   {path:'expert-login',component:ExpertLoginComponent}
 ];
 

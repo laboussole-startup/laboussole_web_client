@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-expert-dashboard',
@@ -7,34 +8,19 @@ import { Component } from '@angular/core';
 })
 export class ExpertDashboardComponent {
   panel_number:number=1;
+  exp_id:any;
 changePanel(n: number) {
   this.panel_number=n;
 }
 
-  userName: string="Bella Bella";
-  date?: Date;
+  
 
 
-  constructor(){
+  constructor(private expertRoute: ActivatedRoute,){
     
   }
   ngOnInit(){
-    const date = this.date ? this.date.toLocaleDateString() : new Date().toLocaleDateString();
-    const greeting = `Welcome sur votre tableau de bord ${this.userName}!`;
-
-    const dateElement = document.querySelector('.card .date');
-    console.log(dateElement)
-    const greetingElement = document.querySelector('.card h1');
-    console.log(greetingElement)
-
-    if (dateElement) {
-      console.log("date elements exists")
-        dateElement.textContent = `Date du jour ${date}`;
-    }
-
-    if (greetingElement) {
-      console.log("greeting elements exists")
-        greetingElement.textContent = greeting;
-    }
+    this.exp_id=this.expertRoute.snapshot.paramMap.get('expert_id'); 
+    console.log("route id is"+this.exp_id)
   }
 }

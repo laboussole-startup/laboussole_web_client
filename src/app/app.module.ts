@@ -6,6 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 
+import { environment } from 'environments/environment'
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+
+
+
 import { PageAcceuilSansCompteComponent } from './page-acceuil-sans-compte/page-acceuil-sans-compte.component';
 import { PageConnexionClientComponent } from './page-connexion-client/page-connexion-client.component';
 import { PageCreationCompteClientComponent } from './page-creation-compte-client/page-creation-compte-client.component';
@@ -260,6 +266,8 @@ import { ExpertLoginComponent } from './expert-login/expert-login.component';
     MatCheckboxModule,
     MatToolbarModule,
     MatCardModule,
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent],
