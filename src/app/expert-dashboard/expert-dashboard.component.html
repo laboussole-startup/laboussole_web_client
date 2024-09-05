@@ -30,7 +30,10 @@
           <mat-icon>menu</mat-icon>
         </button>
         <div class="displayContainer">
-          <app-expert-dashboard-panel-home *ngIf="panel_number==1"></app-expert-dashboard-panel-home>
+          <app-expert-dashboard-panel-home *ngIf="panel_number==1"
+          (privateMessageEvent)="privateMessageEventResponse($event)"
+          (groupMessageEvent)="groupMessageEventResponse($event)"
+          ></app-expert-dashboard-panel-home>
           <app-message-panel *ngIf="panel_number==2"></app-message-panel>
           <app-groups-panel *ngIf="panel_number==3"></app-groups-panel>
           <app-articles-panel *ngIf="panel_number==4"></app-articles-panel>
@@ -65,7 +68,10 @@
     <div class="main">
       
       <div class="displayContainer">
-        <app-expert-dashboard-panel-home *ngIf="panel_number==1"></app-expert-dashboard-panel-home>
+        <app-expert-dashboard-panel-home *ngIf="panel_number==1"
+        (privateMessageEvent)="privateMessageEventResponse($event)"
+        (groupMessageEvent)="groupMessageEventResponse($event)"
+        ></app-expert-dashboard-panel-home>
         <app-message-panel *ngIf="panel_number==2"></app-message-panel>
         <app-groups-panel *ngIf="panel_number==3"></app-groups-panel>
         <app-articles-panel *ngIf="panel_number==4"></app-articles-panel>
@@ -97,7 +103,10 @@
       </div>
       <div class="main">
         <div class="displayContainer">
-          <app-expert-dashboard-panel-home *ngIf="panel_number==1"></app-expert-dashboard-panel-home>
+          <app-expert-dashboard-panel-home *ngIf="panel_number==1"
+          (privateMessageEvent)="privateMessageEventResponse($event)"
+          (groupMessageEvent)="groupMessageEventResponse($event)"
+          ></app-expert-dashboard-panel-home>
           <app-message-panel *ngIf="panel_number==2"></app-message-panel>
           <app-groups-panel *ngIf="panel_number==3"></app-groups-panel>
           <app-articles-panel *ngIf="panel_number==4"></app-articles-panel>

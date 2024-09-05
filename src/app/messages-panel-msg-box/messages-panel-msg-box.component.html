@@ -9,11 +9,11 @@
  <img src="../../assets/avatar.svg" alt="">
 </div>
 <div class="content">
- <div class="name">Julu Jalal</div>
- <div class="message">Our Bachelor of Co...</div>
+ <div class="name">{{name}}</div>
+ <div class="message">{{content}}</div>
 </div>
 <div class="details">
- <span class="timestamp">8:38 AM</span>
+ <span class="timestamp">{{timestamp | date:'dd-MM-yyyy HH:mm'}}</span>
  <span class="star-icon" (click)="toggleFavorite($event)">
    {{ isFavorite ? '★' : '☆' }}
  </span>
@@ -32,13 +32,13 @@
       {{ isFavorite ? '★' : '☆' }}
     </span>
     <div class="content">
-        <span class="sender">Juliu Isak</span>
-        <span class="status">non lu</span>
+        <span class="sender">{{name}}</span>
+        <span class="status" *ngIf="unread > 0" >{{unread}}</span>
       
       <div class="message">
-        Our Bachelor of Commerce program is AACSB-accredited.
+        {{content}}
       </div>
-        <span class="time">9:38 AM</span>
+        <span class="time">{{timestamp | date:'yyyy-MM-dd HH:mm:ss'}}</span>
     </div>
   </div>
   
@@ -55,13 +55,13 @@
       {{ isFavorite ? '★' : '☆' }}
     </span>
     <div class="content">
-        <span class="sender">Juliu Isak</span>
-        <span class="status">non lu</span>
+        <span class="sender">{{name}}</span>
+        <span class="status" *ngIf="unread > 0" >{{unread}}</span>
       
       <div class="message">
-        Our Bachelor of Commerce program is AACSB-accredited.
+       {{content}}
       </div>
-        <span class="time">9:38 AM</span>
+        <span class="time">{{timestamp | date:'yyyy-MM-dd HH:mm:ss'}}</span>
     </div>
   </div>
 </div>

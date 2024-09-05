@@ -239,6 +239,14 @@ headers = new HttpHeaders({
     },{ headers:headers });
   }
 
+  getUserNameById(user_id:any){
+    let headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem("access_token")
+    });
+    let url:string = 'https://laboussole-back-end.onrender.com/auth/user/username/'+user_id+'/';
+    return this.httpClient.get(url,{ headers: headers });
+  }
+
   isAuthenticated(): boolean {
     console.log("checking from service")
     console.log(localStorage.getItem('is_expert'))

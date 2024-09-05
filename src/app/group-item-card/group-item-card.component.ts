@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-group-item-card',
@@ -10,8 +10,17 @@ export class GroupItemCardComponent {
   isFavorite: boolean = false;
   longPressTimeout: any;
   recent_deselect:boolean = false;
+
+
+  @Input() title:string = "";
+
+  @Input() members:Array<any> = []
   
   @Output() groupClicked = new EventEmitter<string>();
+
+  ngOnInit(){
+    console.log("title is ",this.title);
+  }
 
   toggleSelection(): void {
     this.isSelected = !this.isSelected;

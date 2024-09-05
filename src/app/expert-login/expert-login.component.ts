@@ -82,7 +82,8 @@ export class ExpertLoginComponent {
               if(v.is_expert){
                 console.log("is an expert and id is "+v.expert_id)
                 localStorage.setItem('is_expert',"yes");
-                this.router.navigateByUrl("/expert-dashboard")
+                localStorage.setItem('user_id',v.id+"");
+                this.router.navigateByUrl("/expert-dashboard/"+v.expert_id)
               }else{
                 this.sheetErrorMessage = "Erreur d'authentification. Vous n'avez pas de droit d'access";
                 this.openBottomSheet();

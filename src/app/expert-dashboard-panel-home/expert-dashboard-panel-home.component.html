@@ -14,35 +14,45 @@
 <mat-tab-group animationDuration="0ms">
   <mat-tab label="Tous">
     <div class="message-container">
-      <app-message
-        senderName="Harvey Manning"
-        messageTitle="Curling Irons Are As Individual As The Women Who Use Them"
-        timestamp="2:30 PM"
-        [isPrivate]="true">
+      <app-message *ngFor="let privateChat of privateChatsLastMessage"
+      [senderName]="privateChat.name"
+      [messageTitle]="privateChat.content"
+      [timestamp]="privateChat.date"
+        [isPrivate]="true"
+        [Id]="privateChat.id"
+        (messageEvent)="privateMessageClicked($event)">
       </app-message>
-
-      <app-message
-        senderName="Harvey Manning"
-        messageTitle="Curling Irons Are As Individual As The Women Who Use Them"
-        timestamp="2:30 PM"
-        [isPrivate]="false">
-      </app-message>
+      <app-message *ngFor="let groupChat of groupChatsLastMessage"
+    [senderName]="groupChat.name"
+    [messageTitle]="groupChat.content"
+    [timestamp]="groupChat.date"
+      [isPrivate]="false"
+      [Id]="groupChat.id"
+      (messageEvent)="groupMessageClicked($event)">
+    </app-message>
     </div>
     
   </mat-tab>
   <mat-tab label="Prives">
-    <app-message
-    senderName="Harvey Manning"
-    messageTitle="Curling Irons Are As Individual As The Women Who Use Them"
-    timestamp="2:30 PM"
-    [isPrivate]="true">
-  </app-message></mat-tab>
+    <app-message *ngFor="let privateChat of privateChatsLastMessage"
+    [senderName]="privateChat.name"
+    [messageTitle]="privateChat.content"
+    [timestamp]="privateChat.date"
+    [isPrivate]="true"
+    [Id]="privateChat.id"
+    (messageEvent)="privateMessageClicked($event)">
+
+  </app-message>
+</mat-tab>
   <mat-tab label="Groupes">
-    <app-message
-        senderName="Harvey Manning"
-        messageTitle="Curling Irons Are As Individual As The Women Who Use Them"
-        timestamp="2:30 PM"
-        [isPrivate]="false">
-      </app-message>
+    <app-message *ngFor="let groupChat of groupChatsLastMessage"
+    [senderName]="groupChat.name"
+    [messageTitle]="groupChat.content"
+    [timestamp]="groupChat.date"
+      [isPrivate]="false"
+      [Id]="groupChat.id"
+      (messageEvent)="groupMessageClicked($event)">
+    </app-message>
+
   </mat-tab>
 </mat-tab-group>

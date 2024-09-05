@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-messages-panel-msg-box',
@@ -10,11 +10,34 @@ export class MessagesPanelMsgBoxComponent {
   isFavorite: boolean = false;
   longPressTimeout: any;
   recent_deselect:boolean = false;
+
+  @Input()
+  name!: string;
+  @Input()
+  content!: string;
+  @Input()
+  timestamp!: Date;
+  @Input()
+  id!:string;
+  @Input()
+  unread!:number;
+
+  
   @Output() messageClicked = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void {
+    let last_read_message_time_str = localStorage.getItem(this.id);
+    let last_read_message_time = new Date(1990, 0, 1);
+
+    let unread_msgs_in_current_chat:number=0;
+      if(last_read_message_time_str){
+        last_read_message_time = new Date(last_read_message_time_str)
+      }
+    if(this.timestamp<=last_read_message_time){
+      this.unread=0;
+    }
   }
 
   toggleSelection(): void {
@@ -54,7 +77,7 @@ export class MessagesPanelMsgBoxComponent {
     console.log(this.recent_deselect)
     if(!this.recent_deselect){
       console.log('trying to emit naah')
-      this.messageClicked.emit('paul');
+      this.messageClicked.emit(this.id);
     }
 
   }

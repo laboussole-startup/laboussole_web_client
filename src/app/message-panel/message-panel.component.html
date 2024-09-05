@@ -1,43 +1,67 @@
 <div class="mobileContainer">
-  <div class="message_list" *ngIf="!enter_discussion">
+  <div class="message_list" *ngIf="!enter_discussion && !this.chatMessage.enterChat">
     <div class="filter_and_messages">
       <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
         <mat-tab label="Tout">
-          <app-messages-panel-msg-box (messageClicked)="enterDiscussion($event)"></app-messages-panel-msg-box>
+          <app-messages-panel-msg-box *ngFor="let msg of displayedMessages"
+          [name]="msg.name"
+          [content]="msg.content"
+          [timestamp]="msg.date"
+          [id]="msg.id"
+          [unread]="msg.unread"
+           (messageClicked)="enterDiscussion($event)"></app-messages-panel-msg-box>
         </mat-tab>
         <mat-tab label="Favoris"> 
           <app-messages-panel-msg-box (messageClicked)="enterDiscussion($event)"></app-messages-panel-msg-box></mat-tab>
       </mat-tab-group>
     </div>
   </div>
-  <div class="chat" *ngIf="enter_discussion">
+  <div class="chat" *ngIf="enter_discussion || this.chatMessage.enterChat">
     <app-expert-message-content-chat (backToMessageList)="backToList($event)"></app-expert-message-content-chat>
   </div>
           
 </div>
 <div class="tabletContainer">
-  <div class="message_list" *ngIf="!enter_discussion">
+  <div class="message_list" *ngIf="!enter_discussion && !this.chatMessage.enterChat">
     <div class="filter_and_messages">
       <app-expert-message-filter-bar></app-expert-message-filter-bar>
-      <app-messages-panel-msg-box (messageClicked)="enterDiscussion($event)"></app-messages-panel-msg-box>
+      <app-messages-panel-msg-box *ngFor="let msg of displayedMessages"
+          [name]="msg.name"
+          [content]="msg.content"
+          [timestamp]="msg.date"
+          [id]="msg.id"
+          [unread]="msg.unread"
+           (messageClicked)="enterDiscussion($event)"></app-messages-panel-msg-box>
     </div>
   </div>
-  <div class="chat" *ngIf="enter_discussion">
+  <div class="chat" *ngIf="enter_discussion || this.chatMessage.enterChat">
     <app-expert-message-content-chat (backToMessageList)="backToList($event)"></app-expert-message-content-chat>
   </div>
 </div>
 <div class="desktopContainer">
   
   <div class="displayContainer">
-    <div class="message_list" *ngIf="!enter_discussion">
-      <app-custom-message-menu></app-custom-message-menu>
+    <div class="message_list" *ngIf="!enter_discussion && !this.chatMessage.enterChat">
+      <app-custom-message-menu
+      [all_messages_count]="displayedMessages.length"
+      [unread_message_count]="total_unread"
+      (privateMessageOnly)="displayOnlyPrivate($event)"
+      (groupMessageOnly)="displayOnlyGroup($event)"
+      ></app-custom-message-menu>
       <div class="filter_and_messages">
-        <app-expert-message-filter-bar></app-expert-message-filter-bar>
-        <app-messages-panel-msg-box (messageClicked)="enterDiscussion($event)"></app-messages-panel-msg-box>
+        <app-expert-message-filter-bar
+        ></app-expert-message-filter-bar>
+        <app-messages-panel-msg-box *ngFor="let msg of displayedMessages"
+          [name]="msg.name"
+          [content]="msg.content"
+          [timestamp]="msg.date"
+          [id]="msg.id"
+          [unread]="msg.unread"
+          (messageClicked)="enterDiscussion($event)"></app-messages-panel-msg-box>
       </div>
     </div>
     
-    <div class="chat" *ngIf="enter_discussion">
+    <div class="chat" *ngIf="enter_discussion || this.chatMessage.enterChat">
       <app-expert-message-content-chat (backToMessageList)="backToList($event)"></app-expert-message-content-chat>
     </div>
   

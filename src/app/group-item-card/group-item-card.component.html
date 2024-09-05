@@ -7,7 +7,7 @@
     <div class="group-header">
       <img src="../../assets/avatar.svg" alt="Group Image" class="group-image">
       <div class="group-info">
-        <h2>Nom du groupe</h2>
+        <h2>{{this.title}}</h2>
         <mat-icon>star</mat-icon>
       </div>
     </div>
@@ -17,8 +17,8 @@
     </div>
     <div class="group-members">
       <img src="../../assets/avatar.svg" alt="Member 1" class="member-image">
-      <img src="../../assets/avatar.svg" alt="Member 2" class="member-image">
-      <img src="../../assets/avatar.svg" alt="Member 3" class="member-image">
+      <img src="../../assets/avatar.svg" *ngIf="this.members.length > 1" alt="Member 2" class="member-image">
+      <img src="../../assets/avatar.svg" *ngIf="this.members.length > 2" alt="Member 3" class="member-image">
       <div class="more-members">+14</div>
     </div>
   </mat-card>
