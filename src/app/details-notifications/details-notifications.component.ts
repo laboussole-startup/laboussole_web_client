@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit} from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 import { Notification } from '../Models/notification';
 import { NotificationsService } from '../services/notifications.service';
 import { UserServiceService } from '../services/user-service.service';
@@ -19,19 +20,21 @@ export class DetailsNotificationsComponent {
   hideAll:boolean = false;
   pdfSrc:any = '';
   isPdf:boolean = false;
+  notifId:number=0;
 
   constructor(private notificationsService:NotificationsService,private domSanitizer:DomSanitizer,
     private elementRef: ElementRef,
-    private userService:UserServiceService){
+    private userService:UserServiceService,private route: ActivatedRoute){
 
   }
 
   ngOnInit(){
+    this.notifId = this.route.snapshot.paramMap.get('id') as unknown as number;
     this.fetchNotification();
   }
 
   fetchNotification(){
-    this.notificationsService.getNotificationById(this.notificationsService.currentNotificationId).subscribe(
+    this.notificationsService.getNotificationById(this.notifId).subscribe(
       (data:any)=>{
         console.log(data);
         this.currentNotification = data as Notification

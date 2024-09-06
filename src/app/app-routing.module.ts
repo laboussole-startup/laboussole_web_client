@@ -54,7 +54,7 @@ const routes: Routes = [
   {path: 'profil/:page',component:UserProfileComponent},
   {path:'search-results',component:SearchResultsComponent},
   {path:'details-actualites',component:DetailsActualitesComponent},
-  {path:'details-notifications',component:DetailsNotificationsComponent},
+  {path:'details-notifications/:id',component:DetailsNotificationsComponent},
   {path:'temoignages/:id',component:TemoignagesInputComponent},
   {path:'conditions',component:ConditionsUtilisationsComponent},
   {path:'faq',component:SingleFaqPageComponent},

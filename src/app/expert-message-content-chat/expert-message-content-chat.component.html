@@ -144,7 +144,10 @@
       
     </div>
     
+
+    
     <mat-form-field class="message-input">
+       
       <div class="message-input-container">
         <!-- Attachment buttons -->
         <button mat-icon-button (click)="fileInput.click()">
@@ -169,10 +172,7 @@
         </button>
       </div>
       <!-- Audio preview after recording -->
-    <audio *ngIf="audioURL" [src]="audioURL" controls></audio>
-    <button mat-icon-button  (click)="sendAudioMessage()" *ngIf="audioURL">
-      <mat-icon>send</mat-icon>
-    </button>
+    
     </mat-form-field>
     
 

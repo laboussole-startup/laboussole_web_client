@@ -34,7 +34,7 @@ export class NotificationsListComponent {
 
   viewNotification(id:number){
     this.notificationService.setCurrentNotification(id)
-    this.router.navigateByUrl("/details-notifications")
+    this.router.navigateByUrl("/details-notifications/"+id)
     // Set data in localStorage
     const value = localStorage.getItem('notification'+id);
     if(value){
