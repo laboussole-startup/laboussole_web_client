@@ -97,10 +97,35 @@
     </div>
     
     <mat-form-field class="message-input">
-      <input matInput placeholder="Type a message" [(ngModel)]="newMessage" (keyup.enter)="pushMessage()">
-      <button mat-icon-button matSuffix (click)="pushMessage()">
-        <mat-icon>send</mat-icon>
+      <div class="message-input-container">
+        <!-- Attachment buttons -->
+        <button mat-icon-button (click)="fileInput.click()">
+          <mat-icon>attach_file</mat-icon>
+        </button>
+        <input type="file" #fileInput (change)="onFileSelected($event)" multiple style="display: none;" accept="image/*,audio/*,application/pdf"/>
+    
+       
+        
+        <!-- Voice note recording button -->
+       <!-- Voice note recording button -->
+      <button mat-icon-button (click)="toggleRecording()">
+        <mat-icon *ngIf="!isRecording">mic</mat-icon>
+        <mat-icon *ngIf="isRecording">stop</mat-icon>
       </button>
+         <!-- Message input -->
+         <input matInput placeholder="Type a message" [(ngModel)]="newMessage" (keyup.enter)="pushMessage()">
+    
+        <!-- Send button -->
+        <button mat-icon-button matSuffix (click)="pushMessage()">
+          <mat-icon>send</mat-icon>
+        </button>
+      </div>
+      <!-- Audio preview after recording -->
+    <audio *ngIf="audioURL" [src]="audioURL" controls></audio>
+    <button mat-icon-button  (click)="sendAudioMessage()" *ngIf="audioURL">
+      <mat-icon>send</mat-icon>
+    </button>
     </mat-form-field>
+    
 
   </div>
