@@ -4,6 +4,7 @@ import { CentreInteret } from '../Models/centreInteret';
 import { CentreInteretsService } from '../services/centre-interets.service';
 import { UserServiceService } from '../services/user-service.service';
 import { MatBottomSheet, MatBottomSheetConfig } from '@angular/material/bottom-sheet';
+import { LoginMemoryService } from '../services/login-memory.service';
 
 
 @Component({
@@ -27,7 +28,8 @@ export class CentreInteretsComponent {
     private userService:UserServiceService,
     private router:Router,
     private route: ActivatedRoute,
-    private bottomSheet: MatBottomSheet){
+    private bottomSheet: MatBottomSheet,
+    private loginMemoryService:LoginMemoryService){
 
   }
 
@@ -82,7 +84,11 @@ terminateProcess(){
       
     });
     if(!this.origin){
-      this.router.navigate(['/']);
+      if(this.loginMemoryService.isLoginFromNotification){
+        this.router.navigateByUrl("details-notifications/"+this.loginMemoryService.lastNotificationId);
+       }else{
+        this.router.navigate(['/']);
+       }
     }else{
       this.router.navigate(['/profil/0']);
     }

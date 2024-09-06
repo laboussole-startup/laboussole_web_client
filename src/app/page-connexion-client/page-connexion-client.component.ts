@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatBottomSheet, MatBottomSheetConfig } from '@angular/material/bottom-sheet';
 import {ThemePalette} from '@angular/material/core';
 import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
+import { LoginMemoryService } from '../services/login-memory.service';
 
 
 
@@ -36,7 +37,8 @@ export class PageConnexionClientComponent {
 
  constructor(private userService:UserServiceService,
   private router:Router,
-  private bottomSheet: MatBottomSheet){
+  private bottomSheet: MatBottomSheet,
+  private loginMemoryService: LoginMemoryService){
 
  }
  checkLogin(){
@@ -54,7 +56,12 @@ export class PageConnexionClientComponent {
         // console.log(this.email)
         // console.log(this.emailControl.value)
          localStorage.setItem('user_email', this.email.trim()); // Saving user email in local storage
-         this.router.navigate(['/']);
+         if(this.loginMemoryService.isLoginFromNotification){
+          this.router.navigateByUrl("details-notifications/"+this.loginMemoryService.lastNotificationId);
+         }else{
+          this.router.navigate(['/']);
+         }
+        
       } else {
         this.showSpinner = false;
         this.sheetErrorMessage = "Erreur d'authentification. Veuillez vérifier vos informations de connexion.";

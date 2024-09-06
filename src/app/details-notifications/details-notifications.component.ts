@@ -1,7 +1,8 @@
 import { Component, ElementRef, OnInit} from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Notification } from '../Models/notification';
+import { LoginMemoryService } from '../services/login-memory.service';
 import { NotificationsService } from '../services/notifications.service';
 import { UserServiceService } from '../services/user-service.service';
 
@@ -24,7 +25,8 @@ export class DetailsNotificationsComponent {
 
   constructor(private notificationsService:NotificationsService,private domSanitizer:DomSanitizer,
     private elementRef: ElementRef,
-    private userService:UserServiceService,private route: ActivatedRoute){
+    private userService:UserServiceService,private route: ActivatedRoute,private router:Router,
+    private loginMemoryService:LoginMemoryService){
 
   }
 
@@ -82,6 +84,17 @@ export class DetailsNotificationsComponent {
     }else{
       return null;
     }
+  }
+
+  goToLogin(){
+    this.loginMemoryService.isLoginFromNotification=true;
+    this.loginMemoryService.lastNotificationId=this.notifId;
+    this.router.navigateByUrl("/login")
+  }
+  goToSignup(){
+    this.loginMemoryService.isLoginFromNotification=true;
+    this.loginMemoryService.lastNotificationId=this.notifId;
+    this.router.navigateByUrl("/signup")
   }
 
 }
