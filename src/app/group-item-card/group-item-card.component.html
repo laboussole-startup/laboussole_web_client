@@ -12,14 +12,12 @@
       </div>
     </div>
     <div class="group-details">
-      <p>date</p>
-      <p>heure</p>
     </div>
     <div class="group-members">
       <img src="../../assets/avatar.svg" alt="Member 1" class="member-image">
       <img src="../../assets/avatar.svg" *ngIf="this.members.length > 1" alt="Member 2" class="member-image">
       <img src="../../assets/avatar.svg" *ngIf="this.members.length > 2" alt="Member 3" class="member-image">
-      <div class="more-members">+14</div>
+      <div class="more-members" *ngIf="(this.members.length-1)>0">{{this.members.length-1}}</div>
     </div>
   </mat-card>
   

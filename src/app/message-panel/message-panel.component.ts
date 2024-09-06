@@ -216,6 +216,10 @@ export class MessagePanelComponent {
     );
     return collectionData(q, { idField: 'id' });
   }
+  filterUnreadMessages(allLastMessageArray: any[]): any[] {
+    return allLastMessageArray.filter(chat => chat.unread > 0);
+  }
+  
 
   displayOnlyPrivate(e:any){
     if(e){
@@ -231,6 +235,29 @@ export class MessagePanelComponent {
     }else{
       this.displayedMessages=this.AllChatsLastMessage;
     }
+  }
+  onUnreadMessageFilter(e:any){
+    this.displayedMessages = this.filterUnreadMessages(this.AllChatsLastMessage);
+  }
+  onGroupMessageFilter(e:any){
+    if(e){
+      this.displayedMessages=this.groupChatsLastMessage;
+    }else{
+      this.displayedMessages=this.AllChatsLastMessage;
+    }
+  }
+  onPrivateMessageFilter(e:any){
+    if(e){
+      this.displayedMessages=this.privateChatsLastMessage;
+    }else{
+      this.displayedMessages=this.AllChatsLastMessage;
+    }
+  }
+  onAllMessagesFilter(e:any){
+    this.displayedMessages=this.AllChatsLastMessage;
+  }
+  onFavorisMessageFilter(e:any){
+
   }
 
   

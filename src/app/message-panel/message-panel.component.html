@@ -24,7 +24,13 @@
 <div class="tabletContainer">
   <div class="message_list" *ngIf="!enter_discussion && !this.chatMessage.enterChat">
     <div class="filter_and_messages">
-      <app-expert-message-filter-bar></app-expert-message-filter-bar>
+      <app-expert-message-filter-bar
+      (unreadMessageFilter)="onUnreadMessageFilter($event)"
+      (groupMessageFilter)="onGroupMessageFilter($event)"
+      (privateMessageFilter)="onPrivateMessageFilter($event)"
+      (favorisMessageFilter)="onFavorisMessageFilter($event)"
+      (allMessagesFilter)="onAllMessagesFilter($event)"
+      ></app-expert-message-filter-bar>
       <app-messages-panel-msg-box *ngFor="let msg of displayedMessages"
           [name]="msg.name"
           [content]="msg.content"
@@ -50,6 +56,11 @@
       ></app-custom-message-menu>
       <div class="filter_and_messages">
         <app-expert-message-filter-bar
+        (unreadMessageFilter)="onUnreadMessageFilter($event)"
+        (groupMessageFilter)="onGroupMessageFilter($event)"
+        (privateMessageFilter)="onPrivateMessageFilter($event)"
+        (favorisMessageFilter)="onFavorisMessageFilter($event)"
+        (allMessagesFilter)="onAllMessagesFilter($event)"
         ></app-expert-message-filter-bar>
         <app-messages-panel-msg-box *ngFor="let msg of displayedMessages"
           [name]="msg.name"

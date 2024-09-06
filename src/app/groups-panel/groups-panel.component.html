@@ -27,6 +27,7 @@
     <div class="allGroups" *ngIf="!show_chat && !display_group_members">
         <app-group-item-card *ngFor="let grp of groupChats"
         [title]="grp.Nom"
+        [members]="grp.Participants"
         (groupClicked)="displayGroupChat($event)">
         </app-group-item-card>
         
@@ -51,6 +52,7 @@
         <div class="allGroups">
             <app-group-item-card *ngFor="let grp of groupChats"
             [title]="grp.Nom"
+            [members]="grp.Participants"
             (groupClicked)="displayGroupChat($event)">
             </app-group-item-card>
            

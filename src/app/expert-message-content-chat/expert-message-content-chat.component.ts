@@ -1,6 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ChatMessagesService } from '../services/chat-messages.service';
 import { UserServiceService } from '../services/user-service.service';
+import { Firestore, doc, updateDoc, arrayUnion } from '@angular/fire/firestore';
+import { Timestamp } from 'firebase/firestore'; // Firebase Timestamp
 
 @Component({
   selector: 'app-expert-message-content-chat',
@@ -8,21 +10,28 @@ import { UserServiceService } from '../services/user-service.service';
   styleUrls: ['./expert-message-content-chat.component.scss']
 })
 export class ExpertMessageContentChatComponent {
+
   messages:Array<any> = [];
 
   @Output() backToMessageList = new EventEmitter<string>();
+  isGroupChat:boolean=false;
 
   chatDetails:any;
   standardizedMessages:Array<any> = new Array();
   title:string="";
 
-  constructor(private chatMessage:ChatMessagesService,private userService:UserServiceService){
+  constructor(private chatMessage:ChatMessagesService,
+    private userService:UserServiceService,
+    private firestore: Firestore){
 
   }
 
 
   ngOnInit(){
     this.chatDetails = this.chatMessage.messages;
+    if(this.chatDetails.Participants){
+      this.isGroupChat=true;
+    }
     if(this.chatDetails.Nom){
       this.title = this.chatDetails.Nom
     }else{
@@ -62,7 +71,7 @@ export class ExpertMessageContentChatComponent {
       const milliseconds = message.date_sent.seconds * 1000 + message.date_sent.nanoseconds / 1e6;
       // Create Date object
       const dt = new Date(milliseconds);
-      let  timestamp:string = message.dt;
+      let  timestamp:Date = dt;
 
       let user_id:any = localStorage.getItem('user_id');
       let isSt:boolean=false;
@@ -89,15 +98,68 @@ export class ExpertMessageContentChatComponent {
 
   newMessage = '';
 
-  sendMessage() {
+  pushMessage() {
     if (this.newMessage.trim()) {
-      this.messages.push({ text: this.newMessage, timestamp: new Date().toLocaleTimeString(), sent: true });
+      let user_id:number = localStorage.getItem('user_id') as unknown as number
+      this.standardizedMessages.push({ text: this.newMessage, timestamp: new Date(), isSent: true });
+      if(this.isGroupChat){
+        this.sendGroupMessage(this.chatMessage.messages.id,this.newMessage,user_id)
+      }else{
+        this.sendPrivateMessage(this.chatMessage.messages.id,this.newMessage,user_id)
+      }
+      
+      console.log(this.chatMessage.messages.id)
       this.newMessage = '';
+
     }
   }
 
   backToList(){
     this.backToMessageList.emit("back");
+  }
+
+  async sendPrivateMessage(chatId: string, message: string, senderId: number) {
+    const chatDocRef = doc(this.firestore, `privateChats/${chatId}`);
+
+    // Create the new message object
+    const newMessage = {
+      content: message,
+      date_sent: Timestamp.now(),
+      sender: senderId,
+    };
+
+    try {
+      // Update the document by pushing the new message to the message_list array
+      await updateDoc(chatDocRef, {
+        message_list: arrayUnion(newMessage),
+        last_message_date_sent: Timestamp.now(), // Also update the last message time
+      });
+      console.log('Message sent successfully!');
+    } catch (error) {
+      console.error('Error sending message: ', error);
+    }
+  }
+
+  async sendGroupMessage(chatId: string, message: string, senderId: number) {
+    const chatDocRef = doc(this.firestore, `groupChats/${chatId}`);
+
+    // Create the new message object
+    const newMessage = {
+      content: message,
+      date_sent: Timestamp.now(),
+      sender: senderId,
+    };
+
+    try {
+      // Update the document by pushing the new message to the message_list array
+      await updateDoc(chatDocRef, {
+        message_list: arrayUnion(newMessage),
+        last_message_date_sent: Timestamp.now(), // Also update the last message time
+      });
+      console.log('Message sent successfully!');
+    } catch (error) {
+      console.error('Error sending message: ', error);
+    }
   }
 
 }
