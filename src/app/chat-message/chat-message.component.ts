@@ -12,4 +12,27 @@ export class ChatMessageComponent {
   timestamp!: string;
   @Input()
   isSent!: boolean;
+  @Input()
+  isImage!:boolean
+  @Input()
+  imageUrl!:string;
+  @Input()
+  isAudio!:boolean;
+  @Input()
+  audioUrl!:string;
+  @Input()
+  isDocument!:boolean;
+  @Input()
+  documentUrl!:string;
+  @Input()
+  documentName!:string;
+  @Input()
+  isVideo!:boolean;
+  @Input()
+  videoUrl!:string;
+ 
+
+  ngOnInit(){
+    console.log("chat message says is image is ",this.isImage)
+  }
 }

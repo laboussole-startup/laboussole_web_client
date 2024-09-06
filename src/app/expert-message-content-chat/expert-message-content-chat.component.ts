@@ -1,11 +1,15 @@
 
-declare var FFmpeg: any;
+
 
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ChatMessagesService } from '../services/chat-messages.service';
 import { UserServiceService } from '../services/user-service.service';
 import { Firestore, doc, updateDoc, arrayUnion } from '@angular/fire/firestore';
 import { Timestamp } from 'firebase/firestore'; // Firebase Timestamp
+import { Storage, ref, uploadBytes, getDownloadURL } from '@angular/fire/storage';
+
+
+import { finalize } from 'rxjs/operators';
 
 
 
@@ -15,6 +19,8 @@ import { Timestamp } from 'firebase/firestore'; // Firebase Timestamp
   styleUrls: ['./expert-message-content-chat.component.scss']
 })
 export class ExpertMessageContentChatComponent {
+
+  downloadURL: string | null = null;
 
   messages:Array<any> = [];
 
@@ -40,8 +46,8 @@ export class ExpertMessageContentChatComponent {
 
   constructor(private chatMessage:ChatMessagesService,
     private userService:UserServiceService,
-    private firestore: Firestore){
-      this.initializeFFmpeg();
+    private firestore: Firestore,private storage: Storage){
+      
   }
 
 
@@ -93,6 +99,20 @@ export class ExpertMessageContentChatComponent {
 
       let user_id:any = localStorage.getItem('user_id');
       let isSt:boolean=false;
+      let isImg:boolean=false;
+      let isDocument:boolean=false;
+      let isVideo:boolean=false;
+      let isAudio:boolean=false;
+
+      if(message.fileType.startsWith('image/')){
+        isImg=true;
+      }else if(message.fileType.startsWith('audio/')){
+        isAudio=true;
+      }else if(message.fileType.startsWith('video/')){
+        isVideo=true;
+      }else if(message.fileType != "null"){
+        isDocument=true;
+      }
 
       if(message.sender){
         isSt = user_id == message.sender;
@@ -106,24 +126,33 @@ export class ExpertMessageContentChatComponent {
         {
           text:txt,
           timestamp:timestamp,
-          isSent:isSt
+          isSent:isSt,
+          isImage:isImg,
+          imageUrl:message.fileUrl,
+          isAudio:isAudio,
+          audioUrl:message.fileUrl,
+          isVideo:isVideo,
+          videoUrl:message.fileUrl,
+          isDocument:isDocument,
+          documentUrl:message.fileUrl,
+          documentName:message.fileName
         }
       )
     }
-    //console.log("chat details is ",this.chatDetails)
+    console.log("all standardized messages  ",this.standardizedMessages)
   }
 
 
   newMessage = '';
 
-  pushMessage() {
+  pushMessage(fileUrl:string,fileType:string,fileName:string) {
     if (this.newMessage.trim()) {
       let user_id:number = localStorage.getItem('user_id') as unknown as number
       this.standardizedMessages.push({ text: this.newMessage, timestamp: new Date(), isSent: true });
       if(this.isGroupChat){
-        this.sendGroupMessage(this.chatMessage.messages.id,this.newMessage,user_id)
+        this.sendGroupMessage(this.chatMessage.messages.id,this.newMessage,user_id,fileUrl,fileType,fileName)
       }else{
-        this.sendPrivateMessage(this.chatMessage.messages.id,this.newMessage,user_id)
+        this.sendPrivateMessage(this.chatMessage.messages.id,this.newMessage,user_id,fileUrl,fileType,fileName)
       }
       
       console.log(this.chatMessage.messages.id)
@@ -136,7 +165,7 @@ export class ExpertMessageContentChatComponent {
     this.backToMessageList.emit("back");
   }
 
-  async sendPrivateMessage(chatId: string, message: string, senderId: number) {
+  async sendPrivateMessage(chatId: string, message: string, senderId: number,fileUrl:string,fileType:string,fileName:string) {
     const chatDocRef = doc(this.firestore, `privateChats/${chatId}`);
 
     // Create the new message object
@@ -144,6 +173,9 @@ export class ExpertMessageContentChatComponent {
       content: message,
       date_sent: Timestamp.now(),
       sender: senderId,
+      fileUrl:fileUrl,
+      fileType:fileType,
+      fileName:fileName
     };
 
     try {
@@ -158,7 +190,7 @@ export class ExpertMessageContentChatComponent {
     }
   }
 
-  async sendGroupMessage(chatId: string, message: string, senderId: number) {
+  async sendGroupMessage(chatId: string, message: string, senderId: number,fileUrl:string,fileType:string,fileName:string) {
     const chatDocRef = doc(this.firestore, `groupChats/${chatId}`);
 
     // Create the new message object
@@ -166,6 +198,9 @@ export class ExpertMessageContentChatComponent {
       content: message,
       date_sent: Timestamp.now(),
       sender: senderId,
+      fileUrl:fileUrl,
+      fileType:fileType,
+      fileName:fileName
     };
 
     try {
@@ -181,11 +216,24 @@ export class ExpertMessageContentChatComponent {
   }
 
   onFileSelected(event: any) {
-    const files: FileList = event.target.files;
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-      // Handle the selected file (upload or attach it to the message)
-      console.log(file);
+    const file = event.target.files[0];
+    if (file) {
+      const filePath = `uploads/${Date.now()}_${file.name}`;
+      const storageRef = ref(this.storage, filePath);
+      
+      // Upload the file
+      uploadBytes(storageRef, file).then((snapshot) => {
+        // Get the download URL
+        getDownloadURL(storageRef).then((url) => {
+          this.downloadURL = url;
+          console.log('File uploaded. Download URL:', url);
+          this.newMessage="file sent";
+          this.pushMessage(url,file.type,file.name);
+        });
+
+      }).catch((error) => {
+        console.error('Error uploading file:', error);
+      });
     }
   }
 
@@ -196,7 +244,6 @@ export class ExpertMessageContentChatComponent {
       await this.startRecording();
     }
   }
-
   async startRecording() {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -221,24 +268,48 @@ export class ExpertMessageContentChatComponent {
     }
   }
 
-  stopRecording() {
-    this.mediaRecorder.stop();
-    this.isRecording = false;
-  }
+  async stopRecording() {
+    if (this.mediaRecorder) {
+      this.mediaRecorder.stop();
+      this.isRecording = false;
 
+      // Stop all tracks of the media stream to release the microphone
+      const stream = this.mediaRecorder.stream;
+      if (stream) {
+        stream.getTracks().forEach((track: { stop: () => any; }) => track.stop());
+      }
+
+      // Optionally, you might want to clean up or reset other resources here
+    }
+  }
   // Optional: function to send or process audioBlob
   sendAudioMessage() {
     if (this.audioBlob) {
-      // Send the recorded audioBlob to the server or further process it
-      console.log('Sending audio message:', this.audioBlob);
+      // Generate a filename for the audio blob
+      const fileName = `audio_${Date.now()}.webm`; // or another extension depending on the blob type
+  
+      // Define the path where the file will be stored in Firebase Storage
+      const filePath = `uploads/${fileName}`;
+      const storageRef = ref(this.storage, filePath);
+  
+      // Upload the file
+      uploadBytes(storageRef, this.audioBlob).then((snapshot) => {
+        // Get the download URL
+        getDownloadURL(storageRef).then((url) => {
+          this.downloadURL = url;
+          console.log('File uploaded. Download URL:', url);
+          this.newMessage = "File sent";
+          this.pushMessage(url, 'audio/webm', fileName); // Adjust MIME type and filename as needed
+        }).catch((error) => {
+          console.error('Error getting download URL:', error);
+        });
+      }).catch((error) => {
+        console.error('Error uploading file:', error);
+      });
     }
     this.resetAudioRecording();
   }
 
-  async initializeFFmpeg() {
-    this.ffmpeg = FFmpeg.createFFmpeg({ log: true });
-    await this.ffmpeg.load();
-  }
 
   async fetchFile(file: File): Promise<Uint8Array> {
     const response = await fetch(URL.createObjectURL(file));

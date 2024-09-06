@@ -9,6 +9,10 @@ import { CommonModule } from '@angular/common';
 import { environment } from 'environments/environment'
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { provideStorage, getStorage } from '@angular/fire/storage';
+
+
+
 
 
 
@@ -267,7 +271,8 @@ import { ExpertLoginComponent } from './expert-login/expert-login.component';
     MatToolbarModule,
     MatCardModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
   ],
   providers: [],
   bootstrap: [AppComponent],

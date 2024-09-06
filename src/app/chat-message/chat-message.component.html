@@ -1,5 +1,9 @@
 <div class="message" [ngClass]="{'sent': isSent, 'received': !isSent}">
     <p>{{ text }}</p>
+    <p *ngIf="isDocument"> <a [href]="documentUrl">{{documentName}}</a> </p>
     <span class="timestamp">{{ timestamp | date:'dd/MM/yyyy HH:mm' }}</span>
+    <img *ngIf="isImage" [src]="imageUrl" alt="" width="150" height="150">
+    <audio *ngIf="isAudio" [src]="audioUrl" controls></audio>
+    <video *ngIf="isVideo" [src]="videoUrl" controls width="320" height="240"></video>
 </div>
   
