@@ -11,6 +11,7 @@ export class GroupItemCardComponent {
   longPressTimeout: any;
   recent_deselect:boolean = false;
 
+  @Input() id!:string;
 
   @Input() title:string = "";
 
@@ -58,7 +59,7 @@ export class GroupItemCardComponent {
     console.log(this.recent_deselect)
     if(!this.recent_deselect){
       console.log('trying to emit naah')
-      this.groupClicked.emit('paul');
+      this.groupClicked.emit(this.id);
     }
 
   }

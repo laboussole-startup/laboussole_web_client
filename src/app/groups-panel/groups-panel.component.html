@@ -1,9 +1,10 @@
 
 <div class="mobileContainer">
     <div class="allGroups" *ngIf="!show_chat">
-        <app-group-item-card *ngFor="let grp of groupChats"
-            [title]="grp.Nom"
-            [members]="grp.Participants"
+        <app-group-item-card *ngFor="let grp of iterable_map.values()"
+            [id]="grp.id"
+            [title]="grp.name"
+            [members]="grp.members"
             (groupClicked)="displayGroupChat($event)">
             </app-group-item-card>
     </div> 
@@ -25,9 +26,10 @@
 
 <div class="tabletContainer">
     <div class="allGroups" *ngIf="!show_chat && !display_group_members">
-        <app-group-item-card *ngFor="let grp of groupChats"
-        [title]="grp.Nom"
-        [members]="grp.Participants"
+        <app-group-item-card *ngFor="let grp of iterable_map.values()"
+        [id]="grp.id"
+        [title]="grp.name"
+        [members]="grp.members"
         (groupClicked)="displayGroupChat($event)">
         </app-group-item-card>
         
@@ -50,9 +52,10 @@
 <div class="desktopContainer">
     <div class="main">
         <div class="allGroups">
-            <app-group-item-card *ngFor="let grp of groupChats"
-            [title]="grp.Nom"
-            [members]="grp.Participants"
+            <app-group-item-card *ngFor="let grp of iterable_map.values()"
+            [id]="grp.id"
+            [title]="grp.name"
+            [members]="grp.members"
             (groupClicked)="displayGroupChat($event)">
             </app-group-item-card>
            

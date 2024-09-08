@@ -145,10 +145,23 @@ export class ExpertMessageContentChatComponent {
 
   newMessage = '';
 
-  pushMessage(fileUrl:string,fileType:string,fileName:string) {
+  pushMessage(fileUrl:string,fileType:string,fileName:string,isImage:boolean,imageUrl:string,
+    isAudio:boolean,audioUrl:string,isVideo:boolean,videoUrl:string,isDocument:boolean,
+    documentUrl:string,documentName:string) {
     if (this.newMessage.trim()) {
       let user_id:number = localStorage.getItem('user_id') as unknown as number
-      this.standardizedMessages.push({ text: this.newMessage, timestamp: new Date(), isSent: true });
+      this.standardizedMessages.push({ 
+        text: this.newMessage, timestamp: new Date(), isSent: true,
+        isImage:isImage,
+        imageUrl:imageUrl,
+        isAudio:isAudio,
+        audioUrl:audioUrl,
+        isVideo:isVideo,
+        videoUrl:videoUrl,
+        isDocument:isDocument,
+        documentUrl:documentUrl,
+        documentName:documentName
+       });
       if(this.isGroupChat){
         this.sendGroupMessage(this.chatMessage.messages.id,this.newMessage,user_id,fileUrl,fileType,fileName)
       }else{
@@ -228,7 +241,21 @@ export class ExpertMessageContentChatComponent {
           this.downloadURL = url;
           console.log('File uploaded. Download URL:', url);
           this.newMessage="file sent";
-          this.pushMessage(url,file.type,file.name);
+          let isImg:boolean=false;
+          let isDocument:boolean=false;
+          let isVideo:boolean=false;
+          let isAudio:boolean=false;
+
+          if(file.type.startsWith('image/')){
+            isImg=true;
+          }else if(file.type.startsWith('audio/')){
+            isAudio=true;
+          }else if(file.type.startsWith('video/')){
+            isVideo=true;
+          }else if(file.type != "null"){
+            isDocument=true;
+          }
+          this.pushMessage(url,file.type,file.name,isImg,url,isAudio,url,isVideo,url,isDocument,url,file.name);
         });
 
       }).catch((error) => {
@@ -299,7 +326,7 @@ export class ExpertMessageContentChatComponent {
           this.downloadURL = url;
           console.log('File uploaded. Download URL:', url);
           this.newMessage = "File sent";
-          this.pushMessage(url, 'audio/webm', fileName); // Adjust MIME type and filename as needed
+          this.pushMessage(url, 'audio/webm', fileName,false,url,true,url,false,url,false,url,fileName); // Adjust MIME type and filename as needed
         }).catch((error) => {
           console.error('Error getting download URL:', error);
         });

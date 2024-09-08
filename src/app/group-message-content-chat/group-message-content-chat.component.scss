@@ -1,87 +1,100 @@
 .toolbar-title {
-    margin-left: 16px;
-    margin-right: 10px;
-  }
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
-  mat-toolbar{
-    width: 100%;
-  }
-  
-  .spacer {
-    flex: 1 1 auto;
-  }
-  
-  
-  .message-container {
-    padding: 16px;
-  }
-  
-  mat-list-item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .sent {
-    align-self: flex-end;
-    background-color: #e0f7fa;
-    border-radius: 10px;
-    padding: 8px;
-    margin: 4px 0;
-  }
-  
-  .received {
-    align-self: flex-start;
-    background-color: #f1f1f1;
-    border-radius: 10px;
-    padding: 8px;
-    margin: 4px 0;
-  }
-  
-  .timestamp {
-    font-size: 0.75em;
-    color: gray;
-    align-self: flex-end;
-  }
-  
-  .message-input {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 16px;
-    background: white;
-  }
-  .chat-container, app-chat-message{
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-  }
-  .chat-container{
-    padding-bottom: 200px;
-  }
+mat-toolbar{
+  width: 100%;
+}
 
-    /* Hide all containers by default */
+.message-input-container{
+  display: flex;
+  flex-flow: row nowrap;
+  
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+
+.message-container {
+  padding: 16px;
+}
+
+mat-list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sent {
+  align-self: flex-end;
+  background-color: #e0f7fa;
+  border-radius: 10px;
+  padding: 8px;
+  margin: 4px 0;
+}
+
+.received {
+  align-self: flex-start;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  padding: 8px;
+  margin: 4px 0;
+}
+
+.timestamp {
+  font-size: 0.75em;
+  color: gray;
+  align-self: flex-end;
+}
+
+.message-input {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 16px;
+  background: white;
+}
+.chat-container, app-chat-message{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.chat-container{
+  padding-bottom: 100px;
+}
+
+  /* Hide all containers by default */
 .mobileContainer, .tabletContainer, .desktopContainer {
-  display: none;
+display: none;
 }
 
 /* Show mobile container on small screens */
 @media (max-width: 767px) {
-  .mobileContainer {
-    display: block;
-  }
+.mobileContainer {
+  display: block;
+
+}
+.private{
+  color: white;
+  background-color: pink;
+  padding: 2px;
+  font-size: 0.7rem;
+}
 }
 
 /* Show tablet container on medium screens */
 @media (min-width: 768px) and (max-width: 1024px) {
-  .tabletContainer {
-    display: block;
-  }
+.tabletContainer {
+  display: block;
+}
 }
 
 /* Show desktop container on large screens */
 @media (min-width: 1025px) {
-  .desktopContainer {
-    display: block;
-  }
+.desktopContainer {
+  display: block;
+}
 }

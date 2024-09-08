@@ -187,11 +187,10 @@ export class MessagePanelComponent {
   }
 
   enterDiscussion(e:any){
-    console.log('entering discussion')
+   
     this.enter_discussion = true;
     console.log(e);
     let chat:any = this.chatsMap.get(e);
-    console.log("the concerned chats",this.chatsMap.get(e));
     this.chatMessage.messages=chat
   }
 
