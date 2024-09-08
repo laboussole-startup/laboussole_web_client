@@ -140,6 +140,7 @@ import { ArticlesPanelComponent } from './articles-panel/articles-panel.componen
 import { ArticleCardComponent } from './article-card/article-card.component';
 import { ArticleContentComponent } from './article-content/article-content.component';
 import { ExpertLoginComponent } from './expert-login/expert-login.component';
+import { WriteArticleComponent } from './write-article/write-article.component';
 
 
 
@@ -232,7 +233,8 @@ import { ExpertLoginComponent } from './expert-login/expert-login.component';
     ArticlesPanelComponent,
     ArticleCardComponent,
     ArticleContentComponent,
-    ExpertLoginComponent
+    ExpertLoginComponent,
+    WriteArticleComponent
   ],
   imports: [
     CommonModule,

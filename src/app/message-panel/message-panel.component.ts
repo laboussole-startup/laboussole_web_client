@@ -23,6 +23,7 @@ export class MessagePanelComponent {
   displayedMessages:Array<any> = [];
   private firestore: Firestore;
   total_unread:number=0;
+  iterable_map = new Map<string,any>();
 
   private chatsMap = new Map<string,any>();
  
@@ -44,6 +45,7 @@ export class MessagePanelComponent {
 
     const participantId = 1; // Replace with the actual participant ID
     this.getGroupChatsByParticipant(participantId).subscribe((groupChats: any) => {
+      this.groupChatsLastMessage = [];
       console.log('****************Group Chats**************************')
       this.groupChats=groupChats;
       console.log(this.groupChats);
@@ -89,21 +91,26 @@ export class MessagePanelComponent {
           id:pc.id,
           unread:unread_msgs_in_current_chat
         });
-        this.AllChatsLastMessage.push({
-          name:pc.Nom,
-          content:last_message.content,
-          date:date,
-          id:pc.id,
-          private:false,
-          unread:unread_msgs_in_current_chat
-        });
-        
+        const existingChat = this.AllChatsLastMessage.find(chat => chat.id === pc.id);
+
+        if (!existingChat) {
+          this.AllChatsLastMessage.push({
+            name: pc.Nom,
+            content: last_message.content,
+            date: date,
+            id: pc.id,
+            private: true,
+            unread: unread_msgs_in_current_chat
+          });
+        }
+        this.displayedMessages=this.AllChatsLastMessage;
+
       }
-      console.log(this.privateChats);
 
     });
 
     this.getPrivateChatsByParticipant(participantId).subscribe((privateChats: any) => {
+      this.privateChatsLastMessage = [];
       console.log('****************Private Chats**************************')
       this.privateChats = privateChats;
       let standardisedChats:Array<any> = [];
@@ -155,7 +162,7 @@ export class MessagePanelComponent {
             id:pc.id,
             unread:unread_msgs_in_current_chat
           });
-          this.AllChatsLastMessage.push({
+          this.iterable_map.set(pc.id,{
             name:name.username,
             content:last_message.content,
             date:date,
@@ -163,6 +170,18 @@ export class MessagePanelComponent {
             private:true,
             unread:unread_msgs_in_current_chat
           });
+          const existingChat = this.AllChatsLastMessage.find(chat => chat.id === pc.id);
+
+if (!existingChat) {
+  this.AllChatsLastMessage.push({
+    name: name.username,
+    content: last_message.content,
+    date: date,
+    id: pc.id,
+    private: true,
+    unread: unread_msgs_in_current_chat
+  });
+}
 
           console.log("last message private chats ",this.privateChatsLastMessage)
         },
@@ -174,6 +193,7 @@ export class MessagePanelComponent {
       console.log(this.privateChats);
     });
     this.displayedMessages=this.AllChatsLastMessage;
+
   }
 
   constructor(private expertRoute:ActivatedRoute,private mfirestore: Firestore, private router:Router,

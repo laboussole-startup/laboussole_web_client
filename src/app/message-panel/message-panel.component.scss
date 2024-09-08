@@ -1,7 +1,9 @@
 .app-interface {
     font-family: Arial, sans-serif;
   }
-  
+  .filter_and_messages{
+    width: 100%;
+  }
   .tabs {
     display: flex;
   }
@@ -78,6 +80,7 @@
     flex-flow: column nowrap;
   }
   .message_list{
+    width: 100%;
     display: flex;
     flex-flow: row nowrap;
   }
