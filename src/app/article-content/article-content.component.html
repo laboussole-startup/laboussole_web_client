@@ -10,10 +10,8 @@
       <span class="date">{{date}}</span>
     </div>
     <img [src]="article_image" alt="Article Image" class="article-image">
-    <div class="article-content">
-      <p>
-       {{content}}
-      </p>
+    <div class="article-content" [innerHTML]="content">
+     
     </div>
     <div class="article-actions">
       <button mat-icon-button><mat-icon>thumb_up</mat-icon></button>
