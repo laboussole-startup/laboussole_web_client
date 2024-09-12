@@ -1,6 +1,18 @@
 .article-card {
     max-width: 600px;
     margin: 20px auto;
+    height: fit-content;
+    overflow: hidden;
+  }
+.content{
+  height: fit-content;
+}
+.mat-card-content.mat-mdc-card-content{
+  height: fit-content;
+}
+  .text-content{
+    height: 50px;
+    text-overflow: ellipsis;
   }
   
   mat-card-header {
@@ -21,6 +33,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    height: fit-content;
   }
   
   mat-card-content .text-content {
@@ -42,6 +55,9 @@
   mat-card-content p {
     font-size: 14px;
     color: #666;
+    height: 50px;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
   
   mat-card-actions {
@@ -74,6 +90,7 @@
         border-radius: 8px;
         overflow: hidden;
         background-color: white;
+        height: fit-content;
       }
       
       .header-image {
@@ -145,6 +162,10 @@
     .tabletContainer {
       display: block;
     }
+    .mobileContainer,.desktopContainer{
+      display: none;
+    }
+
   }
   
   /* Show desktop container on large screens */
@@ -152,5 +173,7 @@
     .desktopContainer {
       display: block;
     }
-  
+    .mobileContainer,.tabletContainer{
+      display: none;
+    }
   }

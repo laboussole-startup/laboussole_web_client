@@ -2,31 +2,21 @@
     <div class="article-card mat-elevation-z4" 
     (click)="openArticle()"
     >
-        <img src="../../assets/banner-formation.png" alt="Article Header" class="header-image">
+        <img [src]="article_image" alt="Article Header" class="header-image">
       
         <div class="article-content">
           <div class="author-info">
             <img src="../../assets/avatar.svg" alt="Author" class="author-image">
             <div class="author-details">
-              <p class="author-name">Salvatore Raieli</p>
-              <p class="author-publication">in Level Up Coding</p>
+              <p class="author-name">{{author_name}}</p>
+              
             </div>
           </div>
       
-          <h1 class="article-title">HippoRAG: Endowing Large Language Models with Human...</h1>
-          <p class="article-description">Copy the brain for better knowledge integration and retrieval</p>
+          <h1 class="article-title">{{title}}</h1>
+          <p class="article-description" [innerHTML]="content"></p>
       
-          <div class="reaction-bar">
-            <button mat-icon-button>
-              <mat-icon>thumb_up</mat-icon> 1.7K
-            </button>
-            <button mat-icon-button>
-              <mat-icon>comment</mat-icon> 27
-            </button>
-            <button mat-icon-button>
-              <mat-icon>bookmark</mat-icon>
-            </button>
-          </div>
+         
         </div>
       </div>
       
@@ -37,64 +27,40 @@
 (click)="openArticle()">
     <mat-card-header>
       <div mat-card-avatar class="avatar"></div>
-      <mat-card-title>Amit Das • 4 days ago</mat-card-title>
+      <mat-card-title>{{author_name}} • {{date}}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <div class="content">
         <div class="text-content">
-          <h2>Your portfolio is stopping you from getting that job</h2>
-          <p>An intense way to learn about the process and practice your design skills — My 1st hackathon Hackathons have been on my mind since I heard it was a good way to gain experience as a junior UX designer. As my portfolio...</p>
+          <h2>{{title}}</h2>
+          <p>{{content}}</p> <p [innerHTML]="content"></p>
         </div>
         <img class="right-image" src="../../assets/banner-formation.png" alt="Article Image">
       </div>
     </mat-card-content>
-    <mat-card-actions>
-      <button mat-icon-button>
-        <mat-icon>thumb_up</mat-icon>
-      </button>
-      <span>1.7K</span>
-      <button mat-icon-button>
-        <mat-icon>comment</mat-icon>
-      </button>
-      <span>27</span>
-      <button mat-icon-button>
-        <mat-icon>bookmark_border</mat-icon>
-      </button>
-    </mat-card-actions>
+
   </mat-card>
   
 </div>
 <div class="desktopContainer">
 
-<mat-card class="article-card"
-(click)="openArticle()">
-    <mat-card-header>
-      <div mat-card-avatar class="avatar"></div>
-      <mat-card-title>Amit Das • 4 days ago</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="content">
-        <div class="text-content">
-          <h2>Your portfolio is stopping you from getting that job</h2>
-          <p>An intense way to learn about the process and practice your design skills — My 1st hackathon Hackathons have been on my mind since I heard it was a good way to gain experience as a junior UX designer. As my portfolio...</p>
+  <mat-card class="article-card"
+  (click)="openArticle()">
+      <mat-card-header>
+        <div mat-card-avatar class="avatar"></div>
+        <mat-card-title>{{author_name}} • {{date}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="content">
+          <div class="text-content">
+            <h2>{{title}}</h2>
+            <p [innerHTML]="content"></p>
+          </div>
+          <img class="right-image" src="../../assets/banner-formation.png" alt="Article Image">
         </div>
-        <img class="right-image" src="../../assets/banner-formation.png" alt="Article Image">
-      </div>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-icon-button>
-        <mat-icon>thumb_up</mat-icon>
-      </button>
-      <span>1.7K</span>
-      <button mat-icon-button>
-        <mat-icon>comment</mat-icon>
-      </button>
-      <span>27</span>
-      <button mat-icon-button>
-        <mat-icon>bookmark_border</mat-icon>
-      </button>
-    </mat-card-actions>
-  </mat-card>
+      </mat-card-content>
+      
+    </mat-card>
   
 </div>
 

@@ -1,1 +1,60 @@
-<p>write-article works!</p>
+<div class="container">
+  <div class="actions">
+    <button class="back" (click)="backToArticleList()" mat-fab extended>
+      <mat-icon>arrow_back_ios</mat-icon>
+      retour
+    </button>
+    <button class="publish" (click)="publishArticle()" mat-fab extended>
+      <mat-icon>publish</mat-icon>
+      Publier
+    </button>
+  </div>
+ 
+  <mat-form-field class="example-full-width">
+    <mat-label>Auteur</mat-label>
+    <input matInput [(ngModel)]="author" >
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Titre</mat-label>
+    <textarea matInput [(ngModel)]="title" ></textarea>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>domaines</mat-label>
+    <input matInput [(ngModel)]="domaine">
+  </mat-form-field>
+  <div class="image_header_input">
+    <h3>inserez la banniere de l'article</h3>
+    <button mat-mini-fab  (click)="fileInput.click()">
+        <mat-icon>image</mat-icon>
+      </button>
+      <input type="file" #fileInput (change)="onFileSelected($event)" multiple style="display: none;" accept="image/*"/>
+      <div class="image_preview">
+        <img class="banner_image" [src]="image_preview" alt="">
+      </div>
+  </div>
+</div>
+
+<editor apiKey="6c3d08htb7egh1msbf37jsifosfi9cp5klhcslif5nzlhnb6"
+  [init]="{
+    plugins: [
+      'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+      'checklist', 'mediaembed', 'casechange', 'export', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown',
+    ],
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+    tinycomments_mode: 'embedded',
+    tinycomments_author: 'Author name',
+    mergetags_list: [
+      { value: 'First.Name', title: 'First Name' },
+      { value: 'Email', title: 'Email' },
+    ]
+  }"
+  [(ngModel)]="content">
+</editor>
+<ng-template #errorSheet>
+  <div class="sheetContent">
+    {{sheetErrorMessage}}
+     <br/><br/>
+     <button mat-raised-button (click)="closeBottomSheet()" style="background-color: red;color:white;">ok</button>
+  </div>
+  
+</ng-template>

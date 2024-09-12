@@ -1,7 +1,11 @@
 
-  <div class="article-editor">
+
+<div *ngIf="show_editor" class="article_writer">
+  <app-write-article (backToList)="show_editor=!show_editor"></app-write-article>
+</div>
+  <div *ngIf="!show_editor" class="article-editor">
     <div class="editor-header">
-      <button mat-raised-button  class="new-article-btn">
+      <button (click)="show_editor=!show_editor" mat-raised-button  class="new-article-btn">
         <mat-icon>add</mat-icon>
         Rédiger un article
       </button>
@@ -13,14 +17,31 @@
     </div>
   </div>
   
-  <mat-divider></mat-divider>
+  <mat-divider *ngIf="!show_editor" ></mat-divider>
   
-  <div class="post-container" >
+  <div *ngIf="!show_editor" class="post-container" >
     <div class="articles" *ngIf="!showArticleContent">
-      <app-article-card (articleClicked)="openArticle($event)"></app-article-card>
+      <app-article-card *ngFor="let art of actualits" (articleClicked)="openArticle($event)"
+      [article_image]="art.image_pc"
+      [author_name]="art.nom"
+      [title]="art.titre"
+      [content]="art.contenu"
+      [date]="art.date"
+      [article_object]="art"
+      >
+
+      </app-article-card>
     </div>
     <div class="articleContent" *ngIf="showArticleContent">
-      <app-article-content></app-article-content>
+      <app-article-content
+      [article_image]="article_to_display.image_pc"
+      [author_name]="article_to_display.nom"
+      [title]="article_to_display.title"
+      [content]="article_to_display.contenu"
+      [date]="article_to_display.date"
+      [article_object]="article_to_display"
+      (back_to_articl_list)="showArticleContent=!showArticleContent"
+      ></app-article-content>
     </div>
   </div>
   
