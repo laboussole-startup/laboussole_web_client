@@ -1,0 +1,23 @@
+div.container{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    width: 300px;
+    height: fit-content;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1); 
+    cursor: pointer;
+}
+.right{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 5px;
+}
+.review{
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}

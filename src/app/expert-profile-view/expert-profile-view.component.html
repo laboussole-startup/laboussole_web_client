@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="navigation_bar">
+        <button mat-mini-fab (click)="backToExpertList()" >
+            <mat-icon>arrow_back_ios</mat-icon>
+          </button>
+    </div>
+    <div class="image">
+        <img src="../../assets/avatar.svg" alt="">
+    </div>
+    <div class="profile">
+        <h3 class="name">{{details.nom}}</h3>
+        <mat-divider></mat-divider>
+        <div class="job">{{details.metier}}</div>
+        <div class="job_location"> <mat-icon>location_on</mat-icon> {{details.ville}}</div>
+    </div>
+    <div class="actions">
+        <div class="message_icon">
+            <button mat-mini-fab >
+                <mat-icon>chat</mat-icon>
+              </button>
+        </div>
+        <div class="call_btn">
+            <button mat-mini-fab >
+                <mat-icon>call</mat-icon>
+              </button>
+        </div>
+        <div class="video_btn">
+            <button mat-mini-fab >
+                <mat-icon>videocam</mat-icon>
+              </button>
+        </div>
+    </div>
+    <div class="rating_bar">
+        <div class="consultations">
+            <mat-icon>group</mat-icon>
+            <div class="number">{{details.nombre_personne_a_noter}} +</div>
+            <div class="label">consultations</div>
+        </div>
+        <div class="experience">
+            <mat-icon>verified</mat-icon>
+            <div class="number">{{details.annee_experience}} +</div>
+            <div class="label">experience</div>
+        </div>
+        <div class="rating">
+            <mat-icon>star</mat-icon>
+            <div class="number">{{details.note_moyenne}}</div>
+            <div class="label">rating</div>
+        </div>
+    </div>
+    <div class="description">
+        <h1>Description</h1>
+        <p>{{details.description}}</p>
+    </div>
+    <div class="disponibilite">
+        <h3>Disponibilite</h3>
+    </div>
+</div>

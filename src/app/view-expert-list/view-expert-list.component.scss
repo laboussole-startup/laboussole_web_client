@@ -1,0 +1,29 @@
+.container{
+    display:flex;
+    flex-flow:column nowrap;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.search_bar{
+    margin-top: 50px;
+    width: 70vw;
+}
+.search_field{
+    width: 100%;
+}
+.filters_bar{
+    margin-top: 2px;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+    justify-content: flex-start;
+}
+.expert_list{
+    display: flex;
+    flex-flow: row wrap;
+    width: 80%;
+    gap:30px;
+    margin-top: 30px;
+    justify-content: flex-start;
+}

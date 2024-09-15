@@ -20,4 +20,11 @@ export class ExpertServiceService {
     let url:string = this.root_url+id+'/';
     return this.httpClient.get(url,{ headers: headers });
   }
+  getAllExperts(){
+    let headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem("access_token")
+    });
+    let url:string = this.root_url;
+    return this.httpClient.get(url);
+  }
 }

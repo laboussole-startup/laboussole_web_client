@@ -1,0 +1,29 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+    <div class="search_bar">
+        <mat-form-field class="search_field" *ngIf="!show_expert_detail" >
+            <mat-label>Rechercher un Expert</mat-label>
+            <input matInput type="text" [(ngModel)]="search_value">
+            <button *ngIf="search_value" matSuffix mat-icon-button aria-label="Clear" (click)="search_value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+          
+    </div>
+    <div class="filters_bar" *ngIf="!show_expert_detail" >
+        <button mat-stroked-buttonm (click)="showAll()" >tous</button>
+        <button mat-stroked-button (click)="showOnlyCOs()">Conseillers d'Orientation</button>
+        <button mat-stroked-button (click)="showOnlyExperts()">Professionel</button>
+    </div>
+    <div class="expert_list" *ngIf="!show_expert_detail" >
+        <app-expert-list-card *ngFor="let exp of all_experts"
+        [expert_obj]="exp"
+         (viewExpertDetail)="presentExpertDetail($event)" ></app-expert-list-card>
+       
+    </div>
+    <div class="expert_detail" *ngIf="show_expert_detail">
+        <app-expert-profile-view 
+        [details]="expert_to_present"
+        (backToList)="showList($event)" ></app-expert-profile-view>
+    </div>
+</div>

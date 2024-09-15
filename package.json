@@ -25,6 +25,7 @@
     "@ffmpeg/ffmpeg": "^0.12.10",
     "@materializecss/materialize": "^2.0.4",
     "@tinymce/tinymce-angular": "^8.0.1",
+    "@vercel/speed-insights": "^1.0.12",
     "angular-pdfjs-viewer": "^2.0.1",
     "ng2-pdf-viewer": "^10.2.2",
     "ngx-extended-pdf-viewer": "^20.5.0-alpha.2",

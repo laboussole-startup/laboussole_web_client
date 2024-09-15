@@ -1,0 +1,12 @@
+<div class="container" (click)="emitClickEvent()" >
+    <div class="left">
+        <img src="../../assets/avatar.svg" alt="">
+    </div>
+    <div class="right">
+        <div class="name"><b>{{expert_obj.nom}}</b> </div>
+        <mat-divider></mat-divider>
+        <div class="job_title"> <b>{{expert_obj.metier}}</b> </div>
+        <div class="location"><mat-icon>location_on</mat-icon>{{expert_obj.ville}}</div>
+        <div class="review"> <span><mat-icon>star</mat-icon> {{expert_obj.note_moyenne}} </span>   <b>{{expert_obj.nombre_personne_a_noter}} consultations</b> </div>
+    </div>
+</div>

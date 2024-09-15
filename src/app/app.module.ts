@@ -143,6 +143,9 @@ import { ArticleCardComponent } from './article-card/article-card.component';
 import { ArticleContentComponent } from './article-content/article-content.component';
 import { ExpertLoginComponent } from './expert-login/expert-login.component';
 import { WriteArticleComponent } from './write-article/write-article.component';
+import { ViewExpertListComponent } from './view-expert-list/view-expert-list.component';
+import { ExpertListCardComponent } from './expert-list-card/expert-list-card.component';
+import { ExpertProfileViewComponent } from './expert-profile-view/expert-profile-view.component';
 
 
 
@@ -236,7 +239,10 @@ import { WriteArticleComponent } from './write-article/write-article.component';
     ArticleCardComponent,
     ArticleContentComponent,
     ExpertLoginComponent,
-    WriteArticleComponent
+    WriteArticleComponent,
+    ViewExpertListComponent,
+    ExpertListCardComponent,
+    ExpertProfileViewComponent
   ],
   imports: [
     CommonModule,

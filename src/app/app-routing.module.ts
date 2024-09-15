@@ -31,6 +31,7 @@ import { SingleFaqPageComponent } from './single-faq-page/single-faq-page.compon
 import { ExpertDashboardComponent } from './expert-dashboard/expert-dashboard.component';
 import { ExpertLoginComponent } from './expert-login/expert-login.component';
 import { expertAuthGuard } from './expert-auth.guard';
+import { ViewExpertListComponent } from './view-expert-list/view-expert-list.component';
 const routes: Routes = [
   { path: '', component: PageAcceuilSansCompteComponent },
   { path: 'login', component: PageConnexionClientComponent },
@@ -59,7 +60,8 @@ const routes: Routes = [
   {path:'conditions',component:ConditionsUtilisationsComponent},
   {path:'faq',component:SingleFaqPageComponent},
   {path:'expert-dashboard/:expert_id',component:ExpertDashboardComponent,canActivate: [expertAuthGuard]},
-  {path:'expert-login',component:ExpertLoginComponent}
+  {path:'expert-login',component:ExpertLoginComponent},
+  {path:'consulter-expert',component:ViewExpertListComponent}
 ];
 
 @NgModule({
