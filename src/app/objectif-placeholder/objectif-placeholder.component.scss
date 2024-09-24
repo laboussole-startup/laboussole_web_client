@@ -9,7 +9,7 @@
 }
 
 .response{
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 mat-panel-title{
@@ -21,4 +21,7 @@ mat-panel-title{
     display: flex;
     flex-flow: column nowrap;
     gap: 10px;
+}
+.container{
+    padding-left: 10px;
 }
