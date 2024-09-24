@@ -1,0 +1,24 @@
+.title{
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 800;
+    color:  #0F70B7;
+}
+
+.response{
+    margin-bottom: 5px;
+}
+
+mat-panel-title{
+    font-weight: 700;
+    color:  #0F70B7;
+}
+
+.response3{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+}

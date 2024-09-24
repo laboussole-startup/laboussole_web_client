@@ -1,0 +1,25 @@
+<div class="container">
+  <button (click)="signalBackToList()" mat-mini-fab >
+    <mat-icon>arrow_back_ios</mat-icon>
+  </button>
+  <mat-tab-group>
+    <mat-tab label="Plan d'Action">
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+          <mat-expansion-panel-header>
+            <mat-panel-title> Se former en algorithmique</mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>I'm visible because I am open</p>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+            <mat-expansion-panel-header>
+              <mat-panel-title> Se former en programmation</mat-panel-title>
+            </mat-expansion-panel-header>
+            <p>I'm visible because I am open</p>
+          </mat-expansion-panel>
+      </mat-accordion>
+       </mat-tab>
+    <mat-tab label="Forum"> Content 2 </mat-tab>
+  </mat-tab-group>
+  
+</div>

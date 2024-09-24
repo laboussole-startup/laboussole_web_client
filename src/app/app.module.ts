@@ -63,6 +63,7 @@ import { MatCardModule } from '@angular/material/card';
 
 
 
+
 import { MotDePasseOublieComponent } from './mot-de-passe-oublie/mot-de-passe-oublie.component';
 import { PageAdminComponent } from './page-admin/page-admin.component';
 import { OffreDeFormationsComponent } from './Pages/offre-de-formations/offre-de-formations.component';
@@ -146,6 +147,11 @@ import { WriteArticleComponent } from './write-article/write-article.component';
 import { ViewExpertListComponent } from './view-expert-list/view-expert-list.component';
 import { ExpertListCardComponent } from './expert-list-card/expert-list-card.component';
 import { ExpertProfileViewComponent } from './expert-profile-view/expert-profile-view.component';
+import { ExpertSoldeComponent } from './expert-solde/expert-solde.component';
+import { MonObjectifComponent } from './mon-objectif/mon-objectif.component';
+import { ObjectifBoxComponent } from './objectif-box/objectif-box.component';
+import { PlanActionListComponent } from './plan-action-list/plan-action-list.component';
+import { ObjectifPlaceholderComponent } from './objectif-placeholder/objectif-placeholder.component';
 
 
 
@@ -242,7 +248,12 @@ import { ExpertProfileViewComponent } from './expert-profile-view/expert-profile
     WriteArticleComponent,
     ViewExpertListComponent,
     ExpertListCardComponent,
-    ExpertProfileViewComponent
+    ExpertProfileViewComponent,
+    ExpertSoldeComponent,
+    MonObjectifComponent,
+    ObjectifBoxComponent,
+    PlanActionListComponent,
+    ObjectifPlaceholderComponent
   ],
   imports: [
     CommonModule,

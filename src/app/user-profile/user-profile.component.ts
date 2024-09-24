@@ -51,6 +51,8 @@ export class UserProfileComponent {
       this.current_location = "changer mot de pass"
     }else if(n==4){
       this.current_location="faq"
+    } else if(n==5){
+      this.current_location="Mon Objectif"
     }
   }
   ngOnInit(){

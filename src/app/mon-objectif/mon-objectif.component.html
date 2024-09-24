@@ -1,0 +1,12 @@
+<mat-tab-group *ngIf="!show_action_plan">
+    <mat-tab label="Objectifs En Cours">
+        <app-objectif-box *ngIf="is_objective_set" (showPlan)="showActionPlan($event)"></app-objectif-box>
+        <app-objectif-placeholder *ngIf="!is_objective_set"></app-objectif-placeholder>
+         </mat-tab>
+    <mat-tab label="Objectifs Atteints,"> 
+      <app-objectif-box (showPlan)="showActionPlan($event)"></app-objectif-box>
+    </mat-tab>
+   
+  </mat-tab-group>
+  
+  <app-plan-action-list (backToActionList)="hideActionPlan($event)" *ngIf="show_action_plan"></app-plan-action-list>

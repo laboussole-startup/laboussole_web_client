@@ -1,0 +1,15 @@
+.container{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+    align-items: center;
+    height: 250px;
+    border: 1px solid #0761B9;
+    justify-content: center;
+    border-radius: 15px;
+    text-align: center;
+}
+.job-title{
+    font-weight: 800;
+    font-size: 20px;
+}
