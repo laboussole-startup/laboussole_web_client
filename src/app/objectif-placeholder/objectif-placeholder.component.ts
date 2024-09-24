@@ -7,4 +7,5 @@ import { Component, signal } from '@angular/core';
 })
 export class ObjectifPlaceholderComponent {
   readonly panelOpenState = signal(false);
+  readonly panelOpenState2 = signal(false);
 }

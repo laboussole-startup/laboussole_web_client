@@ -12,7 +12,7 @@
        <h1>Comment définir mon Objectif?</h1>
        <div class="response">
         <mat-accordion>
-            <mat-expansion-panel hideToggle>
+            <mat-expansion-panel (opened)="panelOpenState2.set(true)" (closed)="panelOpenState2.set(false)">
               <mat-expansion-panel-header>
                 <mat-panel-title>  Clique ici si <span style="color:red;margin-left: 3px;margin-right: 3px;"> tu ne sais pas encore </span>  quel métier choisir comme objectif   </mat-panel-title>
               </mat-expansion-panel-header>
