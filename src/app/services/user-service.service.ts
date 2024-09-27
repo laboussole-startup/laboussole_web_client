@@ -25,6 +25,8 @@ headers = new HttpHeaders({
   public centres_interets:string = "";
   public chosenImage!:File;
   public profile_incomplete:boolean=false;
+  public chosen_objective:any;
+
 
 
 

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-objectif-box',
@@ -7,6 +7,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class ObjectifBoxComponent {
   @Output() showPlan = new EventEmitter<any>();
+  @Input() job_title:string = "";
+  @Input() job_description:string = "";
 
   constructor(){
     

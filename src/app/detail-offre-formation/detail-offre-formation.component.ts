@@ -189,5 +189,9 @@ export class DetailOffreFormationComponent {
       exitAnimationDuration,
     });
   }
+  setObjective(){
+    this.userService.chosen_objective = this.metierItem;
+    this.router.navigateByUrl("/profil/5")
+  }
 }
 

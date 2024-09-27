@@ -23,17 +23,17 @@
                 1. Passer un test Psychotechnique
               </button>
 
-              <button mat-fab extended style="background-color:#0F70B7;color: white;">
+              <button (click)="goToSearchExepert()"  mat-fab extended style="background-color:#0F70B7;color: white;">
                 <mat-icon>psychology</mat-icon>
                 2. Consulter un Conseiller d'Orientation
               </button>  
 
-              <button mat-fab extended style="background-color:#0F70B7;color: white;">
+              <button (click)="goToSearchExepert()"  mat-fab extended style="background-color:#0F70B7;color: white;">
                 <mat-icon>engineering</mat-icon>
                 3.Consulter des experts dans les métiers qui t'intéressent
               </button>  
 
-              <button mat-fab extended style="background-color:#0F70B7;color: white;">
+              <button (click)="goToMetiers()" mat-fab extended style="background-color:#0F70B7;color: white;">
                 <mat-icon>sports_score</mat-icon>
                 4. Définir mon Objectif
               </button>  
@@ -45,7 +45,7 @@
                 <mat-panel-title> Je suis certain de savoir le métier qui me convient </mat-panel-title>
 
               </mat-expansion-panel-header>
-              <button mat-fab extended style="background-color:#0F70B7;color: white;">
+              <button (click)="goToMetiers()" mat-fab extended style="background-color:#0F70B7;color: white;">
                 <mat-icon>sports_score</mat-icon>
                 Définir mon Objectif
               </button>  

@@ -195,8 +195,12 @@
         <li>{{ entreprise }}</li>
       </span>
     </div>
-    
+    <button (click)="setObjective()" style="background-color:#0F70B7;color: white;margin-top: 50px;margin-bottom: 50px;" mat-fab extended>
+      <mat-icon>sports_score</mat-icon>
+      Choisir ce métier comme mon objectif.
+    </button>
   </div>
+ 
 </div>
 <div class="createAccount" *ngIf="hideAll" style="display: flex;width:100%;justify-content:center;align-items:center;flex-flow: column nowrap;gap: 10px;position: relative;bottom: 50px;">
           <div><button mat-raised-button style="background-color: #0F70B7;color:white;" routerLink="/signup">Creer mon compte</button></div>
