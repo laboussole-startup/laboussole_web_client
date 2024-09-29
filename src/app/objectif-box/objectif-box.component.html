@@ -8,5 +8,5 @@
     <div class="job-description">
        {{job_description}}
     </div>
-    <button (click)="notifyToShowPlan()" style="background-color: #0761B9;color:white;" mat-raised-button>Voir le plan d'action</button>
-</div>
+    <button *ngIf="has_plan" (click)="notifyToShowPlan()" style="background-color: #0761B9;color:white;" mat-raised-button>Voir le plan d'action</button>
+    <button *ngIf="!has_plan" style="background-color: #0761B9;color:white;" mat-raised-button>consulter un expert pour defnir un plan</button>

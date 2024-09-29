@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output, signal } from '@angular/core';
+import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
+import { throwToolbarMixedModesError } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-plan-action-list',
@@ -9,9 +10,19 @@ export class PlanActionListComponent {
   readonly panelOpenState = signal(false);
 
   @Output() backToActionList = new EventEmitter<any>();
+  @Input()
+  action_plan!: any[];
+
+  has_plan:boolean = false;
 
   constructor(){
 
+  }
+
+  ngAfterViewInit(){
+    if(this.action_plan){
+      console.log("action plan size ",this.action_plan.length)
+    }
   }
 
   signalBackToList(){

@@ -190,7 +190,13 @@ export class DetailOffreFormationComponent {
     });
   }
   setObjective(){
-    this.userService.chosen_objective = this.metierItem;
+    this.userService.chosen_objective = {
+            job_id: this.metierItem.id_metiers,
+            job_title: this.metierItem.nom,
+            job_description: this.metierItem.description,
+            objective_status: 'in_progress', // Set status for the new objective
+            action_plan:[],
+    }
     this.router.navigateByUrl("/profil/5")
   }
 }

@@ -9,6 +9,7 @@ export class ObjectifBoxComponent {
   @Output() showPlan = new EventEmitter<any>();
   @Input() job_title:string = "";
   @Input() job_description:string = "";
+  @Input() has_plan:boolean = false;
 
   constructor(){
     
