@@ -18,6 +18,7 @@
                 <mat-divider></mat-divider>
                 <div class="articles menuItem" (click)="changePanel(4)">Mes Articles</div>
                 <div class="solde menuItem" (click)="changePanel(5)">Mon Solde</div>
+                <div class="plans menuItem" (click)="changePanel(6)">Plans d'Action</div>
                 <mat-divider></mat-divider>
                 <div class="logout menuItem">Decconexion</div>
             </div>
@@ -38,6 +39,7 @@
           <app-groups-panel *ngIf="panel_number==3"></app-groups-panel>
           <app-articles-panel *ngIf="panel_number==4"></app-articles-panel>
           <app-expert-solde *ngIf="panel_number==5"></app-expert-solde>
+          <app-expert-create-action-plan *ngIf="panel_number==6"></app-expert-create-action-plan>
         </div>
       </div>
      
@@ -61,6 +63,7 @@
               <mat-divider></mat-divider>
               <div class="articles menuItem" (click)="changePanel(4)">Mes Articles</div>
               <div class="solde menuItem" (click)="changePanel(5)">Mon Solde</div>
+              <div class="plans menuItem" (click)="changePanel(6)">Plans d'Action</div>
               <mat-divider></mat-divider>
               <div class="logout menuItem">Decconexion</div>
           </div>
@@ -77,6 +80,7 @@
         <app-groups-panel *ngIf="panel_number==3"></app-groups-panel>
         <app-articles-panel *ngIf="panel_number==4"></app-articles-panel>
         <app-expert-solde *ngIf="panel_number==5"></app-expert-solde>
+        <app-expert-create-action-plan *ngIf="panel_number==6"></app-expert-create-action-plan>
       </div>
     </div>
   </div>
@@ -98,6 +102,7 @@
                 <mat-divider></mat-divider>
                 <div class="articles menuItem" (click)="changePanel(4)">Mes Articles</div>
                 <div class="solde menuItem" (click)="changePanel(5)">Mon Solde</div>
+                <div class="plans menuItem" (click)="changePanel(6)">Plans d'Action</div>
                 <mat-divider></mat-divider>
                 <div class="logout menuItem">Decconexion</div>
             </div>
@@ -113,6 +118,7 @@
           <app-groups-panel *ngIf="panel_number==3"></app-groups-panel>
           <app-articles-panel *ngIf="panel_number==4"></app-articles-panel>
           <app-expert-solde *ngIf="panel_number==5"></app-expert-solde>
+          <app-expert-create-action-plan *ngIf="panel_number==6"></app-expert-create-action-plan>
         </div>
       </div>
     </div>

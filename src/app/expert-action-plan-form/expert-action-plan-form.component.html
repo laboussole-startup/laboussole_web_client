@@ -1,0 +1,75 @@
+<mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Remplir les informations du Client</ng-template>
+        <mat-form-field>
+          <mat-label>Email du Client</mat-label>
+          <input matInput  formControlName="client_email" required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Objectif du Client</mat-label>
+          <input matInput  formControlName="client_objective" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Suivant</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+
+        <ng-template matStepLabel>Definier les etapes</ng-template>
+        <div class="steps_list" >
+          <mat-accordion>
+            <mat-expansion-panel *ngFor="let step of action_plan_steps;let i = index">
+              <mat-expansion-panel-header>
+                <mat-panel-title> {{i+1}}. {{step.title}} </mat-panel-title>
+                <mat-panel-description> <b>duree</b> {{step.duration}}  <b>cout</b> {{step.cost}} </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div class="step_description"> <b>description</b> {{step.description}}</div>
+              <div class="step_ressource"> <b>ressource</b> {{step.ressources}}</div>
+            </mat-expansion-panel>
+           
+          </mat-accordion>
+        </div>
+        <mat-form-field>
+          <mat-label>Titre de l'etape  </mat-label>
+          <input matInput formControlName="title" placeholder="Ex. 1 Main St, New York, NY"
+                 required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <input matInput formControlName="description" placeholder="Ex. 1 Main St, New York, NY"
+               required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Duree</mat-label>
+          <input matInput formControlName="duration" placeholder="Ex. 1 Main St, New York, NY"
+               required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Ressources</mat-label>
+          <input matInput formControlName="ressources" placeholder="Ex. 1 Main St, New York, NY"
+               required>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label> Cout des Ressources </mat-label>
+          <input matInput formControlName="cost" placeholder="Ex. 1 Main St, New York, NY"
+               required>
+        </mat-form-field>
+        <button mat-raised-button (click)="addActionToList()" >Ajouter Cette Etape</button>
+        <div>
+          <button mat-button matStepperPrevious>retour</button>
+          <button mat-button matStepperNext>suivant</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Envoyer</ng-template>
+      <p></p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>

@@ -22,6 +22,9 @@ export class PlanActionListComponent {
   ngAfterViewInit(){
     if(this.action_plan){
       console.log("action plan size ",this.action_plan.length)
+      if(this.action_plan.length > 0){
+        this.has_plan = false;
+      }
     }
   }
 

@@ -60,6 +60,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 
@@ -152,6 +153,9 @@ import { MonObjectifComponent } from './mon-objectif/mon-objectif.component';
 import { ObjectifBoxComponent } from './objectif-box/objectif-box.component';
 import { PlanActionListComponent } from './plan-action-list/plan-action-list.component';
 import { ObjectifPlaceholderComponent } from './objectif-placeholder/objectif-placeholder.component';
+import { ExpertCreateActionPlanComponent } from './expert-create-action-plan/expert-create-action-plan.component';
+import { ExpertPlanListTemplateComponent } from './expert-plan-list-template/expert-plan-list-template.component';
+import { ExpertActionPlanFormComponent } from './expert-action-plan-form/expert-action-plan-form.component';
 
 
 
@@ -253,7 +257,10 @@ import { ObjectifPlaceholderComponent } from './objectif-placeholder/objectif-pl
     MonObjectifComponent,
     ObjectifBoxComponent,
     PlanActionListComponent,
-    ObjectifPlaceholderComponent
+    ObjectifPlaceholderComponent,
+    ExpertCreateActionPlanComponent,
+    ExpertPlanListTemplateComponent,
+    ExpertActionPlanFormComponent
   ],
   imports: [
     CommonModule,
@@ -292,6 +299,7 @@ import { ObjectifPlaceholderComponent } from './objectif-placeholder/objectif-pl
     MatToolbarModule,
     MatCardModule,
     EditorModule,
+    MatStepperModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
