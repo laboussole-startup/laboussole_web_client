@@ -16,21 +16,26 @@ export class ExpertCreateActionPlanComponent {
   }
 
   ngOnInit(){
-    let id:number = localStorage.getItem('user_id') as unknown as number;
+    let id = localStorage.getItem('user_id');  // Ensure id is a number
     this.getExpertObjectiveByUserId(id).then(
-      (data)=>{
-        console.log(data)
+      (data: any) => {
+        console.log(data);
+        // Check if `data` is an array before spreading
+        if (Array.isArray(data)) {
+          this.plan_action.push(...data);
+        } else {
+          this.plan_action.push(data)
+          console.error("Data is not an array:", data);
+        }
       }
-    )
+    ).catch((error) => {
+      console.error("Error fetching expert objective:", error);
+    });
   }
 
-  plan_action =[ {
-    client:"paul@gmail.com",
-    objective:"Developpeur Web Full Stack",
-    duree_total:2250,
-    investissement_total:6250000,
-    actions:[]
-  }]
+  plan_action:any[] =[ 
+   
+  ]
   showForm(){
     this.show_form=true;
   }
@@ -43,7 +48,7 @@ export class ExpertCreateActionPlanComponent {
 
   }
 
-  async getExpertObjectiveByUserId(userId: number) {
+  async getExpertObjectiveByUserId(userId: any) {
     try {
       // Reference the 'user_objectives' collection
       const userObjectivesRef = collection(this.firestore, 'expert_action_plans');
