@@ -3,7 +3,7 @@
     <button style="background-color:red;color:white;" *ngIf="show_form" mat-raised-button (click)="hideForm()">annuler</button>
     <div class="historique" *ngIf="!show_form">
         <h1>Historique</h1>
-        <app-expert-plan-list-template [plan_action]="plan_action" ></app-expert-plan-list-template>
+        <app-expert-plan-list-template *ngFor="let plan of plan_action" [plan_action]="plan" ></app-expert-plan-list-template>
     </div>
-    <app-expert-action-plan-form *ngIf="show_form" ></app-expert-action-plan-form>
+    <app-expert-action-plan-form (onActionPlanSent)="receiveActionPlan($event)" *ngIf="show_form" ></app-expert-action-plan-form>
 </div>

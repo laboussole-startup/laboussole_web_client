@@ -208,7 +208,7 @@ headers = new HttpHeaders({
     return this.httpClient.get(url,{ headers: headers });
   }
 
-  getUserByMail(mail:string){
+  getUserByMail(mail:any){
     let headers = new HttpHeaders({
       'Authorization': 'Bearer ' + localStorage.getItem("access_token")
     });
