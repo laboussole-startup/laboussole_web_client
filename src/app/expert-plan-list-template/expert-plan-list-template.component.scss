@@ -1,0 +1,17 @@
+.mobile-container{
+width: 90%;
+height: fit-content;
+display: flex;
+flex-flow: column nowrap;
+gap: 10px;
+padding: 10px;
+padding-top:15px;
+box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -3px -3px 5px rgba(255, 255, 255, 0.5);  
+}
+
+.read_more{
+    margin-left: auto;
+    margin-right: 50px;
+    color: #0761B9;
+    cursor: pointer;
+}

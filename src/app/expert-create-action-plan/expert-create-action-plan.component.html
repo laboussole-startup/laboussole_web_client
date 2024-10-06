@@ -1,8 +1,8 @@
 <div class="mobileContainer">
-    <button mat-raised-button *ngIf="!show_form" (click)="showForm()" >Creer un nouveau plan d'Action</button>
-    <button *ngIf="show_form" mat-raised-button (click)="hideForm()">annuler</button>
+    <button style="background-color:#0761B9;color:white;" mat-raised-button *ngIf="!show_form" (click)="showForm()" >Creer un nouveau plan d'Action</button>
+    <button style="background-color:red;color:white;" *ngIf="show_form" mat-raised-button (click)="hideForm()">annuler</button>
     <div class="historique" *ngIf="!show_form">
-        <h2>Historique</h2>
+        <h1>Historique</h1>
         <app-expert-plan-list-template [plan_action]="plan_action" ></app-expert-plan-list-template>
     </div>
     <app-expert-action-plan-form *ngIf="show_form" ></app-expert-action-plan-form>
