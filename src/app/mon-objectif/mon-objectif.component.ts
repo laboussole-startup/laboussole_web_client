@@ -48,6 +48,7 @@ export class MonObjectifComponent {
   }
 
   async getUserObjectiveByUserId(userId: number) {
+    console.log(userId)
     try {
       // Reference the 'user_objectives' collection
       const userObjectivesRef = collection(this.firestore, 'user_objectives');

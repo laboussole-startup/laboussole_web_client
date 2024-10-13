@@ -156,6 +156,7 @@ import { ObjectifPlaceholderComponent } from './objectif-placeholder/objectif-pl
 import { ExpertCreateActionPlanComponent } from './expert-create-action-plan/expert-create-action-plan.component';
 import { ExpertPlanListTemplateComponent } from './expert-plan-list-template/expert-plan-list-template.component';
 import { ExpertActionPlanFormComponent } from './expert-action-plan-form/expert-action-plan-form.component';
+import { RedigerNotificationsComponent } from './rediger-notifications/rediger-notifications.component';
 
 
 
@@ -260,7 +261,8 @@ import { ExpertActionPlanFormComponent } from './expert-action-plan-form/expert-
     ObjectifPlaceholderComponent,
     ExpertCreateActionPlanComponent,
     ExpertPlanListTemplateComponent,
-    ExpertActionPlanFormComponent
+    ExpertActionPlanFormComponent,
+    RedigerNotificationsComponent
   ],
   imports: [
     CommonModule,

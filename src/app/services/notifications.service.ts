@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -18,6 +18,33 @@ export class NotificationsService {
 
   getAllNotifications(){
    return this.httpClient.get(this.root_url);
+  }
+  postNotification(
+    titre:any,
+    contenu:any,
+    statut:any,
+    nationalité:any,
+    date:any,
+    image_pc:any,
+    image_tablette:any,
+    image_telephone:any,
+  ){
+    let headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem("access_token")
+    });
+    let id:any = localStorage.getItem('user_id');
+    let url:string = 'https://laboussole-back-end.onrender.com/notifications/';
+    return this.httpClient.post(url,{
+      "titre":titre,
+      "date":date,
+      "statut":statut,
+      "contenu":contenu,
+      "nationalité":nationalité,
+      "image_pc":image_pc,
+      "image_tablette":image_tablette,
+      "image_telephone":image_telephone,
+      "sender_id":id
+    },{ headers:headers });
   }
   getNotificationById(id:number){
    return this.httpClient.get(this.root_url+id+'/');

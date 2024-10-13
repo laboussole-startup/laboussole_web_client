@@ -32,6 +32,7 @@ import { ExpertDashboardComponent } from './expert-dashboard/expert-dashboard.co
 import { ExpertLoginComponent } from './expert-login/expert-login.component';
 import { expertAuthGuard } from './expert-auth.guard';
 import { ViewExpertListComponent } from './view-expert-list/view-expert-list.component';
+import { RedigerNotificationsComponent } from './rediger-notifications/rediger-notifications.component';
 const routes: Routes = [
   { path: '', component: PageAcceuilSansCompteComponent },
   { path: 'login', component: PageConnexionClientComponent },
@@ -61,7 +62,8 @@ const routes: Routes = [
   {path:'faq',component:SingleFaqPageComponent},
   {path:'expert-dashboard/:expert_id',component:ExpertDashboardComponent,canActivate: [expertAuthGuard]},
   {path:'expert-login',component:ExpertLoginComponent},
-  {path:'consulter-expert',component:ViewExpertListComponent}
+  {path:'consulter-expert',component:ViewExpertListComponent},
+  {path:'edit-notification',component:RedigerNotificationsComponent}
 ];
 
 @NgModule({
