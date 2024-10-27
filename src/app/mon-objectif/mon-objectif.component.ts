@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserServiceService } from '../services/user-service.service';
-import { Firestore, collection, query, where, getDocs,addDoc,updateDoc,doc,deleteDoc,} from '@angular/fire/firestore';
+import { Firestore, collection,collectionData, query, where, getDocs,addDoc,updateDoc,doc,deleteDoc,} from '@angular/fire/firestore';
+import { Observable, take } from 'rxjs';
 
 @Component({
   selector: 'app-mon-objectif',
@@ -45,6 +46,17 @@ export class MonObjectifComponent {
       console.error('Error checking and cleaning up user objectives: ', error);
       return false;
     }
+  }
+
+  getUserObjectivesByUserIdAndJobTitle(userId: number): Observable<[]> {
+    const userObjectivesRef = collection(this.firestore, 'user_objectives');
+    const q = query(
+      userObjectivesRef,
+      where('user_id', '==', userId),
+      //where('job_title', '==', jobTitle)
+    );
+
+    return collectionData(q, { idField: 'id' }) as Observable<[]>;
   }
 
   async getUserObjectiveByUserId(userId: number) {
@@ -101,12 +113,13 @@ export class MonObjectifComponent {
 
   ngOnInit(){
     let id:number = localStorage.getItem('user_id') as unknown as number;
-   this.checkObjectiveInProgress(id)
+   //this.checkObjectiveInProgress(id)
   }
 
   ngAfterViewInit(){
     let ob = localStorage.getItem('is_objective_set');
-    let id:number = localStorage.getItem('user_id') as unknown as number;
+    let id: number = Number(localStorage.getItem('user_id')); // Parse the id as a number
+    
     if(ob=='true'){
       this.getUserObjectiveByUserId(id).then(objective => {
         this.is_objective_set=true;

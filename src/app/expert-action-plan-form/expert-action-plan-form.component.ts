@@ -57,7 +57,7 @@ export class ExpertActionPlanFormComponent {
       duree_total = (step.duration as number) + duree_total;
       cout_total = (step.cost as number) + cout_total; 
     }
-    let id = localStorage.getItem('user_id');
+    let id:number =  Number(localStorage.getItem('user_id'));
     let plan = {
       client:this.firstFormGroup.get('client_email')?.value,
       objective:this.firstFormGroup.get('client_objective')?.value,
@@ -77,35 +77,37 @@ export class ExpertActionPlanFormComponent {
     this.insertExpertObjective(expert_plan).then(
       ()=>{
         console.log('expert Plan Updated')
+        this.userService.getUserByMail(this.firstFormGroup.get('client_email')?.value).pipe(take(1)).subscribe(
+          (data: any) => {
+            console.log(data);
+            
+            this.getUserObjectivesByUserIdAndJobTitle(data.id, plan.objective).pipe(take(1)).subscribe(
+              (data_obj: any) => {
+                console.log(data_obj);
+        
+                this.pushToActionPlan(data.id, plan)
+                  .then(() => {console.log('Action Plan Updated')
+                  this.onActionPlanSent.emit(plan);
+                }
+                  
+                  )
+                  .catch((error) => console.error('Error updating action plan:', error));
+              },
+              (error) => {
+                console.error(error);
+              }
+            );
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+
       }
     ).catch((error) => console.error('Error updating action plan:', error));
 
 
-    this.userService.getUserByMail(this.firstFormGroup.get('client_email')?.value).pipe(take(1)).subscribe(
-      (data: any) => {
-        console.log(data);
-        
-        this.getUserObjectivesByUserIdAndJobTitle(data.id, plan.objective).pipe(take(1)).subscribe(
-          (data_obj: any) => {
-            console.log(data_obj);
     
-            this.pushToActionPlan(data.id, plan)
-              .then(() => {console.log('Action Plan Updated')
-              this.onActionPlanSent.emit(plan);
-            }
-              
-              )
-              .catch((error) => console.error('Error updating action plan:', error));
-          },
-          (error) => {
-            console.error(error);
-          }
-        );
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
 
    // 
   }

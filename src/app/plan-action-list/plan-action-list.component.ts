@@ -12,7 +12,7 @@ export class PlanActionListComponent {
   @Output() backToActionList = new EventEmitter<any>();
   @Input()
   action_plan!: any[];
-
+  detailed_action_plan!:any[];
   has_plan:boolean = false;
 
   constructor(){
@@ -21,6 +21,9 @@ export class PlanActionListComponent {
 
   ngAfterViewInit(){
     if(this.action_plan){
+      console.log("logging.....Action Plans")
+      console.log(this.action_plan)
+      this.detailed_action_plan = this.action_plan[0].actions
       console.log("action plan size ",this.action_plan.length)
       if(this.action_plan.length > 0){
         this.has_plan = false;

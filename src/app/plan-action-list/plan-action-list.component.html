@@ -5,18 +5,16 @@
   <mat-tab-group>
     <mat-tab label="Plan d'Action">
       <mat-accordion>
-        <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+       
+        <mat-expansion-panel *ngFor="let step of detailed_action_plan;let i = index">
           <mat-expansion-panel-header>
-            <mat-panel-title> Se former en algorithmique</mat-panel-title>
+            <mat-panel-title> {{i+1}}. {{step.title}} </mat-panel-title>
+            <mat-panel-description> <span style="display: flex;flex-flow:row nowrap;justify-content:space-evenly;width:100%"><b>duree:</b> {{step.duration}}    <b>cout:</b> {{step.cost}}</span>  </mat-panel-description>
           </mat-expansion-panel-header>
-          <p>I'm visible because I am open</p>
+          <div class="step_description"><span><b>description:</b> {{step.description}}</span> </div>
+          <div class="step_ressource"> <span><b>ressource:</b> {{step.ressources}}</span> </div>
         </mat-expansion-panel>
-        <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
-            <mat-expansion-panel-header>
-              <mat-panel-title> Se former en programmation</mat-panel-title>
-            </mat-expansion-panel-header>
-            <p>I'm visible because I am open</p>
-          </mat-expansion-panel>
+       
       </mat-accordion>
        </mat-tab>
     <mat-tab label="Forum"> Content 2 </mat-tab>
