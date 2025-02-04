@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Chemin du projet
-PROJECT_DIR="/var/www/laboussole-web_client"
+PROJECT_DIR="/var/www/laboussole_web_client"
 BRANCH="main"  # Changez si nécessaire
 
 # Étape 1 : Aller dans le répertoire du projet
