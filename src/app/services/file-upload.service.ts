@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class FileUploadService {
 
-  private root_url:string='https://laboussole-back-end.onrender.com/files/upload/';
+  private root_url:string='https://api.laboussole-edu.com/files/upload/';
 
   constructor(private httpClient: HttpClient) {
   }
@@ -19,7 +19,7 @@ export class FileUploadService {
     const formData = new FormData(); // Create a FormData object
     formData.append('file', file); // Append the file to the FormData
   
-    const url: string = 'https://laboussole-back-end.onrender.com/files/upload/';
+    const url: string = 'https://api.laboussole-edu.com/files/upload/';
     
     return this.httpClient.post(url, formData, { headers: headers });
   }

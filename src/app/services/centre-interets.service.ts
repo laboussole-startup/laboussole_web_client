@@ -11,7 +11,7 @@ export class CentreInteretsService {
   public champ_lexical:Map<string,string> = new Map();
 
 
-  private root_url:string='https://laboussole-back-end.onrender.com/centres_interet/';
+  private root_url:string='https://api.laboussole-edu.com/centres_interet/';
   constructor(private httpClient: HttpClient) {
 
     this.champ_lexical.set("Technologie","informat polytech genie numerique technolo");

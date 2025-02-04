@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class NotificationsService {
 
-  private root_url:string='https://laboussole-back-end.onrender.com/notifications/';
+  private root_url:string='https://api.laboussole-edu.com/notifications/';
   public currentNotificationId:number = 0;
 
   public unreadNotifs = new Set();
@@ -33,7 +33,7 @@ export class NotificationsService {
       'Authorization': 'Bearer ' + localStorage.getItem("access_token")
     });
     let id:any = localStorage.getItem('user_id');
-    let url:string = 'https://laboussole-back-end.onrender.com/notifications/';
+    let url:string = 'https://api.laboussole-edu.com/notifications/';
     return this.httpClient.post(url,{
       "titre":titre,
       "date":date,

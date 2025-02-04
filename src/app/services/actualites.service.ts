@@ -11,7 +11,7 @@ headers = new HttpHeaders({
   'Authorization': 'Bearer ' + localStorage.getItem("access_token")
 });
 
-  private root_url:string='https://laboussole-back-end.onrender.com/actualites/';
+  private root_url:string='https://api.laboussole-edu.com/actualites/';
 
   public currentArticleId:number=0;
   constructor(private httpClient: HttpClient) {
@@ -34,7 +34,7 @@ headers = new HttpHeaders({
       'Authorization': 'Bearer ' + localStorage.getItem("access_token")
     });
     let id:any = localStorage.getItem('user_id');
-    let url:string = 'https://laboussole-back-end.onrender.com/actualites/';
+    let url:string = 'https://api.laboussole-edu.com/actualites/';
     return this.httpClient.post(url,{
       "titre":titre,
       "date":date,

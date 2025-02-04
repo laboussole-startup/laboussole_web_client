@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class TemoignageService {
 
-  private root_url:string='https://laboussole-back-end.onrender.com/temoignages/';
+  private root_url:string='https://api.laboussole-edu.com/temoignages/';
   private view_Url:string='';
 
 

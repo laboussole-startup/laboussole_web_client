@@ -9,7 +9,7 @@ export class ExpertServiceService {
     'Authorization': 'Bearer ' + localStorage.getItem("access_token")
   });
 
-  private root_url: string = 'https://laboussole-back-end.onrender.com/expert/';
+  private root_url: string = 'https://api.laboussole-edu.com/expert/';
 
   constructor(private httpClient: HttpClient) { }
 

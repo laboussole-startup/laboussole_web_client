@@ -14,10 +14,10 @@ headers = new HttpHeaders({
 });
 
   //private root_url: string = 'https://aristideabeng.pythonanywhere.com/auth/signup/';
-  private root_url: string = 'https://laboussole-back-end.onrender.com/auth/signup/';
+  private root_url: string = 'https://api.laboussole-edu.com/auth/signup/';
 
   //private login_url: string = 'https://aristideabeng.pythonanywhere.com/auth/jwt/create/';
-  private login_url: string = 'https://laboussole-back-end.onrender.com/auth/jwt/create/';
+  private login_url: string = 'https://api.laboussole-edu.com/auth/jwt/create/';
 
   public user_email:string = "";
   public username:any="";
@@ -104,7 +104,7 @@ headers = new HttpHeaders({
     let headers = new HttpHeaders({
       'Authorization': 'Bearer ' + localStorage.getItem("access_token")
     });
-    let update_url:string = 'https://laboussole-back-end.onrender.com/auth/'+this.user_email+'/';
+    let update_url:string = 'https://api.laboussole-edu.com/auth/'+this.user_email+'/';
     let centres = ci.join(" ");
     return this.httpClient.put(update_url,{
       "centres_interet":centres
@@ -114,7 +114,7 @@ headers = new HttpHeaders({
     let headers = new HttpHeaders({
       'Authorization': 'Bearer ' + localStorage.getItem("access_token")
     });
-    let update_url:string = 'https://laboussole-back-end.onrender.com/auth/'+this.user_email+'/';
+    let update_url:string = 'https://api.laboussole-edu.com/auth/'+this.user_email+'/';
     return this.httpClient.put(update_url,{
       "password":pass
     },{ headers: headers });
@@ -131,7 +131,7 @@ headers = new HttpHeaders({
       let headers = new HttpHeaders({
         'Authorization': 'Bearer ' + localStorage.getItem("access_token")
       });
-      let update_url:string = 'https://laboussole-back-end.onrender.com/auth/'+this.user_email+'/';
+      let update_url:string = 'https://api.laboussole-edu.com/auth/'+this.user_email+'/';
       return new Promise((resolve, reject) => {
        
         let formData = new FormData();
@@ -163,7 +163,7 @@ headers = new HttpHeaders({
       });
     }
   updateProfilePhoto(photo?: File){
-      let update_url:string = 'https://laboussole-back-end.onrender.com/auth/'+this.user_email+'/';
+      let update_url:string = 'https://api.laboussole-edu.com/auth/'+this.user_email+'/';
       return new Promise((resolve, reject) => {
         let headers = new HttpHeaders({
           'Authorization': 'Bearer ' + localStorage.getItem("access_token")
@@ -204,7 +204,7 @@ headers = new HttpHeaders({
         this.user_email = m;
       }
     }
-    let url:string = 'https://laboussole-back-end.onrender.com/auth/'+this.user_email+'/';
+    let url:string = 'https://api.laboussole-edu.com/auth/'+this.user_email+'/';
     return this.httpClient.get(url,{ headers: headers });
   }
 
@@ -212,18 +212,18 @@ headers = new HttpHeaders({
     let headers = new HttpHeaders({
       'Authorization': 'Bearer ' + localStorage.getItem("access_token")
     });
-    let url:string = 'https://laboussole-back-end.onrender.com/auth/'+mail+'/';
+    let url:string = 'https://api.laboussole-edu.com/auth/'+mail+'/';
     return this.httpClient.get(url,{ headers: headers });
   }
 
   recoverAccount(mail:string){
-    let url:string = 'https://laboussole-back-end.onrender.com/auth/recover/'+mail+'/';
+    let url:string = 'https://api.laboussole-edu.com/auth/recover/'+mail+'/';
     return this.httpClient.get(url);
   }
 
   recoverPassword(mail:string,code:number,new_password:string){
    
-    let url:string = 'https://laboussole-back-end.onrender.com/auth/recover/'+mail+'/';
+    let url:string = 'https://api.laboussole-edu.com/auth/recover/'+mail+'/';
     return this.httpClient.post(url,{
       "user_email":mail,
       "code":code,
@@ -234,7 +234,7 @@ headers = new HttpHeaders({
     let headers = new HttpHeaders({
       'Authorization': 'Bearer ' + localStorage.getItem("access_token")
     });
-    let url:string = 'https://laboussole-back-end.onrender.com/auth/contact/'+this.user_email+'/';
+    let url:string = 'https://api.laboussole-edu.com/auth/contact/'+this.user_email+'/';
     return this.httpClient.post(url,{
       "user_email":this.user_email,
       "message":message
@@ -245,7 +245,7 @@ headers = new HttpHeaders({
     let headers = new HttpHeaders({
       'Authorization': 'Bearer ' + localStorage.getItem("access_token")
     });
-    let url:string = 'https://laboussole-back-end.onrender.com/auth/user/username/'+user_id+'/';
+    let url:string = 'https://api.laboussole-edu.com/auth/user/username/'+user_id+'/';
     return this.httpClient.get(url,{ headers: headers });
   }
 
