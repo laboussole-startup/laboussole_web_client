@@ -83,7 +83,7 @@ export class RedigerNotificationsComponent {
       this.file_service.postFILE(file).subscribe(
         (data:any)=>{
           console.log(data.url);
-          this.file_preview='https://laboussole-back-end.onrender.com'+data.url;
+          this.file_preview='https://api.laboussole-edu.com'+data.url;
           this.statut = 'pdf';
           
         },

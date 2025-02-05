@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class OffreFormationService {
   constructor(private http: HttpClient) {}
   // url = 'https://dummyjson.com';
-  url = 'https://laboussole-back-end.onrender.com';
+  url = 'https://api.laboussole-edu.com';
   
 
   getFormations() {
