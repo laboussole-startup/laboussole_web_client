@@ -6,7 +6,8 @@ import { ActualitesService } from '../services/actualites.service';
 import { MatBottomSheet, MatBottomSheetConfig } from '@angular/material/bottom-sheet';
 import { NotificationsService } from '../services/notifications.service';
 import { FileUploadService } from '../services/file-upload.service';
-
+import { S3Client, PutObjectCommand, PutObjectCommandInput, ObjectCannedACL } from '@aws-sdk/client-s3';
+import { environment } from '../../environments/environment';
 @Component({
   selector: 'app-rediger-notifications',
   templateUrl: './rediger-notifications.component.html',
@@ -19,6 +20,15 @@ export class RedigerNotificationsComponent {
   image_preview:any="aucune";
   file_preview:any="aucun";
   statut:any = "aucune";
+
+  s3Client = new S3Client({
+    region: environment.aws.region,
+    credentials: {
+      accessKeyId: environment.aws.accessKeyId,
+      secretAccessKey: environment.aws.secretAccessKey
+    }
+  });
+  bucketName: string = environment.aws.bucketName;
 
   @Output() backToList = new EventEmitter<string>();
 
@@ -55,27 +65,52 @@ export class RedigerNotificationsComponent {
 
   onFileSelected(event: any) {
     const file = event.target.files[0];
-
-    
-    if(file){
+    if (file) {
+      // Générer un chemin de fichier unique (ex: uploads/1618033988749_monFichier.jpg)
       const filePath = `uploads/${Date.now()}_${file.name}`;
-      const storageRef = ref(this.storage, filePath);
-      
-      // Upload the file
-      uploadBytes(storageRef, file).then((snapshot) => {
-        // Get the download URL
-        getDownloadURL(storageRef).then((url) => {
-         // this.downloadURL = url;
-          console.log('File uploaded. Download URL:', url);
-          this.image_preview=url;
-         
-        });
 
-      }).catch((error) => {
-        console.error('Error uploading file:', error);
-      });
+      // Utiliser FileReader pour convertir le fichier en ArrayBuffer
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (!reader.result) {
+          console.error('La lecture du fichier a renvoyé null.');
+          return;
+        }
+        // Conversion en Uint8Array pour satisfaire le typage attendu par AWS S3
+        const arrayBuffer = new Uint8Array(reader.result as ArrayBuffer);
+
+        // Préparation des paramètres pour l'upload
+        const params: PutObjectCommandInput = {
+          Bucket: this.bucketName,
+          Key: filePath,
+          Body: arrayBuffer, // On passe l'Uint8Array
+          ContentType: file.type,
+          ACL: 'public-read' as ObjectCannedACL
+        };
+
+        // Création et envoi de la commande d'upload
+        const command = new PutObjectCommand(params);
+        this.s3Client.send(command)
+          .then(() => {
+            // Construction de l'URL publique du fichier
+            const url = `https://${this.bucketName}.s3.${environment.aws.region}.amazonaws.com/${filePath}`;
+            console.log('Fichier uploadé. URL de téléchargement:', url);
+            this.image_preview = url;
+          })
+          .catch((error) => {
+            console.error('Erreur lors de l\'upload du fichier:', error);
+          });
+      };
+
+      reader.onerror = (error) => {
+        console.error('Erreur lors de la lecture du fichier:', error);
+      };
+
+      // Démarrer la lecture du fichier en ArrayBuffer
+      reader.readAsArrayBuffer(file);
     }
   }
+
   onPDFSelected(event: any) {
     const file = event.target.files[0];
     
