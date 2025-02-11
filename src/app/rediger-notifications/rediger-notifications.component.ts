@@ -8,6 +8,8 @@ import { NotificationsService } from '../services/notifications.service';
 import { FileUploadService } from '../services/file-upload.service';
 import { S3Client, PutObjectCommand, PutObjectCommandInput, ObjectCannedACL } from '@aws-sdk/client-s3';
 import { environment } from '../../environments/environment';
+import { FormControl } from '@angular/forms';
+
 @Component({
   selector: 'app-rediger-notifications',
   templateUrl: './rediger-notifications.component.html',
@@ -20,6 +22,8 @@ export class RedigerNotificationsComponent {
   image_preview:any="aucune";
   file_preview:any="aucun";
   statut:any = "aucune";
+  dateControl = new FormControl(new Date());
+
 
   s3Client = new S3Client({
     region: environment.aws.region,
@@ -48,7 +52,7 @@ export class RedigerNotificationsComponent {
     console.log(this.contenu);
     this.notif_service.postNotification(this.titre, this.contenu,this.statut,
       this.nationalite, formattedDate, 
-       this.image_preview, this.image_preview, this.file_preview).subscribe(
+       this.image_preview, this.image_preview, this.file_preview,this.dateControl.value).subscribe(
 
       (data:any) => {
          console.log(data);

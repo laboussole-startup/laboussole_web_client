@@ -28,6 +28,7 @@ export class NotificationsService {
     image_pc:any,
     image_tablette:any,
     image_telephone:any,
+    expiration_date:any,
   ){
     let headers = new HttpHeaders({
       'Authorization': 'Bearer ' + localStorage.getItem("access_token")
@@ -43,7 +44,9 @@ export class NotificationsService {
       "image_pc":image_pc,
       "image_tablette":image_tablette,
       "image_telephone":image_telephone,
-      "sender_id":id
+      "sender_id":id,
+      "expiration_date":expiration_date.toISOString(),
+      
     },{ headers:headers });
   }
   getNotificationById(id:number){
