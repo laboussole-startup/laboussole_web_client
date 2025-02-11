@@ -6,30 +6,29 @@ on:
       - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  # build:
+  #   runs-on: ubuntu-latest
 
-    steps:
-      # 1. Récupérer le code source
-      - name: Checkout code
-        uses: actions/checkout@v3
+  #   steps:
+  #     # 1. Récupérer le code source
+  #     - name: Checkout code
+  #       uses: actions/checkout@v3
 
-      # 2. Installer Node.js (ici version 16, à adapter si nécessaire)
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
+  #     # 2. Installer Node.js (ici version 16, à adapter si nécessaire)
+  #     - name: Set up Node.js
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: '18'
 
-      # 3. Installer les dépendances
-      - name: Install dependencies
-        run: npm install
+  #     # 3. Installer les dépendances
+  #     - name: Install dependencies
+  #       run: npm install
 
-      # 5. Lancer le build de l'application Angular (production)
-      - name: Build Angular App
-        run: npm run build 
+  #     # 5. Lancer le build de l'application Angular (production)
+  #     - name: Build Angular App
+  #       run: npm run build 
 
   deploy:
-    needs: build
     runs-on: ubuntu-latest
 
     steps:
